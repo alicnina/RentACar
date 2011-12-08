@@ -1,7 +1,6 @@
 package com.vaannila.domain;
 
 import java.util.Date;
-import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -17,8 +16,6 @@ public class Rental {
 	private Date startDate;
 	private Date endDate;
 	private String status;
-	private List<User> user;
-	private List<Vehicle> vehicle;
 
 
 	@Id
