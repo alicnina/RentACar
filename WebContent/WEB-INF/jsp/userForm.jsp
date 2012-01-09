@@ -52,8 +52,16 @@
 				<td><form:input path="IDNumber" /></td>
 			</tr>
 			<tr>
+				<td>User ID Expire Date:</td>
+				<td><form:input path="IDExpireDate" /></td>
+			</tr>
+			<tr>
 				<td>User Driving Licence Number :</td>
 				<td><form:input path="drivingLicenceNumber" /></td>
+			</tr>
+			<tr>
+				<td>User Driving Licence Expire Date :</td>
+				<td><form:input path="drivingLicenceExpireDate" /></td>
 			</tr>
 			<tr>
 				<td></td>
@@ -62,7 +70,7 @@
 			</tr>
 			<tr>
 				<td colspan="2"><input type="submit" value="Register"></td>
-			</tr>	
+			</tr>
 			<tr>
 				<td colspan='2'><input name="reset" type="reset" /></td>
 			</tr>
@@ -71,13 +79,22 @@
 
 	<!--  IF NOT LOGGED IN -->
 	<!--  KASNIJE ZAVRSITI -->
-	If You already have an account and You want to SIGN IN, please click <a href="getLogged.htm"> HERE </a>
-	<br/>
-	
+	If You already have an account and You want to SIGN IN, please click
+	<a href="getLogged.htm"> HERE </a>
+	<br />
+
 	<!-- ZA ADMINA I EMPLOYEERE -->
 	<!--  KASNIJE ZAVRSITI -->
-	To see list of cars and add new cars, please please click <a href="../vehicle/list.htm"> HERE </a>
-	<br/><br/>
+	To see list of cars and add new cars, please please click
+	<a href="../vehicle/list.htm"> HERE </a>
+	<br />
+	<br />
+
+	<!--  KASNIJE ZAVRSITI -->
+	To see rent list of cars please please click
+	<a href="../rental/list.htm"> HERE </a>
+	<br />
+	<br />
 	
 	<c:if test="${fn:length(userList) > 0}">
 		<table>
@@ -91,7 +108,9 @@
 				<th>Email</th>
 				<th>Phone</th>
 				<th>ID Number</th>
+				<th>ID Expire Date</th>
 				<th>Driving Licence Number</th>
+				<th>Driving Licence Expire Date</th>
 				<th>Mailing List</th>
 				<th>Edit</th>
 				<th>Delete</th>
@@ -107,7 +126,9 @@
 					<td>${user.email}</td>
 					<td>${user.phone}</td>
 					<td>${user.IDNumber}</td>
+					<td>${user.IDExpireDate}</td>
 					<td>${user.drivingLicenceNumber}</td>
+					<td>${user.drivingLicenceExpireDate}</td>
 					<td>${user.mailingList}</td>
 					<td><form:form action="getEdit.htm" commandName="user">
 							<form:hidden path="id" value="${user.id}" />

@@ -32,18 +32,16 @@
 
 			<tr>
 				<td colspan='2'><input name="submit" type="submit"
-					value="Submit" />
-				</td>
+					value="Submit" /></td>
 			</tr>
 			<tr>
-				<td colspan='2'><input name="reset" type="reset" />
-				</td>
+				<td colspan='2'><input name="reset" type="reset" /></td>
 			</tr>
 		</table>
 	</form:form>
 	<p>&nbsp;</p>
 	<c:if test="${!empty error}">
-		<p style="color:#cc0000"></p>
+		<p style="color: #cc0000"></p>
 	</c:if>
 </body>
 </html>

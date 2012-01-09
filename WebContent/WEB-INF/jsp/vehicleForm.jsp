@@ -26,12 +26,12 @@
 				<td>Vehicle Model :</td>
 				<td><form:input path="model" /></td>
 			</tr>
-			
+
 			<tr>
-				<td>Vehicle  Production Date :</td>
+				<td>Vehicle Production Date :</td>
 				<td><form:input path="productionDate" /></td>
 			</tr>
-			
+
 			<tr>
 				<td>Vehicle Registration Number :</td>
 				<td><form:input path="registrationNumber" /></td>
@@ -41,16 +41,22 @@
 				<td>Vehicle Registration Expire Date :</td>
 				<td><form:input path="registrationExpireDate" /></td>
 			</tr>
+			
 			<tr>
-				<td colspan="2"><input type="submit" value="Register"></td>
+				<td>Vehicle Rent Price Per Day :</td>
+				<td><form:input path="rentPricePerDay" /></td>
 			</tr>
 			
 			<tr>
-				<td colspan='2'><input name="reset" type="reset" />	</td>
+				<td colspan="2"><input type="submit" value="Register"></td>
+			</tr>
+
+			<tr>
+				<td colspan='2'><input name="reset" type="reset" /></td>
 			</tr>
 		</table>
 	</form:form>
-	
+
 	<c:if test="${fn:length(vehicleList) > 0}">
 		<table>
 			<tr class="even">
@@ -59,8 +65,11 @@
 				<th>Production Date</th>
 				<th>Registration Number</th>
 				<th>Registration Expire Date</th>
+				<th>Rent Price Per Day</th>
+				<th>Status</th>
 				<th>Edit</th>
 				<th>Delete</th>
+				<th>Rent</th>
 			</tr>
 			<c:forEach items="${vehicleList}" var="vehicle" varStatus="status">
 				<tr class="<c:if test="${status.count % 2 == 0}">even</c:if>">
@@ -69,6 +78,8 @@
 					<td>${vehicle.productionDate}</td>
 					<td>${vehicle.registrationNumber}</td>
 					<td>${vehicle.registrationExpireDate}</td>
+					<td>${vehicle.rentPricePerDay}</td>
+					<td>${vehicle.status}</td>
 					<td><form:form action="getEdit.htm" commandName="vehicle">
 							<form:hidden path="id" value="${vehicle.id}" />
 							<input type="submit" value="Edit" />
@@ -76,6 +87,10 @@
 					<td><form:form action="getDelete.htm" commandName="vehicle">
 							<form:hidden path="id" value="${vehicle.id}" />
 							<input type="submit" value="Delete" />
+						</form:form></td>
+					<td><form:form action="../rental/getRent.htm" commandName="vehicle">
+							<form:hidden path="id" value="${vehicle.id}" />
+							<input type="submit" value="Rent" />
 						</form:form></td>
 			</c:forEach>
 		</table>
