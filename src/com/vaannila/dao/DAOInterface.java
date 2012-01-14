@@ -8,6 +8,6 @@ public interface DAOInterface<T> {
 	public List<T> list();
 	public void edit(T user);
 	public void delete(T user);
-	T findByID(int ID);
+	T findByPrimaryKey(Object key);
 	T findByKeyWords(String Username, String Password);
 }

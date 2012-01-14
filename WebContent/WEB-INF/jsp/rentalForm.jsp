@@ -21,8 +21,7 @@
 
 	<form:form action="add.htm" commandName="rental">
 		<form:hidden path="id" />
-		<input type="hidden" id="userId" name="userId" value="${userId}" />
-		<input type="hidden" id="employeeId" name="employeeId" value="${employeeId}" />
+		<input type="hidden" id="username" name="username" value="${username}" />
 		<input type="hidden" id="vehicleId" name="vehicleId" value="${vehicleId}" />
 		<table>
 			<tr>
@@ -31,7 +30,7 @@
 			</tr>
 			<tr>
 				<td>Number of Days :</td>
-				<td><form:input path="numberOfDays" /></td>
+				<td><form:input path="numberDays" /></td>
 			</tr>
 			<tr>
 				<td colspan='2'><input name="submit" type="submit"

@@ -10,20 +10,19 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "Rental")
+@Table(name = "rental")
 public class Rental {
 
 	private int id;
 	private String startDate;
-	private String numberOfDays;
+	private int numberDays;
 	private String status;
-	private User user;
-	private User employeeUser;
+	private Users users;
 	private Vehicle vehicle;
 
 	@Id
 	@GeneratedValue
-	@Column(name = "Rental_ID")
+	@Column(name = "rental_id")
 	public int getId() {
 		return id;
 	}
@@ -33,27 +32,17 @@ public class Rental {
 	}
 
 	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "User_ID", nullable = false)
-	public User getUser() {
-		return this.user;
+	@JoinColumn(name = "username", nullable = false)
+	public Users getUsers() {
+		return this.users;
 	}
 
-	public void setUser(User user) {
-		this.user = user;
-	}
-
-	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "Employee_User_ID", nullable = false)
-	public User getEmployeeUser() {
-		return this.employeeUser;
-	}
-
-	public void setEmployeeUser(User user) {
-		this.employeeUser = user;
+	public void setUsers(Users user) {
+		this.users = user;
 	}
 
 	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "Vehicle_ID", nullable = false)
+	@JoinColumn(name = "vehicle_id", nullable = false)
 	public Vehicle getVehicle() {
 		return this.vehicle;
 	}
@@ -62,7 +51,7 @@ public class Rental {
 		this.vehicle = vehicle;
 	}
 
-	@Column(name = "Rent_Start_Date")
+	@Column(name = "rent_start_date")
 	public String getStartDate() {
 		return startDate;
 	}
@@ -71,13 +60,13 @@ public class Rental {
 		this.startDate = startDate;
 	}
 
-	@Column(name = "Rent_Number_Of_Days")
-	public String getNumberOfDays() {
-		return numberOfDays;
+	@Column(name = "rent_number_days")
+	public Integer getNumberDays() {
+		return numberDays;
 	}
 
-	public void setNumberOfDays(String numberOfDays) {
-		this.numberOfDays = numberOfDays;
+	public void setNumberDays(Integer numberDays) {
+		this.numberDays = numberDays;
 	}
 
 	@Column(name = "Rent_Status")

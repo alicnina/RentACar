@@ -16,7 +16,7 @@
 </head>
 <body>
 
-	<form:form action="add.htm" commandName="user">
+	<form:form action="add.htm" commandName="users">
 		<table>
 			<tr>
 				<td>User Name :</td>
@@ -49,11 +49,11 @@
 			</tr>
 			<tr>
 				<td>User ID Number :</td>
-				<td><form:input path="IDNumber" /></td>
+				<td><form:input path="idNumber" /></td>
 			</tr>
 			<tr>
 				<td>User ID Expire Date:</td>
-				<td><form:input path="IDExpireDate" /></td>
+				<td><form:input path="idExpireDate" /></td>
 			</tr>
 			<tr>
 				<td>User Driving Licence Number :</td>
@@ -95,15 +95,15 @@
 	<a href="../rental/list.htm"> HERE </a>
 	<br />
 	<br />
-	
-	<c:if test="${fn:length(userList) > 0}">
+
+	<c:if test="${fn:length(usersList) > 0}">
 		<table>
 			<tr class="even">
 				<th>Name</th>
 				<th>Surname</th>
 				<th>Username</th>
 				<th>Password</th>
-				<th>Role</th>
+				<!-- <th>Role</th> -->
 				<th>Address</th>
 				<th>Email</th>
 				<th>Phone</th>
@@ -114,29 +114,35 @@
 				<th>Mailing List</th>
 				<th>Edit</th>
 				<th>Delete</th>
+				<th>Add Role</th>
 			</tr>
-			<c:forEach items="${userList}" var="user" varStatus="status">
+			<c:forEach items="${usersList}" var="user" varStatus="status">
 				<tr class="<c:if test="${status.count % 2 == 0}">even</c:if>">
 					<td>${user.name}</td>
 					<td>${user.surname}</td>
 					<td>${user.username}</td>
 					<td>${user.password}</td>
-					<td>${user.role}</td>
+					<!-- <td>${user.authorities}</td> -->
 					<td>${user.address}</td>
 					<td>${user.email}</td>
 					<td>${user.phone}</td>
-					<td>${user.IDNumber}</td>
-					<td>${user.IDExpireDate}</td>
+					<td>${user.idNumber}</td>
+					<td>${user.idExpireDate}</td>
 					<td>${user.drivingLicenceNumber}</td>
 					<td>${user.drivingLicenceExpireDate}</td>
 					<td>${user.mailingList}</td>
-					<td><form:form action="getEdit.htm" commandName="user">
-							<form:hidden path="id" value="${user.id}" />
+					<td><form:form action="getEdit.htm" commandName="users">
+							<form:hidden path="username" value="${user.username}" />
 							<input type="submit" value="Edit" />
 						</form:form></td>
-					<td><form:form action="getDelete.htm" commandName="user">
-							<form:hidden path="id" value="${user.id}" />
+					<td><form:form action="getDelete.htm" commandName="users">
+							<form:hidden path="username" value="${user.username}" />
 							<input type="submit" value="Delete" />
+						</form:form></td>
+					<td><form:form action="../authorities/getRole.htm"
+							commandName="users">
+							<form:hidden path="username" value="${user.username}" />
+							<input type="submit" value="EditRole" />
 						</form:form></td>
 			</c:forEach>
 		</table>

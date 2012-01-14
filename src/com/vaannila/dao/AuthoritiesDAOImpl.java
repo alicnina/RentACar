@@ -4,9 +4,9 @@ import java.util.List;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.orm.hibernate3.HibernateTemplate;
-import com.vaannila.domain.Rental;
+import com.vaannila.domain.Authorities;
 
-public class RentalDAOImpl implements DAOInterface<Rental> {
+public class AuthoritiesDAOImpl implements DAOInterface<Authorities> {
 
 	private HibernateTemplate hibernateTemplate;
 
@@ -16,23 +16,23 @@ public class RentalDAOImpl implements DAOInterface<Rental> {
 	}
 
 	@Override
-	public void save(Rental rental) {
+	public void save(Authorities rental) {
 		hibernateTemplate.saveOrUpdate(rental);
 	}
 
-	public void delete(Rental rental) {
+	public void delete(Authorities rental) {
 		hibernateTemplate.delete(rental);
 	}
 
-	public void edit(Rental rental) {
+	public void edit(Authorities rental) {
 		hibernateTemplate.update(rental);
 	}
 
-	public Rental findByPrimaryKey(Object key) {
-		if (key instanceof Integer) {
-			int id = (Integer) key;
-			List<?> list = hibernateTemplate.find("from Rental where rental_id=?", id);
-			return (Rental) list.get(0);
+	public Authorities findByPrimaryKey(Object key) {
+		if (key instanceof String) {
+			String username = (String) key;
+			List<?> list = hibernateTemplate.find("from Authorities where username = ?", username);
+			return (Authorities) list.get(0);
 		} else {
 			return null;
 		}
@@ -40,11 +40,11 @@ public class RentalDAOImpl implements DAOInterface<Rental> {
 
 	@Override
 	@SuppressWarnings("unchecked")
-	public List<Rental> list() {
-		return hibernateTemplate.find("from Rental");
+	public List<Authorities> list() {
+		return hibernateTemplate.find("from Authorities");
 	}
 
-	public Rental findByKeyWords(String username, String password) {
+	public Authorities findByKeyWords(String username, String password) {
 		return null;
 	}
 

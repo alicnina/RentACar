@@ -12,7 +12,7 @@
 
 	<h1>Edit Person</h1>
 
-	<form:form action="saveEdit.htm" commandName="user">
+	<form:form action="saveEdit.htm" commandName="users">
 		<form:hidden path="id" />
 		<table>
 			<tr>
@@ -31,15 +31,15 @@
 				<td>User Password :</td>
 				<td><form:password path="password" /></td>
 			</tr>
-			<tr>
+			<!-- <tr>
 				<td>User Role :</td>
-				<td><form:select path="role">
+				<td><form:select path="authorities">
 						<form:option value="0" label="Select" />
 						<form:option value="ROLE_USER" label="Guest" />
 						<form:option value="ROLE_ADMIN" label="Administrator" />
 						<form:option value="ROLE_EMPLOYEE" label="Employee" />
 					</form:select></td>
-			</tr>
+			</tr> -->
 			<tr>
 				<td>User Address :</td>
 				<td><form:input path="address" /></td>
@@ -54,11 +54,11 @@
 			</tr>
 			<tr>
 				<td>User ID Number :</td>
-				<td><form:input path="IDNumber" /></td>
+				<td><form:input path="idNumber" /></td>
 			</tr>
 			<tr>
 				<td>User ID Expire Date:</td>
-				<td><form:input path="IDExpireDate" /></td>
+				<td><form:input path="idExpireDate" /></td>
 			</tr>
 			<tr>
 				<td>User Driving Licence Number :</td>

@@ -12,7 +12,7 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "Vehicle")
+@Table(name = "vehicle")
 public class Vehicle {
 
 	private int id;
@@ -27,13 +27,13 @@ public class Vehicle {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "Vehicle_ID", unique = true, nullable = false)
+	@Column(name = "vehicle_id", unique = true, nullable = false)
 	public int getId() {
 		return id;
 	}
 
-	public void setId(int id2) {
-		this.id = id2;
+	public void setId(int id) {
+		this.id = id;
 	}
 
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "vehicle")
@@ -45,7 +45,7 @@ public class Vehicle {
 		this.rental = rentalRecords;
 	}
 
-	@Column(name = "Vehicle_Manufacturer")
+	@Column(name = "manufacturer")
 	public String getManufacturer() {
 		return manufacturer;
 	}
@@ -54,7 +54,7 @@ public class Vehicle {
 		this.manufacturer = manufacturer;
 	}
 
-	@Column(name = "Vehicle_Model")
+	@Column(name = "model")
 	public String getModel() {
 		return model;
 	}
@@ -63,7 +63,7 @@ public class Vehicle {
 		this.model = model;
 	}
 
-	@Column(name = "Vehicle_Production_Date")
+	@Column(name = "production_date")
 	public String getProductionDate() {
 		return productionDate;
 	}
@@ -72,7 +72,7 @@ public class Vehicle {
 		this.productionDate = productionDate;
 	}
 
-	@Column(name = "Vehicle_Registration_Number")
+	@Column(name = "registration_number")
 	public String getRegistrationNumber() {
 		return registrationNumber;
 	}
@@ -81,7 +81,7 @@ public class Vehicle {
 		this.registrationNumber = registrationNumber;
 	}
 
-	@Column(name = "Vehicle_Registration_Expire_Date")
+	@Column(name = "registration_expire_date")
 	public String getRegistrationExpireDate() {
 		return registrationExpireDate;
 	}
@@ -90,7 +90,7 @@ public class Vehicle {
 		this.registrationExpireDate = registrationExpireDate;
 	}
 	
-	@Column(name = "Vehicle_Rent_Price_Per_Day")
+	@Column(name = "rent_price_per_day")
 	public String getRentPricePerDay() {
 		return rentPricePerDay;
 	}
@@ -99,7 +99,7 @@ public class Vehicle {
 		this.rentPricePerDay = rentPricePerDay;
 	}
 	
-	@Column(name = "Vehicle_Status")
+	@Column(name = "status")
 	public String getStatus() {
 		return status;
 	}

@@ -26,7 +26,7 @@ public class VehicleController extends MultiActionController {
 	public ModelAndView getEdit(HttpServletRequest request, HttpServletResponse response, Vehicle vehicle) throws Exception {
 		ModelMap modelMap = new ModelMap();
 		logger.debug("Received request to show edit page");
-		modelMap.addAttribute("vehicle", vehicleDAO.findByID(vehicle.getId()));
+		modelMap.addAttribute("vehicle", vehicleDAO.findByPrimaryKey(vehicle.getId()));
 		return new ModelAndView("editVehiclePage", modelMap);
 	}
 

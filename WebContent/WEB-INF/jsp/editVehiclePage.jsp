@@ -44,7 +44,7 @@
 			</tr>
 			<tr>
 				<td>Vehicle Status :</td>
-				<td><form:select path="status">
+				<td><form:select path="authority">
 						<form:option value="0" label="Select" />
 						<form:option value="rented" label="rented" />
 						<form:option value="available" label="available" />

@@ -2,7 +2,8 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:beans="http://www.springframework.org/schema/beans"
 	xmlns:p="http://www.springframework.org/schema/p"
-	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+						http://www.springframework.org/schema/beans/spring-beans.xsd">
 
 	<bean id="viewResolver"
 		class="org.springframework.web.servlet.view.InternalResourceViewResolver"
@@ -21,9 +22,10 @@
 		<property name="dataSource" ref="dataSource" />
 		<property name="annotatedClasses">
 			<list>
-				<value>com.vaannila.domain.User</value>
 				<value>com.vaannila.domain.Vehicle</value>
 				<value>com.vaannila.domain.Rental</value>
+				<value>com.vaannila.domain.Users</value>
+				<value>com.vaannila.domain.Authorities</value>
 			</list>
 		</property>
 		<property name="hibernateProperties">
@@ -35,12 +37,22 @@
 		</property>
 	</bean>
 
-	<bean id="userDAO" class="com.vaannila.dao.UserDAOImpl">
+	<bean id="usersDAO" class="com.vaannila.dao.UsersDAOImpl">
 		<property name="sessionFactory" ref="defaultSessionFactory" />
 	</bean>
 
-	<bean name="/user/*.htm" class="com.vaannila.web.UserController">
-		<property name="userDAO" ref="userDAO" />
+	<bean name="/users/*.htm" class="com.vaannila.web.UsersController">
+		<property name="usersDAO" ref="usersDAO" />
+		<property name="authoritiesDAO" ref="authoritiesDAO" />
+	</bean>
+
+	<bean id="authoritiesDAO" class="com.vaannila.dao.AuthoritiesDAOImpl">
+		<property name="sessionFactory" ref="defaultSessionFactory" />
+	</bean>
+
+	<bean name="/authorities/*.htm" class="com.vaannila.web.AuthoritiesController">
+		<property name="usersDAO" ref="usersDAO" />
+		<property name="authoritiesDAO" ref="authoritiesDAO" />
 	</bean>
 
 	<bean id="vehicleDAO" class="com.vaannila.dao.VehicleDAOImpl">
@@ -58,7 +70,7 @@
 	<bean name="/rental/*.htm" class="com.vaannila.web.RentalController">
 		<property name="rentalDAO" ref="rentalDAO" />
 		<property name="vehicleDAO" ref="vehicleDAO" />
-		<property name="userDAO" ref="userDAO" />
+		<property name="usersDAO" ref="usersDAO" />
 	</bean>
 
 </beans>

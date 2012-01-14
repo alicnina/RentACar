@@ -19,7 +19,7 @@
 </head>
 <body>
 
-	<form:form action="searchDB.htm" commandName="user">
+	<form:form action="searchDB.htm" commandName="users">
 		<table>
 			<tr>
 				<td>User Username :</td>
@@ -39,6 +39,12 @@
 			</tr>
 		</table>
 	</form:form>
+	
+	<!--  IF USER NOT REGISTERED -->
+	If You do not have accountand you want to register, please click 
+	<a href="getRegistered.htm"> HERE </a>
+	<br />
+	
 	<p>&nbsp;</p>
 	<c:if test="${!empty error}">
 		<p style="color: #cc0000"></p>
