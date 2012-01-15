@@ -25,15 +25,15 @@ public class Soap11BindingStub extends org.apache.axis.client.Stub implements co
         org.apache.axis.description.ParameterDesc param;
         oper = new org.apache.axis.description.OperationDesc();
         oper.setName("initializePayment");
-        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("http://alicnina.com/paymentsimulator", "creditCardNo"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"), java.lang.String.class, false, false);
+        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("http://paymentsimulator.alicnina.com", "creditCardNo"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"), java.lang.String.class, false, false);
         oper.addParameter(param);
-        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("http://alicnina.com/paymentsimulator", "cvv2"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"), java.lang.String.class, false, false);
+        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("http://paymentsimulator.alicnina.com", "cvv2"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"), java.lang.String.class, false, false);
         oper.addParameter(param);
-        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("http://alicnina.com/paymentsimulator", "ammount"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "double"), double.class, false, false);
+        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("http://paymentsimulator.alicnina.com", "ammount"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "double"), double.class, false, false);
         oper.addParameter(param);
-        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("http://alicnina.com/paymentsimulator", "code"), org.apache.axis.description.ParameterDesc.OUT, new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"), java.lang.String.class, false, false);
+        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("http://paymentsimulator.alicnina.com", "code"), org.apache.axis.description.ParameterDesc.OUT, new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"), java.lang.String.class, false, false);
         oper.addParameter(param);
-        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("http://alicnina.com/paymentsimulator", "message"), org.apache.axis.description.ParameterDesc.OUT, new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"), java.lang.String.class, false, false);
+        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("http://paymentsimulator.alicnina.com", "message"), org.apache.axis.description.ParameterDesc.OUT, new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"), java.lang.String.class, false, false);
         oper.addParameter(param);
         oper.setReturnType(org.apache.axis.encoding.XMLType.AXIS_VOID);
         oper.setStyle(org.apache.axis.constants.Style.WRAPPED);
@@ -105,7 +105,7 @@ public class Soap11BindingStub extends org.apache.axis.client.Stub implements co
         _call.setProperty(org.apache.axis.client.Call.SEND_TYPE_ATTR, Boolean.FALSE);
         _call.setProperty(org.apache.axis.AxisEngine.PROP_DOMULTIREFS, Boolean.FALSE);
         _call.setSOAPVersion(org.apache.axis.soap.SOAPConstants.SOAP11_CONSTANTS);
-        _call.setOperationName(new javax.xml.namespace.QName("http://alicnina.com/paymentsimulator", "initializePayment"));
+        _call.setOperationName(new javax.xml.namespace.QName("http://paymentsimulator.alicnina.com", "initializePayment"));
 
         setRequestHeaders(_call);
         setAttachments(_call);
@@ -119,14 +119,14 @@ public class Soap11BindingStub extends org.apache.axis.client.Stub implements co
             java.util.Map _output;
             _output = _call.getOutputParams();
             try {
-                code.value = (java.lang.String) _output.get(new javax.xml.namespace.QName("http://alicnina.com/paymentsimulator", "code"));
+                code.value = (java.lang.String) _output.get(new javax.xml.namespace.QName("http://paymentsimulator.alicnina.com", "code"));
             } catch (java.lang.Exception _exception) {
-                code.value = (java.lang.String) org.apache.axis.utils.JavaUtils.convert(_output.get(new javax.xml.namespace.QName("http://alicnina.com/paymentsimulator", "code")), java.lang.String.class);
+                code.value = (java.lang.String) org.apache.axis.utils.JavaUtils.convert(_output.get(new javax.xml.namespace.QName("http://paymentsimulator.alicnina.com", "code")), java.lang.String.class);
             }
             try {
-                message.value = (java.lang.String) _output.get(new javax.xml.namespace.QName("http://alicnina.com/paymentsimulator", "message"));
+                message.value = (java.lang.String) _output.get(new javax.xml.namespace.QName("http://paymentsimulator.alicnina.com", "message"));
             } catch (java.lang.Exception _exception) {
-                message.value = (java.lang.String) org.apache.axis.utils.JavaUtils.convert(_output.get(new javax.xml.namespace.QName("http://alicnina.com/paymentsimulator", "message")), java.lang.String.class);
+                message.value = (java.lang.String) org.apache.axis.utils.JavaUtils.convert(_output.get(new javax.xml.namespace.QName("http://paymentsimulator.alicnina.com", "message")), java.lang.String.class);
             }
         }
   } catch (org.apache.axis.AxisFault axisFaultException) {

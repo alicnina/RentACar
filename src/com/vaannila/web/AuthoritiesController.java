@@ -1,6 +1,5 @@
 package com.vaannila.web;
 
-import java.util.Map;
 import java.util.Set;
 
 import javax.servlet.http.HttpServletRequest;
@@ -40,8 +39,7 @@ public class AuthoritiesController extends MultiActionController {
 		authoritiesDAO.save(loadedAuthority);
 	}
 
-	public void edit(HttpServletRequest request, HttpServletResponse response, Users users) throws Exception {
-		Map<String, String[]> parameterMap = request.getParameterMap();
+	public ModelAndView edit(HttpServletRequest request, HttpServletResponse response, Users users) throws Exception {
 		String username = request.getParameter("username");
 		String newRole = request.getParameter("role");
 		Authorities userAuthority = authoritiesDAO.findByPrimaryKey(username);
@@ -50,6 +48,7 @@ public class AuthoritiesController extends MultiActionController {
 		newAuth.setAuthority(newRole);
 		newAuth.setUsers(usersDAO.findByPrimaryKey(username));
 		authoritiesDAO.save(newAuth);
+		return new ModelAndView("redirect:../users/list.htm");
 	}
 
 	public ModelAndView getRole(HttpServletRequest request, HttpServletResponse response, Users users) throws Exception {

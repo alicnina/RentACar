@@ -7,6 +7,9 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<style type="text/css">
+<%@include file="../css/myStyle.css" %>
+</style>
 <title>ADD USER ROLES (accessible only to admins)</title>
 </head>
 <body>

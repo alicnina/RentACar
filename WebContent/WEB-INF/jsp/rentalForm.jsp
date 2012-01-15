@@ -7,30 +7,32 @@
 <html>
 <head>
 <title>Login Page</title>
-<style>
-.errorblock {
-	color: #ff0000;
-	background-color: #ffEEEE;
-	border: 3px solid #ff0000;
-	padding: 8px;
-	margin: 16px;
-}
+<style type="text/css">
+<%@include file="../css/myStyle.css" %>
 </style>
 </head>
 <body>
-
-	<form:form action="add.htm" commandName="rental">
-		<form:hidden path="id" />
+	
+	<form id="rental" action="add.htm" method="post">
+		<input type="hidden" id="rentalId" name="rentalId" value="${rentalId}" />
 		<input type="hidden" id="username" name="username" value="${username}" />
 		<input type="hidden" id="vehicleId" name="vehicleId" value="${vehicleId}" />
 		<table>
 			<tr>
 				<td>Rent Start Date :</td>
-				<td><form:input path="startDate" /></td>
+				<td><input type="text" id="startDate" name="startDate" value="yyyy-mm-dd" /></td>
 			</tr>
 			<tr>
 				<td>Number of Days :</td>
-				<td><form:input path="numberDays" /></td>
+				<td><input type="text" id="numberDays" name="numberDays" value="0" /></td>
+			</tr>
+			<tr>
+				<td>Credit Card No :</td>
+				<td><input type="text" id="creditCardNumber" name="creditCardNumber" value="" /></td>
+			</tr>
+			<tr>
+				<td>Cvv2 :</td>
+				<td><input type="text" id="cvv2" name="cvv2" value="" /></td>
 			</tr>
 			<tr>
 				<td colspan='2'><input name="submit" type="submit"
@@ -40,7 +42,7 @@
 				<td colspan='2'><input name="reset" type="reset" /></td>
 			</tr>
 		</table>
-	</form:form>
+	</form>
 
 	<p>&nbsp;</p>
 	<c:if test="${!empty error}">

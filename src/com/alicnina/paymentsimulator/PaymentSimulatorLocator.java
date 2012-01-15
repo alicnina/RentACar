@@ -105,7 +105,7 @@ public class PaymentSimulatorLocator extends org.apache.axis.client.Service impl
     }
 
     public javax.xml.namespace.QName getServiceName() {
-        return new javax.xml.namespace.QName("http://alicnina.com/paymentsimulator", "PaymentSimulator");
+        return new javax.xml.namespace.QName("http://paymentsimulator.alicnina.com", "PaymentSimulator");
     }
 
     private java.util.HashSet ports = null;
@@ -113,7 +113,7 @@ public class PaymentSimulatorLocator extends org.apache.axis.client.Service impl
     public java.util.Iterator getPorts() {
         if (ports == null) {
             ports = new java.util.HashSet();
-            ports.add(new javax.xml.namespace.QName("http://alicnina.com/paymentsimulator", "HttpSoap11Endpoint"));
+            ports.add(new javax.xml.namespace.QName("http://paymentsimulator.alicnina.com", "HttpSoap11Endpoint"));
         }
         return ports.iterator();
     }

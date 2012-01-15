@@ -8,9 +8,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <style type="text/css">
-.even {
-	background-color: silver;
-}
+<%@include file="../css/myStyle.css" %>
 </style>
 <title>Vehicle Stock Page</title>
 </head>
@@ -41,12 +39,12 @@
 				<td>Vehicle Registration Expire Date :</td>
 				<td><form:input path="registrationExpireDate" /></td>
 			</tr>
-			
+
 			<tr>
 				<td>Vehicle Rent Price Per Day :</td>
 				<td><form:input path="rentPricePerDay" /></td>
 			</tr>
-			
+
 			<tr>
 				<td colspan="2"><input type="submit" value="Register"></td>
 			</tr>
@@ -88,7 +86,8 @@
 							<form:hidden path="id" value="${vehicle.id}" />
 							<input type="submit" value="Delete" />
 						</form:form></td>
-					<td><form:form action="../rental/getRent.htm" commandName="vehicle">
+					<td><form:form action="../rental/getRent.htm"
+							commandName="vehicle">
 							<form:hidden path="id" value="${vehicle.id}" />
 							<input type="submit" value="Rent" />
 						</form:form></td>
