@@ -83,4 +83,10 @@ public class UsersDAOImpl implements DAOInterface<Users> {
 		}
 		return hashword;
 	}
+
+	@Override
+	public List<Users> list(String criteria) {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }

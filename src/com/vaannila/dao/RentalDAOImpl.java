@@ -48,4 +48,10 @@ public class RentalDAOImpl implements DAOInterface<Rental> {
 		return null;
 	}
 
+	@Override
+	public List<Rental> list(String criteria) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }

@@ -5,6 +5,7 @@ import java.util.Date;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.apache.log4j.Logger;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.multiaction.MultiActionController;
@@ -15,6 +16,8 @@ import com.vaannila.domain.Users;
 import com.vaannila.domain.Vehicle;
 
 public class RentalController extends MultiActionController {
+	
+	protected static Logger logger = Logger.getLogger("controller");
 
 	private DAOInterface<Rental> rentalDAO;
 
