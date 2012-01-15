@@ -14,7 +14,7 @@
 		<property name="driverClassName" value="com.mysql.jdbc.Driver" />
 		<property name="url" value="jdbc:mysql://localhost/rentacardatabase" />
 		<property name="username" value="root" />
-		<property name="password" value="nina_1988" />
+		<property name="password" value="root" />
 	</bean>
 
 	<bean id="defaultSessionFactory"
@@ -51,8 +51,8 @@
 	</bean>
 
 	<bean name="/authorities/*.htm" class="com.vaannila.web.AuthoritiesController">
-		<property name="usersDAO" ref="usersDAO" />
 		<property name="authoritiesDAO" ref="authoritiesDAO" />
+		<property name="usersDAO" ref="usersDAO" />
 	</bean>
 
 	<bean id="vehicleDAO" class="com.vaannila.dao.VehicleDAOImpl">

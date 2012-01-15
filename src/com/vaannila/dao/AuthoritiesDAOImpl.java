@@ -1,9 +1,11 @@
 package com.vaannila.dao;
 
 import java.util.List;
+
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.orm.hibernate3.HibernateTemplate;
+
 import com.vaannila.domain.Authorities;
 
 public class AuthoritiesDAOImpl implements DAOInterface<Authorities> {
@@ -15,7 +17,6 @@ public class AuthoritiesDAOImpl implements DAOInterface<Authorities> {
 		this.hibernateTemplate = new HibernateTemplate(sessionFactory);
 	}
 
-	@Override
 	public void save(Authorities rental) {
 		hibernateTemplate.saveOrUpdate(rental);
 	}
@@ -31,20 +32,26 @@ public class AuthoritiesDAOImpl implements DAOInterface<Authorities> {
 	public Authorities findByPrimaryKey(Object key) {
 		if (key instanceof String) {
 			String username = (String) key;
-			List<?> list = hibernateTemplate.find("from Authorities where username = ?", username);
-			return (Authorities) list.get(0);
+			List<?> find = hibernateTemplate.find("from Authorities where username = ?", username);
+			return (Authorities) find.get(0);
 		} else {
 			return null;
 		}
 	}
 
-	@Override
-	@SuppressWarnings("unchecked")
 	public List<Authorities> list() {
-		return hibernateTemplate.find("from Authorities");
+		return list(null);
 	}
 
-	public Authorities findByKeyWords(String username, String password) {
+	/**
+	 * criteria will be put in WHERE clause of SQL <br/>
+	 * example: criteria = "username = \"myname\" AND authority = \"ROLE_USER\"
+	 */
+	public List<Authorities> list(String criteria) {
+		return hibernateTemplate.find("from Authorities" + (null != criteria ? " WHERE " + criteria : ""));
+	}
+
+	public Authorities findByKeyWords(String Username, String Password) {
 		return null;
 	}
 

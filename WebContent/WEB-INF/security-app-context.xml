@@ -14,7 +14,7 @@
 	<http pattern="/users/add.htm*" security="none" />
 	<http pattern="/users/searchDB.htm*" security="none" />
 	<http pattern="/authorities/getRole.htm*" security="none" />
-	<http pattern="/authorities/add.htm*" security="none" />
+	<http pattern="/authorities/edit.htm*" security="none" />
 	<http use-expressions="true">
 		<intercept-url pattern='/**' access="isAuthenticated()" />
 		<form-login login-page='/users/getLogged.htm'
@@ -36,7 +36,7 @@
 		<beans:property name="url"
 			value="jdbc:mysql://localhost/rentacardatabase" />
 		<beans:property name="username" value="root" />
-		<beans:property name="password" value="nina_1988" />
+		<beans:property name="password" value="root" />
 	</beans:bean>
 
 	<beans:bean id="defaultSessionFactory"

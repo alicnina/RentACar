@@ -49,4 +49,10 @@ public class VehicleDAOImpl implements DAOInterface<Vehicle> {
 		return null;
 	}
 
+	@Override
+	public List<Vehicle> list(String criteria) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }
