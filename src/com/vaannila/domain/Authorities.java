@@ -40,7 +40,7 @@ public class Authorities {
 		this.authority = authority;
 	}
 
-	@ManyToOne(fetch = FetchType.LAZY)
+	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name = "username", nullable = false)
 	public Users getUsers() {
 		return this.users;

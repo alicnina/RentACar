@@ -31,7 +31,7 @@ public class Rental {
 		this.id = id;
 	}
 
-	@ManyToOne(fetch = FetchType.LAZY)
+	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name = "username", nullable = false)
 	public Users getUsers() {
 		return this.users;
@@ -41,7 +41,7 @@ public class Rental {
 		this.users = user;
 	}
 
-	@ManyToOne(fetch = FetchType.LAZY)
+	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name = "vehicle_id", nullable = false)
 	public Vehicle getVehicle() {
 		return this.vehicle;

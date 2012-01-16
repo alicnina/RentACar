@@ -1,5 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
@@ -9,7 +8,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 
 <style type="text/css">
-<%@include file="../css/myStyle.css"%>
+<%@ include file="../css/myStyle.css" %>
 </style>
 
 <title>Registration Page</title>
@@ -65,8 +64,7 @@
 			</tr>
 			<tr>
 				<td></td>
-				<td><form:checkbox path="mailingList"
-						label="Would you like to join our mailinglist?" /></td>
+				<td><form:checkbox path="mailingList" label="Would you like to join our mailinglist?" /></td>
 			</tr>
 			<tr>
 				<td colspan="2"><input type="submit" value="Register"></td>
@@ -139,13 +137,13 @@
 							<form:hidden path="username" value="${user.username}" />
 							<input type="submit" value="Delete" />
 						</form:form></td>
-					<td><form:form action="../authorities/getRole.htm"
-							commandName="users">
+					<td><form:form action="../authorities/getRole.htm" commandName="users">
 							<form:hidden path="username" value="${user.username}" />
 							<input type="submit" value="EditRole" />
 							<br />
 							<small><c:forEach items="${user.authorities}" var="auth">${auth.authority}</c:forEach></small>
 						</form:form></td>
+				</tr>
 			</c:forEach>
 		</table>
 	</c:if>

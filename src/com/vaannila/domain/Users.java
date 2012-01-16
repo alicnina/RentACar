@@ -60,7 +60,7 @@ public class Users {
 		this.enabled = enabled;
 	}
 	
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "users")
+	@OneToMany(fetch = FetchType.EAGER, mappedBy = "users")
 	public Set<Rental> getRentalRecords() {
 		return this.rental;
 	}
