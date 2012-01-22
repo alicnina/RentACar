@@ -42,7 +42,7 @@ public class Rental {
 	}
 
 	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "vehicle_id", nullable = false)
+	@JoinColumn(name = "vehicle_id")
 	public Vehicle getVehicle() {
 		return this.vehicle;
 	}
@@ -69,7 +69,7 @@ public class Rental {
 		this.numberDays = numberDays;
 	}
 
-	@Column(name = "Rent_Status")
+	@Column(name = "rent_status")
 	public String getStatus() {
 		return status;
 	}

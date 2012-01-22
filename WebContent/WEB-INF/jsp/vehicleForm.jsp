@@ -24,33 +24,28 @@
 				<td>Vehicle Model :</td>
 				<td><form:input path="model" /></td>
 			</tr>
-
 			<tr>
 				<td>Vehicle Production Date :</td>
 				<td><form:input path="productionDate" /></td>
 			</tr>
-
 			<tr>
 				<td>Vehicle Registration Number :</td>
 				<td><form:input path="registrationNumber" /></td>
 			</tr>
-
 			<tr>
 				<td>Vehicle Registration Expire Date :</td>
 				<td><form:input path="registrationExpireDate" /></td>
 			</tr>
-
 			<tr>
 				<td>Vehicle Rent Price Per Day :</td>
 				<td><form:input path="rentPricePerDay" /></td>
 			</tr>
-
 			<tr>
-				<td colspan="2"><input type="submit" value="Register"></td>
+				<th colspan="2"><input type="submit" value="Register"></th>
 			</tr>
 
 			<tr>
-				<td colspan='2'><input name="reset" type="reset" /></td>
+				<th colspan='2'><input name="reset" type="Reset" /></th>
 			</tr>
 		</table>
 	</form:form>

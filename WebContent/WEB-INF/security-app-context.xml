@@ -7,14 +7,14 @@
            http://www.springframework.org/schema/security/spring-security-3.1.xsd">
 
 
-	<!-- <global-method-security secured-annotations="enabled" /> -->
+<!-- 	<global-method-security secured-annotations="enabled" /> -->
 
 <!-- 
 	<http pattern="/users/getLogged.htm*" security="none" />
 	<http pattern="/users/getRegistered.htm*" security="none" />
  -->
 	<http>
-		<!-- <intercept-url pattern='/**' access="" /> -->
+		<!-- <intercept-url pattern='/**' access="" />  -->
 		<form-login login-page='/users/getLogged.htm'
 			default-target-url='/users/list.htm' always-use-default-target='true' />
 	</http>

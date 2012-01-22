@@ -14,9 +14,9 @@ body {
 }
 
 h3 {
-	text-decoration: blink;
 	font-style: oblique;
 	font-size: 22px;
+	text-align: center;
 }
 
 h4 {
@@ -42,4 +42,13 @@ th {
 	text-decoration: blink;
 	font-style: oblique;
 	text-align: center;
+}
+
+input {
+    border: 1px solid FF99FF;
+    background: FF66FF;
+    cursor: pointer;
+	overflow: visible;
+	width: 110;
+ 	height: 25;
 }

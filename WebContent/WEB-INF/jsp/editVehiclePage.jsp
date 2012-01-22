@@ -36,7 +36,6 @@
 				<td>Vehicle Registration Number :</td>
 				<td><form:input path="registrationNumber" /></td>
 			</tr>
-
 			<tr>
 				<td>Vehicle Registration Expire Date :</td>
 				<td><form:input path="registrationExpireDate" /></td>
@@ -45,17 +44,17 @@
 				<td>Vehicle Rent Price Per Day :</td>
 				<td><form:input path="rentPricePerDay" /></td>
 			</tr>
+<!-- 			<tr> -->
+<!-- 				<td>Vehicle Status :</td> -->
+<%-- 				<td><form:select path="authority"> --%>
+<%-- 						<form:option value="0" label="Select" /> --%>
+<%-- 						<form:option value="rented" label="rented" /> --%>
+<%-- 						<form:option value="available" label="available" /> --%>
+<%-- 						<form:option value="onRepair" label="on repair" /> --%>
+<%-- 					</form:select></td> --%>
+<!-- 			</tr> -->
 			<tr>
-				<td>Vehicle Status :</td>
-				<td><form:select path="authority">
-						<form:option value="0" label="Select" />
-						<form:option value="rented" label="rented" />
-						<form:option value="available" label="available" />
-						<form:option value="onRepair" label="on repair" />
-					</form:select></td>
-			</tr>
-			<tr>
-				<td colspan="2"><input type="submit" value="Edit"></td>
+				<th colspan="2"><input type="submit" value="Edit"></th>
 			</tr>
 		</table>
 	</form:form>
