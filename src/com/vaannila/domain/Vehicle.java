@@ -27,7 +27,7 @@ public class Vehicle {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "vehicle_id", unique = true, nullable = false)
+	@Column(name = "vehicle_id", unique = true)
 	public int getId() {
 		return id;
 	}
@@ -36,7 +36,7 @@ public class Vehicle {
 		this.id = id;
 	}
 
-	@OneToMany(fetch = FetchType.EAGER, mappedBy = "vehicle")
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "vehicle")
 	public Set<Rental> getRentalRecords() {
 		return this.rental;
 	}
@@ -109,3 +109,4 @@ public class Vehicle {
 	}
 
 }
+

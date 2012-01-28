@@ -15,11 +15,11 @@
 	<form:form action="add.htm" commandName="rental">
 		<table>
 			<tr>
-				<td>Credit Card Number :</td>
+				<th>Credit Card Number :</th>
 				<td><form:input path="creditCardNo" /></td>
 			</tr>
 			<tr>
-				<td>CVV2 Number:</td>
+				<th>CVV2 Number:</th>
 				<td><form:input path="cvv2" /></td>
 			</tr>
 			<tr>

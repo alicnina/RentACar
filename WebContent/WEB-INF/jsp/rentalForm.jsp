@@ -17,19 +17,19 @@
 			type="hidden" id="vehicleId" name="vehicleId" value="${vehicleId}" />
 		<table>
 			<tr>
-				<td>Rent Start Date :</td>
+				<th>Rent Start Date :</th>
 				<td><input type="text" id="startDate" name="startDate" value="yyyy-mm-dd" /></td>
 			</tr>
 			<tr>
-				<td>Number of Days :</td>
+				<th>Number of Days :</th>
 				<td><input type="text" id="numberDays" name="numberDays" value="0" /></td>
 			</tr>
 			<tr>
-				<td>Credit Card No :</td>
+				<th>Credit Card No :</th>
 				<td><input type="text" id="creditCardNumber" name="creditCardNumber" value="" /></td>
 			</tr>
 			<tr>
-				<td>Cvv2 :</td>
+				<th>Cvv2 :</th>
 				<td><input type="text" id="cvv2" name="cvv2" value="" /></td>
 			</tr>
 			<tr>
@@ -40,7 +40,6 @@
 			</tr>
 		</table>
 	</form>
-
 	<p>&nbsp;</p>
 	<c:if test="${!empty error}">
 		<p style="color: #cc0000">error</p>

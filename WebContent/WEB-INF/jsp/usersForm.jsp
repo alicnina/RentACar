@@ -33,7 +33,6 @@
 				<td>User Password :</td>
 				<td><form:password path="password" /></td>
 			</tr>
-
 			<tr>
 				<td>User Address :</td>
 				<td><form:input path="address" /></td>
@@ -67,32 +66,23 @@
 				<td><form:checkbox path="mailingList" label="Would you like to join our mailinglist?" /></td>
 			</tr>
 			<tr>
-				<td colspan="2"><input type="submit" value="Register"></td>
+				<th colspan="2"><input type="submit" value="Register"></th>
 			</tr>
 			<tr>
-				<td colspan='2'><input name="reset" type="reset" /></td>
+				<th colspan='2'><input name="reset" type="reset" /></th>
 			</tr>
 		</table>
 	</form:form>
 
 	<!--  IF NOT LOGGED IN -->
 	<!--  KASNIJE ZAVRSITI -->
-	If You already have an account and You want to SIGN IN, please click
-	<a href="getLogged.htm"> HERE </a>
-	<br />
+	<h4>If You already have an account and You want to SIGN IN, please click
+	<a href="getLogged.htm"> HERE </a></h4>
 
 	<!-- ZA ADMINA I EMPLOYEERE -->
 	<!--  KASNIJE ZAVRSITI -->
-	To see list of cars and add new cars, please please click
-	<a href="../vehicle/list.htm"> HERE </a>
-	<br />
-	<br />
-
-	<!--  KASNIJE ZAVRSITI -->
-	To see rent list of cars please please click
-	<a href="../rental/list.htm"> HERE </a>
-	<br />
-	<br />
+	<h4>To see list of cars and add new cars, please please click
+	<a href="../vehicle/list.htm"> HERE </a></h4>
 
 	<c:if test="${fn:length(usersList) > 0}">
 		<table>
@@ -100,7 +90,7 @@
 				<th>Name</th>
 				<th>Surname</th>
 				<th>Username</th>
-				<th>Password</th>
+				
 				<!-- <th>Role</th> -->
 				<th>Address</th>
 				<th>Email</th>
@@ -119,7 +109,7 @@
 					<td>${user.name}</td>
 					<td>${user.surname}</td>
 					<td>${user.username}</td>
-					<td>${user.password}</td>
+					
 					<!-- <td>${user.authorities}</td> -->
 					<td>${user.address}</td>
 					<td>${user.email}</td>

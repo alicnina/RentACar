@@ -55,7 +55,7 @@ public class UsersController extends MultiActionController {
 	}
 
 	public ModelAndView getDelete(HttpServletRequest request, HttpServletResponse response, Users users) throws Exception {
-		usersDAO.delete(users);
+		usersDAO.delete(usersDAO.findByPrimaryKey(users.getUsername()));
 		return new ModelAndView("redirect:list.htm");
 	}
 

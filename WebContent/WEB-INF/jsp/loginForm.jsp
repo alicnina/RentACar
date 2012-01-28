@@ -25,19 +25,18 @@
 			</tr>
 
 			<tr>
-				<td colspan='2'><input name="submit" type="submit"
-					value="Submit" /></td>
+				<th colspan='2'><input name="submit" type="submit"
+					value="Submit" /></th>
 			</tr>
 			<tr>
-				<td colspan='2'><input name="reset" type="reset" /></td>
+				<th colspan='2'><input name="reset" type="reset" /></th>
 			</tr>
 		</table>
 	</form:form>
 	
 	<!--  IF USER NOT REGISTERED -->
-	If You do not have accountand you want to register, please click 
-	<a href="getRegistered.htm"> HERE </a>
-	<br />
+	<h4>If You do not have account and you want to register, please click 
+	<a href="getRegistered.htm"> HERE </a></h4>
 	
 	<p>&nbsp;</p>
 	<c:if test="${!empty error}">
