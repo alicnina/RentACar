@@ -32,8 +32,7 @@ public class UserLoginBean implements Serializable {
 	public String getUserWelcome() {
 		String msg = "User not found or invalid password!";
 		if (null != user) {
-			msg = "User " + user.getName() + " " + user.getSurname() + " (" + user.getUsername()
-					+ ") found! <br/><br/> Go to <a href=\"restricted.jsf\">restricted page</a>";
+			msg = "User " + user.getName() + " " + user.getSurname() + " (" + user.getUsername() + ") found!";
 		} else if (!loginAttempted) {
 			msg = "Please login!";
 		}

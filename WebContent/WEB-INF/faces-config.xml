@@ -9,18 +9,4 @@
       org.springframework.web.jsf.DelegatingVariableResolver
     </variable-resolver>
   </application>
-  
-  <navigation-rule>
-   <from-view-id>user-login.xhtml</from-view-id>
-   <navigation-case>
-      <from-action>#{userLoginBean.userLogin}</from-action>
-      <if>#{userLoginBean.isUserLoggedIn}</if>
-      <to-view-id>restricted.xhtml</to-view-id>
-  </navigation-case>
-  <navigation-case>
-      <from-action>#{userLoginBean.userLogin}</from-action>
-      <if>#{not userLoginBean.isUserLoggedIn}</if>
-      <to-view-id>login-error.xhtml</to-view-id>
-  </navigation-case>
-</navigation-rule>
 </faces-config>
