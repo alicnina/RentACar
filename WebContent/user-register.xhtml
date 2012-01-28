@@ -1,0 +1,47 @@
+<!DOCTYPE HTML>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+
+<h:head>
+	<title>User Login</title>
+</h:head>
+
+<h:body>
+	<h:form prependId="false">
+		<label> <font color="red">*</font> Username: <h:inputText
+				value="#{userRegisterBean.username}" required="true"
+				requiredMessage="Missing Username" id="username" />
+		</label>
+		<br />
+		<label> <font color="red">*</font> Password: <h:inputSecret
+				value="#{userRegisterBean.password}" required="true"
+				requiredMessage="Missing password" id="password" />
+		</label>
+		<br />
+		<label> Email: <h:inputText value="#{userRegisterBean.email}"
+				required="true" requiredMessage="Missing password" id="email" />
+		</label>
+		<br />
+		<label> Phone: <h:inputText value="#{userRegisterBean.phone}"
+				required="true" requiredMessage="Missing password" id="phone" />
+		</label>
+		<br />
+		<label> <font color="red">*</font> Authority: <h:inputText
+				value="#{userRegisterBean.authority}" required="true"
+				requiredMessage="Missing password" id="authority" />
+		</label>
+		<br />
+		<h:commandButton value="Sign Up">
+			<f:ajax execute="username password email phone authority" render="result"
+				listener="#{userRegisterBean.userRegister}" />
+		</h:commandButton>
+		<br />
+		<br />
+		<h:outputText id="result" value="#{userRegisterBean.userWelcome}" />
+		<br />
+		Go to <a href="user-login.jsf">login page</a>
+	</h:form>
+</h:body>
+
+</html>

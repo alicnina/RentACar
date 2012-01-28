@@ -1,5 +1,7 @@
 <!DOCTYPE HTML>
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://java.sun.com/jsf/html" xmlns:f="http://java.sun.com/jsf/core">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
 
 <h:head>
 	<title>User Login</title>
@@ -7,22 +9,28 @@
 
 <h:body>
 	<h:form prependId="false">
-		<label> <font color="red">*</font> Username: <h:inputText value="#{userLoginBean.inputUsername}" required="true" requiredMessage="Missing Username"
-				id="inputUsername" />
+		<label> <font color="red">*</font> Username: <h:inputText
+				value="#{userLoginBean.inputUsername}" required="true"
+				requiredMessage="Missing Username" id="inputUsername" />
 		</label>
 		<br />
-		<label> <font color="red">*</font> Password: <h:inputSecret value="#{userLoginBean.inputPassword}" required="true" requiredMessage="Missing password"
-				id="inputPassword" />
+		<label> <font color="red">*</font> Password: <h:inputSecret
+				value="#{userLoginBean.inputPassword}" required="true"
+				requiredMessage="Missing password" id="inputPassword" />
 		</label>
 		<br />
 		<h:commandButton value="Login">
-			<f:ajax execute="inputUsername inputPassword" render="result" listener="#{userLoginBean.userLogin}" />
+			<f:ajax execute="inputUsername inputPassword" render="result"
+				listener="#{userLoginBean.userLogin}" />
 		</h:commandButton>
 		<br />
 		<br />
 		<h:outputText id="result" value="#{userLoginBean.userWelcome}" />
-		<br/>
+		<br />
 		Go to <a href="restricted.jsf">restricted page</a>
+		<br />
+		<br />
+		Go to <a href="user-register.jsf">registration page</a>
 	</h:form>
 </h:body>
 

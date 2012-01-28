@@ -60,6 +60,12 @@
 		scope="session">
 		<property name="usersDao" ref="usersDAO" />
 	</bean>
+	
+	<bean id="userRegisterBean" class="com.vaannila.managed.UserRegisterBean"
+		scope="request">
+		<property name="usersDao" ref="usersDAO" />
+		<property name="authoritiesDAO" ref="authoritiesDAO" />
+	</bean>
 
 	<!-- <bean name="/users/*.htm" class="com.vaannila.web.UsersController"> 
 		<property name="usersDAO" ref="usersDAO" /> <property name="authoritiesDAO" 
