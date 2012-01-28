@@ -1,0 +1,18 @@
+<!DOCTYPE HTML>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://java.sun.com/jsf/html" xmlns:f="http://java.sun.com/jsf/core">
+
+<h:head>
+	<title>User Login</title>
+</h:head>
+
+<h:body>
+	<h:form prependId="false">
+		<h:outputText id="result" value="#{userLoginBean.userWelcome}" />
+	</h:form>
+
+	<br />
+	<br />
+	Back to <h:commandLink  action="user-login?faces-redirect=true" value="login page"/>
+</h:body>
+
+</html>

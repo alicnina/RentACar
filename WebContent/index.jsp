@@ -1,2 +1,2 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<% response.sendRedirect("users/getLogged.htm"); %>
+<% response.sendRedirect("user-login.jsf"); %>

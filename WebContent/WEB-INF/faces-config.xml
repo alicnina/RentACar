@@ -1,0 +1,26 @@
+<?xml version="1.0"?>
+<faces-config xmlns="http://java.sun.com/xml/ns/javaee" 
+   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+   xsi:schemaLocation="http://java.sun.com/xml/ns/javaee 
+      http://java.sun.com/xml/ns/javaee/web-facesconfig_2_0.xsd"
+   version="2.0">
+  <application>
+    <variable-resolver>
+      org.springframework.web.jsf.DelegatingVariableResolver
+    </variable-resolver>
+  </application>
+  
+  <navigation-rule>
+   <from-view-id>user-login.xhtml</from-view-id>
+   <navigation-case>
+      <from-action>#{userLoginBean.userLogin}</from-action>
+      <if>#{userLoginBean.isUserLoggedIn}</if>
+      <to-view-id>restricted.xhtml</to-view-id>
+  </navigation-case>
+  <navigation-case>
+      <from-action>#{userLoginBean.userLogin}</from-action>
+      <if>#{not userLoginBean.isUserLoggedIn}</if>
+      <to-view-id>login-error.xhtml</to-view-id>
+  </navigation-case>
+</navigation-rule>
+</faces-config>
