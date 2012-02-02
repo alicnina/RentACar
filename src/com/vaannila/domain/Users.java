@@ -1,5 +1,6 @@
 package com.vaannila.domain;
 
+import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -24,14 +25,19 @@ public class Users {
 	private String email;
 	private String phone;
 	private String idNumber;
-	private String idExpireDate;
 	private String drivingLicenceNumber;
-	private String drivingLicenceExpireDate;
+	private String role;
+
+	private Date idExpireDate, drivingLicenceExpireDate;
+	
 	private Boolean mailingList;
 	private Set<Rental> rental = new HashSet<Rental>(0);
+	
+	private boolean editable = false;
 
 	private Set<Authorities> authorities = new HashSet<Authorities>(0);
 	
+		
 	@Id
 	@Column(name = "username", unique = true, nullable = false)
 	public String getUsername(){
@@ -61,11 +67,11 @@ public class Users {
 	}
 	
 	@OneToMany(fetch = FetchType.EAGER, mappedBy = "users")
-	public Set<Rental> getRentalRecords() {
+	public Set<Rental> getRental() {
 		return this.rental;
 	}
 
-	public void setRentalRecords(Set<Rental> rentalRecords) {
+	public void setRental(Set<Rental> rentalRecords) {
 		this.rental = rentalRecords;
 	}
 
@@ -134,11 +140,11 @@ public class Users {
 	}
 
 	@Column(name = "id_expire_date")
-	public String getIdExpireDate() {
+	public Date getIdExpireDate() {
 		return idExpireDate;
 	}
 
-	public void setIdExpireDate(String idExpireDate) {
+	public void setIdExpireDate(Date idExpireDate) {
 		this.idExpireDate = idExpireDate;
 	}
 	
@@ -152,11 +158,11 @@ public class Users {
 	}
 	
 	@Column(name = "driving_licence_expire_date")
-	public String getDrivingLicenceExpireDate() {
+	public Date getDrivingLicenceExpireDate() {
 		return drivingLicenceExpireDate;
 	}
 
-	public void setDrivingLicenceExpireDate(String drivingLicenceExpireDate) {
+	public void setDrivingLicenceExpireDate(Date drivingLicenceExpireDate) {
 		this.drivingLicenceExpireDate = drivingLicenceExpireDate;
 	}
 	
@@ -169,5 +175,20 @@ public class Users {
 		this.mailingList = mailingList;
 	}
 
+	@Column(name = "role")
+	public String getRole() {
+		return role;
+	}
 
+	public void setRole(String role) {
+		this.role = role;
+	}
+	
+	public boolean isEditable() {
+		return editable;
+	}
+
+	public void setEditable(boolean editable) {
+		this.editable = editable;
+	}
 }

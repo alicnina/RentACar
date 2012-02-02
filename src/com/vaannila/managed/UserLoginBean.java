@@ -74,5 +74,7 @@ public class UserLoginBean implements Serializable {
 	public void setUser(Users user) {
 		this.user = user;
 	}
+	
+	
 
 }

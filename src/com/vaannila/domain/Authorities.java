@@ -41,7 +41,7 @@ public class Authorities {
 	}
 
 	@ManyToOne(fetch = FetchType.EAGER)
-	@JoinColumn(name = "username", nullable = false)
+	@JoinColumn(name = "username")
 	public Users getUsers() {
 		return this.users;
 	}

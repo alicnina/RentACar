@@ -44,7 +44,6 @@ public class UsersController extends MultiActionController {
 
 	/**
 	 * Retrieves the edit page
-	 * 
 	 * @return the name of the JSP page
 	 */
 	public ModelAndView getEdit(HttpServletRequest request, HttpServletResponse response, Users users) throws Exception {

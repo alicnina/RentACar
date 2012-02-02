@@ -8,5 +8,19 @@
     <variable-resolver>
       org.springframework.web.jsf.DelegatingVariableResolver
     </variable-resolver>
+    	<el-resolver>
+    		org.springframework.web.jsf.el.SpringBeanFacesELResolver
+    	</el-resolver>
   </application>
+  
+  <navigation-rule>
+   <from-view-id>/user-list.xhtml</from-view-id>
+   <navigation-case>
+      <from-action>#{userRegisterBean.editNav}</from-action>
+      <from-outcome>success</from-outcome>
+      <to-view-id>/user-edit.xhtml</to-view-id>
+   </navigation-case>
+</navigation-rule>
+
+ 
 </faces-config>

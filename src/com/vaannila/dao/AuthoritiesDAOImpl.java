@@ -1,5 +1,6 @@
 package com.vaannila.dao;
 
+import java.io.Serializable;
 import java.util.List;
 
 import org.hibernate.SessionFactory;
@@ -8,8 +9,9 @@ import org.springframework.orm.hibernate3.HibernateTemplate;
 
 import com.vaannila.domain.Authorities;
 
-public class AuthoritiesDAOImpl implements DAOInterface<Authorities> {
+public class AuthoritiesDAOImpl implements DAOInterface<Authorities>, Serializable {
 
+	private static final long serialVersionUID = 1L;
 	private HibernateTemplate hibernateTemplate;
 
 	@Autowired

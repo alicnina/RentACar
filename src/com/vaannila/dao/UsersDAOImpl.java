@@ -1,25 +1,31 @@
 package com.vaannila.dao;
 
+import java.io.Serializable;
 import java.math.BigInteger;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
+import java.util.Iterator;
 import java.util.List;
 
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.orm.hibernate3.HibernateTemplate;
 
+import com.vaannila.domain.Authorities;
+import com.vaannila.domain.Rental;
 import com.vaannila.domain.Users;
 
-public class UsersDAOImpl implements DAOInterface<Users> {
+public class UsersDAOImpl implements DAOInterface<Users>, Serializable {
 
+	private static final long serialVersionUID = 4770296766825317166L;
 	private HibernateTemplate hibernateTemplate;
 
 	@Autowired
 	public void setSessionFactory(SessionFactory sessionFactory) {
 		this.hibernateTemplate = new HibernateTemplate(sessionFactory);
 	}
-
+	
+	@Override
 	public void save(Users user) {
 		String passToHash = user.getPassword();
 		user.setPassword(hashPassword(passToHash));
@@ -27,7 +33,17 @@ public class UsersDAOImpl implements DAOInterface<Users> {
 	}
 
 	public void delete(Users user) {
+		if(user != null) {
+		Iterator<Authorities> itAuthorities = user.getAuthorities().iterator();
+		while(itAuthorities.hasNext()){
+			hibernateTemplate.delete(itAuthorities.next());
+		}
+		Iterator<Rental> itRental = user.getRental().iterator();
+		while(itRental.hasNext()){
+			hibernateTemplate.delete(itRental.next());
+		}
 		hibernateTemplate.delete(user);
+		}
 	}
 
 	public void edit(Users user) {
@@ -59,15 +75,15 @@ public class UsersDAOImpl implements DAOInterface<Users> {
 			return (Users) list.get(0);
 		}
 	}
-
+	
 	// code to find users while logging from spring table Users
 	public Users findByKeyWordsFromUsers(String username, String password) {
-		List<?> list = hibernateTemplate.find("from Users where username=? AND password=?", username, hashPassword(password));
-		if (list.isEmpty()) {
-			return null;
-		} else {
-			return (Users) list.get(0);
-		}
+			List<?> list = hibernateTemplate.find("from Users where username=? AND password=?", username, hashPassword(password));
+			if (list.isEmpty()) {
+				return null;
+			} else {
+				return (Users) list.get(0);
+			}
 	}
 
 	private String hashPassword(String password) {

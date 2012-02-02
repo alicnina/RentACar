@@ -1,5 +1,6 @@
 package com.vaannila.domain;
 
+import java.util.Date;
 import java.util.Set;
 
 import javax.persistence.Column;
@@ -18,9 +19,9 @@ public class Vehicle {
 	private int id;
 	private String manufacturer;
 	private String model;
-	private String productionDate;
+	private Date productionDate;
 	private String registrationNumber;
-	private String registrationExpireDate;
+	private Date registrationExpireDate;
 	private String rentPricePerDay;
 	private String status;
 	private Set<Rental> rental;
@@ -37,11 +38,11 @@ public class Vehicle {
 	}
 
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "vehicle")
-	public Set<Rental> getRentalRecords() {
+	public Set<Rental> getRental() {
 		return this.rental;
 	}
 
-	public void setRentalRecords(Set<Rental> rentalRecords) {
+	public void setRental(Set<Rental> rentalRecords) {
 		this.rental = rentalRecords;
 	}
 
@@ -64,11 +65,11 @@ public class Vehicle {
 	}
 
 	@Column(name = "production_date")
-	public String getProductionDate() {
+	public Date getProductionDate() {
 		return productionDate;
 	}
 
-	public void setProductionDate(String productionDate) {
+	public void setProductionDate(Date productionDate) {
 		this.productionDate = productionDate;
 	}
 
@@ -82,11 +83,11 @@ public class Vehicle {
 	}
 
 	@Column(name = "registration_expire_date")
-	public String getRegistrationExpireDate() {
+	public Date getRegistrationExpireDate() {
 		return registrationExpireDate;
 	}
 
-	public void setRegistrationExpireDate(String registrationExpireDate) {
+	public void setRegistrationExpireDate(Date registrationExpireDate) {
 		this.registrationExpireDate = registrationExpireDate;
 	}
 	

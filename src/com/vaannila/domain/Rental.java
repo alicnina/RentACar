@@ -4,6 +4,7 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
+import java.util.Date;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
@@ -14,7 +15,7 @@ import javax.persistence.Table;
 public class Rental {
 
 	private int id;
-	private String startDate;
+	private Date startDate;
 	private int numberDays;
 	private String status;
 	private Users users;
@@ -32,7 +33,7 @@ public class Rental {
 	}
 
 	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "username", nullable = false)
+	@JoinColumn(name = "username")
 	public Users getUsers() {
 		return this.users;
 	}
@@ -52,11 +53,11 @@ public class Rental {
 	}
 
 	@Column(name = "rent_start_date")
-	public String getStartDate() {
+	public Date getStartDate() {
 		return startDate;
 	}
 
-	public void setStartDate(String startDate) {
+	public void setStartDate(Date startDate) {
 		this.startDate = startDate;
 	}
 

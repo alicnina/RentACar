@@ -4,7 +4,7 @@
 	xmlns:f="http://java.sun.com/jsf/core">
 
 <h:head>
-	<title>User Login</title>
+	<title>User Registration</title>
 </h:head>
 
 <h:body>
@@ -19,22 +19,66 @@
 				requiredMessage="Missing password" id="password" />
 		</label>
 		<br />
+		<label> <font color="red">*</font> First Name: <h:inputText
+				value="#{userRegisterBean.name}" required="true"
+				requiredMessage="Missing first name" id="name" />
+		</label>
+		<br />
+		<label> <font color="red">*</font>Last Name: <h:inputText
+				value="#{userRegisterBean.surname}" required="true"
+				requiredMessage="Missing last name" id="surname" />
+		</label>
+		<br />
 		<label> Email: <h:inputText value="#{userRegisterBean.email}"
-				required="true" requiredMessage="Missing password" id="email" />
+				required="true" requiredMessage="Missing email address" id="email" />
 		</label>
 		<br />
-		<label> Phone: <h:inputText value="#{userRegisterBean.phone}"
-				required="true" requiredMessage="Missing password" id="phone" />
+		<label> <font color="red">*</font> Phone: <h:inputText value="#{userRegisterBean.phone}"
+				required="true" requiredMessage="Missing phone number" id="phone" />
 		</label>
 		<br />
-		<label> <font color="red">*</font> Authority: <h:inputText
+		<label> Address: <h:inputText
+				value="#{userRegisterBean.address}" required="true"
+				requiredMessage="Missing address" id="address" />
+		</label>
+		<br />
+		<label><font color="red">*</font> ID Number: <h:inputText
+				value="#{userRegisterBean.idNumber}" required="true"
+				requiredMessage="Missing ID Number" id="idNumber" />
+		</label>
+		<br />
+		<label> <font color="red">*</font> ID Expire Date: <h:inputText
+				value="#{userRegisterBean.idExpireDate}" required="true"
+				requiredMessage="Missing ID Expire Date" id="idExpireDate">
+				<f:convertDateTime pattern="d-M-yyyy" />
+			</h:inputText>
+		</label>
+		<br />
+		<label><font color="red">*</font> Driving Licence Number: <h:inputText
+				value="#{userRegisterBean.drivingLicenceNumber}" required="true"
+				requiredMessage="Missing Driving Licence Number"
+				id="drivingLicenceNumber" />
+		</label>
+		<br />
+		<label> <font color="red">*</font>Driving Licence Expire Date: <h:inputText
+				value="#{userRegisterBean.drivingLicenceExpireDate}" required="true"
+				requiredMessage="Missing Driving Licence Expire Date"
+				id="drivingLicenceExpireDate">
+				<f:convertDateTime pattern="d-M-yyyy" />
+			</h:inputText>
+		</label>
+		<br />
+		<label> <font color="red">*</font> Authority: <h:selectOneMenu
 				value="#{userRegisterBean.authority}" required="true"
-				requiredMessage="Missing password" id="authority" />
+				requiredMessage="Missing role" id="authority">
+				<f:selectItems value="#{userRegisterBean.authorityValue}" />
+			</h:selectOneMenu>
 		</label>
 		<br />
 		<h:commandButton value="Sign Up">
-			<f:ajax execute="username password email phone authority" render="result"
-				listener="#{userRegisterBean.userRegister}" />
+			<f:ajax
+				execute="username password name surname email phone address idNumber idExpireDate drivingLicenceNumber drivingLicenceExpireDate authority"
+				render="result" listener="#{userRegisterBean.userRegister}" />
 		</h:commandButton>
 		<br />
 		<br />

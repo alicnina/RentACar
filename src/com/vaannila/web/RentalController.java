@@ -47,7 +47,7 @@ public class RentalController extends MultiActionController {
 		String rentalId = request.getParameter("rentalId");
 		String username = request.getParameter("username");
 		String vehicleId = request.getParameter("vehicleId");
-		String startDate = request.getParameter("startDate");
+		//String startDate = request.getParameter("startDate");
 		int numberDays = Integer.valueOf(request.getParameter("numberDays"));
 		String creditCardNumber = request.getParameter("creditCardNumber");
 		String cvv2 = request.getParameter("cvv2");
@@ -57,7 +57,7 @@ public class RentalController extends MultiActionController {
 
 		double ammount = numberDays * Double.valueOf(userChoiceVehicle.getRentPricePerDay());
 		if (isValidCreditCard(creditCardNumber, cvv2, ammount) && isValidUser(username)) {
-			newRental.setStartDate(startDate);
+			//newRental.setStartDate(startDate);
 			newRental.setNumberDays(numberDays);
 			newRental.setStatus("rented");
 			rentalDAO.save(newRental);
@@ -108,7 +108,7 @@ public class RentalController extends MultiActionController {
 		newRental.setUsers(usersDAO.list().get(0));
 
 		newRental.setVehicle(vehicleDAO.findByPrimaryKey(vehicle.getId()));
-		newRental.setStartDate(new Date(System.currentTimeMillis()).toString());
+		//newRental.setStartDate(new Date(System.currentTimeMillis()).toString());
 
 		// temporary save (rental process not finished yet!)
 		rentalDAO.save(newRental);

@@ -131,7 +131,7 @@
 							<form:hidden path="username" value="${user.username}" />
 							<input type="submit" value="EditRole" />
 							<br />
-							<small><c:forEach items="${user.authorities}" var="auth">${auth.authority}</c:forEach></small>
+							<small><c:forEach items="${user.authorities}" var="auth">${auth.authorities}</c:forEach></small>
 						</form:form></td>
 				</tr>
 			</c:forEach>

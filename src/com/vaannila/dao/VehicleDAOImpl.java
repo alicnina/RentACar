@@ -1,14 +1,22 @@
 package com.vaannila.dao;
 
+import java.io.Serializable;
+import java.util.Iterator;
 import java.util.List;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.orm.hibernate3.HibernateTemplate;
 
+import com.vaannila.domain.Authorities;
+import com.vaannila.domain.Rental;
 import com.vaannila.domain.Vehicle;
 
-public class VehicleDAOImpl implements DAOInterface<Vehicle> {
+public class VehicleDAOImpl implements DAOInterface<Vehicle>, Serializable {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 3973282387818984888L;
 	private HibernateTemplate hibernateTemplate;
 
 	@Autowired
