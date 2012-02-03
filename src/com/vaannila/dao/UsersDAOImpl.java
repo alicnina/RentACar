@@ -47,8 +47,6 @@ public class UsersDAOImpl implements DAOInterface<Users>, Serializable {
 	}
 
 	public void edit(Users user) {
-		String passToHash = user.getPassword();
-		user.setPassword(hashPassword(passToHash));
 		hibernateTemplate.update(user);
 	}
 

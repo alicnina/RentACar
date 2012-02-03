@@ -1,0 +1,76 @@
+<!DOCTYPE HTML>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+
+<h:head>
+	<title>User Edit</title>
+</h:head>
+
+<h:body>
+
+
+
+	<h:form prependId="false">
+		<h:inputHidden value="#{userEditBean.user.password}" id="password" />
+		<h:inputHidden value="#{userEditBean.user.username}" id="username" />
+		EDIT USER <h:outputText value="#{userEditBean.user.username}" />
+		<br />
+		<label> First Name: <h:inputText value="#{userEditBean.user.name}"
+				id="name" /></label>
+		<br />
+		<label> Last Name: <h:inputText
+				value="#{userEditBean.user.surname}" id="surname" />
+		</label>
+		<br />
+		<label> Email: <h:inputText value="#{userEditBean.user.email}"
+				id="email" /></label>
+		<br />
+		<label> Phone: <h:inputText value="#{userEditBean.user.phone}"
+				id="phone" /></label>
+		<br />
+		<label> Address: <h:inputText value="#{userEditBean.user.address}"
+				id="address" /></label>
+		<br />
+		<label> ID Number: <h:inputText
+				value="#{userEditBean.user.idNumber}" id="idNumber" />
+		</label>
+		<br />
+		<label> ID Expire Date: <h:inputText
+				value="#{userEditBean.user.idExpireDate}" id="idExpireDate">
+				<f:convertDateTime pattern="d-M-yyyy" />
+			</h:inputText></label>
+		<br />
+		<label> Driving Licence Number: <h:inputText
+				value="#{userEditBean.user.drivingLicenceNumber}"
+				id="drivingLicenceNumber" />
+		</label>
+		<br />
+		<label> Driving Licence Expire Date: <h:inputText
+				value="#{userEditBean.user.drivingLicenceExpireDate}"
+				id="drivingLicenceExpireDate">
+				<f:convertDateTime pattern="d-M-yyyy" />
+			</h:inputText></label>
+			<br />
+		<label> <font color="red">*</font> Authority: <h:selectOneMenu
+				value="#{userEditBean.authority}" required="true"
+				requiredMessage="Missing role" id="authority">
+				<f:selectItems value="#{userEditBean.authorityValue}" />
+			</h:selectOneMenu>
+		</label>
+		<br />
+		<h:commandButton value="Edit User">
+			<f:ajax
+				execute="@form authority"
+				render="result" listener="#{userEditBean.userEdit}" />
+		</h:commandButton>
+		<br />
+		<br />
+		<h:outputText id="result" value="#{userEditBean.userEditResult}" />
+		<br />
+		Go to <a href="user-login.jsf">login page</a>
+	</h:form>
+
+</h:body>
+
+</html>

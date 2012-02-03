@@ -42,18 +42,8 @@ public class UserRegisterBean implements Serializable {
 	@ManagedProperty(value = "#{rentalDao}")
 	private DAOInterface<Rental> rentalDao;
 
-	private boolean editable;
-
 	public String editNav() {
 		return "success";
-	}
-
-	public boolean isEditable() {
-		return editable;
-	}
-
-	public void setEditable(boolean editable) {
-		this.editable = editable;
 	}
 
 	public String getUsername() {
@@ -259,16 +249,6 @@ public class UserRegisterBean implements Serializable {
 
 	public void deleteAction(Users user) {
 		usersDao.delete(user);
-	}
-
-	public void edit(Users user) {
-		// TO DO: proslijditi izabranog usera na user-edit.xhtml
-		String name2 = user.getName();
-		// return "user-edit.xhtml";
-	}
-
-	public void userSaveEdit() {
-		// TO DO: sacuvati usera kojeg smo ediiovali
 	}
 
 }

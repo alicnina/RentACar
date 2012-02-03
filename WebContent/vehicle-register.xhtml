@@ -1,0 +1,68 @@
+<!DOCTYPE HTML>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+
+<h:head>
+	<title>ADD/EDIT/DELETE/LIST VEHICLES</title>
+</h:head>
+
+<h:body>
+	<h:form prependId="false">
+		<label> <font color="red">*</font> Vehicle Manufacturer: <h:inputText
+				value="#{vehicleRegisterBean.manufacturer}" required="true"
+				requiredMessage="Missing manufactur" id="manufacturer" />
+		</label>
+		<br />
+		<label> <font color="red">*</font> Vehicle Model: <h:inputText
+				value="#{vehicleRegisterBean.model}" required="true"
+				requiredMessage="Missing model" id="model" />
+		</label>
+		<br />
+		<label> <font color="red">*</font> Vehicle Production Date: <h:inputText
+				value="#{vehicleRegisterBean.productionDate}" required="true"
+				requiredMessage="Missing Production Date" id="productionDate">
+				<f:convertDateTime pattern="d-M-yyyy" />
+			</h:inputText>
+		</label>
+		<br />
+		<label> <font color="red">*</font> Vehicle Registration
+			Number: <h:inputText
+				value="#{vehicleRegisterBean.registrationNumber}" required="true"
+				requiredMessage="Missing Registration Number"
+				id="registrationNumber" />
+		</label>
+		<br />
+		<label> Vehicle Registration Expire Date: <h:inputText
+				value="#{vehicleRegisterBean.registrationExpireDate}"
+				required="true" requiredMessage="Missing Registration Expire Date "
+				id="registrationExpireDate">
+				<f:convertDateTime pattern="d-M-yyyy" />
+			</h:inputText>
+		</label>
+		<br />
+		<label> Vehicle Rent Price Per Day: <h:inputText
+				value="#{vehicleRegisterBean.rentPricePerDay}" required="true"
+				requiredMessage="Missing Rent Price Per Day" id="rentPricePerDay" />
+		</label>
+		<br />
+		<br />
+		<h:commandButton value="Add Vehicle">
+			<f:ajax
+				execute="manufacturer model productionDate registrationNumber registrationExpireDate rentPricePerDay"
+				render="result" listener="#{vehicleRegisterBean.vehicleRegister}" />
+		</h:commandButton>
+		<br />
+		<br />
+		<h:outputText id="result"
+			value="#{vehicleRegisterBean.vehicleWelcome}" />
+		<br />
+	</h:form>
+<br />
+		<br />
+		Go back to car  <a href="vehicle-list.jsf"> LIST </a>
+		<br />
+	
+</h:body>
+
+</html>

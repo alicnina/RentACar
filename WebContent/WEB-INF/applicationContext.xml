@@ -68,14 +68,6 @@
 
 -->
 
-	<bean id="vehicleRegisterBean" class="com.vaannila.managed.VehicleRegisterBean"
-		scope="request">
-		<property name="vehicleDao" ref="vehicleDAO" />
-		<property name="rentalDao" ref="rentalDAO" />
-		<property name="usersDao" ref="usersDAO" />
-		<property name="userLoginBean" ref="userLoginBean" />
-	</bean>
-
 	<bean id="vehicleRentalBean" class="com.vaannila.managed.VehicleRentalBean"
 		scope="request">
 		<property name="vehicleDao" ref="vehicleDAO" />

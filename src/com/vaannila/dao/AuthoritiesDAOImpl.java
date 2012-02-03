@@ -19,16 +19,16 @@ public class AuthoritiesDAOImpl implements DAOInterface<Authorities>, Serializab
 		this.hibernateTemplate = new HibernateTemplate(sessionFactory);
 	}
 
-	public void save(Authorities rental) {
-		hibernateTemplate.saveOrUpdate(rental);
+	public void save(Authorities authorities) {
+		hibernateTemplate.saveOrUpdate(authorities);
 	}
 
-	public void delete(Authorities rental) {
-		hibernateTemplate.delete(rental);
+	public void delete(Authorities authorities) {
+		hibernateTemplate.delete(authorities);
 	}
 
-	public void edit(Authorities rental) {
-		hibernateTemplate.update(rental);
+	public void edit(Authorities authorities) {
+		hibernateTemplate.update(authorities);
 	}
 
 	public Authorities findByPrimaryKey(Object key) {

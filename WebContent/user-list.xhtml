@@ -1,0 +1,56 @@
+<!DOCTYPE HTML>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+
+<h:head>
+	<title>User List</title>
+	<h:outputStylesheet library="css" name="table-style.css"  />
+</h:head>
+<h:body>
+	<h:form>
+		<h:dataTable value="#{userRegisterBean.userList}" var="c"
+			styleClass="order-table" headerClass="order-table-header"
+			rowClasses="order-table-odd-row,order-table-even-row">
+			<h:column>
+				<f:facet name="header"> Username </f:facet>#{c.username}</h:column>
+			<h:column>
+				<f:facet name="header">Password</f:facet>#{c.password} </h:column>
+			<h:column>
+				<f:facet name="header">Name </f:facet>#{c.name} </h:column>
+			<h:column>
+				<f:facet name="header">Surname </f:facet>#{c.surname} </h:column>
+			<h:column>
+				<f:facet name="header">Email</f:facet>#{c.email}</h:column>
+			<h:column>
+				<f:facet name="header">Phone</f:facet>#{c.phone}</h:column>
+			<h:column>
+				<f:facet name="header">Address</f:facet>#{c.address} </h:column>
+			<h:column>
+				<f:facet name="header">ID Number</f:facet>#{c.idNumber}</h:column>
+			<h:column>
+				<f:facet name="header">ID Expire Date</f:facet>#{c.idExpireDate}</h:column>
+			<h:column>
+				<f:facet name="header">Driving Licence Number</f:facet>#{c.drivingLicenceNumber}</h:column>
+			<h:column>
+				<f:facet name="header">Driving Licence Expire Date</f:facet>#{c.drivingLicenceExpireDate}</h:column>
+			<h:column>
+				<f:facet name="header">Role</f:facet>#{c.role}</h:column>
+			<h:column>
+				<f:facet name="header">Delete</f:facet>
+				<h:commandLink value="Delete"
+					action="#{userRegisterBean.deleteAction(c)}" />
+			</h:column>
+			<h:column>
+				<f:facet name="header">Edit </f:facet>
+				<h:commandButton value="Edit" action="#{userRegisterBean.editNav}">
+					<f:setPropertyActionListener value="#{c}" target="#{userEditBean.user}" />
+				</h:commandButton>
+			</h:column>
+		</h:dataTable>
+	</h:form>
+
+</h:body>
+
+</html>

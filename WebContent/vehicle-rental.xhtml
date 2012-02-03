@@ -1,0 +1,48 @@
+<!DOCTYPE HTML>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+
+<h:head>
+	<title>RENTAL VEHICLES </title>
+</h:head>
+
+<h:body>
+	<h:form prependId="false">
+		<label><h:inputHidden id="vehicleRegisterBean.vehicle.vehicleid" value="vehicleId"></h:inputHidden></label>
+		<label> Vehicle Rental Start Date: <h:inputText value="#{vehicleRentalBean.startDate}"
+				required="true" requiredMessage="Missing Vehicle Rental Start Date " id="startDate" >
+				<f:convertDateTime pattern="d-M-yyyy" /></h:inputText>
+		</label>
+	
+		<label> <font color="red">*</font> Number of Days: <h:inputText
+				value="#{vehicleRentalBean.numberDays}" required="true"
+				requiredMessage="Missing Number of Days" id="numberDays" />
+		</label>
+		<br />
+		<label> <font color="red">*</font> Credit Card Number: <h:inputText
+				value="#{vehicleRentalBean.creditCardNumber}" required="true"
+				requiredMessage="Missing Credit Card Number" id="creditCardNumber" />
+		</label>
+		<br />
+		<label> <font color="red">*</font> Cvv2 Number: <h:inputText
+				value="#{vehicleRentalBean.cvv2}" required="true"
+				requiredMessage="Missing Cvv2 Number" id="cvv2" >
+				<f:convertDateTime pattern="d-M-yyyy" /></h:inputText>
+		</label>
+		<br />
+		<br />
+		<h:commandButton value="Rent">
+			<f:ajax
+				execute="startDate numberDays creditCardNumber cvv2"
+				render="result" listener="#{vehicleRentalBean.vehicleRentSave}" />
+		</h:commandButton>
+		<br />
+		<br />
+		</h:form>
+		<h:outputText id="result" value="#{vehicleRentalBean.vehicleWelcome}" />
+		<br />
+		
+</h:body>
+
+</html>

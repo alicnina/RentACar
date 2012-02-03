@@ -22,5 +22,14 @@
    </navigation-case>
 </navigation-rule>
 
+ <navigation-rule>
+   <from-view-id>/vehicle-list.xhtml</from-view-id>
+   <navigation-case>
+      <from-action>#{vehicleRegisterBean.editNav}</from-action>
+      <from-outcome>success</from-outcome>
+      <to-view-id>/vehicle-edit.xhtml</to-view-id>
+   </navigation-case>
+</navigation-rule>
+
  
 </faces-config>
