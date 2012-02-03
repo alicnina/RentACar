@@ -2,6 +2,15 @@ package com.vaannila.managed;
 
 import java.io.Serializable;
 
+import javax.el.ELContext;
+import javax.el.ValueExpression;
+import javax.faces.FactoryFinder;
+import javax.faces.application.Application;
+import javax.faces.application.ApplicationFactory;
+import javax.faces.bean.ManagedBean;
+import javax.faces.bean.ManagedProperty;
+import javax.faces.bean.RequestScoped;
+import javax.faces.context.FacesContext;
 import javax.faces.event.AjaxBehaviorEvent;
 
 import org.apache.log4j.Logger;
@@ -9,6 +18,8 @@ import org.apache.log4j.Logger;
 import com.vaannila.dao.DAOInterface;
 import com.vaannila.domain.Users;
 
+@ManagedBean
+@RequestScoped
 public class UserLoginBean implements Serializable {
 
 	private static final long serialVersionUID = 2488312033057727243L;
@@ -19,13 +30,24 @@ public class UserLoginBean implements Serializable {
 	private String inputPassword;
 	private boolean loginAttempted = false;
 
+	@ManagedProperty(value = "#{usersDAO}")
 	private DAOInterface<Users> usersDao;
+	
 	private Users user;
 
 	public void userLogin(AjaxBehaviorEvent event) {
 		loginAttempted = true;
 		if (null != inputUsername && null != inputPassword) {
 			user = usersDao.findByKeyWords(inputUsername, inputPassword);
+			if (isUserLoggedIn()) {
+				// save instance of UserLoginBean to session
+				FacesContext context = FacesContext.getCurrentInstance();
+				ELContext elContext = context.getELContext();
+				Application application = ((ApplicationFactory) FactoryFinder.getFactory(FactoryFinder.APPLICATION_FACTORY)).getApplication();
+				ValueExpression valueExpr = application.getExpressionFactory().createValueExpression(elContext, "#{userLoginBean}", UserLoginBean.class);
+				valueExpr.setValue(elContext, this);
+				context.getExternalContext().getSessionMap().put("userLoginBean", this);
+			}
 		}
 	}
 
@@ -74,7 +96,5 @@ public class UserLoginBean implements Serializable {
 	public void setUser(Users user) {
 		this.user = user;
 	}
-	
-	
 
 }

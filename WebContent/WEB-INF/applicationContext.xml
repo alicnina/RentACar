@@ -52,12 +52,6 @@
 		<property name="sessionFactory" ref="defaultSessionFactory" />
 	</bean>
 
-
-	<bean id="userLoginBean" class="com.vaannila.managed.UserLoginBean"
-		scope="session">
-		<property name="usersDao" ref="usersDAO" />
-	</bean>
-
 <!-- 
 	<bean id="userRegisterBean" class="com.vaannila.managed.UserRegisterBean"
 		scope="request">
