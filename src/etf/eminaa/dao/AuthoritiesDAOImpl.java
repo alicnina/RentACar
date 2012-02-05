@@ -1,4 +1,4 @@
-package com.vaannila.dao;
+package etf.eminaa.dao;
 
 import java.io.Serializable;
 import java.util.List;
@@ -7,7 +7,7 @@ import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.orm.hibernate3.HibernateTemplate;
 
-import com.vaannila.domain.Authorities;
+import etf.eminaa.domain.Authorities;
 
 public class AuthoritiesDAOImpl implements DAOInterface<Authorities>, Serializable {
 

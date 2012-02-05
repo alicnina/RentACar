@@ -1,33 +1,62 @@
-package com.vaannila.managed;
+package etf.eminaa.managed;
 
 import java.io.Serializable;
 import java.util.Date;
 
-import javax.faces.bean.ViewScoped;
+import javax.faces.bean.ManagedBean;
+import javax.faces.bean.ManagedProperty;
+import javax.faces.bean.RequestScoped;
 import javax.faces.event.AjaxBehaviorEvent;
 
-import com.vaannila.dao.DAOInterface;
-import com.vaannila.domain.Rental;
-import com.vaannila.domain.Users;
-import com.vaannila.domain.Vehicle;
+import etf.eminaa.dao.DAOInterface;
+import etf.eminaa.domain.Rental;
+import etf.eminaa.domain.Users;
+import etf.eminaa.domain.Vehicle;
 
-@ViewScoped
+@ManagedBean
+@RequestScoped
 public class VehicleRentalBean implements Serializable {
 
-	private static final long serialVersionUID = -4496108825197569738L;
+	private static final long serialVersionUID = -2732925993048187311L;
+	
+	private Vehicle vehicle;
+	private Rental rental;
+	
 	private Date startDate;
 	private String numberDays;
 	private String status;
-	private int vehicleId;
-	private Rental rental;
+	private int id;
 	
+	
+	@ManagedProperty(value = "#{vehicleDAO}")
 	private DAOInterface<Vehicle> vehicleDao;
+	
+	@ManagedProperty(value = "#{rentalDAO}")
 	private DAOInterface<Rental> rentalDao;
+	
+	@ManagedProperty(value = "#{usersDAO}")
 	private DAOInterface<Users> usersDao;
 	
+	@ManagedProperty(value = "#{userLoginBean}")
 	private UserLoginBean userLoginBean;
-		
+	
 	// getters and setters
+	public Vehicle getVehicle() {
+		return vehicle;
+	}
+	
+	public void setVehicle(Vehicle vehicle) {
+		this.vehicle = vehicle;
+	}
+	
+	public DAOInterface<Vehicle> getVehicleDao() {
+		return vehicleDao;
+	}
+	
+	public void setVehicleDao(DAOInterface<Vehicle> vehicleDao) {
+		this.vehicleDao = vehicleDao;
+	}
+	
 	public Rental getRental() {
 		return rental;
 	}
@@ -35,11 +64,11 @@ public class VehicleRentalBean implements Serializable {
 		this.rental = rental;
 	}
 
-	public int getVehicleId() {
-		return vehicleId;
+	public int getId() {
+		return id;
 	}
-	public void setVehicleId(int vehicleId) {
-		this.vehicleId = vehicleId;
+	public void setId(int id) {
+		this.id = id;
 	}
 	public UserLoginBean getUserLoginBean() {
 		return userLoginBean;
@@ -67,12 +96,6 @@ public class VehicleRentalBean implements Serializable {
 		this.status = status;
 	}
 	
-	public DAOInterface<Vehicle> getVehicleDao() {
-		return vehicleDao;
-	}
-	public void setVehicleDao(DAOInterface<Vehicle> vehicleDao) {
-		this.vehicleDao = vehicleDao;
-	}
 	public DAOInterface<Rental> getRentalDao() {
 		return rentalDao;
 	}
@@ -87,35 +110,23 @@ public class VehicleRentalBean implements Serializable {
 	}
 	
 	//
-	public void vehicleRental(AjaxBehaviorEvent event) {
+	public void vehicleRentalSave(AjaxBehaviorEvent event) {
 		Rental rental = new Rental();
 		rental.setStartDate(new java.sql.Date(startDate.getTime()));
 		rental.setNumberDays(Integer.parseInt(numberDays));
 		rental.setStatus("RENTED");
-		Vehicle vehicle = vehicleDao.findByPrimaryKey(vehicleId);
 		rental.setVehicle(vehicle);
-		Users user = usersDao.findByKeyWords(userLoginBean.getInputUsername(),userLoginBean.getInputPassword());
-		rental.setUsers(user);
+		//Users user = usersDao.findByKeyWords(userLoginBean.getInputUsername(),userLoginBean.getInputPassword());
+		rental.setUsers(userLoginBean.getUser());
 		rentalDao.save(rental);
-			
-		/*Rental rental = new Rental();
-		rental.setVehicle(vehicle);
-		Users user = usersDao.findByKeyWords(userLoginBean.getInputUsername(), userLoginBean.getInputPassword());
-		rental.setUsers(user);
-		rentalDao.save(rental);*/
 	}
 
-	public String getVehicleWelcome() {
-		// String msg = "You are user: " + userLoginBean.getUser().getName() +
-		// " (Role: " +
-		// userLoginBean.getUser().getAuthorities().iterator().next() +
-		// ")! Please add new vehicle!";
+	public String getRentalWelcome() {
 		String msg = "welcome";
 		if (null != rental) {
 			msg = "Vehicle " + rental.getVehicle().getModel() + " " + rental.getUsers().getUsername() + " (" + rental.getNumberDays() + ") registered!";
 		}
 		return msg;
 	}
-	
 
 }

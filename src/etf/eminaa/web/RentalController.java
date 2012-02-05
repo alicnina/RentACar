@@ -1,4 +1,4 @@
-package com.vaannila.web;
+package etf.eminaa.web;
 
 import java.net.MalformedURLException;
 import java.net.URL;
@@ -15,10 +15,11 @@ import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.multiaction.MultiActionController;
 
 import com.alicnina.paymentsimulator.Soap11BindingStub;
-import com.vaannila.dao.DAOInterface;
-import com.vaannila.domain.Rental;
-import com.vaannila.domain.Users;
-import com.vaannila.domain.Vehicle;
+
+import etf.eminaa.dao.DAOInterface;
+import etf.eminaa.domain.Rental;
+import etf.eminaa.domain.Users;
+import etf.eminaa.domain.Vehicle;
 
 public class RentalController extends MultiActionController {
 

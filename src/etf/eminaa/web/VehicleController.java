@@ -1,4 +1,4 @@
-package com.vaannila.web;
+package etf.eminaa.web;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -8,8 +8,9 @@ import org.springframework.ui.ModelMap;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.multiaction.MultiActionController;
 
-import com.vaannila.dao.DAOInterface;
-import com.vaannila.domain.Vehicle;
+
+import etf.eminaa.dao.DAOInterface;
+import etf.eminaa.domain.Vehicle;
 
 public class VehicleController extends MultiActionController {
 	

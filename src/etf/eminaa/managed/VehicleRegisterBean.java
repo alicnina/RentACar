@@ -1,8 +1,10 @@
-package com.vaannila.managed;
+package etf.eminaa.managed;
 
 import java.io.Serializable;
 import java.util.Date;
+import java.util.LinkedHashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
@@ -11,11 +13,11 @@ import javax.faces.event.AjaxBehaviorEvent;
 
 import org.apache.log4j.Logger;
 
-import com.vaannila.dao.DAOInterface;
 
-import com.vaannila.domain.Rental;
-import com.vaannila.domain.Users;
-import com.vaannila.domain.Vehicle;
+import etf.eminaa.dao.DAOInterface;
+import etf.eminaa.domain.Rental;
+import etf.eminaa.domain.Users;
+import etf.eminaa.domain.Vehicle;
 
 @ManagedBean
 @RequestScoped
@@ -25,7 +27,7 @@ public class VehicleRegisterBean implements Serializable {
 
 	protected static Logger logger = Logger.getLogger("managed");
 
-	private String manufacturer, model, registrationNumber, rentPricePerDay;
+	private String manufacturer, model, registrationNumber, rentPricePerDay, status;
 
 	private boolean alreadyRegistered = false;
 
@@ -49,6 +51,10 @@ public class VehicleRegisterBean implements Serializable {
 		return "success";
 	}
 	
+	public String editRentalNav() {
+		return "success";
+	}
+	
 	// getters and setters
 	public DAOInterface<Users> getUsersDao() {
 		return usersDao;
@@ -68,6 +74,20 @@ public class VehicleRegisterBean implements Serializable {
 
 	public UserLoginBean getUserLoginBean() {
 		return userLoginBean;
+	}
+	
+	private static Map<String, Object> statusValue;
+
+	static {
+		statusValue = new LinkedHashMap<String, Object>();
+		statusValue.put("Available", "AVAILABLE"); // label, value
+		statusValue.put("On Repair", "ON_REPAIR");
+		statusValue.put("Not available for now ", "NOT_AVAILABLE");
+		statusValue.put("Rented", "RENTED");
+	}
+
+	public Map<String, Object> getStatusValue() {
+		return statusValue;
 	}
 
 	public void setUserLoginBean(UserLoginBean userLoginBean) {
@@ -152,6 +172,7 @@ public class VehicleRegisterBean implements Serializable {
 		vehicle.setModel(model);
 		vehicle.setRegistrationNumber(registrationNumber);
 		vehicle.setRentPricePerDay(rentPricePerDay);
+		vehicle.setStatus(status);
 		vehicle.setProductionDate(new java.sql.Date(productionDate.getTime()));
 		vehicle.setRegistrationExpireDate(new java.sql.Date(registrationExpireDate.getTime()));
 		vehicleDao.save(vehicle);
@@ -182,8 +203,12 @@ public class VehicleRegisterBean implements Serializable {
 		this.vehicle = vehicle;
 	}
 	
-	public void save() {
-        Users users = new Users(); 
-        boolean editable = false;
-    }
+	public String getStatus() {
+		return status;
+	}
+
+	public void setStatus(String status) {
+		this.status = status;
+	}
+
 }

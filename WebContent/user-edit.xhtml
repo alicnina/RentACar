@@ -9,8 +9,6 @@
 
 <h:body>
 
-
-
 	<h:form prependId="false">
 		<h:inputHidden value="#{userEditBean.user.password}" id="password" />
 		<h:inputHidden value="#{userEditBean.user.username}" id="username" />
@@ -52,9 +50,8 @@
 				<f:convertDateTime pattern="d-M-yyyy" />
 			</h:inputText></label>
 			<br />
-		<label> <font color="red">*</font> Authority: <h:selectOneMenu
-				value="#{userEditBean.authority}" required="true"
-				requiredMessage="Missing role" id="authority">
+		<label> Authority: <h:selectOneMenu
+				value="#{userEditBean.authority}" id="authority">
 				<f:selectItems value="#{userEditBean.authorityValue}" />
 			</h:selectOneMenu>
 		</label>
@@ -68,7 +65,7 @@
 		<br />
 		<h:outputText id="result" value="#{userEditBean.userEditResult}" />
 		<br />
-		Go to <a href="user-login.jsf">login page</a>
+		Go to <a href="user-list.jsf">user list page</a>
 	</h:form>
 
 </h:body>

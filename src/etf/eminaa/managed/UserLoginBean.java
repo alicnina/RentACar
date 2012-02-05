@@ -1,4 +1,4 @@
-package com.vaannila.managed;
+package etf.eminaa.managed;
 
 import java.io.Serializable;
 
@@ -15,8 +15,9 @@ import javax.faces.event.AjaxBehaviorEvent;
 
 import org.apache.log4j.Logger;
 
-import com.vaannila.dao.DAOInterface;
-import com.vaannila.domain.Users;
+
+import etf.eminaa.dao.DAOInterface;
+import etf.eminaa.domain.Users;
 
 @ManagedBean
 @RequestScoped

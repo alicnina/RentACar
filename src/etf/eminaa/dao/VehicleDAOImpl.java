@@ -1,4 +1,4 @@
-package com.vaannila.dao;
+package etf.eminaa.dao;
 
 import java.io.Serializable;
 import java.util.Iterator;
@@ -7,9 +7,9 @@ import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.orm.hibernate3.HibernateTemplate;
 
-import com.vaannila.domain.Authorities;
-import com.vaannila.domain.Rental;
-import com.vaannila.domain.Vehicle;
+import etf.eminaa.domain.Authorities;
+import etf.eminaa.domain.Rental;
+import etf.eminaa.domain.Vehicle;
 
 public class VehicleDAOImpl implements DAOInterface<Vehicle>, Serializable {
 

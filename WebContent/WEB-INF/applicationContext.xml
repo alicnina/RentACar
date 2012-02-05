@@ -21,10 +21,10 @@
 		<property name="dataSource" ref="dataSource" />
 		<property name="annotatedClasses">
 			<list>
-				<value>com.vaannila.domain.Vehicle</value>
-				<value>com.vaannila.domain.Rental</value>
-				<value>com.vaannila.domain.Users</value>
-				<value>com.vaannila.domain.Authorities</value>
+				<value>etf.eminaa.domain.Vehicle</value>
+				<value>etf.eminaa.domain.Rental</value>
+				<value>etf.eminaa.domain.Users</value>
+				<value>etf.eminaa.domain.Authorities</value>
 			</list>
 		</property>
 		<property name="hibernateProperties">
@@ -36,41 +36,23 @@
 		</property>
 	</bean>
 
-	<bean id="usersDAO" class="com.vaannila.dao.UsersDAOImpl">
+	<bean id="usersDAO" class="etf.eminaa.dao.UsersDAOImpl">
 		<property name="sessionFactory" ref="defaultSessionFactory" />
 	</bean>
 
-	<bean id="authoritiesDAO" class="com.vaannila.dao.AuthoritiesDAOImpl">
+	<bean id="authoritiesDAO" class="etf.eminaa.dao.AuthoritiesDAOImpl">
 		<property name="sessionFactory" ref="defaultSessionFactory" />
 	</bean>
 
-	<bean id="vehicleDAO" class="com.vaannila.dao.VehicleDAOImpl">
+	<bean id="vehicleDAO" class="etf.eminaa.dao.VehicleDAOImpl">
 		<property name="sessionFactory" ref="defaultSessionFactory" />
 	</bean>
 
-	<bean id="rentalDAO" class="com.vaannila.dao.RentalDAOImpl">
+	<bean id="rentalDAO" class="etf.eminaa.dao.RentalDAOImpl">
 		<property name="sessionFactory" ref="defaultSessionFactory" />
 	</bean>
 
-<!-- 
-	<bean id="userRegisterBean" class="com.vaannila.managed.UserRegisterBean"
-		scope="request">
-		<property name="usersDao" ref="usersDAO" />
-		<property name="authoritiesDao" ref="authoritiesDAO" />
-		<property name="rentalDao" ref="rentalDAO" />
-	</bean>
-
--->
-
-	<bean id="vehicleRentalBean" class="com.vaannila.managed.VehicleRentalBean"
-		scope="request">
-		<property name="vehicleDao" ref="vehicleDAO" />
-		<property name="rentalDao" ref="rentalDAO" />
-		<property name="usersDao" ref="usersDAO" />
-		<property name="userLoginBean" ref="userLoginBean" />
-	</bean>
-
-	<!-- <bean name="/users/*.htm" class="com.vaannila.web.UsersController"> 
+	<!-- <bean name="/users/*.htm" class="etf.eminaa.web.UsersController"> 
 		<property name="usersDAO" ref="usersDAO" /> <property name="authoritiesDAO" 
 		ref="authoritiesDAO" /> </bean> <bean name="/authorities/*.htm" class="com.vaannila.web.AuthoritiesController"> 
 		<property name="authoritiesDAO" ref="authoritiesDAO" /> <property name="usersDAO" 

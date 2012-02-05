@@ -25,24 +25,34 @@
 				<f:facet name="header">Registration Expire Date</f:facet>#{c.registrationExpireDate}</h:column>
 			<h:column>
 				<f:facet name="header">Delete</f:facet>
-				<h:commandLink value="Delete"
-					action="#{vehicleRegisterBean.deleteAction(c)}" /> </h:column>
+				<h:commandButton value="Delete"
+					action="#{vehicleRegisterBean.deleteAction(c)}" />
+			</h:column>
 			<h:column>
 				<f:facet name="header">Edit </f:facet>
-				<h:commandButton value="Edit" action="#{vehicleRegisterBean.editNav}">
-					<f:setPropertyActionListener value="#{c}" target="#{vehicleEditBean.vehicle}" />
-				</h:commandButton></h:column>
+				<h:commandButton value="Edit"
+					action="#{vehicleRegisterBean.editNav}">
+					<f:setPropertyActionListener value="#{c}"
+						target="#{vehicleEditBean.vehicle}" />
+				</h:commandButton>
+			</h:column>
 			<h:column>
-			<f:facet name="header">Rent </f:facet>
-			<h:commandLink value="Rent" action="#{vehicleRegisterBean.edit(c)}" /> </h:column>
+				<f:facet name="header">Rent </f:facet>
+				<h:commandButton value="Rent"
+					action="#{vehicleRegisterBean.editRentalNav}" >
+					<f:setPropertyActionListener value="#{c}"
+						target="#{vehicleRentalBean.vehicle}" />
+				</h:commandButton>
+			</h:column>
 		</h:dataTable>
 	</h:form>
-	
+
 	<br />
-		<br />
-		If You want to add new car, please click  <a href="vehicle-register.jsf"> HERE </a>
-		<br />
-	
+	<br />
+		If You want to add new car, please click  <a
+		href="vehicle-register.jsf"> HERE </a>
+	<br />
+
 </h:body>
 
 </html>

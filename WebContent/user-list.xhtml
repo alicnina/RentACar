@@ -6,7 +6,7 @@
 
 <h:head>
 	<title>User List</title>
-	<h:outputStylesheet library="css" name="table-style.css"  />
+	<h:outputStylesheet library="css" name="table-style.css" />
 </h:head>
 <h:body>
 	<h:form>
@@ -15,8 +15,6 @@
 			rowClasses="order-table-odd-row,order-table-even-row">
 			<h:column>
 				<f:facet name="header"> Username </f:facet>#{c.username}</h:column>
-			<h:column>
-				<f:facet name="header">Password</f:facet>#{c.password} </h:column>
 			<h:column>
 				<f:facet name="header">Name </f:facet>#{c.name} </h:column>
 			<h:column>
@@ -39,17 +37,30 @@
 				<f:facet name="header">Role</f:facet>#{c.role}</h:column>
 			<h:column>
 				<f:facet name="header">Delete</f:facet>
-				<h:commandLink value="Delete"
+				<h:commandButton value="Delete"
 					action="#{userRegisterBean.deleteAction(c)}" />
 			</h:column>
 			<h:column>
 				<f:facet name="header">Edit </f:facet>
 				<h:commandButton value="Edit" action="#{userRegisterBean.editNav}">
-					<f:setPropertyActionListener value="#{c}" target="#{userEditBean.user}" />
+					<f:setPropertyActionListener value="#{c}"
+						target="#{userEditBean.user}" />
 				</h:commandButton>
 			</h:column>
 		</h:dataTable>
 	</h:form>
+
+	<br />
+	<br />
+	<br />
+		If You want to add new user, please click  <a href="user-register.jsf">
+		HERE </a>
+	<br />
+	<br />
+	<br />
+		If You want to see vehicle list, please click  <a href="vehicle-list.jsf">
+		HERE </a>
+	<br />
 
 </h:body>
 

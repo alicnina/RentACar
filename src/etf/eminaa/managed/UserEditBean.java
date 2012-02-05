@@ -1,4 +1,4 @@
-package com.vaannila.managed;
+package etf.eminaa.managed;
 
 import java.io.Serializable;
 import java.util.LinkedHashMap;
@@ -9,9 +9,10 @@ import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.RequestScoped;
 import javax.faces.event.AjaxBehaviorEvent;
 
-import com.vaannila.dao.DAOInterface;
-import com.vaannila.domain.Authorities;
-import com.vaannila.domain.Users;
+
+import etf.eminaa.dao.DAOInterface;
+import etf.eminaa.domain.Authorities;
+import etf.eminaa.domain.Users;
 
 @ManagedBean
 @RequestScoped
@@ -24,7 +25,7 @@ public class UserEditBean implements Serializable {
 	@ManagedProperty(value = "#{usersDAO}")
 	private DAOInterface<Users> usersDao;
 
-	@ManagedProperty(value = "#{authoritiesDao}")
+	@ManagedProperty(value = "#{authoritiesDAO}")
 	private DAOInterface<Authorities> authoritiesDao;
 
 	private Boolean userEdited = null;
@@ -75,24 +76,18 @@ public class UserEditBean implements Serializable {
 	public void userEdit(AjaxBehaviorEvent event) {
 		try {
 			if (null != authority) {
-				Authorities authorities = new Authorities();
+				Authorities authorities = authoritiesDao.findByPrimaryKey(user.getUsername());
 				authorities.setAuthority(authority.toString());
 				authorities.setUsers(user);
 				user.getAuthorities().add(authorities);
+				authoritiesDao.edit(authorities);
 			}
-			
+			user.setRole(authority.toString());
 			usersDao.edit(user);
 			userEdited = true;
 		} catch (Exception e) {
 			userEdited = false;
 		}
-
-		// if (null != authority) {
-		// Authorities authorities = new Authorities();
-		// authorities.setAuthority(authority.toString());
-		// authorities.setUsers(user);
-		// authoritiesDao.edit(authorities);
-		// }
 	}
 
 	public String getUserEditResult() {

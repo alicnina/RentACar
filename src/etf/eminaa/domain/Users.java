@@ -1,4 +1,4 @@
-package com.vaannila.domain;
+package etf.eminaa.domain;
 
 import java.util.Date;
 import java.util.HashSet;
@@ -32,8 +32,6 @@ public class Users {
 	
 	private Boolean mailingList;
 	private Set<Rental> rental = new HashSet<Rental>(0);
-	
-	private boolean editable = false;
 
 	private Set<Authorities> authorities = new HashSet<Authorities>(0);
 	
@@ -182,13 +180,5 @@ public class Users {
 
 	public void setRole(String role) {
 		this.role = role;
-	}
-	
-	public boolean isEditable() {
-		return editable;
-	}
-
-	public void setEditable(boolean editable) {
-		this.editable = editable;
 	}
 }

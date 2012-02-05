@@ -7,8 +7,9 @@ import javax.faces.event.PhaseId;
 import javax.faces.event.PhaseListener;
 import javax.servlet.http.HttpServletRequest;
 
-import com.vaannila.domain.Users;
-import com.vaannila.managed.UserLoginBean;
+
+import etf.eminaa.domain.Users;
+import etf.eminaa.managed.UserLoginBean;
 
 public class AuthorizationPhaseListener implements PhaseListener {
 
@@ -36,7 +37,6 @@ public class AuthorizationPhaseListener implements PhaseListener {
 				arg0.getFacesContext().getApplication().getNavigationHandler()
 						.handleNavigation(arg0.getFacesContext(), null, "user-login.jsf?faces-redirect=true");
 			}
-
 			return;
 		}
 	}

@@ -1,4 +1,4 @@
-package com.vaannila.domain;
+package etf.eminaa.domain;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;

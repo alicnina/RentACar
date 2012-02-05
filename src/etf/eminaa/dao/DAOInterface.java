@@ -1,4 +1,4 @@
-package com.vaannila.dao;
+package etf.eminaa.dao;
 
 import java.util.List;
 

@@ -46,10 +46,17 @@
 				requiredMessage="Missing Rent Price Per Day" id="rentPricePerDay" />
 		</label>
 		<br />
+		<label> <font color="red">*</font> Status: <h:selectOneMenu
+				value="#{vehicleRegisterBean.status}" required="true"
+				requiredMessage="Missing Status" id="status">
+				<f:selectItems value="#{vehicleRegisterBean.statusValue}" />
+			</h:selectOneMenu>
+		</label>
+		<br/>
 		<br />
 		<h:commandButton value="Add Vehicle">
 			<f:ajax
-				execute="manufacturer model productionDate registrationNumber registrationExpireDate rentPricePerDay"
+				execute="manufacturer model productionDate registrationNumber registrationExpireDate rentPricePerDay status"
 				render="result" listener="#{vehicleRegisterBean.vehicleRegister}" />
 		</h:commandButton>
 		<br />

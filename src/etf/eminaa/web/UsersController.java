@@ -1,4 +1,4 @@
-package com.vaannila.web;
+package etf.eminaa.web;
 
 import java.util.Set;
 
@@ -10,9 +10,10 @@ import org.springframework.ui.ModelMap;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.multiaction.MultiActionController;
 
-import com.vaannila.dao.DAOInterface;
-import com.vaannila.domain.Authorities;
-import com.vaannila.domain.Users;
+
+import etf.eminaa.dao.DAOInterface;
+import etf.eminaa.domain.Authorities;
+import etf.eminaa.domain.Users;
 
 public class UsersController extends MultiActionController {
 	

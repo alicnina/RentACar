@@ -9,8 +9,57 @@
 
 <h:body>
 
-	EDIT VEHICLE PAGE 
-	
+	<h:form prependId="false">
+
+		<h:inputHidden value="#{vehicleEditBean.vehicle.id}" id="id" />
+		<h:inputHidden value="#{vehicleEditBean.vehicle.manufacturer}"
+			id="manufacturer" />
+		<h:inputHidden value="#{vehicleEditBean.vehicle.model}" id="model" />
+		EDIT VEHICLE MANUFACTURER  <h:outputText
+			value="#{vehicleEditBean.vehicle.manufacturer}" /> AND VEHICLE MODEL 
+			<h:outputText value="#{vehicleEditBean.vehicle.model}" />
+		<br />
+		<label> Vehicle Production Date: <h:inputText
+				value="#{vehicleEditBean.vehicle.productionDate}"
+				id="productionDate">
+				<f:convertDateTime pattern="d-M-yyyy" />
+			</h:inputText>
+		</label>
+		<br />
+		<label> Vehicle Registration Number: <h:inputText
+				value="#{vehicleEditBean.vehicle.registrationNumber}"
+				id="registrationNumber" />
+		</label>
+		<br />
+		<label> Vehicle Registration Expire Date: <h:inputText
+				value="#{vehicleEditBean.vehicle.registrationExpireDate}"
+				id="registrationExpireDate">
+				<f:convertDateTime pattern="d-M-yyyy" />
+			</h:inputText>
+		</label>
+		<br />
+		<label> Vehicle Rent Price Per Day: <h:inputText
+				value="#{vehicleEditBean.vehicle.rentPricePerDay}"
+				id="rentPricePerDay" />
+		</label>
+		<br />
+		<label> Vehicle Status: <h:selectOneMenu
+				value="#{vehicleEditBean.vehicle.status}" id="status">
+				<f:selectItems value="#{vehicleEditBean.statusValue}" />
+			</h:selectOneMenu>
+		</label>
+		<br />
+		<br />
+		<h:commandButton value="Edit Vehicle">
+			<f:ajax execute="@form" render="result"
+				listener="#{vehicleEditBean.vehicleEdit}" />
+		</h:commandButton>
+		<br />
+		<br />
+		<h:outputText id="result" value="#{vehicleEditBean.vehicleEditResult}" />
+		<br />
+	</h:form>
+
 </h:body>
 
 </html>

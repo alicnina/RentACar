@@ -1,4 +1,4 @@
-package com.vaannila.domain;
+package etf.eminaa.domain;
 
 import java.util.Date;
 import java.util.Set;

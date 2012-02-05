@@ -1,4 +1,4 @@
-package com.vaannila.managed;
+package etf.eminaa.managed;
 
 import java.io.Serializable;
 import java.util.Date;
@@ -13,10 +13,11 @@ import javax.faces.event.AjaxBehaviorEvent;
 
 import org.apache.log4j.Logger;
 
-import com.vaannila.dao.DAOInterface;
-import com.vaannila.domain.Authorities;
-import com.vaannila.domain.Rental;
-import com.vaannila.domain.Users;
+
+import etf.eminaa.dao.DAOInterface;
+import etf.eminaa.domain.Authorities;
+import etf.eminaa.domain.Rental;
+import etf.eminaa.domain.Users;
 
 @ManagedBean
 @RequestScoped
@@ -36,13 +37,17 @@ public class UserRegisterBean implements Serializable {
 	@ManagedProperty(value = "#{usersDAO}")
 	private DAOInterface<Users> usersDao;
 
-	@ManagedProperty(value = "#{authoritiesDao}")
+	@ManagedProperty(value = "#{authoritiesDAO}")
 	private DAOInterface<Authorities> authoritiesDao;
 
-	@ManagedProperty(value = "#{rentalDao}")
+	@ManagedProperty(value = "#{rentalDAO}")
 	private DAOInterface<Rental> rentalDao;
 
 	public String editNav() {
+		return "success";
+	}
+
+	public String editRentalNav() {
 		return "success";
 	}
 
@@ -125,6 +130,7 @@ public class UserRegisterBean implements Serializable {
 		authorityValue.put("Registered User", "ROLE_USER"); // label, value
 		authorityValue.put("Employee", "ROLE_EMPLOYEE");
 		authorityValue.put("Administrator", "ROLE_ADMIN");
+		authorityValue.put("Restricted", "ROLE_RESTRICTED");
 	}
 
 	public Map<String, Object> getAuthorityValue() {
