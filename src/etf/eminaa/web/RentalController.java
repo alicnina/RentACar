@@ -14,7 +14,9 @@ import org.springframework.ui.ModelMap;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.multiaction.MultiActionController;
 
-import com.alicnina.paymentsimulator.Soap11BindingStub;
+import com.alicnina.paymentsimulator.InitializePayment;
+import com.alicnina.paymentsimulator.InitializePaymentResponse;
+import com.alicnina.paymentsimulator.PaymentSimulatorStub;
 
 import etf.eminaa.dao.DAOInterface;
 import etf.eminaa.domain.Rental;
@@ -71,12 +73,15 @@ public class RentalController extends MultiActionController {
 	public boolean isValidCreditCard(String creditCardNumber, String cvv2, double ammount) throws RemoteException, MalformedURLException {
 
 		// Check financial status of user!
-		Soap11BindingStub client = new Soap11BindingStub(new URL("http://localhost:7100/RentACarWebServices/services/OnlinePayment"), null);
-		StringHolder responseMsg = new StringHolder();
-		StringHolder responseCode = new StringHolder();
-		client.initializePayment(creditCardNumber, cvv2, ammount, responseCode, responseMsg);
+		InitializePayment initializePayment2 = new InitializePayment();
+		initializePayment2.setCreditCardNo(creditCardNumber);
+		initializePayment2.setCvv2(cvv2);
+		initializePayment2.setAmmount(ammount);
+		PaymentSimulatorStub paymentService = new PaymentSimulatorStub("http://localhost:7100/RentACarWebServices/services/OnlinePayment");
+		InitializePaymentResponse initializePaymentResponse = paymentService.initializePayment(initializePayment2);
 
 		// TODO: check if response code is valid
+		// initializePaymentResponse.getCode() ...
 
 		return true;
 	}
