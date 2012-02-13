@@ -1,0 +1,30 @@
+<serviceGroup>
+
+	<service name="OnlinePayment">
+		<description>
+			This service is to simulate online payment
+		</description>
+
+		<parameter name="ServiceObjectSupplier" locked="false">org.apache.axis2.extensions.spring.receivers.SpringAppContextAwareObjectSupplier
+		</parameter>
+		<parameter name="SpringBeanName" locked="false">springAwareService
+		</parameter>
+		
+	    <operation name="initializePayment">
+			<messageReceiver
+				class="org.apache.axis2.receivers.RawXMLINOutMessageReceiver" />
+		</operation>
+		
+		<operation name="registerAccount">
+			<messageReceiver
+				class="org.apache.axis2.receivers.RawXMLINOutMessageReceiver" />
+		</operation>
+		
+		<operation name="removeAccount">
+			<messageReceiver
+				class="org.apache.axis2.receivers.RawXMLINOutMessageReceiver" />
+		</operation>
+		
+	</service>
+
+</serviceGroup>

@@ -1,0 +1,825 @@
+20:15:48,334 (main) INFO  [DataNucleus.Enhancer] - DataNucleus Enhancer : Using ClassEnhancer "ASM" for API "JDO"
+20:15:49,349 (main) INFO  [DataNucleus.Enhancer] - DataNucleus Enhancer (version 3.0.0.m2) : Enhancement of classes
+20:15:49,775 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.paymentsimulator.Account" has been specified with JDO annotations so using those.
+20:15:49,806 (main) ERROR [DataNucleus.Enhancer] - DataNucleus Enhancer completed with an error. Please review the enhancer log for full details. Some classes may have been enhanced but some caused errors
+Class com.alicnina.paymentsimulator.Account has field com.alicnina.paymentsimulator.Account.id declared in MetaData, but this field doesnt exist in the class!
+org.datanucleus.metadata.InvalidMetaDataException: Class com.alicnina.paymentsimulator.Account has field com.alicnina.paymentsimulator.Account.id declared in MetaData, but this field doesnt exist in the class!
+	at org.datanucleus.metadata.ClassMetaData.populateMemberMetaData(ClassMetaData.java:551)
+	at org.datanucleus.metadata.ClassMetaData.populate(ClassMetaData.java:210)
+	at org.datanucleus.metadata.MetaDataManager$1.run(MetaDataManager.java:2494)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at org.datanucleus.metadata.MetaDataManager.populateAbstractClassMetaData(MetaDataManager.java:2488)
+	at org.datanucleus.metadata.MetaDataManager.populateFileMetaData(MetaDataManager.java:2315)
+	at org.datanucleus.metadata.MetaDataManager.initialiseFileMetaDataForUse(MetaDataManager.java:964)
+	at org.datanucleus.metadata.MetaDataManager.loadMetadataFiles(MetaDataManager.java:394)
+	at org.datanucleus.enhancer.DataNucleusEnhancer.getFileMetadataForInput(DataNucleusEnhancer.java:792)
+	at org.datanucleus.enhancer.DataNucleusEnhancer.enhance(DataNucleusEnhancer.java:568)
+	at org.datanucleus.enhancer.DataNucleusEnhancer.main(DataNucleusEnhancer.java:1305)
+20:16:10,504 (main) INFO  [DataNucleus.Enhancer] - DataNucleus Enhancer : Using ClassEnhancer "ASM" for API "JDO"
+20:16:11,403 (main) INFO  [DataNucleus.Enhancer] - DataNucleus Enhancer (version 3.0.0.m2) : Enhancement of classes
+20:16:11,879 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.paymentsimulator.Account" has been specified with JDO annotations so using those.
+20:16:11,889 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.paymentsimulator.Account" has been specified with JDO annotations so using those.
+20:16:12,044 (main) INFO  [DataNucleus.MetaData] - Class "org.apache.axis2.transport.http.AxisAdminServlet" has no MetaData or annotations.
+20:16:12,073 (main) INFO  [DataNucleus.MetaData] - Class "org.apache.axis2.webapp.AdminAgent" has no MetaData or annotations.
+20:16:12,102 (main) INFO  [DataNucleus.MetaData] - Class "org.apache.axis2.webapp.AxisAdminServlet" has no MetaData or annotations.
+20:16:12,112 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.paymentsimulator.AccounDAOImpl" has no MetaData or annotations.
+20:16:12,113 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.paymentsimulator.DAOInterface" has no MetaData or annotations.
+20:16:12,121 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.paymentsimulator.ExtensionMapper" has no MetaData or annotations.
+20:16:12,131 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.paymentsimulator.InitializePayment$Factory" has no MetaData or annotations.
+20:16:12,142 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.paymentsimulator.InitializePayment" has no MetaData or annotations.
+20:16:12,151 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.paymentsimulator.InitializePaymentResponse$Factory" has no MetaData or annotations.
+20:16:12,162 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.paymentsimulator.InitializePaymentResponse" has no MetaData or annotations.
+20:16:12,182 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.paymentsimulator.PaymentSimulatorMessageReceiverInOut" has no MetaData or annotations.
+20:16:12,192 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.paymentsimulator.PaymentSimulatorSkeleton" has no MetaData or annotations.
+20:16:12,201 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.paymentsimulator.RegisterAccount$Factory" has no MetaData or annotations.
+20:16:12,209 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.paymentsimulator.RegisterAccount" has no MetaData or annotations.
+20:16:12,218 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.paymentsimulator.RegisterAccountResponse$Factory" has no MetaData or annotations.
+20:16:12,229 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.paymentsimulator.RegisterAccountResponse" has no MetaData or annotations.
+20:16:12,238 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.paymentsimulator.RemoveAccount$Factory" has no MetaData or annotations.
+20:16:12,247 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.paymentsimulator.RemoveAccount" has no MetaData or annotations.
+20:16:12,256 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.paymentsimulator.RemoveAccountResponse$Factory" has no MetaData or annotations.
+20:16:12,266 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.paymentsimulator.RemoveAccountResponse" has no MetaData or annotations.
+20:16:12,275 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.policeregistersimulator.ExtensionMapper" has no MetaData or annotations.
+20:16:12,285 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.policeregistersimulator.InitializePoliceRegister$Factory" has no MetaData or annotations.
+20:16:12,294 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.policeregistersimulator.InitializePoliceRegister" has no MetaData or annotations.
+20:16:12,302 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.policeregistersimulator.InitializePoliceRegisterResponse$Factory" has no MetaData or annotations.
+20:16:12,311 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.policeregistersimulator.InitializePoliceRegisterResponse" has no MetaData or annotations.
+20:16:12,320 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.policeregistersimulator.PoliceRegisterSimulatorMessageReceiverInOut" has no MetaData or annotations.
+20:16:12,329 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.policeregistersimulator.PoliceRegisterSimulatorSkeleton" has no MetaData or annotations.
+20:16:12,406 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.policeregistersimulator.Register" has been specified with JPA annotations so using those.
+20:16:12,444 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.policeregistersimulator.RegisterDAOImpl" has no MetaData or annotations.
+20:16:12,592 (main) INFO  [DataNucleus.Enhancer] - Writing class file "C:\Users\emina\workspace\RentACarWebServices\build\classes\com\alicnina\paymentsimulator\Account.class" with enhanced definition
+20:16:12,598 (main) INFO  [DataNucleus.Enhancer] - ENHANCED (PersistenceCapable) : com.alicnina.paymentsimulator.Account
+20:16:12,621 (main) INFO  [DataNucleus.Enhancer] - Writing class file "C:\Users\emina\workspace\RentACarWebServices\build\classes\com\alicnina\policeregistersimulator\Register.class" with enhanced definition
+20:16:12,625 (main) INFO  [DataNucleus.Enhancer] - ENHANCED (PersistenceCapable) : com.alicnina.policeregistersimulator.Register
+20:16:12,626 (main) INFO  [DataNucleus.Enhancer] - DataNucleus Enhancer completed with success for 2 classes. Timings : input=1053 ms, enhance=154 ms, total=1207 ms. Consult the log for full details
+20:17:31,274 (main) INFO  [DataNucleus.Enhancer] - DataNucleus Enhancer : Using ClassEnhancer "ASM" for API "JDO"
+20:17:32,458 (main) INFO  [DataNucleus.Enhancer] - DataNucleus Enhancer (version 3.0.0.m2) : Enhancement of classes
+20:17:33,037 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.paymentsimulator.Account" has been specified with JDO annotations so using those.
+20:17:43,253 (main) INFO  [DataNucleus.Enhancer] - DataNucleus Enhancer : Using ClassEnhancer "ASM" for API "JDO"
+20:17:44,167 (main) INFO  [DataNucleus.Enhancer] - DataNucleus Enhancer (version 3.0.0.m2) : Enhancement of classes
+20:17:44,494 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.paymentsimulator.Account" has been specified with JDO annotations so using those.
+20:17:44,504 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.paymentsimulator.Account" has been specified with JDO annotations so using those.
+20:17:44,697 (main) INFO  [DataNucleus.MetaData] - Class "org.apache.axis2.transport.http.AxisAdminServlet" has no MetaData or annotations.
+20:17:44,727 (main) INFO  [DataNucleus.MetaData] - Class "org.apache.axis2.webapp.AdminAgent" has no MetaData or annotations.
+20:17:44,757 (main) INFO  [DataNucleus.MetaData] - Class "org.apache.axis2.webapp.AxisAdminServlet" has no MetaData or annotations.
+20:17:44,768 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.paymentsimulator.AccounDAOImpl" has no MetaData or annotations.
+20:17:44,768 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.paymentsimulator.DAOInterface" has no MetaData or annotations.
+20:17:44,777 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.paymentsimulator.ExtensionMapper" has no MetaData or annotations.
+20:17:44,787 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.paymentsimulator.InitializePayment$Factory" has no MetaData or annotations.
+20:17:44,799 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.paymentsimulator.InitializePayment" has no MetaData or annotations.
+20:17:44,810 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.paymentsimulator.InitializePaymentResponse$Factory" has no MetaData or annotations.
+20:17:44,827 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.paymentsimulator.InitializePaymentResponse" has no MetaData or annotations.
+20:17:44,842 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.paymentsimulator.PaymentSimulatorMessageReceiverInOut" has no MetaData or annotations.
+20:17:44,853 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.paymentsimulator.PaymentSimulatorSkeleton" has no MetaData or annotations.
+20:17:44,864 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.paymentsimulator.RegisterAccount$Factory" has no MetaData or annotations.
+20:17:44,874 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.paymentsimulator.RegisterAccount" has no MetaData or annotations.
+20:17:44,884 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.paymentsimulator.RegisterAccountResponse$Factory" has no MetaData or annotations.
+20:17:44,896 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.paymentsimulator.RegisterAccountResponse" has no MetaData or annotations.
+20:17:44,906 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.paymentsimulator.RemoveAccount$Factory" has no MetaData or annotations.
+20:17:44,916 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.paymentsimulator.RemoveAccount" has no MetaData or annotations.
+20:17:44,927 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.paymentsimulator.RemoveAccountResponse$Factory" has no MetaData or annotations.
+20:17:44,937 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.paymentsimulator.RemoveAccountResponse" has no MetaData or annotations.
+20:17:44,947 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.policeregistersimulator.ExtensionMapper" has no MetaData or annotations.
+20:17:44,958 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.policeregistersimulator.InitializePoliceRegister$Factory" has no MetaData or annotations.
+20:17:44,968 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.policeregistersimulator.InitializePoliceRegister" has no MetaData or annotations.
+20:17:44,977 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.policeregistersimulator.InitializePoliceRegisterResponse$Factory" has no MetaData or annotations.
+20:17:44,986 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.policeregistersimulator.InitializePoliceRegisterResponse" has no MetaData or annotations.
+20:17:44,994 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.policeregistersimulator.PoliceRegisterSimulatorMessageReceiverInOut" has no MetaData or annotations.
+20:17:45,003 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.policeregistersimulator.PoliceRegisterSimulatorSkeleton" has no MetaData or annotations.
+20:17:45,079 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.policeregistersimulator.Register" has been specified with JPA annotations so using those.
+20:17:45,107 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.policeregistersimulator.RegisterDAOImpl" has no MetaData or annotations.
+20:17:45,229 (main) INFO  [DataNucleus.Enhancer] - Writing class file "C:\Users\emina\workspace\RentACarWebServices\build\classes\com\alicnina\paymentsimulator\Account.class" with enhanced definition
+20:17:45,233 (main) INFO  [DataNucleus.Enhancer] - ENHANCED (PersistenceCapable) : com.alicnina.paymentsimulator.Account
+20:17:45,251 (main) INFO  [DataNucleus.Enhancer] - Writing class file "C:\Users\emina\workspace\RentACarWebServices\build\classes\com\alicnina\policeregistersimulator\Register.class" with enhanced definition
+20:17:45,256 (main) INFO  [DataNucleus.Enhancer] - ENHANCED (PersistenceCapable) : com.alicnina.policeregistersimulator.Register
+20:17:45,257 (main) INFO  [DataNucleus.Enhancer] - DataNucleus Enhancer completed with success for 2 classes. Timings : input=929 ms, enhance=144 ms, total=1073 ms. Consult the log for full details
+20:18:08,991 (main) INFO  [DataNucleus.Enhancer] - DataNucleus Enhancer : Using ClassEnhancer "ASM" for API "JDO"
+20:18:10,141 (main) INFO  [DataNucleus.Enhancer] - DataNucleus Enhancer (version 3.0.0.m2) : Enhancement of classes
+20:18:10,627 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.paymentsimulator.Account" has been specified with JDO annotations so using those.
+20:18:40,707 (main) INFO  [DataNucleus.Enhancer] - DataNucleus Enhancer : Using ClassEnhancer "ASM" for API "JDO"
+20:18:41,848 (main) INFO  [DataNucleus.Enhancer] - DataNucleus Enhancer (version 3.0.0.m2) : Enhancement of classes
+20:18:42,477 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.paymentsimulator.Account" has been specified with JDO annotations so using those.
+20:18:42,488 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.paymentsimulator.Account" has been specified with JDO annotations so using those.
+20:18:42,754 (main) INFO  [DataNucleus.MetaData] - Class "org.apache.axis2.transport.http.AxisAdminServlet" has no MetaData or annotations.
+20:18:42,852 (main) INFO  [DataNucleus.MetaData] - Class "org.apache.axis2.webapp.AdminAgent" has no MetaData or annotations.
+20:18:42,890 (main) INFO  [DataNucleus.MetaData] - Class "org.apache.axis2.webapp.AxisAdminServlet" has no MetaData or annotations.
+20:18:42,902 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.paymentsimulator.AccounDAOImpl" has no MetaData or annotations.
+20:18:42,903 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.paymentsimulator.DAOInterface" has no MetaData or annotations.
+20:18:42,925 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.paymentsimulator.ExtensionMapper" has no MetaData or annotations.
+20:18:42,948 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.paymentsimulator.InitializePayment$Factory" has no MetaData or annotations.
+20:18:42,959 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.paymentsimulator.InitializePayment" has no MetaData or annotations.
+20:18:42,970 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.paymentsimulator.InitializePaymentResponse$Factory" has no MetaData or annotations.
+20:18:42,985 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.paymentsimulator.InitializePaymentResponse" has no MetaData or annotations.
+20:18:42,998 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.paymentsimulator.PaymentSimulatorMessageReceiverInOut" has no MetaData or annotations.
+20:18:43,011 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.paymentsimulator.PaymentSimulatorSkeleton" has no MetaData or annotations.
+20:18:43,022 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.paymentsimulator.RegisterAccount$Factory" has no MetaData or annotations.
+20:18:43,031 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.paymentsimulator.RegisterAccount" has no MetaData or annotations.
+20:18:43,043 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.paymentsimulator.RegisterAccountResponse$Factory" has no MetaData or annotations.
+20:18:43,055 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.paymentsimulator.RegisterAccountResponse" has no MetaData or annotations.
+20:18:43,065 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.paymentsimulator.RemoveAccount$Factory" has no MetaData or annotations.
+20:18:43,080 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.paymentsimulator.RemoveAccount" has no MetaData or annotations.
+20:18:43,091 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.paymentsimulator.RemoveAccountResponse$Factory" has no MetaData or annotations.
+20:18:43,101 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.paymentsimulator.RemoveAccountResponse" has no MetaData or annotations.
+20:18:43,112 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.policeregistersimulator.ExtensionMapper" has no MetaData or annotations.
+20:18:43,124 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.policeregistersimulator.InitializePoliceRegister$Factory" has no MetaData or annotations.
+20:18:43,133 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.policeregistersimulator.InitializePoliceRegister" has no MetaData or annotations.
+20:18:43,141 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.policeregistersimulator.InitializePoliceRegisterResponse$Factory" has no MetaData or annotations.
+20:18:43,149 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.policeregistersimulator.InitializePoliceRegisterResponse" has no MetaData or annotations.
+20:18:43,158 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.policeregistersimulator.PoliceRegisterSimulatorMessageReceiverInOut" has no MetaData or annotations.
+20:18:43,166 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.policeregistersimulator.PoliceRegisterSimulatorSkeleton" has no MetaData or annotations.
+20:18:43,256 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.policeregistersimulator.Register" has been specified with JPA annotations so using those.
+20:18:43,284 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.policeregistersimulator.RegisterDAOImpl" has no MetaData or annotations.
+20:18:43,407 (main) INFO  [DataNucleus.Enhancer] - Writing class file "C:\Users\emina\workspace\RentACarWebServices\build\classes\com\alicnina\paymentsimulator\Account.class" with enhanced definition
+20:18:43,411 (main) INFO  [DataNucleus.Enhancer] - ENHANCED (PersistenceCapable) : com.alicnina.paymentsimulator.Account
+20:18:43,429 (main) INFO  [DataNucleus.Enhancer] - Writing class file "C:\Users\emina\workspace\RentACarWebServices\build\classes\com\alicnina\policeregistersimulator\Register.class" with enhanced definition
+20:18:43,433 (main) INFO  [DataNucleus.Enhancer] - ENHANCED (PersistenceCapable) : com.alicnina.policeregistersimulator.Register
+20:18:43,434 (main) INFO  [DataNucleus.Enhancer] - DataNucleus Enhancer completed with success for 2 classes. Timings : input=1380 ms, enhance=143 ms, total=1523 ms. Consult the log for full details
+20:21:28,564 (main) INFO  [DataNucleus.Enhancer] - DataNucleus Enhancer : Using ClassEnhancer "ASM" for API "JDO"
+20:21:29,598 (main) INFO  [DataNucleus.Enhancer] - DataNucleus Enhancer (version 3.0.0.m2) : Enhancement of classes
+20:21:30,295 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.paymentsimulator.Account" has been specified with JDO annotations so using those.
+20:21:30,306 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.paymentsimulator.Account" has been specified with JDO annotations so using those.
+20:21:30,464 (main) INFO  [DataNucleus.MetaData] - Class "org.apache.axis2.transport.http.AxisAdminServlet" has no MetaData or annotations.
+20:21:30,543 (main) INFO  [DataNucleus.MetaData] - Class "org.apache.axis2.webapp.AdminAgent" has no MetaData or annotations.
+20:21:30,600 (main) INFO  [DataNucleus.MetaData] - Class "org.apache.axis2.webapp.AxisAdminServlet" has no MetaData or annotations.
+20:21:30,622 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.paymentsimulator.AccounDAOImpl" has no MetaData or annotations.
+20:21:30,622 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.paymentsimulator.DAOInterface" has no MetaData or annotations.
+20:21:30,632 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.paymentsimulator.ExtensionMapper" has no MetaData or annotations.
+20:21:30,681 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.paymentsimulator.InitializePayment$Factory" has no MetaData or annotations.
+20:21:30,694 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.paymentsimulator.InitializePayment" has no MetaData or annotations.
+20:21:30,705 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.paymentsimulator.InitializePaymentResponse$Factory" has no MetaData or annotations.
+20:21:30,762 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.paymentsimulator.InitializePaymentResponse" has no MetaData or annotations.
+20:21:30,776 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.paymentsimulator.PaymentSimulatorMessageReceiverInOut" has no MetaData or annotations.
+20:21:30,787 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.paymentsimulator.PaymentSimulatorSkeleton" has no MetaData or annotations.
+20:21:30,838 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.paymentsimulator.RegisterAccount$Factory" has no MetaData or annotations.
+20:21:30,849 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.paymentsimulator.RegisterAccount" has no MetaData or annotations.
+20:21:30,860 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.paymentsimulator.RegisterAccountResponse$Factory" has no MetaData or annotations.
+20:21:30,907 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.paymentsimulator.RegisterAccountResponse" has no MetaData or annotations.
+20:21:30,917 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.paymentsimulator.RemoveAccount$Factory" has no MetaData or annotations.
+20:21:30,929 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.paymentsimulator.RemoveAccount" has no MetaData or annotations.
+20:21:31,098 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.paymentsimulator.RemoveAccountResponse$Factory" has no MetaData or annotations.
+20:21:31,109 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.paymentsimulator.RemoveAccountResponse" has no MetaData or annotations.
+20:21:31,176 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.policeregistersimulator.ExtensionMapper" has no MetaData or annotations.
+20:21:31,230 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.policeregistersimulator.InitializePoliceRegister$Factory" has no MetaData or annotations.
+20:21:31,270 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.policeregistersimulator.InitializePoliceRegister" has no MetaData or annotations.
+20:21:31,280 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.policeregistersimulator.InitializePoliceRegisterResponse$Factory" has no MetaData or annotations.
+20:21:31,314 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.policeregistersimulator.InitializePoliceRegisterResponse" has no MetaData or annotations.
+20:21:31,324 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.policeregistersimulator.PoliceRegisterSimulatorMessageReceiverInOut" has no MetaData or annotations.
+20:21:31,335 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.policeregistersimulator.PoliceRegisterSimulatorSkeleton" has no MetaData or annotations.
+20:21:31,472 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.policeregistersimulator.Register" has been specified with JPA annotations so using those.
+20:21:31,504 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.policeregistersimulator.RegisterDAOImpl" has no MetaData or annotations.
+20:21:31,663 (main) INFO  [DataNucleus.Enhancer] - Writing class file "C:\Users\emina\workspace\RentACarWebServices\build\classes\com\alicnina\paymentsimulator\Account.class" with enhanced definition
+20:21:31,668 (main) INFO  [DataNucleus.Enhancer] - ENHANCED (PersistenceCapable) : com.alicnina.paymentsimulator.Account
+20:21:31,686 (main) INFO  [DataNucleus.Enhancer] - Writing class file "C:\Users\emina\workspace\RentACarWebServices\build\classes\com\alicnina\policeregistersimulator\Register.class" with enhanced definition
+20:21:31,691 (main) INFO  [DataNucleus.Enhancer] - ENHANCED (PersistenceCapable) : com.alicnina.policeregistersimulator.Register
+20:21:31,692 (main) INFO  [DataNucleus.Enhancer] - DataNucleus Enhancer completed with success for 2 classes. Timings : input=1888 ms, enhance=180 ms, total=2068 ms. Consult the log for full details
+20:24:36,066 (main) INFO  [DataNucleus.Enhancer] - DataNucleus Enhancer : Using ClassEnhancer "ASM" for API "JDO"
+20:24:37,206 (main) INFO  [DataNucleus.Enhancer] - DataNucleus Enhancer (version 3.0.0.m2) : Enhancement of classes
+20:24:38,070 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.paymentsimulator.Account" has been specified with JDO annotations so using those.
+20:24:38,083 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.paymentsimulator.Account" has been specified with JDO annotations so using those.
+20:24:38,246 (main) INFO  [DataNucleus.MetaData] - Class "org.apache.axis2.transport.http.AxisAdminServlet" has no MetaData or annotations.
+20:24:38,282 (main) INFO  [DataNucleus.MetaData] - Class "org.apache.axis2.webapp.AdminAgent" has no MetaData or annotations.
+20:24:38,318 (main) INFO  [DataNucleus.MetaData] - Class "org.apache.axis2.webapp.AxisAdminServlet" has no MetaData or annotations.
+20:24:38,331 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.paymentsimulator.AccounDAOImpl" has no MetaData or annotations.
+20:24:38,332 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.paymentsimulator.DAOInterface" has no MetaData or annotations.
+20:24:38,341 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.paymentsimulator.ExtensionMapper" has no MetaData or annotations.
+20:24:38,350 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.paymentsimulator.InitializePayment$Factory" has no MetaData or annotations.
+20:24:38,360 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.paymentsimulator.InitializePayment" has no MetaData or annotations.
+20:24:38,369 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.paymentsimulator.InitializePaymentResponse$Factory" has no MetaData or annotations.
+20:24:38,380 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.paymentsimulator.InitializePaymentResponse" has no MetaData or annotations.
+20:24:38,394 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.paymentsimulator.PaymentSimulatorMessageReceiverInOut" has no MetaData or annotations.
+20:24:38,404 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.paymentsimulator.PaymentSimulatorSkeleton" has no MetaData or annotations.
+20:24:38,432 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.paymentsimulator.RegisterAccount$Factory" has no MetaData or annotations.
+20:24:38,449 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.paymentsimulator.RegisterAccount" has no MetaData or annotations.
+20:24:38,459 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.paymentsimulator.RegisterAccountResponse$Factory" has no MetaData or annotations.
+20:24:38,470 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.paymentsimulator.RegisterAccountResponse" has no MetaData or annotations.
+20:24:38,478 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.paymentsimulator.RemoveAccount$Factory" has no MetaData or annotations.
+20:24:38,488 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.paymentsimulator.RemoveAccount" has no MetaData or annotations.
+20:24:38,497 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.paymentsimulator.RemoveAccountResponse$Factory" has no MetaData or annotations.
+20:24:38,507 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.paymentsimulator.RemoveAccountResponse" has no MetaData or annotations.
+20:24:38,516 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.policeregistersimulator.ExtensionMapper" has no MetaData or annotations.
+20:24:38,527 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.policeregistersimulator.InitializePoliceRegister$Factory" has no MetaData or annotations.
+20:24:38,536 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.policeregistersimulator.InitializePoliceRegister" has no MetaData or annotations.
+20:24:38,544 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.policeregistersimulator.InitializePoliceRegisterResponse$Factory" has no MetaData or annotations.
+20:24:38,553 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.policeregistersimulator.InitializePoliceRegisterResponse" has no MetaData or annotations.
+20:24:38,562 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.policeregistersimulator.PoliceRegisterSimulatorMessageReceiverInOut" has no MetaData or annotations.
+20:24:38,571 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.policeregistersimulator.PoliceRegisterSimulatorSkeleton" has no MetaData or annotations.
+20:24:38,645 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.policeregistersimulator.Register" has been specified with JPA annotations so using those.
+20:24:38,674 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.policeregistersimulator.RegisterDAOImpl" has no MetaData or annotations.
+20:24:38,795 (main) INFO  [DataNucleus.Enhancer] - Writing class file "C:\Users\emina\workspace\RentACarWebServices\build\classes\com\alicnina\paymentsimulator\Account.class" with enhanced definition
+20:24:38,799 (main) INFO  [DataNucleus.Enhancer] - ENHANCED (PersistenceCapable) : com.alicnina.paymentsimulator.Account
+20:24:38,817 (main) INFO  [DataNucleus.Enhancer] - Writing class file "C:\Users\emina\workspace\RentACarWebServices\build\classes\com\alicnina\policeregistersimulator\Register.class" with enhanced definition
+20:24:38,821 (main) INFO  [DataNucleus.Enhancer] - ENHANCED (PersistenceCapable) : com.alicnina.policeregistersimulator.Register
+20:24:38,822 (main) INFO  [DataNucleus.Enhancer] - DataNucleus Enhancer completed with success for 2 classes. Timings : input=1452 ms, enhance=142 ms, total=1594 ms. Consult the log for full details
+20:25:54,042 (main) INFO  [DataNucleus.Enhancer] - DataNucleus Enhancer : Using ClassEnhancer "ASM" for API "JDO"
+20:25:55,796 (main) INFO  [DataNucleus.Enhancer] - DataNucleus Enhancer (version 3.0.0.m2) : Enhancement of classes
+20:25:56,436 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.paymentsimulator.Account" has been specified with JDO annotations so using those.
+20:25:56,454 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.paymentsimulator.Account" has been specified with JDO annotations so using those.
+20:25:56,606 (main) INFO  [DataNucleus.MetaData] - Class "org.apache.axis2.transport.http.AxisAdminServlet" has no MetaData or annotations.
+20:25:56,634 (main) INFO  [DataNucleus.MetaData] - Class "org.apache.axis2.webapp.AdminAgent" has no MetaData or annotations.
+20:25:56,662 (main) INFO  [DataNucleus.MetaData] - Class "org.apache.axis2.webapp.AxisAdminServlet" has no MetaData or annotations.
+20:25:56,662 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.paymentsimulator.DAOInterface" has no MetaData or annotations.
+20:25:56,671 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.paymentsimulator.InitializePayment$Factory" has no MetaData or annotations.
+20:25:56,680 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.paymentsimulator.InitializePaymentResponse$Factory" has no MetaData or annotations.
+20:25:56,689 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.paymentsimulator.RegisterAccount$Factory" has no MetaData or annotations.
+20:25:56,698 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.paymentsimulator.RegisterAccountResponse$Factory" has no MetaData or annotations.
+20:25:56,709 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.paymentsimulator.RemoveAccount$Factory" has no MetaData or annotations.
+20:25:56,718 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.paymentsimulator.RemoveAccountResponse$Factory" has no MetaData or annotations.
+20:25:56,727 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.policeregistersimulator.ExtensionMapper" has no MetaData or annotations.
+20:25:56,736 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.policeregistersimulator.InitializePoliceRegister$Factory" has no MetaData or annotations.
+20:25:56,745 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.policeregistersimulator.InitializePoliceRegister" has no MetaData or annotations.
+20:25:56,754 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.policeregistersimulator.InitializePoliceRegisterResponse$Factory" has no MetaData or annotations.
+20:25:56,765 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.policeregistersimulator.InitializePoliceRegisterResponse" has no MetaData or annotations.
+20:25:56,774 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.policeregistersimulator.PoliceRegisterSimulatorMessageReceiverInOut" has no MetaData or annotations.
+20:25:56,783 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.policeregistersimulator.PoliceRegisterSimulatorSkeleton" has no MetaData or annotations.
+20:25:56,861 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.policeregistersimulator.Register" has been specified with JPA annotations so using those.
+20:25:56,945 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.policeregistersimulator.RegisterDAOImpl" has no MetaData or annotations.
+20:25:57,200 (main) INFO  [DataNucleus.Enhancer] - Writing class file "C:\Users\emina\workspace\RentACarWebServices\build\classes\com\alicnina\paymentsimulator\InitializePaymentResponse.class" with enhanced definition
+20:25:57,206 (main) INFO  [DataNucleus.Enhancer] - ENHANCED (PersistenceCapable) : com.alicnina.paymentsimulator.InitializePaymentResponse
+20:25:57,217 (main) INFO  [DataNucleus.Enhancer] - Writing class file "C:\Users\emina\workspace\RentACarWebServices\build\classes\com\alicnina\paymentsimulator\PaymentSimulatorMessageReceiverInOut.class" with enhanced definition
+20:25:57,223 (main) INFO  [DataNucleus.Enhancer] - ENHANCED (PersistenceCapable) : com.alicnina.paymentsimulator.PaymentSimulatorMessageReceiverInOut
+20:25:57,232 (main) INFO  [DataNucleus.Enhancer] - Writing class file "C:\Users\emina\workspace\RentACarWebServices\build\classes\com\alicnina\paymentsimulator\AccounDAOImpl.class" with enhanced definition
+20:25:57,237 (main) INFO  [DataNucleus.Enhancer] - ENHANCED (PersistenceCapable) : com.alicnina.paymentsimulator.AccounDAOImpl
+20:25:57,251 (main) INFO  [DataNucleus.Enhancer] - Writing class file "C:\Users\emina\workspace\RentACarWebServices\build\classes\com\alicnina\paymentsimulator\InitializePayment.class" with enhanced definition
+20:25:57,256 (main) INFO  [DataNucleus.Enhancer] - ENHANCED (PersistenceCapable) : com.alicnina.paymentsimulator.InitializePayment
+20:25:57,264 (main) INFO  [DataNucleus.Enhancer] - Writing class file "C:\Users\emina\workspace\RentACarWebServices\build\classes\com\alicnina\paymentsimulator\PaymentSimulatorSkeleton.class" with enhanced definition
+20:25:57,269 (main) INFO  [DataNucleus.Enhancer] - ENHANCED (PersistenceCapable) : com.alicnina.paymentsimulator.PaymentSimulatorSkeleton
+20:25:57,278 (main) INFO  [DataNucleus.Enhancer] - Writing class file "C:\Users\emina\workspace\RentACarWebServices\build\classes\com\alicnina\paymentsimulator\Account.class" with enhanced definition
+20:25:57,282 (main) INFO  [DataNucleus.Enhancer] - ENHANCED (PersistenceCapable) : com.alicnina.paymentsimulator.Account
+20:25:57,286 (main) INFO  [DataNucleus.Enhancer] - Writing class file "C:\Users\emina\workspace\RentACarWebServices\build\classes\com\alicnina\paymentsimulator\ExtensionMapper.class" with enhanced definition
+20:25:57,289 (main) INFO  [DataNucleus.Enhancer] - ENHANCED (PersistenceCapable) : com.alicnina.paymentsimulator.ExtensionMapper
+20:25:57,299 (main) INFO  [DataNucleus.Enhancer] - Writing class file "C:\Users\emina\workspace\RentACarWebServices\build\classes\com\alicnina\paymentsimulator\RegisterAccount.class" with enhanced definition
+20:25:57,303 (main) INFO  [DataNucleus.Enhancer] - ENHANCED (PersistenceCapable) : com.alicnina.paymentsimulator.RegisterAccount
+20:25:57,311 (main) INFO  [DataNucleus.Enhancer] - Writing class file "C:\Users\emina\workspace\RentACarWebServices\build\classes\com\alicnina\paymentsimulator\RegisterAccountResponse.class" with enhanced definition
+20:25:57,316 (main) INFO  [DataNucleus.Enhancer] - ENHANCED (PersistenceCapable) : com.alicnina.paymentsimulator.RegisterAccountResponse
+20:25:57,325 (main) INFO  [DataNucleus.Enhancer] - Writing class file "C:\Users\emina\workspace\RentACarWebServices\build\classes\com\alicnina\paymentsimulator\RemoveAccount.class" with enhanced definition
+20:25:57,329 (main) INFO  [DataNucleus.Enhancer] - ENHANCED (PersistenceCapable) : com.alicnina.paymentsimulator.RemoveAccount
+20:25:57,338 (main) INFO  [DataNucleus.Enhancer] - Writing class file "C:\Users\emina\workspace\RentACarWebServices\build\classes\com\alicnina\paymentsimulator\RemoveAccountResponse.class" with enhanced definition
+20:25:57,342 (main) INFO  [DataNucleus.Enhancer] - ENHANCED (PersistenceCapable) : com.alicnina.paymentsimulator.RemoveAccountResponse
+20:25:57,357 (main) INFO  [DataNucleus.Enhancer] - Writing class file "C:\Users\emina\workspace\RentACarWebServices\build\classes\com\alicnina\policeregistersimulator\Register.class" with enhanced definition
+20:25:57,360 (main) INFO  [DataNucleus.Enhancer] - ENHANCED (PersistenceCapable) : com.alicnina.policeregistersimulator.Register
+20:25:57,361 (main) INFO  [DataNucleus.Enhancer] - DataNucleus Enhancer completed with success for 12 classes. Timings : input=1140 ms, enhance=409 ms, total=1549 ms. Consult the log for full details
+20:27:07,824 (main) INFO  [DataNucleus.Enhancer] - DataNucleus Enhancer : Using ClassEnhancer "ASM" for API "JDO"
+20:27:08,965 (main) INFO  [DataNucleus.Enhancer] - DataNucleus Enhancer (version 3.0.0.m2) : Enhancement of classes
+20:27:09,616 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.paymentsimulator.Account" has been specified with JDO annotations so using those.
+20:27:09,627 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.paymentsimulator.Account" has been specified with JDO annotations so using those.
+20:27:09,829 (main) INFO  [DataNucleus.MetaData] - Class "org.apache.axis2.transport.http.AxisAdminServlet" has no MetaData or annotations.
+20:27:09,865 (main) INFO  [DataNucleus.MetaData] - Class "org.apache.axis2.webapp.AdminAgent" has no MetaData or annotations.
+20:27:09,899 (main) INFO  [DataNucleus.MetaData] - Class "org.apache.axis2.webapp.AxisAdminServlet" has no MetaData or annotations.
+20:27:09,912 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.paymentsimulator.AccounDAOImpl" has no MetaData or annotations.
+20:27:09,912 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.paymentsimulator.DAOInterface" has no MetaData or annotations.
+20:27:09,922 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.paymentsimulator.ExtensionMapper" has no MetaData or annotations.
+20:27:09,932 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.paymentsimulator.InitializePayment$Factory" has no MetaData or annotations.
+20:27:10,088 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.paymentsimulator.InitializePayment" has no MetaData or annotations.
+20:27:10,099 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.paymentsimulator.InitializePaymentResponse$Factory" has no MetaData or annotations.
+20:27:10,228 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.paymentsimulator.InitializePaymentResponse" has no MetaData or annotations.
+20:27:10,244 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.paymentsimulator.PaymentSimulatorMessageReceiverInOut" has no MetaData or annotations.
+20:27:10,256 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.paymentsimulator.PaymentSimulatorSkeleton" has no MetaData or annotations.
+20:27:10,271 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.paymentsimulator.RegisterAccount$Factory" has no MetaData or annotations.
+20:27:10,282 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.paymentsimulator.RegisterAccount" has no MetaData or annotations.
+20:27:10,296 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.paymentsimulator.RegisterAccountResponse$Factory" has no MetaData or annotations.
+20:27:10,311 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.paymentsimulator.RegisterAccountResponse" has no MetaData or annotations.
+20:27:10,321 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.paymentsimulator.RemoveAccount$Factory" has no MetaData or annotations.
+20:27:10,335 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.paymentsimulator.RemoveAccount" has no MetaData or annotations.
+20:27:10,343 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.paymentsimulator.RemoveAccountResponse$Factory" has no MetaData or annotations.
+20:27:10,353 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.paymentsimulator.RemoveAccountResponse" has no MetaData or annotations.
+20:27:10,373 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.policeregistersimulator.ExtensionMapper" has no MetaData or annotations.
+20:27:10,385 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.policeregistersimulator.InitializePoliceRegister$Factory" has no MetaData or annotations.
+20:27:10,395 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.policeregistersimulator.InitializePoliceRegister" has no MetaData or annotations.
+20:27:10,405 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.policeregistersimulator.InitializePoliceRegisterResponse$Factory" has no MetaData or annotations.
+20:27:10,416 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.policeregistersimulator.InitializePoliceRegisterResponse" has no MetaData or annotations.
+20:27:10,426 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.policeregistersimulator.PoliceRegisterSimulatorMessageReceiverInOut" has no MetaData or annotations.
+20:27:10,435 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.policeregistersimulator.PoliceRegisterSimulatorSkeleton" has no MetaData or annotations.
+20:27:10,519 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.policeregistersimulator.Register" has been specified with JPA annotations so using those.
+20:27:10,552 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.policeregistersimulator.RegisterDAOImpl" has no MetaData or annotations.
+20:27:10,688 (main) INFO  [DataNucleus.Enhancer] - Writing class file "C:\Users\emina\workspace\RentACarWebServices\build\classes\com\alicnina\paymentsimulator\Account.class" with enhanced definition
+20:27:10,693 (main) INFO  [DataNucleus.Enhancer] - ENHANCED (PersistenceCapable) : com.alicnina.paymentsimulator.Account
+20:27:10,711 (main) INFO  [DataNucleus.Enhancer] - Writing class file "C:\Users\emina\workspace\RentACarWebServices\build\classes\com\alicnina\policeregistersimulator\Register.class" with enhanced definition
+20:27:10,715 (main) INFO  [DataNucleus.Enhancer] - ENHANCED (PersistenceCapable) : com.alicnina.policeregistersimulator.Register
+20:27:10,716 (main) INFO  [DataNucleus.Enhancer] - DataNucleus Enhancer completed with success for 2 classes. Timings : input=1575 ms, enhance=156 ms, total=1731 ms. Consult the log for full details
+20:33:32,898 (main) INFO  [DataNucleus.Enhancer] - DataNucleus Enhancer : Using ClassEnhancer "ASM" for API "JDO"
+20:33:34,002 (main) INFO  [DataNucleus.Enhancer] - DataNucleus Enhancer (version 3.0.0.m2) : Enhancement of classes
+20:33:34,663 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.paymentsimulator.Account" has been specified with JDO annotations so using those.
+20:33:34,674 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.paymentsimulator.Account" has been specified with JDO annotations so using those.
+20:33:34,843 (main) INFO  [DataNucleus.MetaData] - Class "org.apache.axis2.transport.http.AxisAdminServlet" has no MetaData or annotations.
+20:33:34,894 (main) INFO  [DataNucleus.MetaData] - Class "org.apache.axis2.webapp.AdminAgent" has no MetaData or annotations.
+20:33:34,957 (main) INFO  [DataNucleus.MetaData] - Class "org.apache.axis2.webapp.AxisAdminServlet" has no MetaData or annotations.
+20:33:34,971 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.paymentsimulator.AccounDAOImpl" has no MetaData or annotations.
+20:33:34,971 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.paymentsimulator.DAOInterface" has no MetaData or annotations.
+20:33:34,981 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.paymentsimulator.ExtensionMapper" has no MetaData or annotations.
+20:33:34,991 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.paymentsimulator.InitializePayment$Factory" has no MetaData or annotations.
+20:33:35,003 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.paymentsimulator.InitializePayment" has no MetaData or annotations.
+20:33:35,016 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.paymentsimulator.InitializePaymentResponse$Factory" has no MetaData or annotations.
+20:33:35,030 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.paymentsimulator.InitializePaymentResponse" has no MetaData or annotations.
+20:33:35,047 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.paymentsimulator.PaymentSimulatorMessageReceiverInOut" has no MetaData or annotations.
+20:33:35,059 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.paymentsimulator.PaymentSimulatorSkeleton" has no MetaData or annotations.
+20:33:35,071 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.paymentsimulator.RegisterAccount$Factory" has no MetaData or annotations.
+20:33:35,083 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.paymentsimulator.RegisterAccount" has no MetaData or annotations.
+20:33:35,094 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.paymentsimulator.RegisterAccountResponse$Factory" has no MetaData or annotations.
+20:33:35,157 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.paymentsimulator.RegisterAccountResponse" has no MetaData or annotations.
+20:33:35,169 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.paymentsimulator.RemoveAccount$Factory" has no MetaData or annotations.
+20:33:35,184 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.paymentsimulator.RemoveAccount" has no MetaData or annotations.
+20:33:35,194 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.paymentsimulator.RemoveAccountResponse$Factory" has no MetaData or annotations.
+20:33:35,204 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.paymentsimulator.RemoveAccountResponse" has no MetaData or annotations.
+20:33:35,214 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.policeregistersimulator.ExtensionMapper" has no MetaData or annotations.
+20:33:35,225 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.policeregistersimulator.InitializePoliceRegister$Factory" has no MetaData or annotations.
+20:33:35,237 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.policeregistersimulator.InitializePoliceRegister" has no MetaData or annotations.
+20:33:35,249 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.policeregistersimulator.InitializePoliceRegisterResponse$Factory" has no MetaData or annotations.
+20:33:35,260 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.policeregistersimulator.InitializePoliceRegisterResponse" has no MetaData or annotations.
+20:33:35,270 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.policeregistersimulator.PoliceRegisterSimulatorMessageReceiverInOut" has no MetaData or annotations.
+20:33:35,279 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.policeregistersimulator.PoliceRegisterSimulatorSkeleton" has no MetaData or annotations.
+20:33:35,386 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.policeregistersimulator.Register" has been specified with JPA annotations so using those.
+20:33:35,421 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.policeregistersimulator.RegisterDAOImpl" has no MetaData or annotations.
+20:33:35,571 (main) INFO  [DataNucleus.Enhancer] - Writing class file "C:\Users\emina\workspace\RentACarWebServices\build\classes\com\alicnina\paymentsimulator\Account.class" with enhanced definition
+20:33:35,577 (main) INFO  [DataNucleus.Enhancer] - ENHANCED (PersistenceCapable) : com.alicnina.paymentsimulator.Account
+20:33:35,597 (main) INFO  [DataNucleus.Enhancer] - Writing class file "C:\Users\emina\workspace\RentACarWebServices\build\classes\com\alicnina\policeregistersimulator\Register.class" with enhanced definition
+20:33:35,602 (main) INFO  [DataNucleus.Enhancer] - ENHANCED (PersistenceCapable) : com.alicnina.policeregistersimulator.Register
+20:33:35,603 (main) INFO  [DataNucleus.Enhancer] - DataNucleus Enhancer completed with success for 2 classes. Timings : input=1292 ms, enhance=174 ms, total=1466 ms. Consult the log for full details
+20:33:47,611 (main) INFO  [DataNucleus.Enhancer] - DataNucleus Enhancer : Using ClassEnhancer "ASM" for API "JDO"
+20:33:48,682 (main) INFO  [DataNucleus.Enhancer] - DataNucleus Enhancer (version 3.0.0.m2) : Enhancement of classes
+20:33:49,035 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.paymentsimulator.Account" has been specified with JDO annotations so using those.
+20:35:47,664 (main) INFO  [DataNucleus.Enhancer] - DataNucleus Enhancer : Using ClassEnhancer "ASM" for API "JDO"
+20:35:48,719 (main) INFO  [DataNucleus.Enhancer] - DataNucleus Enhancer (version 3.0.0.m2) : Enhancement of classes
+20:35:49,057 (main) INFO  [DataNucleus.MetaData] - Class "org.apache.axis2.transport.http.AxisAdminServlet" has no MetaData or annotations.
+20:35:49,119 (main) INFO  [DataNucleus.MetaData] - Class "org.apache.axis2.webapp.AdminAgent" has no MetaData or annotations.
+20:35:49,149 (main) INFO  [DataNucleus.MetaData] - Class "org.apache.axis2.webapp.AxisAdminServlet" has no MetaData or annotations.
+20:35:49,160 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.paymentsimulator.AccounDAOImpl" has no MetaData or annotations.
+20:35:49,356 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.paymentsimulator.Account" has been specified with JDO annotations so using those.
+20:35:49,360 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.paymentsimulator.DAOInterface" has no MetaData or annotations.
+20:35:49,371 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.paymentsimulator.ExtensionMapper" has no MetaData or annotations.
+20:35:49,382 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.paymentsimulator.InitializePayment$Factory" has no MetaData or annotations.
+20:35:49,404 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.paymentsimulator.InitializePayment" has no MetaData or annotations.
+20:35:49,415 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.paymentsimulator.InitializePaymentResponse$Factory" has no MetaData or annotations.
+20:35:49,426 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.paymentsimulator.InitializePaymentResponse" has no MetaData or annotations.
+20:35:49,440 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.paymentsimulator.PaymentSimulatorMessageReceiverInOut" has no MetaData or annotations.
+20:35:49,451 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.paymentsimulator.PaymentSimulatorSkeleton" has no MetaData or annotations.
+20:35:49,462 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.paymentsimulator.RegisterAccount$Factory" has no MetaData or annotations.
+20:35:49,475 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.paymentsimulator.RegisterAccount" has no MetaData or annotations.
+20:35:49,487 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.paymentsimulator.RegisterAccountResponse$Factory" has no MetaData or annotations.
+20:35:49,499 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.paymentsimulator.RegisterAccountResponse" has no MetaData or annotations.
+20:35:49,509 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.paymentsimulator.RemoveAccount$Factory" has no MetaData or annotations.
+20:35:49,519 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.paymentsimulator.RemoveAccount" has no MetaData or annotations.
+20:35:49,533 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.paymentsimulator.RemoveAccountResponse$Factory" has no MetaData or annotations.
+20:35:49,549 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.paymentsimulator.RemoveAccountResponse" has no MetaData or annotations.
+20:35:49,561 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.policeregistersimulator.ExtensionMapper" has no MetaData or annotations.
+20:35:49,582 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.policeregistersimulator.InitializePoliceRegister$Factory" has no MetaData or annotations.
+20:35:49,602 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.policeregistersimulator.InitializePoliceRegister" has no MetaData or annotations.
+20:35:49,628 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.policeregistersimulator.InitializePoliceRegisterResponse$Factory" has no MetaData or annotations.
+20:35:49,640 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.policeregistersimulator.InitializePoliceRegisterResponse" has no MetaData or annotations.
+20:35:49,652 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.policeregistersimulator.PoliceRegisterSimulatorMessageReceiverInOut" has no MetaData or annotations.
+20:35:49,662 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.policeregistersimulator.PoliceRegisterSimulatorSkeleton" has no MetaData or annotations.
+20:35:49,761 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.policeregistersimulator.Register" has been specified with JPA annotations so using those.
+20:35:49,827 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.policeregistersimulator.RegisterDAOImpl" has no MetaData or annotations.
+20:35:50,128 (main) INFO  [DataNucleus.Enhancer] - Writing class file "C:\Users\emina\workspace\RentACarWebServices\build\classes\com\alicnina\paymentsimulator\Account.class" with enhanced definition
+20:35:50,135 (main) INFO  [DataNucleus.Enhancer] - ENHANCED (PersistenceCapable) : com.alicnina.paymentsimulator.Account
+20:35:50,170 (main) INFO  [DataNucleus.Enhancer] - Writing class file "C:\Users\emina\workspace\RentACarWebServices\build\classes\com\alicnina\policeregistersimulator\Register.class" with enhanced definition
+20:35:50,174 (main) INFO  [DataNucleus.Enhancer] - ENHANCED (PersistenceCapable) : com.alicnina.policeregistersimulator.Register
+20:35:50,175 (main) INFO  [DataNucleus.Enhancer] - DataNucleus Enhancer completed with success for 2 classes. Timings : input=1107 ms, enhance=329 ms, total=1436 ms. Consult the log for full details
+20:36:21,825 (main) INFO  [DataNucleus.Enhancer] - DataNucleus Enhancer : Using ClassEnhancer "ASM" for API "JDO"
+20:36:22,823 (main) INFO  [DataNucleus.Enhancer] - DataNucleus Enhancer (version 3.0.0.m2) : Enhancement of classes
+20:36:23,205 (main) INFO  [DataNucleus.MetaData] - Class "org.apache.axis2.transport.http.AxisAdminServlet" has no MetaData or annotations.
+20:36:23,245 (main) INFO  [DataNucleus.MetaData] - Class "org.apache.axis2.webapp.AdminAgent" has no MetaData or annotations.
+20:36:23,287 (main) INFO  [DataNucleus.MetaData] - Class "org.apache.axis2.webapp.AxisAdminServlet" has no MetaData or annotations.
+20:36:23,300 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.paymentsimulator.AccounDAOImpl" has no MetaData or annotations.
+20:36:23,466 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.paymentsimulator.Account" has been specified with JDO annotations so using those.
+20:36:23,469 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.paymentsimulator.DAOInterface" has no MetaData or annotations.
+20:36:23,479 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.paymentsimulator.ExtensionMapper" has no MetaData or annotations.
+20:36:23,489 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.paymentsimulator.InitializePayment$Factory" has no MetaData or annotations.
+20:36:23,510 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.paymentsimulator.InitializePayment" has no MetaData or annotations.
+20:36:23,521 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.paymentsimulator.InitializePaymentResponse$Factory" has no MetaData or annotations.
+20:36:23,537 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.paymentsimulator.InitializePaymentResponse" has no MetaData or annotations.
+20:36:23,551 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.paymentsimulator.PaymentSimulatorMessageReceiverInOut" has no MetaData or annotations.
+20:36:23,561 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.paymentsimulator.PaymentSimulatorSkeleton" has no MetaData or annotations.
+20:36:23,580 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.paymentsimulator.RegisterAccount$Factory" has no MetaData or annotations.
+20:36:23,592 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.paymentsimulator.RegisterAccount" has no MetaData or annotations.
+20:36:23,606 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.paymentsimulator.RegisterAccountResponse$Factory" has no MetaData or annotations.
+20:36:23,615 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.paymentsimulator.RegisterAccountResponse" has no MetaData or annotations.
+20:36:23,653 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.paymentsimulator.RemoveAccount$Factory" has no MetaData or annotations.
+20:36:23,663 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.paymentsimulator.RemoveAccount" has no MetaData or annotations.
+20:36:23,795 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.paymentsimulator.RemoveAccountResponse$Factory" has no MetaData or annotations.
+20:36:23,833 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.paymentsimulator.RemoveAccountResponse" has no MetaData or annotations.
+20:36:23,844 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.policeregistersimulator.ExtensionMapper" has no MetaData or annotations.
+20:36:23,853 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.policeregistersimulator.InitializePoliceRegister$Factory" has no MetaData or annotations.
+20:36:23,865 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.policeregistersimulator.InitializePoliceRegister" has no MetaData or annotations.
+20:36:23,888 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.policeregistersimulator.InitializePoliceRegisterResponse$Factory" has no MetaData or annotations.
+20:36:23,899 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.policeregistersimulator.InitializePoliceRegisterResponse" has no MetaData or annotations.
+20:36:23,913 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.policeregistersimulator.PoliceRegisterSimulatorMessageReceiverInOut" has no MetaData or annotations.
+20:36:23,934 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.policeregistersimulator.PoliceRegisterSimulatorSkeleton" has no MetaData or annotations.
+20:36:24,090 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.policeregistersimulator.Register" has been specified with JPA annotations so using those.
+20:36:24,141 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.policeregistersimulator.RegisterDAOImpl" has no MetaData or annotations.
+20:36:24,299 (main) INFO  [DataNucleus.Enhancer] - Writing class file "C:\Users\emina\workspace\RentACarWebServices\build\classes\com\alicnina\paymentsimulator\Account.class" with enhanced definition
+20:36:24,305 (main) INFO  [DataNucleus.Enhancer] - ENHANCED (PersistenceCapable) : com.alicnina.paymentsimulator.Account
+20:36:24,333 (main) INFO  [DataNucleus.Enhancer] - Writing class file "C:\Users\emina\workspace\RentACarWebServices\build\classes\com\alicnina\policeregistersimulator\Register.class" with enhanced definition
+20:36:24,337 (main) INFO  [DataNucleus.Enhancer] - ENHANCED (PersistenceCapable) : com.alicnina.policeregistersimulator.Register
+20:36:24,338 (main) INFO  [DataNucleus.Enhancer] - DataNucleus Enhancer completed with success for 2 classes. Timings : input=1305 ms, enhance=176 ms, total=1481 ms. Consult the log for full details
+20:43:54,166 (main) INFO  [DataNucleus.Enhancer] - DataNucleus Enhancer : Using ClassEnhancer "ASM" for API "JDO"
+20:43:55,222 (main) INFO  [DataNucleus.Enhancer] - DataNucleus Enhancer (version 3.0.0.m2) : Enhancement of classes
+20:43:55,770 (main) INFO  [DataNucleus.MetaData] - Class "org.apache.axis2.transport.http.AxisAdminServlet" has no MetaData or annotations.
+20:43:55,819 (main) INFO  [DataNucleus.MetaData] - Class "org.apache.axis2.webapp.AdminAgent" has no MetaData or annotations.
+20:43:55,849 (main) INFO  [DataNucleus.MetaData] - Class "org.apache.axis2.webapp.AxisAdminServlet" has no MetaData or annotations.
+20:43:55,861 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.paymentsimulator.AccounDAOImpl" has no MetaData or annotations.
+20:43:56,005 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.paymentsimulator.Account" has been specified with JDO annotations so using those.
+20:43:56,008 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.paymentsimulator.DAOInterface" has no MetaData or annotations.
+20:43:56,019 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.paymentsimulator.ExtensionMapper" has no MetaData or annotations.
+20:43:56,032 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.paymentsimulator.InitializePayment$Factory" has no MetaData or annotations.
+20:43:56,069 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.paymentsimulator.InitializePayment" has no MetaData or annotations.
+20:43:56,081 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.paymentsimulator.InitializePaymentResponse$Factory" has no MetaData or annotations.
+20:43:56,092 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.paymentsimulator.InitializePaymentResponse" has no MetaData or annotations.
+20:43:56,107 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.paymentsimulator.PaymentSimulatorMessageReceiverInOut" has no MetaData or annotations.
+20:43:56,119 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.paymentsimulator.PaymentSimulatorSkeleton" has no MetaData or annotations.
+20:43:56,132 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.paymentsimulator.RegisterAccount$Factory" has no MetaData or annotations.
+20:43:56,145 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.paymentsimulator.RegisterAccount" has no MetaData or annotations.
+20:43:56,159 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.paymentsimulator.RegisterAccountResponse$Factory" has no MetaData or annotations.
+20:43:56,170 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.paymentsimulator.RegisterAccountResponse" has no MetaData or annotations.
+20:43:56,180 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.paymentsimulator.RemoveAccount$Factory" has no MetaData or annotations.
+20:43:56,191 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.paymentsimulator.RemoveAccount" has no MetaData or annotations.
+20:43:56,202 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.paymentsimulator.RemoveAccountResponse$Factory" has no MetaData or annotations.
+20:43:56,214 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.paymentsimulator.RemoveAccountResponse" has no MetaData or annotations.
+20:43:56,226 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.policeregistersimulator.ExtensionMapper" has no MetaData or annotations.
+20:43:56,238 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.policeregistersimulator.InitializePoliceRegister$Factory" has no MetaData or annotations.
+20:43:56,249 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.policeregistersimulator.InitializePoliceRegister" has no MetaData or annotations.
+20:43:56,261 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.policeregistersimulator.InitializePoliceRegisterResponse$Factory" has no MetaData or annotations.
+20:43:56,272 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.policeregistersimulator.InitializePoliceRegisterResponse" has no MetaData or annotations.
+20:43:56,284 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.policeregistersimulator.PoliceRegisterSimulatorMessageReceiverInOut" has no MetaData or annotations.
+20:43:56,296 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.policeregistersimulator.PoliceRegisterSimulatorSkeleton" has no MetaData or annotations.
+20:43:56,539 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.policeregistersimulator.Register" has been specified with JPA annotations so using those.
+20:43:56,603 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.policeregistersimulator.RegisterDAOImpl" has no MetaData or annotations.
+20:43:56,763 (main) INFO  [DataNucleus.Enhancer] - Writing class file "C:\Users\emina\workspace\RentACarWebServices\build\classes\com\alicnina\paymentsimulator\Account.class" with enhanced definition
+20:43:56,768 (main) INFO  [DataNucleus.Enhancer] - ENHANCED (PersistenceCapable) : com.alicnina.paymentsimulator.Account
+20:43:56,796 (main) INFO  [DataNucleus.Enhancer] - Writing class file "C:\Users\emina\workspace\RentACarWebServices\build\classes\com\alicnina\policeregistersimulator\Register.class" with enhanced definition
+20:43:56,801 (main) INFO  [DataNucleus.Enhancer] - ENHANCED (PersistenceCapable) : com.alicnina.policeregistersimulator.Register
+20:43:56,802 (main) INFO  [DataNucleus.Enhancer] - DataNucleus Enhancer completed with success for 2 classes. Timings : input=1380 ms, enhance=181 ms, total=1561 ms. Consult the log for full details
+20:44:05,572 (main) INFO  [DataNucleus.Enhancer] - DataNucleus Enhancer : Using ClassEnhancer "ASM" for API "JDO"
+20:44:06,635 (main) INFO  [DataNucleus.Enhancer] - DataNucleus Enhancer (version 3.0.0.m2) : Enhancement of classes
+20:44:06,834 (main) INFO  [DataNucleus.MetaData] - Class "org.apache.axis2.transport.http.AxisAdminServlet" has no MetaData or annotations.
+20:44:06,918 (main) INFO  [DataNucleus.MetaData] - Class "org.apache.axis2.webapp.AdminAgent" has no MetaData or annotations.
+20:44:06,948 (main) INFO  [DataNucleus.MetaData] - Class "org.apache.axis2.webapp.AxisAdminServlet" has no MetaData or annotations.
+20:44:06,961 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.paymentsimulator.AccounDAOImpl" has no MetaData or annotations.
+20:44:07,103 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.paymentsimulator.Account" has been specified with JDO annotations so using those.
+20:45:04,275 (main) INFO  [DataNucleus.Enhancer] - DataNucleus Enhancer : Using ClassEnhancer "ASM" for API "JDO"
+20:45:05,301 (main) INFO  [DataNucleus.Enhancer] - DataNucleus Enhancer (version 3.0.0.m2) : Enhancement of classes
+20:45:05,832 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.paymentsimulator.Account" has been specified with JDO annotations so using those.
+20:45:05,844 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.paymentsimulator.Account" has been specified with JDO annotations so using those.
+20:45:06,024 (main) INFO  [DataNucleus.MetaData] - Class "org.apache.axis2.transport.http.AxisAdminServlet" has no MetaData or annotations.
+20:45:06,060 (main) INFO  [DataNucleus.MetaData] - Class "org.apache.axis2.webapp.AdminAgent" has no MetaData or annotations.
+20:45:06,098 (main) INFO  [DataNucleus.MetaData] - Class "org.apache.axis2.webapp.AxisAdminServlet" has no MetaData or annotations.
+20:45:06,110 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.paymentsimulator.AccounDAOImpl" has no MetaData or annotations.
+20:45:06,110 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.paymentsimulator.DAOInterface" has no MetaData or annotations.
+20:45:06,120 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.paymentsimulator.ExtensionMapper" has no MetaData or annotations.
+20:45:06,130 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.paymentsimulator.InitializePayment$Factory" has no MetaData or annotations.
+20:45:06,142 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.paymentsimulator.InitializePayment" has no MetaData or annotations.
+20:45:06,154 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.paymentsimulator.InitializePaymentResponse$Factory" has no MetaData or annotations.
+20:45:06,166 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.paymentsimulator.InitializePaymentResponse" has no MetaData or annotations.
+20:45:06,181 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.paymentsimulator.PaymentSimulatorMessageReceiverInOut" has no MetaData or annotations.
+20:45:06,194 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.paymentsimulator.PaymentSimulatorSkeleton" has no MetaData or annotations.
+20:45:06,205 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.paymentsimulator.RegisterAccount$Factory" has no MetaData or annotations.
+20:45:06,219 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.paymentsimulator.RegisterAccount" has no MetaData or annotations.
+20:45:06,350 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.paymentsimulator.RegisterAccountResponse$Factory" has no MetaData or annotations.
+20:45:06,395 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.paymentsimulator.RegisterAccountResponse" has no MetaData or annotations.
+20:45:06,405 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.paymentsimulator.RemoveAccount$Factory" has no MetaData or annotations.
+20:45:06,420 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.paymentsimulator.RemoveAccount" has no MetaData or annotations.
+20:45:06,430 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.paymentsimulator.RemoveAccountResponse$Factory" has no MetaData or annotations.
+20:45:06,440 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.paymentsimulator.RemoveAccountResponse" has no MetaData or annotations.
+20:45:06,449 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.policeregistersimulator.ExtensionMapper" has no MetaData or annotations.
+20:45:06,461 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.policeregistersimulator.InitializePoliceRegister$Factory" has no MetaData or annotations.
+20:45:06,471 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.policeregistersimulator.InitializePoliceRegister" has no MetaData or annotations.
+20:45:06,480 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.policeregistersimulator.InitializePoliceRegisterResponse$Factory" has no MetaData or annotations.
+20:45:06,489 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.policeregistersimulator.InitializePoliceRegisterResponse" has no MetaData or annotations.
+20:45:06,499 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.policeregistersimulator.PoliceRegisterSimulatorMessageReceiverInOut" has no MetaData or annotations.
+20:45:06,509 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.policeregistersimulator.PoliceRegisterSimulatorSkeleton" has no MetaData or annotations.
+20:45:06,601 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.policeregistersimulator.Register" has been specified with JPA annotations so using those.
+20:45:06,639 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.policeregistersimulator.RegisterDAOImpl" has no MetaData or annotations.
+20:45:06,769 (main) INFO  [DataNucleus.Enhancer] - Writing class file "C:\Users\emina\workspace\RentACarWebServices\build\classes\com\alicnina\paymentsimulator\Account.class" with enhanced definition
+20:45:06,773 (main) INFO  [DataNucleus.Enhancer] - ENHANCED (PersistenceCapable) : com.alicnina.paymentsimulator.Account
+20:45:06,792 (main) INFO  [DataNucleus.Enhancer] - Writing class file "C:\Users\emina\workspace\RentACarWebServices\build\classes\com\alicnina\policeregistersimulator\Register.class" with enhanced definition
+20:45:06,796 (main) INFO  [DataNucleus.Enhancer] - ENHANCED (PersistenceCapable) : com.alicnina.policeregistersimulator.Register
+20:45:06,797 (main) INFO  [DataNucleus.Enhancer] - DataNucleus Enhancer completed with success for 2 classes. Timings : input=1313 ms, enhance=150 ms, total=1463 ms. Consult the log for full details
+21:25:54,047 (main) INFO  [DataNucleus.Enhancer] - DataNucleus Enhancer : Using ClassEnhancer "ASM" for API "JDO"
+21:25:54,679 (main) INFO  [DataNucleus.Enhancer] - DataNucleus Enhancer (version 3.0.0.m2) : Enhancement of classes
+21:25:54,886 (main) ERROR [DataNucleus.MetaData] - Class com.alicnina.paymentsimulator.Account has MetaData yet the class cant be found. Please check your CLASSPATH specifications.
+21:25:54,889 (main) ERROR [DataNucleus.Enhancer] - DataNucleus Enhancer completed with an error. Please review the enhancer log for full details. Some classes may have been enhanced but some caused errors
+Class com.alicnina.paymentsimulator.Account has MetaData yet the class cant be found. Please check your CLASSPATH specifications.
+org.datanucleus.metadata.InvalidMetaDataException: Class com.alicnina.paymentsimulator.Account has MetaData yet the class cant be found. Please check your CLASSPATH specifications.
+	at org.datanucleus.metadata.AbstractClassMetaData.loadClass(AbstractClassMetaData.java:556)
+	at org.datanucleus.metadata.ClassMetaData.populate(ClassMetaData.java:166)
+	at org.datanucleus.metadata.MetaDataManager$1.run(MetaDataManager.java:2494)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at org.datanucleus.metadata.MetaDataManager.populateAbstractClassMetaData(MetaDataManager.java:2488)
+	at org.datanucleus.metadata.MetaDataManager.populateFileMetaData(MetaDataManager.java:2315)
+	at org.datanucleus.metadata.MetaDataManager.initialiseFileMetaDataForUse(MetaDataManager.java:964)
+	at org.datanucleus.metadata.MetaDataManager.loadMetadataFiles(MetaDataManager.java:394)
+	at org.datanucleus.enhancer.DataNucleusEnhancer.getFileMetadataForInput(DataNucleusEnhancer.java:792)
+	at org.datanucleus.enhancer.DataNucleusEnhancer.enhance(DataNucleusEnhancer.java:568)
+	at org.datanucleus.enhancer.DataNucleusEnhancer.main(DataNucleusEnhancer.java:1305)
+21:26:30,941 (main) INFO  [DataNucleus.Enhancer] - DataNucleus Enhancer : Using ClassEnhancer "ASM" for API "JDO"
+21:26:31,702 (main) INFO  [DataNucleus.Enhancer] - DataNucleus Enhancer (version 3.0.0.m2) : Enhancement of classes
+21:27:01,100 (main) INFO  [DataNucleus.Enhancer] - DataNucleus Enhancer : Using ClassEnhancer "ASM" for API "JDO"
+21:27:01,701 (main) INFO  [DataNucleus.Enhancer] - DataNucleus Enhancer (version 3.0.0.m2) : Enhancement of classes
+21:27:47,191 (main) INFO  [DataNucleus.Enhancer] - DataNucleus Enhancer : Using ClassEnhancer "ASM" for API "JDO"
+21:27:47,747 (main) INFO  [DataNucleus.Enhancer] - DataNucleus Enhancer (version 3.0.0.m2) : Enhancement of classes
+21:28:09,022 (main) INFO  [DataNucleus.Enhancer] - DataNucleus Enhancer : Using ClassEnhancer "ASM" for API "JDO"
+21:28:09,499 (main) INFO  [DataNucleus.Enhancer] - DataNucleus Enhancer (version 3.0.0.m2) : Enhancement of classes
+21:28:52,106 (main) INFO  [DataNucleus.Enhancer] - DataNucleus Enhancer : Using ClassEnhancer "ASM" for API "JDO"
+21:28:52,636 (main) INFO  [DataNucleus.Enhancer] - DataNucleus Enhancer (version 3.0.0.m2) : Enhancement of classes
+21:28:52,783 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.paymentsimulator.Account" has been specified with JDO annotations so using those.
+21:28:52,790 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.paymentsimulator.Account" has been specified with JDO annotations so using those.
+21:28:52,857 (main) INFO  [DataNucleus.MetaData] - Class "org.apache.axis2.transport.http.AxisAdminServlet" has no MetaData or annotations.
+21:28:52,878 (main) INFO  [DataNucleus.MetaData] - Class "org.apache.axis2.webapp.AdminAgent" has no MetaData or annotations.
+21:28:52,896 (main) INFO  [DataNucleus.MetaData] - Class "org.apache.axis2.webapp.AxisAdminServlet" has no MetaData or annotations.
+21:28:52,902 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.paymentsimulator.AccounDAOImpl" has no MetaData or annotations.
+21:28:52,902 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.paymentsimulator.DAOInterface" has no MetaData or annotations.
+21:28:52,906 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.paymentsimulator.ExtensionMapper" has no MetaData or annotations.
+21:28:52,913 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.paymentsimulator.InitializePayment$Factory" has no MetaData or annotations.
+21:28:52,919 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.paymentsimulator.InitializePayment" has no MetaData or annotations.
+21:28:52,925 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.paymentsimulator.InitializePaymentResponse$Factory" has no MetaData or annotations.
+21:28:52,933 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.paymentsimulator.InitializePaymentResponse" has no MetaData or annotations.
+21:28:52,941 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.paymentsimulator.PaymentSimulatorMessageReceiverInOut" has no MetaData or annotations.
+21:28:52,946 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.paymentsimulator.PaymentSimulatorSkeleton" has no MetaData or annotations.
+21:28:52,952 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.paymentsimulator.RegisterAccount$Factory" has no MetaData or annotations.
+21:28:52,956 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.paymentsimulator.RegisterAccount" has no MetaData or annotations.
+21:28:52,962 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.paymentsimulator.RegisterAccountResponse$Factory" has no MetaData or annotations.
+21:28:52,967 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.paymentsimulator.RegisterAccountResponse" has no MetaData or annotations.
+21:28:52,973 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.paymentsimulator.RemoveAccount$Factory" has no MetaData or annotations.
+21:28:52,978 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.paymentsimulator.RemoveAccount" has no MetaData or annotations.
+21:28:52,984 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.paymentsimulator.RemoveAccountResponse$Factory" has no MetaData or annotations.
+21:28:52,989 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.paymentsimulator.RemoveAccountResponse" has no MetaData or annotations.
+21:28:52,995 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.policeregistersimulator.ExtensionMapper" has no MetaData or annotations.
+21:28:53,000 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.policeregistersimulator.InitializePoliceRegister$Factory" has no MetaData or annotations.
+21:28:53,006 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.policeregistersimulator.InitializePoliceRegister" has no MetaData or annotations.
+21:28:53,014 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.policeregistersimulator.InitializePoliceRegisterResponse$Factory" has no MetaData or annotations.
+21:28:53,021 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.policeregistersimulator.InitializePoliceRegisterResponse" has no MetaData or annotations.
+21:28:53,029 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.policeregistersimulator.PoliceRegisterSimulatorMessageReceiverInOut" has no MetaData or annotations.
+21:28:53,035 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.policeregistersimulator.PoliceRegisterSimulatorSkeleton" has no MetaData or annotations.
+21:28:53,072 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.policeregistersimulator.Register" has been specified with JPA annotations so using those.
+21:28:53,091 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.policeregistersimulator.RegisterDAOImpl" has no MetaData or annotations.
+21:28:53,143 (main) INFO  [DataNucleus.Enhancer] - Writing class file "C:\Users\senchi\git\Edu\RentACarWebServices\build\classes\com\alicnina\paymentsimulator\Account.class" with enhanced definition
+21:28:53,147 (main) INFO  [DataNucleus.Enhancer] - ENHANCED (PersistenceCapable) : com.alicnina.paymentsimulator.Account
+21:28:53,158 (main) INFO  [DataNucleus.Enhancer] - Writing class file "C:\Users\senchi\git\Edu\RentACarWebServices\build\classes\com\alicnina\policeregistersimulator\Register.class" with enhanced definition
+21:28:53,160 (main) INFO  [DataNucleus.Enhancer] - ENHANCED (PersistenceCapable) : com.alicnina.policeregistersimulator.Register
+21:28:53,161 (main) INFO  [DataNucleus.Enhancer] - DataNucleus Enhancer completed with success for 2 classes. Timings : input=446 ms, enhance=66 ms, total=512 ms. Consult the log for full details
+21:29:19,583 (main) INFO  [DataNucleus.Enhancer] - DataNucleus Enhancer : Using ClassEnhancer "ASM" for API "JDO"
+21:29:20,062 (main) INFO  [DataNucleus.Enhancer] - DataNucleus Enhancer (version 3.0.0.m2) : Enhancement of classes
+21:29:20,228 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.paymentsimulator.Account" has been specified with JDO annotations so using those.
+21:29:20,233 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.paymentsimulator.Account" has been specified with JDO annotations so using those.
+21:29:20,293 (main) INFO  [DataNucleus.MetaData] - Class "org.apache.axis2.transport.http.AxisAdminServlet" has no MetaData or annotations.
+21:29:20,317 (main) INFO  [DataNucleus.MetaData] - Class "org.apache.axis2.webapp.AdminAgent" has no MetaData or annotations.
+21:29:20,339 (main) INFO  [DataNucleus.MetaData] - Class "org.apache.axis2.webapp.AxisAdminServlet" has no MetaData or annotations.
+21:29:20,346 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.paymentsimulator.AccounDAOImpl" has no MetaData or annotations.
+21:29:20,346 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.paymentsimulator.DAOInterface" has no MetaData or annotations.
+21:29:20,352 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.paymentsimulator.ExtensionMapper" has no MetaData or annotations.
+21:29:20,357 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.paymentsimulator.InitializePayment$Factory" has no MetaData or annotations.
+21:29:20,365 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.paymentsimulator.InitializePayment" has no MetaData or annotations.
+21:29:20,370 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.paymentsimulator.InitializePaymentResponse$Factory" has no MetaData or annotations.
+21:29:20,376 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.paymentsimulator.InitializePaymentResponse" has no MetaData or annotations.
+21:29:20,384 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.paymentsimulator.PaymentSimulatorMessageReceiverInOut" has no MetaData or annotations.
+21:29:20,389 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.paymentsimulator.PaymentSimulatorSkeleton" has no MetaData or annotations.
+21:29:20,395 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.paymentsimulator.RegisterAccount$Factory" has no MetaData or annotations.
+21:29:20,400 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.paymentsimulator.RegisterAccount" has no MetaData or annotations.
+21:29:20,406 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.paymentsimulator.RegisterAccountResponse$Factory" has no MetaData or annotations.
+21:29:20,411 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.paymentsimulator.RegisterAccountResponse" has no MetaData or annotations.
+21:29:20,417 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.paymentsimulator.RemoveAccount$Factory" has no MetaData or annotations.
+21:29:20,423 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.paymentsimulator.RemoveAccount" has no MetaData or annotations.
+21:29:20,429 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.paymentsimulator.RemoveAccountResponse$Factory" has no MetaData or annotations.
+21:29:20,435 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.paymentsimulator.RemoveAccountResponse" has no MetaData or annotations.
+21:29:20,441 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.policeregistersimulator.ExtensionMapper" has no MetaData or annotations.
+21:29:20,448 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.policeregistersimulator.InitializePoliceRegister$Factory" has no MetaData or annotations.
+21:29:20,454 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.policeregistersimulator.InitializePoliceRegister" has no MetaData or annotations.
+21:29:20,459 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.policeregistersimulator.InitializePoliceRegisterResponse$Factory" has no MetaData or annotations.
+21:29:20,465 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.policeregistersimulator.InitializePoliceRegisterResponse" has no MetaData or annotations.
+21:29:20,471 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.policeregistersimulator.PoliceRegisterSimulatorMessageReceiverInOut" has no MetaData or annotations.
+21:29:20,476 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.policeregistersimulator.PoliceRegisterSimulatorSkeleton" has no MetaData or annotations.
+21:29:20,511 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.policeregistersimulator.Register" has been specified with JPA annotations so using those.
+21:29:20,529 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.policeregistersimulator.RegisterDAOImpl" has no MetaData or annotations.
+21:29:20,580 (main) INFO  [DataNucleus.Enhancer] - Writing class file "C:\Users\senchi\git\Edu\RentACarWebServices\build\classes\com\alicnina\paymentsimulator\Account.class" with enhanced definition
+21:29:20,583 (main) INFO  [DataNucleus.Enhancer] - ENHANCED (PersistenceCapable) : com.alicnina.paymentsimulator.Account
+21:29:20,593 (main) INFO  [DataNucleus.Enhancer] - Writing class file "C:\Users\senchi\git\Edu\RentACarWebServices\build\classes\com\alicnina\policeregistersimulator\Register.class" with enhanced definition
+21:29:20,597 (main) INFO  [DataNucleus.Enhancer] - ENHANCED (PersistenceCapable) : com.alicnina.policeregistersimulator.Register
+21:29:20,599 (main) INFO  [DataNucleus.Enhancer] - DataNucleus Enhancer completed with success for 2 classes. Timings : input=460 ms, enhance=65 ms, total=525 ms. Consult the log for full details
+21:36:48,675 (main) INFO  [DataNucleus.Enhancer] - DataNucleus Enhancer : Using ClassEnhancer "ASM" for API "JDO"
+21:36:49,222 (main) INFO  [DataNucleus.Enhancer] - DataNucleus Enhancer (version 3.0.0.m2) : Enhancement of classes
+21:36:49,373 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.paymentsimulator.Account" has been specified with JDO annotations so using those.
+21:36:49,380 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.paymentsimulator.Account" has been specified with JDO annotations so using those.
+21:36:49,471 (main) INFO  [DataNucleus.MetaData] - Class "org.apache.axis2.transport.http.AxisAdminServlet" has no MetaData or annotations.
+21:36:49,503 (main) INFO  [DataNucleus.MetaData] - Class "org.apache.axis2.webapp.AdminAgent" has no MetaData or annotations.
+21:36:49,526 (main) INFO  [DataNucleus.MetaData] - Class "org.apache.axis2.webapp.AxisAdminServlet" has no MetaData or annotations.
+21:36:49,532 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.paymentsimulator.AccounDAOImpl" has no MetaData or annotations.
+21:36:49,532 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.paymentsimulator.DAOInterface" has no MetaData or annotations.
+21:36:49,538 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.paymentsimulator.ExtensionMapper" has no MetaData or annotations.
+21:36:49,544 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.paymentsimulator.InitializePayment$Factory" has no MetaData or annotations.
+21:36:49,551 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.paymentsimulator.InitializePayment" has no MetaData or annotations.
+21:36:49,556 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.paymentsimulator.InitializePaymentResponse$Factory" has no MetaData or annotations.
+21:36:49,562 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.paymentsimulator.InitializePaymentResponse" has no MetaData or annotations.
+21:36:49,570 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.paymentsimulator.PaymentSimulatorMessageReceiverInOut" has no MetaData or annotations.
+21:36:49,576 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.paymentsimulator.PaymentSimulatorSkeleton" has no MetaData or annotations.
+21:36:49,581 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.paymentsimulator.RegisterAccount$Factory" has no MetaData or annotations.
+21:36:49,587 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.paymentsimulator.RegisterAccount" has no MetaData or annotations.
+21:36:49,594 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.paymentsimulator.RegisterAccountResponse$Factory" has no MetaData or annotations.
+21:36:49,601 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.paymentsimulator.RegisterAccountResponse" has no MetaData or annotations.
+21:36:49,606 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.paymentsimulator.RemoveAccount$Factory" has no MetaData or annotations.
+21:36:49,613 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.paymentsimulator.RemoveAccount" has no MetaData or annotations.
+21:36:49,622 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.paymentsimulator.RemoveAccountResponse$Factory" has no MetaData or annotations.
+21:36:49,632 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.paymentsimulator.RemoveAccountResponse" has no MetaData or annotations.
+21:36:49,642 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.policeregistersimulator.ExtensionMapper" has no MetaData or annotations.
+21:36:49,649 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.policeregistersimulator.InitializePoliceRegister$Factory" has no MetaData or annotations.
+21:36:49,656 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.policeregistersimulator.InitializePoliceRegister" has no MetaData or annotations.
+21:36:49,661 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.policeregistersimulator.InitializePoliceRegisterResponse$Factory" has no MetaData or annotations.
+21:36:49,667 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.policeregistersimulator.InitializePoliceRegisterResponse" has no MetaData or annotations.
+21:36:49,673 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.policeregistersimulator.PoliceRegisterSimulatorMessageReceiverInOut" has no MetaData or annotations.
+21:36:49,678 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.policeregistersimulator.PoliceRegisterSimulatorSkeleton" has no MetaData or annotations.
+21:36:49,716 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.policeregistersimulator.Register" has been specified with JPA annotations so using those.
+21:36:49,733 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.policeregistersimulator.RegisterDAOImpl" has no MetaData or annotations.
+21:36:49,787 (main) INFO  [DataNucleus.Enhancer] - Writing class file "C:\Users\senchi\git\Edu\RentACarWebServices\build\classes\com\alicnina\paymentsimulator\Account.class" with enhanced definition
+21:36:49,789 (main) INFO  [DataNucleus.Enhancer] - ENHANCED (PersistenceCapable) : com.alicnina.paymentsimulator.Account
+21:36:49,803 (main) INFO  [DataNucleus.Enhancer] - Writing class file "C:\Users\senchi\git\Edu\RentACarWebServices\build\classes\com\alicnina\policeregistersimulator\Register.class" with enhanced definition
+21:36:49,806 (main) INFO  [DataNucleus.Enhancer] - ENHANCED (PersistenceCapable) : com.alicnina.policeregistersimulator.Register
+21:36:49,807 (main) INFO  [DataNucleus.Enhancer] - DataNucleus Enhancer completed with success for 2 classes. Timings : input=503 ms, enhance=70 ms, total=573 ms. Consult the log for full details
+21:40:23,512 (main) INFO  [DataNucleus.Enhancer] - DataNucleus Enhancer : Using ClassEnhancer "ASM" for API "JDO"
+21:40:24,018 (main) INFO  [DataNucleus.Enhancer] - DataNucleus Enhancer (version 3.0.0.m2) : Enhancement of classes
+21:40:24,148 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.paymentsimulator.Account" has been specified with JDO annotations so using those.
+21:40:24,153 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.paymentsimulator.Account" has been specified with JDO annotations so using those.
+21:40:24,221 (main) INFO  [DataNucleus.MetaData] - Class "org.apache.axis2.transport.http.AxisAdminServlet" has no MetaData or annotations.
+21:40:24,248 (main) INFO  [DataNucleus.MetaData] - Class "org.apache.axis2.webapp.AdminAgent" has no MetaData or annotations.
+21:40:24,274 (main) INFO  [DataNucleus.MetaData] - Class "org.apache.axis2.webapp.AxisAdminServlet" has no MetaData or annotations.
+21:40:24,280 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.paymentsimulator.AccounDAOImpl" has no MetaData or annotations.
+21:40:24,280 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.paymentsimulator.DAOInterface" has no MetaData or annotations.
+21:40:24,286 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.paymentsimulator.ExtensionMapper" has no MetaData or annotations.
+21:40:24,292 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.paymentsimulator.InitializePayment$Factory" has no MetaData or annotations.
+21:40:24,300 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.paymentsimulator.InitializePayment" has no MetaData or annotations.
+21:40:24,306 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.paymentsimulator.InitializePaymentResponse$Factory" has no MetaData or annotations.
+21:40:24,312 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.paymentsimulator.InitializePaymentResponse" has no MetaData or annotations.
+21:40:24,325 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.paymentsimulator.PaymentSimulatorMessageReceiverInOut" has no MetaData or annotations.
+21:40:24,333 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.paymentsimulator.PaymentSimulatorSkeleton" has no MetaData or annotations.
+21:40:24,339 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.paymentsimulator.RegisterAccount$Factory" has no MetaData or annotations.
+21:40:24,346 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.paymentsimulator.RegisterAccount" has no MetaData or annotations.
+21:40:24,355 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.paymentsimulator.RegisterAccountResponse$Factory" has no MetaData or annotations.
+21:40:24,363 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.paymentsimulator.RegisterAccountResponse" has no MetaData or annotations.
+21:40:24,373 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.paymentsimulator.RemoveAccount$Factory" has no MetaData or annotations.
+21:40:24,380 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.paymentsimulator.RemoveAccount" has no MetaData or annotations.
+21:40:24,386 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.paymentsimulator.RemoveAccountResponse$Factory" has no MetaData or annotations.
+21:40:24,392 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.paymentsimulator.RemoveAccountResponse" has no MetaData or annotations.
+21:40:24,398 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.policeregistersimulator.ExtensionMapper" has no MetaData or annotations.
+21:40:24,404 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.policeregistersimulator.InitializePoliceRegister$Factory" has no MetaData or annotations.
+21:40:24,410 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.policeregistersimulator.InitializePoliceRegister" has no MetaData or annotations.
+21:40:24,416 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.policeregistersimulator.InitializePoliceRegisterResponse$Factory" has no MetaData or annotations.
+21:40:24,422 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.policeregistersimulator.InitializePoliceRegisterResponse" has no MetaData or annotations.
+21:40:24,428 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.policeregistersimulator.PoliceRegisterSimulatorMessageReceiverInOut" has no MetaData or annotations.
+21:40:24,435 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.policeregistersimulator.PoliceRegisterSimulatorSkeleton" has no MetaData or annotations.
+21:40:24,472 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.policeregistersimulator.Register" has been specified with JPA annotations so using those.
+21:40:24,491 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.policeregistersimulator.RegisterDAOImpl" has no MetaData or annotations.
+21:40:24,544 (main) INFO  [DataNucleus.Enhancer] - Writing class file "C:\Users\senchi\git\Edu\RentACarWebServices\build\classes\com\alicnina\paymentsimulator\Account.class" with enhanced definition
+21:40:24,546 (main) INFO  [DataNucleus.Enhancer] - ENHANCED (PersistenceCapable) : com.alicnina.paymentsimulator.Account
+21:40:24,556 (main) INFO  [DataNucleus.Enhancer] - Writing class file "C:\Users\senchi\git\Edu\RentACarWebServices\build\classes\com\alicnina\policeregistersimulator\Register.class" with enhanced definition
+21:40:24,559 (main) INFO  [DataNucleus.Enhancer] - ENHANCED (PersistenceCapable) : com.alicnina.policeregistersimulator.Register
+21:40:24,560 (main) INFO  [DataNucleus.Enhancer] - DataNucleus Enhancer completed with success for 2 classes. Timings : input=466 ms, enhance=66 ms, total=532 ms. Consult the log for full details
+21:42:44,711 (main) INFO  [DataNucleus.Enhancer] - DataNucleus Enhancer : Using ClassEnhancer "ASM" for API "JDO"
+21:42:45,197 (main) INFO  [DataNucleus.Enhancer] - DataNucleus Enhancer (version 3.0.0.m2) : Enhancement of classes
+21:42:45,352 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.paymentsimulator.Account" has been specified with JDO annotations so using those.
+21:42:45,357 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.paymentsimulator.Account" has been specified with JDO annotations so using those.
+21:42:45,418 (main) INFO  [DataNucleus.MetaData] - Class "org.apache.axis2.transport.http.AxisAdminServlet" has no MetaData or annotations.
+21:42:45,444 (main) INFO  [DataNucleus.MetaData] - Class "org.apache.axis2.webapp.AdminAgent" has no MetaData or annotations.
+21:42:45,468 (main) INFO  [DataNucleus.MetaData] - Class "org.apache.axis2.webapp.AxisAdminServlet" has no MetaData or annotations.
+21:42:45,475 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.paymentsimulator.AccounDAOImpl" has no MetaData or annotations.
+21:42:45,475 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.paymentsimulator.DAOInterface" has no MetaData or annotations.
+21:42:45,483 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.paymentsimulator.ExtensionMapper" has no MetaData or annotations.
+21:42:45,493 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.paymentsimulator.InitializePayment$Factory" has no MetaData or annotations.
+21:42:45,503 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.paymentsimulator.InitializePayment" has no MetaData or annotations.
+21:42:45,511 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.paymentsimulator.InitializePaymentResponse$Factory" has no MetaData or annotations.
+21:42:45,519 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.paymentsimulator.InitializePaymentResponse" has no MetaData or annotations.
+21:42:45,530 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.paymentsimulator.PaymentSimulatorMessageReceiverInOut" has no MetaData or annotations.
+21:42:45,537 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.paymentsimulator.PaymentSimulatorSkeleton" has no MetaData or annotations.
+21:42:45,543 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.paymentsimulator.RegisterAccount$Factory" has no MetaData or annotations.
+21:42:45,548 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.paymentsimulator.RegisterAccount" has no MetaData or annotations.
+21:42:45,554 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.paymentsimulator.RegisterAccountResponse$Factory" has no MetaData or annotations.
+21:42:45,560 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.paymentsimulator.RegisterAccountResponse" has no MetaData or annotations.
+21:42:45,565 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.paymentsimulator.RemoveAccount$Factory" has no MetaData or annotations.
+21:42:45,571 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.paymentsimulator.RemoveAccount" has no MetaData or annotations.
+21:42:45,577 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.paymentsimulator.RemoveAccountResponse$Factory" has no MetaData or annotations.
+21:42:45,583 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.paymentsimulator.RemoveAccountResponse" has no MetaData or annotations.
+21:42:45,589 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.policeregistersimulator.ExtensionMapper" has no MetaData or annotations.
+21:42:45,595 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.policeregistersimulator.InitializePoliceRegister$Factory" has no MetaData or annotations.
+21:42:45,601 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.policeregistersimulator.InitializePoliceRegister" has no MetaData or annotations.
+21:42:45,607 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.policeregistersimulator.InitializePoliceRegisterResponse$Factory" has no MetaData or annotations.
+21:42:45,613 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.policeregistersimulator.InitializePoliceRegisterResponse" has no MetaData or annotations.
+21:42:45,619 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.policeregistersimulator.PoliceRegisterSimulatorMessageReceiverInOut" has no MetaData or annotations.
+21:42:45,625 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.policeregistersimulator.PoliceRegisterSimulatorSkeleton" has no MetaData or annotations.
+21:42:45,666 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.policeregistersimulator.Register" has been specified with JPA annotations so using those.
+21:42:45,684 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.policeregistersimulator.RegisterDAOImpl" has no MetaData or annotations.
+21:42:45,750 (main) INFO  [DataNucleus.Enhancer] - Writing class file "C:\Users\senchi\git\Edu\RentACarWebServices\build\classes\com\alicnina\paymentsimulator\Account.class" with enhanced definition
+21:42:45,752 (main) INFO  [DataNucleus.Enhancer] - ENHANCED (PersistenceCapable) : com.alicnina.paymentsimulator.Account
+21:42:45,763 (main) INFO  [DataNucleus.Enhancer] - Writing class file "C:\Users\senchi\git\Edu\RentACarWebServices\build\classes\com\alicnina\policeregistersimulator\Register.class" with enhanced definition
+21:42:45,766 (main) INFO  [DataNucleus.Enhancer] - ENHANCED (PersistenceCapable) : com.alicnina.policeregistersimulator.Register
+21:42:45,766 (main) INFO  [DataNucleus.Enhancer] - DataNucleus Enhancer completed with success for 2 classes. Timings : input=480 ms, enhance=79 ms, total=559 ms. Consult the log for full details
+21:46:03,011 (main) INFO  [DataNucleus.Enhancer] - DataNucleus Enhancer : Using ClassEnhancer "ASM" for API "JDO"
+21:46:03,488 (main) INFO  [DataNucleus.Enhancer] - DataNucleus Enhancer (version 3.0.0.m2) : Enhancement of classes
+21:46:03,636 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.paymentsimulator.Account" has been specified with JDO annotations so using those.
+21:46:03,642 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.paymentsimulator.Account" has been specified with JDO annotations so using those.
+21:46:03,710 (main) INFO  [DataNucleus.MetaData] - Class "org.apache.axis2.transport.http.AxisAdminServlet" has no MetaData or annotations.
+21:46:03,735 (main) INFO  [DataNucleus.MetaData] - Class "org.apache.axis2.webapp.AdminAgent" has no MetaData or annotations.
+21:46:03,758 (main) INFO  [DataNucleus.MetaData] - Class "org.apache.axis2.webapp.AxisAdminServlet" has no MetaData or annotations.
+21:46:03,764 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.paymentsimulator.AccounDAOImpl" has no MetaData or annotations.
+21:46:03,764 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.paymentsimulator.DAOInterface" has no MetaData or annotations.
+21:46:03,770 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.paymentsimulator.ExtensionMapper" has no MetaData or annotations.
+21:46:03,776 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.paymentsimulator.InitializePayment$Factory" has no MetaData or annotations.
+21:46:03,783 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.paymentsimulator.InitializePayment" has no MetaData or annotations.
+21:46:03,789 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.paymentsimulator.InitializePaymentResponse$Factory" has no MetaData or annotations.
+21:46:03,795 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.paymentsimulator.InitializePaymentResponse" has no MetaData or annotations.
+21:46:03,804 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.paymentsimulator.PaymentSimulatorMessageReceiverInOut" has no MetaData or annotations.
+21:46:03,810 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.paymentsimulator.PaymentSimulatorSkeleton" has no MetaData or annotations.
+21:46:03,815 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.paymentsimulator.RegisterAccount$Factory" has no MetaData or annotations.
+21:46:03,821 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.paymentsimulator.RegisterAccount" has no MetaData or annotations.
+21:46:03,827 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.paymentsimulator.RegisterAccountResponse$Factory" has no MetaData or annotations.
+21:46:03,832 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.paymentsimulator.RegisterAccountResponse" has no MetaData or annotations.
+21:46:03,838 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.paymentsimulator.RemoveAccount$Factory" has no MetaData or annotations.
+21:46:03,844 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.paymentsimulator.RemoveAccount" has no MetaData or annotations.
+21:46:03,850 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.paymentsimulator.RemoveAccountResponse$Factory" has no MetaData or annotations.
+21:46:03,857 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.paymentsimulator.RemoveAccountResponse" has no MetaData or annotations.
+21:46:03,863 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.policeregistersimulator.ExtensionMapper" has no MetaData or annotations.
+21:46:03,869 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.policeregistersimulator.InitializePoliceRegister$Factory" has no MetaData or annotations.
+21:46:03,876 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.policeregistersimulator.InitializePoliceRegister" has no MetaData or annotations.
+21:46:03,882 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.policeregistersimulator.InitializePoliceRegisterResponse$Factory" has no MetaData or annotations.
+21:46:03,888 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.policeregistersimulator.InitializePoliceRegisterResponse" has no MetaData or annotations.
+21:46:03,894 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.policeregistersimulator.PoliceRegisterSimulatorMessageReceiverInOut" has no MetaData or annotations.
+21:46:03,900 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.policeregistersimulator.PoliceRegisterSimulatorSkeleton" has no MetaData or annotations.
+21:46:03,944 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.policeregistersimulator.Register" has been specified with JPA annotations so using those.
+21:46:03,974 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.policeregistersimulator.RegisterDAOImpl" has no MetaData or annotations.
+21:46:04,049 (main) INFO  [DataNucleus.Enhancer] - Writing class file "C:\Users\senchi\git\Edu\RentACarWebServices\build\classes\com\alicnina\paymentsimulator\Account.class" with enhanced definition
+21:46:04,052 (main) INFO  [DataNucleus.Enhancer] - ENHANCED (PersistenceCapable) : com.alicnina.paymentsimulator.Account
+21:46:04,062 (main) INFO  [DataNucleus.Enhancer] - Writing class file "C:\Users\senchi\git\Edu\RentACarWebServices\build\classes\com\alicnina\policeregistersimulator\Register.class" with enhanced definition
+21:46:04,065 (main) INFO  [DataNucleus.Enhancer] - ENHANCED (PersistenceCapable) : com.alicnina.policeregistersimulator.Register
+21:46:04,066 (main) INFO  [DataNucleus.Enhancer] - DataNucleus Enhancer completed with success for 2 classes. Timings : input=477 ms, enhance=87 ms, total=564 ms. Consult the log for full details
+21:52:45,268 (main) INFO  [DataNucleus.Enhancer] - DataNucleus Enhancer : Using ClassEnhancer "ASM" for API "JDO"
+21:52:45,747 (main) INFO  [DataNucleus.Enhancer] - DataNucleus Enhancer (version 3.0.0.m2) : Enhancement of classes
+21:52:45,892 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.paymentsimulator.Account" has been specified with JDO annotations so using those.
+21:52:45,897 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.paymentsimulator.Account" has been specified with JDO annotations so using those.
+21:52:45,961 (main) INFO  [DataNucleus.MetaData] - Class "org.apache.axis2.transport.http.AxisAdminServlet" has no MetaData or annotations.
+21:52:45,986 (main) INFO  [DataNucleus.MetaData] - Class "org.apache.axis2.webapp.AdminAgent" has no MetaData or annotations.
+21:52:46,009 (main) INFO  [DataNucleus.MetaData] - Class "org.apache.axis2.webapp.AxisAdminServlet" has no MetaData or annotations.
+21:52:46,015 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.paymentsimulator.AccounDAOImpl" has no MetaData or annotations.
+21:52:46,016 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.paymentsimulator.DAOInterface" has no MetaData or annotations.
+21:52:46,021 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.paymentsimulator.ExtensionMapper" has no MetaData or annotations.
+21:52:46,028 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.paymentsimulator.InitializePayment$Factory" has no MetaData or annotations.
+21:52:46,035 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.paymentsimulator.InitializePayment" has no MetaData or annotations.
+21:52:46,041 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.paymentsimulator.InitializePaymentResponse$Factory" has no MetaData or annotations.
+21:52:46,047 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.paymentsimulator.InitializePaymentResponse" has no MetaData or annotations.
+21:52:46,055 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.paymentsimulator.PaymentSimulatorMessageReceiverInOut" has no MetaData or annotations.
+21:52:46,060 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.paymentsimulator.PaymentSimulatorSkeleton" has no MetaData or annotations.
+21:52:46,067 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.paymentsimulator.RegisterAccount$Factory" has no MetaData or annotations.
+21:52:46,073 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.paymentsimulator.RegisterAccount" has no MetaData or annotations.
+21:52:46,078 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.paymentsimulator.RegisterAccountResponse$Factory" has no MetaData or annotations.
+21:52:46,084 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.paymentsimulator.RegisterAccountResponse" has no MetaData or annotations.
+21:52:46,090 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.paymentsimulator.RemoveAccount$Factory" has no MetaData or annotations.
+21:52:46,096 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.paymentsimulator.RemoveAccount" has no MetaData or annotations.
+21:52:46,102 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.paymentsimulator.RemoveAccountResponse$Factory" has no MetaData or annotations.
+21:52:46,110 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.paymentsimulator.RemoveAccountResponse" has no MetaData or annotations.
+21:52:46,116 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.policeregistersimulator.ExtensionMapper" has no MetaData or annotations.
+21:52:46,124 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.policeregistersimulator.InitializePoliceRegister$Factory" has no MetaData or annotations.
+21:52:46,131 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.policeregistersimulator.InitializePoliceRegister" has no MetaData or annotations.
+21:52:46,137 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.policeregistersimulator.InitializePoliceRegisterResponse$Factory" has no MetaData or annotations.
+21:52:46,144 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.policeregistersimulator.InitializePoliceRegisterResponse" has no MetaData or annotations.
+21:52:46,152 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.policeregistersimulator.PoliceRegisterSimulatorMessageReceiverInOut" has no MetaData or annotations.
+21:52:46,159 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.policeregistersimulator.PoliceRegisterSimulatorSkeleton" has no MetaData or annotations.
+21:52:46,207 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.policeregistersimulator.Register" has been specified with JPA annotations so using those.
+21:52:46,225 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.policeregistersimulator.RegisterDAOImpl" has no MetaData or annotations.
+21:52:46,280 (main) INFO  [DataNucleus.Enhancer] - Writing class file "C:\Users\senchi\git\Edu\RentACarWebServices\build\classes\com\alicnina\paymentsimulator\Account.class" with enhanced definition
+21:52:46,283 (main) INFO  [DataNucleus.Enhancer] - ENHANCED (PersistenceCapable) : com.alicnina.paymentsimulator.Account
+21:52:46,294 (main) INFO  [DataNucleus.Enhancer] - Writing class file "C:\Users\senchi\git\Edu\RentACarWebServices\build\classes\com\alicnina\policeregistersimulator\Register.class" with enhanced definition
+21:52:46,297 (main) INFO  [DataNucleus.Enhancer] - ENHANCED (PersistenceCapable) : com.alicnina.policeregistersimulator.Register
+21:52:46,298 (main) INFO  [DataNucleus.Enhancer] - DataNucleus Enhancer completed with success for 2 classes. Timings : input=471 ms, enhance=69 ms, total=540 ms. Consult the log for full details
+18:05:19,570 (main) INFO  [DataNucleus.Enhancer] - DataNucleus Enhancer : Using ClassEnhancer "ASM" for API "JDO"
+18:05:20,779 (main) INFO  [DataNucleus.Enhancer] - DataNucleus Enhancer (version 3.0.0.m2) : Enhancement of classes
+18:05:21,067 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.paymentsimulator.Account" has been specified with JDO annotations so using those.
+18:05:21,090 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.paymentsimulator.Account" has been specified with JDO annotations so using those.
+18:05:21,243 (main) INFO  [DataNucleus.MetaData] - Class "org.apache.axis2.transport.http.AxisAdminServlet" has no MetaData or annotations.
+18:05:21,272 (main) INFO  [DataNucleus.MetaData] - Class "org.apache.axis2.webapp.AdminAgent" has no MetaData or annotations.
+18:05:21,296 (main) INFO  [DataNucleus.MetaData] - Class "org.apache.axis2.webapp.AxisAdminServlet" has no MetaData or annotations.
+18:05:21,303 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.paymentsimulator.AccounDAOImpl" has no MetaData or annotations.
+18:05:21,303 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.paymentsimulator.DAOInterface" has no MetaData or annotations.
+18:05:21,309 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.paymentsimulator.ExtensionMapper" has no MetaData or annotations.
+18:05:21,316 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.paymentsimulator.InitializePayment$Factory" has no MetaData or annotations.
+18:05:21,334 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.paymentsimulator.InitializePayment" has no MetaData or annotations.
+18:05:21,341 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.paymentsimulator.InitializePaymentResponse$Factory" has no MetaData or annotations.
+18:05:21,347 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.paymentsimulator.InitializePaymentResponse" has no MetaData or annotations.
+18:05:21,355 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.paymentsimulator.PaymentSimulatorMessageReceiverInOut" has no MetaData or annotations.
+18:05:21,361 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.paymentsimulator.PaymentSimulatorSkeleton" has no MetaData or annotations.
+18:05:21,367 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.paymentsimulator.RegisterAccount$Factory" has no MetaData or annotations.
+18:05:21,373 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.paymentsimulator.RegisterAccount" has no MetaData or annotations.
+18:05:21,379 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.paymentsimulator.RegisterAccountResponse$Factory" has no MetaData or annotations.
+18:05:21,385 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.paymentsimulator.RegisterAccountResponse" has no MetaData or annotations.
+18:05:21,391 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.paymentsimulator.RemoveAccount$Factory" has no MetaData or annotations.
+18:05:21,398 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.paymentsimulator.RemoveAccount" has no MetaData or annotations.
+18:05:21,404 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.paymentsimulator.RemoveAccountResponse$Factory" has no MetaData or annotations.
+18:05:21,411 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.paymentsimulator.RemoveAccountResponse" has no MetaData or annotations.
+18:05:21,421 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.policeregistersimulator.ExtensionMapper" has no MetaData or annotations.
+18:05:21,431 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.policeregistersimulator.InitializePoliceRegister$Factory" has no MetaData or annotations.
+18:05:21,441 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.policeregistersimulator.InitializePoliceRegister" has no MetaData or annotations.
+18:05:21,451 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.policeregistersimulator.InitializePoliceRegisterResponse$Factory" has no MetaData or annotations.
+18:05:21,460 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.policeregistersimulator.InitializePoliceRegisterResponse" has no MetaData or annotations.
+18:05:21,470 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.policeregistersimulator.PoliceRegisterSimulatorMessageReceiverInOut" has no MetaData or annotations.
+18:05:21,478 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.policeregistersimulator.PoliceRegisterSimulatorSkeleton" has no MetaData or annotations.
+18:05:21,520 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.policeregistersimulator.Register" has been specified with JPA annotations so using those.
+18:05:21,543 (main) INFO  [DataNucleus.MetaData] - Class "com.alicnina.policeregistersimulator.RegisterDAOImpl" has no MetaData or annotations.
+18:05:21,594 (main) INFO  [DataNucleus.Enhancer] - Writing class file "C:\Users\senchi\git\Edu\RentACarWebServices\build\classes\com\alicnina\paymentsimulator\Account.class" with enhanced definition
+18:05:21,597 (main) INFO  [DataNucleus.Enhancer] - ENHANCED (PersistenceCapable) : com.alicnina.paymentsimulator.Account
+18:05:21,607 (main) INFO  [DataNucleus.Enhancer] - Writing class file "C:\Users\senchi\git\Edu\RentACarWebServices\build\classes\com\alicnina\policeregistersimulator\Register.class" with enhanced definition
+18:05:21,609 (main) INFO  [DataNucleus.Enhancer] - ENHANCED (PersistenceCapable) : com.alicnina.policeregistersimulator.Register
+18:05:21,610 (main) INFO  [DataNucleus.Enhancer] - DataNucleus Enhancer completed with success for 2 classes. Timings : input=736 ms, enhance=63 ms, total=799 ms. Consult the log for full details
