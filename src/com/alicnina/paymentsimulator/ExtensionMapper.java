@@ -7,7 +7,7 @@
  */
 
         
-            package com.alicnina.policeregistersimulator;
+            package com.alicnina.paymentsimulator;
         
             /**
             *  ExtensionMapper class

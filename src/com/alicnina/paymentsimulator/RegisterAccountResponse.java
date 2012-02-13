@@ -1,26 +1,26 @@
 
 /**
- * InitializePoliceRegisterResponse.java
+ * RegisterAccountResponse.java
  *
  * This file was auto-generated from WSDL
  * by the Apache Axis2 version: 1.6.1  Built on : Aug 31, 2011 (12:23:23 CEST)
  */
 
             
-                package com.alicnina.policeregistersimulator;
+                package com.alicnina.paymentsimulator;
             
 
             /**
-            *  InitializePoliceRegisterResponse bean class
+            *  RegisterAccountResponse bean class
             */
             @SuppressWarnings({"unchecked","unused"})
         
-        public  class InitializePoliceRegisterResponse
+        public  class RegisterAccountResponse
         implements org.apache.axis2.databinding.ADBBean{
         
                 public static final javax.xml.namespace.QName MY_QNAME = new javax.xml.namespace.QName(
-                "http://policeregistersimulator.alicnina.com",
-                "initializePoliceRegisterResponse",
+                "http://paymentsimulator.alicnina.com",
+                "registerAccountResponse",
                 "ns1");
 
             
@@ -130,21 +130,21 @@
                   if (serializeType){
                
 
-                   java.lang.String namespacePrefix = registerPrefix(xmlWriter,"http://policeregistersimulator.alicnina.com");
+                   java.lang.String namespacePrefix = registerPrefix(xmlWriter,"http://paymentsimulator.alicnina.com");
                    if ((namespacePrefix != null) && (namespacePrefix.trim().length() > 0)){
                        writeAttribute("xsi","http://www.w3.org/2001/XMLSchema-instance","type",
-                           namespacePrefix+":initializePoliceRegisterResponse",
+                           namespacePrefix+":registerAccountResponse",
                            xmlWriter);
                    } else {
                        writeAttribute("xsi","http://www.w3.org/2001/XMLSchema-instance","type",
-                           "initializePoliceRegisterResponse",
+                           "registerAccountResponse",
                            xmlWriter);
                    }
 
                
                    }
                
-                                    namespace = "http://policeregistersimulator.alicnina.com";
+                                    namespace = "http://paymentsimulator.alicnina.com";
                                     writeStartElement(null, namespace, "code", xmlWriter);
                              
 
@@ -162,7 +162,7 @@
                                     
                                    xmlWriter.writeEndElement();
                              
-                                    namespace = "http://policeregistersimulator.alicnina.com";
+                                    namespace = "http://paymentsimulator.alicnina.com";
                                     writeStartElement(null, namespace, "message", xmlWriter);
                              
 
@@ -186,7 +186,7 @@
         }
 
         private static java.lang.String generatePrefix(java.lang.String namespace) {
-            if(namespace.equals("http://policeregistersimulator.alicnina.com")){
+            if(namespace.equals("http://paymentsimulator.alicnina.com")){
                 return "ns1";
             }
             return org.apache.axis2.databinding.utils.BeanUtil.getUniquePrefix();
@@ -365,7 +365,7 @@
                  java.util.ArrayList attribList = new java.util.ArrayList();
 
                 
-                                      elementList.add(new javax.xml.namespace.QName("http://policeregistersimulator.alicnina.com",
+                                      elementList.add(new javax.xml.namespace.QName("http://paymentsimulator.alicnina.com",
                                                                       "code"));
                                  
                                         if (localCode != null){
@@ -374,7 +374,7 @@
                                            throw new org.apache.axis2.databinding.ADBException("code cannot be null!!");
                                         }
                                     
-                                      elementList.add(new javax.xml.namespace.QName("http://policeregistersimulator.alicnina.com",
+                                      elementList.add(new javax.xml.namespace.QName("http://paymentsimulator.alicnina.com",
                                                                       "message"));
                                  
                                         if (localMessage != null){
@@ -407,9 +407,9 @@
         * Postcondition: If this object is an element, the reader is positioned at its end element
         *                If this object is a complex type, the reader is positioned at the end element of its outer element
         */
-        public static InitializePoliceRegisterResponse parse(javax.xml.stream.XMLStreamReader reader) throws java.lang.Exception{
-            InitializePoliceRegisterResponse object =
-                new InitializePoliceRegisterResponse();
+        public static RegisterAccountResponse parse(javax.xml.stream.XMLStreamReader reader) throws java.lang.Exception{
+            RegisterAccountResponse object =
+                new RegisterAccountResponse();
 
             int event;
             java.lang.String nillableValue = null;
@@ -433,10 +433,10 @@
 
                     java.lang.String type = fullTypeName.substring(fullTypeName.indexOf(":")+1);
                     
-                            if (!"initializePoliceRegisterResponse".equals(type)){
+                            if (!"registerAccountResponse".equals(type)){
                                 //find namespace for the prefix
                                 java.lang.String nsUri = reader.getNamespaceContext().getNamespaceURI(nsPrefix);
-                                return (InitializePoliceRegisterResponse)com.alicnina.policeregistersimulator.ExtensionMapper.getTypeObject(
+                                return (RegisterAccountResponse)com.alicnina.paymentsimulator.ExtensionMapper.getTypeObject(
                                      nsUri,type,reader);
                               }
                         
@@ -461,7 +461,7 @@
                                     
                                     while (!reader.isStartElement() && !reader.isEndElement()) reader.next();
                                 
-                                    if (reader.isStartElement() && new javax.xml.namespace.QName("http://policeregistersimulator.alicnina.com","code").equals(reader.getName())){
+                                    if (reader.isStartElement() && new javax.xml.namespace.QName("http://paymentsimulator.alicnina.com","code").equals(reader.getName())){
                                 
                                     java.lang.String content = reader.getElementText();
                                     
@@ -480,7 +480,7 @@
                                     
                                     while (!reader.isStartElement() && !reader.isEndElement()) reader.next();
                                 
-                                    if (reader.isStartElement() && new javax.xml.namespace.QName("http://policeregistersimulator.alicnina.com","message").equals(reader.getName())){
+                                    if (reader.isStartElement() && new javax.xml.namespace.QName("http://paymentsimulator.alicnina.com","message").equals(reader.getName())){
                                 
                                     java.lang.String content = reader.getElementText();
                                     

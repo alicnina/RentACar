@@ -1,6 +1,6 @@
 
 /**
- * InitializePoliceRegisterResponse.java
+ * SavePoliceRegisterResponse.java
  *
  * This file was auto-generated from WSDL
  * by the Apache Axis2 version: 1.6.1  Built on : Aug 31, 2011 (12:23:23 CEST)
@@ -11,16 +11,16 @@
             
 
             /**
-            *  InitializePoliceRegisterResponse bean class
+            *  SavePoliceRegisterResponse bean class
             */
             @SuppressWarnings({"unchecked","unused"})
         
-        public  class InitializePoliceRegisterResponse
+        public  class SavePoliceRegisterResponse
         implements org.apache.axis2.databinding.ADBBean{
         
                 public static final javax.xml.namespace.QName MY_QNAME = new javax.xml.namespace.QName(
                 "http://policeregistersimulator.alicnina.com",
-                "initializePoliceRegisterResponse",
+                "savePoliceRegisterResponse",
                 "ns1");
 
             
@@ -133,11 +133,11 @@
                    java.lang.String namespacePrefix = registerPrefix(xmlWriter,"http://policeregistersimulator.alicnina.com");
                    if ((namespacePrefix != null) && (namespacePrefix.trim().length() > 0)){
                        writeAttribute("xsi","http://www.w3.org/2001/XMLSchema-instance","type",
-                           namespacePrefix+":initializePoliceRegisterResponse",
+                           namespacePrefix+":savePoliceRegisterResponse",
                            xmlWriter);
                    } else {
                        writeAttribute("xsi","http://www.w3.org/2001/XMLSchema-instance","type",
-                           "initializePoliceRegisterResponse",
+                           "savePoliceRegisterResponse",
                            xmlWriter);
                    }
 
@@ -407,9 +407,9 @@
         * Postcondition: If this object is an element, the reader is positioned at its end element
         *                If this object is a complex type, the reader is positioned at the end element of its outer element
         */
-        public static InitializePoliceRegisterResponse parse(javax.xml.stream.XMLStreamReader reader) throws java.lang.Exception{
-            InitializePoliceRegisterResponse object =
-                new InitializePoliceRegisterResponse();
+        public static SavePoliceRegisterResponse parse(javax.xml.stream.XMLStreamReader reader) throws java.lang.Exception{
+            SavePoliceRegisterResponse object =
+                new SavePoliceRegisterResponse();
 
             int event;
             java.lang.String nillableValue = null;
@@ -433,10 +433,10 @@
 
                     java.lang.String type = fullTypeName.substring(fullTypeName.indexOf(":")+1);
                     
-                            if (!"initializePoliceRegisterResponse".equals(type)){
+                            if (!"savePoliceRegisterResponse".equals(type)){
                                 //find namespace for the prefix
                                 java.lang.String nsUri = reader.getNamespaceContext().getNamespaceURI(nsPrefix);
-                                return (InitializePoliceRegisterResponse)com.alicnina.policeregistersimulator.ExtensionMapper.getTypeObject(
+                                return (SavePoliceRegisterResponse)com.alicnina.policeregistersimulator.ExtensionMapper.getTypeObject(
                                      nsUri,type,reader);
                               }
                         

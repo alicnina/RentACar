@@ -1,85 +1,85 @@
 
 /**
- * InitializePoliceRegisterResponse.java
+ * RemoveAccount.java
  *
  * This file was auto-generated from WSDL
  * by the Apache Axis2 version: 1.6.1  Built on : Aug 31, 2011 (12:23:23 CEST)
  */
 
             
-                package com.alicnina.policeregistersimulator;
+                package com.alicnina.paymentsimulator;
             
 
             /**
-            *  InitializePoliceRegisterResponse bean class
+            *  RemoveAccount bean class
             */
             @SuppressWarnings({"unchecked","unused"})
         
-        public  class InitializePoliceRegisterResponse
+        public  class RemoveAccount
         implements org.apache.axis2.databinding.ADBBean{
         
                 public static final javax.xml.namespace.QName MY_QNAME = new javax.xml.namespace.QName(
-                "http://policeregistersimulator.alicnina.com",
-                "initializePoliceRegisterResponse",
+                "http://paymentsimulator.alicnina.com",
+                "removeAccount",
                 "ns1");
 
             
 
                         /**
-                        * field for Code
+                        * field for CreditCardNo
                         */
 
                         
-                                    protected java.lang.String localCode ;
+                                    protected java.lang.String localCreditCardNo ;
                                 
 
                            /**
                            * Auto generated getter method
                            * @return java.lang.String
                            */
-                           public  java.lang.String getCode(){
-                               return localCode;
+                           public  java.lang.String getCreditCardNo(){
+                               return localCreditCardNo;
                            }
 
                            
                         
                             /**
                                * Auto generated setter method
-                               * @param param Code
+                               * @param param CreditCardNo
                                */
-                               public void setCode(java.lang.String param){
+                               public void setCreditCardNo(java.lang.String param){
                             
-                                            this.localCode=param;
+                                            this.localCreditCardNo=param;
                                     
 
                                }
                             
 
                         /**
-                        * field for Message
+                        * field for Cvv2
                         */
 
                         
-                                    protected java.lang.String localMessage ;
+                                    protected java.lang.String localCvv2 ;
                                 
 
                            /**
                            * Auto generated getter method
                            * @return java.lang.String
                            */
-                           public  java.lang.String getMessage(){
-                               return localMessage;
+                           public  java.lang.String getCvv2(){
+                               return localCvv2;
                            }
 
                            
                         
                             /**
                                * Auto generated setter method
-                               * @param param Message
+                               * @param param Cvv2
                                */
-                               public void setMessage(java.lang.String param){
+                               public void setCvv2(java.lang.String param){
                             
-                                            this.localMessage=param;
+                                            this.localCvv2=param;
                                     
 
                                }
@@ -130,51 +130,51 @@
                   if (serializeType){
                
 
-                   java.lang.String namespacePrefix = registerPrefix(xmlWriter,"http://policeregistersimulator.alicnina.com");
+                   java.lang.String namespacePrefix = registerPrefix(xmlWriter,"http://paymentsimulator.alicnina.com");
                    if ((namespacePrefix != null) && (namespacePrefix.trim().length() > 0)){
                        writeAttribute("xsi","http://www.w3.org/2001/XMLSchema-instance","type",
-                           namespacePrefix+":initializePoliceRegisterResponse",
+                           namespacePrefix+":removeAccount",
                            xmlWriter);
                    } else {
                        writeAttribute("xsi","http://www.w3.org/2001/XMLSchema-instance","type",
-                           "initializePoliceRegisterResponse",
+                           "removeAccount",
                            xmlWriter);
                    }
 
                
                    }
                
-                                    namespace = "http://policeregistersimulator.alicnina.com";
-                                    writeStartElement(null, namespace, "code", xmlWriter);
+                                    namespace = "http://paymentsimulator.alicnina.com";
+                                    writeStartElement(null, namespace, "creditCardNo", xmlWriter);
                              
 
-                                          if (localCode==null){
+                                          if (localCreditCardNo==null){
                                               // write the nil attribute
                                               
-                                                     throw new org.apache.axis2.databinding.ADBException("code cannot be null!!");
+                                                     throw new org.apache.axis2.databinding.ADBException("creditCardNo cannot be null!!");
                                                   
                                           }else{
 
                                         
-                                                   xmlWriter.writeCharacters(localCode);
+                                                   xmlWriter.writeCharacters(localCreditCardNo);
                                             
                                           }
                                     
                                    xmlWriter.writeEndElement();
                              
-                                    namespace = "http://policeregistersimulator.alicnina.com";
-                                    writeStartElement(null, namespace, "message", xmlWriter);
+                                    namespace = "http://paymentsimulator.alicnina.com";
+                                    writeStartElement(null, namespace, "cvv2", xmlWriter);
                              
 
-                                          if (localMessage==null){
+                                          if (localCvv2==null){
                                               // write the nil attribute
                                               
-                                                     throw new org.apache.axis2.databinding.ADBException("message cannot be null!!");
+                                                     throw new org.apache.axis2.databinding.ADBException("cvv2 cannot be null!!");
                                                   
                                           }else{
 
                                         
-                                                   xmlWriter.writeCharacters(localMessage);
+                                                   xmlWriter.writeCharacters(localCvv2);
                                             
                                           }
                                     
@@ -186,7 +186,7 @@
         }
 
         private static java.lang.String generatePrefix(java.lang.String namespace) {
-            if(namespace.equals("http://policeregistersimulator.alicnina.com")){
+            if(namespace.equals("http://paymentsimulator.alicnina.com")){
                 return "ns1";
             }
             return org.apache.axis2.databinding.utils.BeanUtil.getUniquePrefix();
@@ -365,22 +365,22 @@
                  java.util.ArrayList attribList = new java.util.ArrayList();
 
                 
-                                      elementList.add(new javax.xml.namespace.QName("http://policeregistersimulator.alicnina.com",
-                                                                      "code"));
+                                      elementList.add(new javax.xml.namespace.QName("http://paymentsimulator.alicnina.com",
+                                                                      "creditCardNo"));
                                  
-                                        if (localCode != null){
-                                            elementList.add(org.apache.axis2.databinding.utils.ConverterUtil.convertToString(localCode));
+                                        if (localCreditCardNo != null){
+                                            elementList.add(org.apache.axis2.databinding.utils.ConverterUtil.convertToString(localCreditCardNo));
                                         } else {
-                                           throw new org.apache.axis2.databinding.ADBException("code cannot be null!!");
+                                           throw new org.apache.axis2.databinding.ADBException("creditCardNo cannot be null!!");
                                         }
                                     
-                                      elementList.add(new javax.xml.namespace.QName("http://policeregistersimulator.alicnina.com",
-                                                                      "message"));
+                                      elementList.add(new javax.xml.namespace.QName("http://paymentsimulator.alicnina.com",
+                                                                      "cvv2"));
                                  
-                                        if (localMessage != null){
-                                            elementList.add(org.apache.axis2.databinding.utils.ConverterUtil.convertToString(localMessage));
+                                        if (localCvv2 != null){
+                                            elementList.add(org.apache.axis2.databinding.utils.ConverterUtil.convertToString(localCvv2));
                                         } else {
-                                           throw new org.apache.axis2.databinding.ADBException("message cannot be null!!");
+                                           throw new org.apache.axis2.databinding.ADBException("cvv2 cannot be null!!");
                                         }
                                     
 
@@ -407,9 +407,9 @@
         * Postcondition: If this object is an element, the reader is positioned at its end element
         *                If this object is a complex type, the reader is positioned at the end element of its outer element
         */
-        public static InitializePoliceRegisterResponse parse(javax.xml.stream.XMLStreamReader reader) throws java.lang.Exception{
-            InitializePoliceRegisterResponse object =
-                new InitializePoliceRegisterResponse();
+        public static RemoveAccount parse(javax.xml.stream.XMLStreamReader reader) throws java.lang.Exception{
+            RemoveAccount object =
+                new RemoveAccount();
 
             int event;
             java.lang.String nillableValue = null;
@@ -433,10 +433,10 @@
 
                     java.lang.String type = fullTypeName.substring(fullTypeName.indexOf(":")+1);
                     
-                            if (!"initializePoliceRegisterResponse".equals(type)){
+                            if (!"removeAccount".equals(type)){
                                 //find namespace for the prefix
                                 java.lang.String nsUri = reader.getNamespaceContext().getNamespaceURI(nsPrefix);
-                                return (InitializePoliceRegisterResponse)com.alicnina.policeregistersimulator.ExtensionMapper.getTypeObject(
+                                return (RemoveAccount)com.alicnina.paymentsimulator.ExtensionMapper.getTypeObject(
                                      nsUri,type,reader);
                               }
                         
@@ -461,11 +461,11 @@
                                     
                                     while (!reader.isStartElement() && !reader.isEndElement()) reader.next();
                                 
-                                    if (reader.isStartElement() && new javax.xml.namespace.QName("http://policeregistersimulator.alicnina.com","code").equals(reader.getName())){
+                                    if (reader.isStartElement() && new javax.xml.namespace.QName("http://paymentsimulator.alicnina.com","creditCardNo").equals(reader.getName())){
                                 
                                     java.lang.String content = reader.getElementText();
                                     
-                                              object.setCode(
+                                              object.setCreditCardNo(
                                                     org.apache.axis2.databinding.utils.ConverterUtil.convertToString(content));
                                               
                                         reader.next();
@@ -480,11 +480,11 @@
                                     
                                     while (!reader.isStartElement() && !reader.isEndElement()) reader.next();
                                 
-                                    if (reader.isStartElement() && new javax.xml.namespace.QName("http://policeregistersimulator.alicnina.com","message").equals(reader.getName())){
+                                    if (reader.isStartElement() && new javax.xml.namespace.QName("http://paymentsimulator.alicnina.com","cvv2").equals(reader.getName())){
                                 
                                     java.lang.String content = reader.getElementText();
                                     
-                                              object.setMessage(
+                                              object.setCvv2(
                                                     org.apache.axis2.databinding.utils.ConverterUtil.convertToString(content));
                                               
                                         reader.next();

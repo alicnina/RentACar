@@ -1,6 +1,6 @@
 
 /**
- * InitializePoliceRegisterResponse.java
+ * RemovePoliceRegister.java
  *
  * This file was auto-generated from WSDL
  * by the Apache Axis2 version: 1.6.1  Built on : Aug 31, 2011 (12:23:23 CEST)
@@ -11,75 +11,75 @@
             
 
             /**
-            *  InitializePoliceRegisterResponse bean class
+            *  RemovePoliceRegister bean class
             */
             @SuppressWarnings({"unchecked","unused"})
         
-        public  class InitializePoliceRegisterResponse
+        public  class RemovePoliceRegister
         implements org.apache.axis2.databinding.ADBBean{
         
                 public static final javax.xml.namespace.QName MY_QNAME = new javax.xml.namespace.QName(
                 "http://policeregistersimulator.alicnina.com",
-                "initializePoliceRegisterResponse",
+                "removePoliceRegister",
                 "ns1");
 
             
 
                         /**
-                        * field for Code
+                        * field for IDNumber
                         */
 
                         
-                                    protected java.lang.String localCode ;
+                                    protected java.lang.String localIDNumber ;
                                 
 
                            /**
                            * Auto generated getter method
                            * @return java.lang.String
                            */
-                           public  java.lang.String getCode(){
-                               return localCode;
+                           public  java.lang.String getIDNumber(){
+                               return localIDNumber;
                            }
 
                            
                         
                             /**
                                * Auto generated setter method
-                               * @param param Code
+                               * @param param IDNumber
                                */
-                               public void setCode(java.lang.String param){
+                               public void setIDNumber(java.lang.String param){
                             
-                                            this.localCode=param;
+                                            this.localIDNumber=param;
                                     
 
                                }
                             
 
                         /**
-                        * field for Message
+                        * field for DrivingLicenceNumber
                         */
 
                         
-                                    protected java.lang.String localMessage ;
+                                    protected java.lang.String localDrivingLicenceNumber ;
                                 
 
                            /**
                            * Auto generated getter method
                            * @return java.lang.String
                            */
-                           public  java.lang.String getMessage(){
-                               return localMessage;
+                           public  java.lang.String getDrivingLicenceNumber(){
+                               return localDrivingLicenceNumber;
                            }
 
                            
                         
                             /**
                                * Auto generated setter method
-                               * @param param Message
+                               * @param param DrivingLicenceNumber
                                */
-                               public void setMessage(java.lang.String param){
+                               public void setDrivingLicenceNumber(java.lang.String param){
                             
-                                            this.localMessage=param;
+                                            this.localDrivingLicenceNumber=param;
                                     
 
                                }
@@ -133,11 +133,11 @@
                    java.lang.String namespacePrefix = registerPrefix(xmlWriter,"http://policeregistersimulator.alicnina.com");
                    if ((namespacePrefix != null) && (namespacePrefix.trim().length() > 0)){
                        writeAttribute("xsi","http://www.w3.org/2001/XMLSchema-instance","type",
-                           namespacePrefix+":initializePoliceRegisterResponse",
+                           namespacePrefix+":removePoliceRegister",
                            xmlWriter);
                    } else {
                        writeAttribute("xsi","http://www.w3.org/2001/XMLSchema-instance","type",
-                           "initializePoliceRegisterResponse",
+                           "removePoliceRegister",
                            xmlWriter);
                    }
 
@@ -145,36 +145,36 @@
                    }
                
                                     namespace = "http://policeregistersimulator.alicnina.com";
-                                    writeStartElement(null, namespace, "code", xmlWriter);
+                                    writeStartElement(null, namespace, "IDNumber", xmlWriter);
                              
 
-                                          if (localCode==null){
+                                          if (localIDNumber==null){
                                               // write the nil attribute
                                               
-                                                     throw new org.apache.axis2.databinding.ADBException("code cannot be null!!");
+                                                     throw new org.apache.axis2.databinding.ADBException("IDNumber cannot be null!!");
                                                   
                                           }else{
 
                                         
-                                                   xmlWriter.writeCharacters(localCode);
+                                                   xmlWriter.writeCharacters(localIDNumber);
                                             
                                           }
                                     
                                    xmlWriter.writeEndElement();
                              
                                     namespace = "http://policeregistersimulator.alicnina.com";
-                                    writeStartElement(null, namespace, "message", xmlWriter);
+                                    writeStartElement(null, namespace, "drivingLicenceNumber", xmlWriter);
                              
 
-                                          if (localMessage==null){
+                                          if (localDrivingLicenceNumber==null){
                                               // write the nil attribute
                                               
-                                                     throw new org.apache.axis2.databinding.ADBException("message cannot be null!!");
+                                                     throw new org.apache.axis2.databinding.ADBException("drivingLicenceNumber cannot be null!!");
                                                   
                                           }else{
 
                                         
-                                                   xmlWriter.writeCharacters(localMessage);
+                                                   xmlWriter.writeCharacters(localDrivingLicenceNumber);
                                             
                                           }
                                     
@@ -366,21 +366,21 @@
 
                 
                                       elementList.add(new javax.xml.namespace.QName("http://policeregistersimulator.alicnina.com",
-                                                                      "code"));
+                                                                      "IDNumber"));
                                  
-                                        if (localCode != null){
-                                            elementList.add(org.apache.axis2.databinding.utils.ConverterUtil.convertToString(localCode));
+                                        if (localIDNumber != null){
+                                            elementList.add(org.apache.axis2.databinding.utils.ConverterUtil.convertToString(localIDNumber));
                                         } else {
-                                           throw new org.apache.axis2.databinding.ADBException("code cannot be null!!");
+                                           throw new org.apache.axis2.databinding.ADBException("IDNumber cannot be null!!");
                                         }
                                     
                                       elementList.add(new javax.xml.namespace.QName("http://policeregistersimulator.alicnina.com",
-                                                                      "message"));
+                                                                      "drivingLicenceNumber"));
                                  
-                                        if (localMessage != null){
-                                            elementList.add(org.apache.axis2.databinding.utils.ConverterUtil.convertToString(localMessage));
+                                        if (localDrivingLicenceNumber != null){
+                                            elementList.add(org.apache.axis2.databinding.utils.ConverterUtil.convertToString(localDrivingLicenceNumber));
                                         } else {
-                                           throw new org.apache.axis2.databinding.ADBException("message cannot be null!!");
+                                           throw new org.apache.axis2.databinding.ADBException("drivingLicenceNumber cannot be null!!");
                                         }
                                     
 
@@ -407,9 +407,9 @@
         * Postcondition: If this object is an element, the reader is positioned at its end element
         *                If this object is a complex type, the reader is positioned at the end element of its outer element
         */
-        public static InitializePoliceRegisterResponse parse(javax.xml.stream.XMLStreamReader reader) throws java.lang.Exception{
-            InitializePoliceRegisterResponse object =
-                new InitializePoliceRegisterResponse();
+        public static RemovePoliceRegister parse(javax.xml.stream.XMLStreamReader reader) throws java.lang.Exception{
+            RemovePoliceRegister object =
+                new RemovePoliceRegister();
 
             int event;
             java.lang.String nillableValue = null;
@@ -433,10 +433,10 @@
 
                     java.lang.String type = fullTypeName.substring(fullTypeName.indexOf(":")+1);
                     
-                            if (!"initializePoliceRegisterResponse".equals(type)){
+                            if (!"removePoliceRegister".equals(type)){
                                 //find namespace for the prefix
                                 java.lang.String nsUri = reader.getNamespaceContext().getNamespaceURI(nsPrefix);
-                                return (InitializePoliceRegisterResponse)com.alicnina.policeregistersimulator.ExtensionMapper.getTypeObject(
+                                return (RemovePoliceRegister)com.alicnina.policeregistersimulator.ExtensionMapper.getTypeObject(
                                      nsUri,type,reader);
                               }
                         
@@ -461,11 +461,11 @@
                                     
                                     while (!reader.isStartElement() && !reader.isEndElement()) reader.next();
                                 
-                                    if (reader.isStartElement() && new javax.xml.namespace.QName("http://policeregistersimulator.alicnina.com","code").equals(reader.getName())){
+                                    if (reader.isStartElement() && new javax.xml.namespace.QName("http://policeregistersimulator.alicnina.com","IDNumber").equals(reader.getName())){
                                 
                                     java.lang.String content = reader.getElementText();
                                     
-                                              object.setCode(
+                                              object.setIDNumber(
                                                     org.apache.axis2.databinding.utils.ConverterUtil.convertToString(content));
                                               
                                         reader.next();
@@ -480,11 +480,11 @@
                                     
                                     while (!reader.isStartElement() && !reader.isEndElement()) reader.next();
                                 
-                                    if (reader.isStartElement() && new javax.xml.namespace.QName("http://policeregistersimulator.alicnina.com","message").equals(reader.getName())){
+                                    if (reader.isStartElement() && new javax.xml.namespace.QName("http://policeregistersimulator.alicnina.com","drivingLicenceNumber").equals(reader.getName())){
                                 
                                     java.lang.String content = reader.getElementText();
                                     
-                                              object.setMessage(
+                                              object.setDrivingLicenceNumber(
                                                     org.apache.axis2.databinding.utils.ConverterUtil.convertToString(content));
                                               
                                         reader.next();

@@ -9,7 +9,11 @@ package com.alicnina.policeregistersimulator;
 import org.apache.axiom.om.OMAbstractFactory;
 import org.apache.axiom.om.OMElement;
 
+import com.alicnina.paymentsimulator.Account;
 import com.alicnina.paymentsimulator.DAOInterface;
+import com.alicnina.policeregistersimulator.InitializePoliceRegister;
+import com.alicnina.policeregistersimulator.InitializePoliceRegisterResponse;
+import com.alicnina.policeregistersimulator.Register;
 
 /**
  * PoliceRegisterSimulatorSkeleton java skeleton for the axisService
@@ -25,13 +29,11 @@ public class PoliceRegisterSimulatorSkeleton {
 	public void setRegisterDAO(DAOInterface<Register> registerDAO) {
 		this.registerDAO = registerDAO;
 	}
-
 	/**
 	 * Auto generated method signature
 	 * 
 	 * @param initializePoliceRegister
 	 * @return initializePoliceRegisterResponse
-	 * @author Emina Alickovic
 	 */
 
 	public OMElement initializePoliceRegister(OMElement request) {
@@ -50,15 +52,39 @@ public class PoliceRegisterSimulatorSkeleton {
 				response.setCode("101");
 				response.setMessage("User exists.");
 			}
-			
+
 			return response.getOMElement(InitializePoliceRegisterResponse.MY_QNAME, OMAbstractFactory.getOMFactory());
-			
+
 		} catch (Exception e) {
 			// TODO parsing of request error!
 			e.printStackTrace();
 
 		}
 		return null;
+	}
+
+	/**
+	 * Auto generated method signature
+	 * 
+	 * @param savePoliceRegister
+	 * @return savePoliceRegisterResponse
+	 */
+
+	public OMElement savePoliceRegister(OMElement request) {
+		// TODO : fill this with the necessary business logic
+		throw new java.lang.UnsupportedOperationException("Please implement " + this.getClass().getName() + "#savePoliceRegister");
+	}
+
+	/**
+	 * Auto generated method signature
+	 * 
+	 * @param removePoliceRegister
+	 * @return removePoliceRegisterResponse
+	 */
+
+	public OMElement removePoliceRegister(OMElement request) {
+		// TODO : fill this with the necessary business logic
+		throw new java.lang.UnsupportedOperationException("Please implement " + this.getClass().getName() + "#removePoliceRegister");
 	}
 
 }

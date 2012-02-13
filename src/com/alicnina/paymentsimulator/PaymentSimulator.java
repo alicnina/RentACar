@@ -1,16 +1,70 @@
+
+
 /**
  * PaymentSimulator.java
  *
  * This file was auto-generated from WSDL
- * by the Apache Axis 1.4 Apr 22, 2006 (06:55:48 PDT) WSDL2Java emitter.
+ * by the Apache Axis2 version: 1.6.1  Built on : Aug 31, 2011 (12:22:40 CEST)
  */
 
-package com.alicnina.paymentsimulator;
+    package com.alicnina.paymentsimulator;
 
-public interface PaymentSimulator extends javax.xml.rpc.Service {
-    public java.lang.String getHttpSoap11EndpointAddress();
+    /*
+     *  PaymentSimulator java interface
+     */
 
-    public com.alicnina.paymentsimulator.PortType getHttpSoap11Endpoint() throws javax.xml.rpc.ServiceException;
+    public interface PaymentSimulator {
+          
 
-    public com.alicnina.paymentsimulator.PortType getHttpSoap11Endpoint(java.net.URL portAddress) throws javax.xml.rpc.ServiceException;
-}
+        /**
+          * Auto generated method signature
+          * 
+                    * @param registerAccount
+                
+         */
+
+         
+                     public com.alicnina.paymentsimulator.RegisterAccountResponse registerAccount(
+
+                        com.alicnina.paymentsimulator.RegisterAccount registerAccount)
+                        throws java.rmi.RemoteException
+             ;
+
+        
+
+        /**
+          * Auto generated method signature
+          * 
+                    * @param initializePayment
+                
+         */
+
+         
+                     public com.alicnina.paymentsimulator.InitializePaymentResponse initializePayment(
+
+                        com.alicnina.paymentsimulator.InitializePayment initializePayment)
+                        throws java.rmi.RemoteException
+             ;
+
+        
+
+        /**
+          * Auto generated method signature
+          * 
+                    * @param removeAccount
+                
+         */
+
+         
+                     public com.alicnina.paymentsimulator.RemoveAccountResponse removeAccount(
+
+                        com.alicnina.paymentsimulator.RemoveAccount removeAccount)
+                        throws java.rmi.RemoteException
+             ;
+
+        
+
+        
+       //
+       }
+    

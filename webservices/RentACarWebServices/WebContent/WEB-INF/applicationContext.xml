@@ -29,11 +29,8 @@
 		</property>
 	</bean>
  -->
-	<bean id="accountDAO" class="com.alicnina.paymentsimulator.AccounDAOImpl" />
 
-	<bean id="springAwareService" class="com.alicnina.paymentsimulator.PaymentSimulatorSkeleton">
-		<property name="accountDAO" ref="accountDAO" />
-	</bean>
+	<bean id="springAwareService" class="com.alicnina.paymentsimulator.PaymentSimulatorSkeleton" />
 	
 	<!-- 
 	

@@ -19,15 +19,7 @@ import com.alicnina.paymentsimulator.InitializePaymentResponse;
  */
 public class PaymentSimulatorSkeleton {
 
-	private DAOInterface<Account> accountDAO;
-
-	public DAOInterface<Account> getAccountDAO() {
-		return accountDAO;
-	}
-
-	public void setAccountDAO(DAOInterface<Account> accountDAO) {
-		this.accountDAO = accountDAO;
-	}
+	private DAOInterface<Account> accountDAO = new AccounDAOImpl();
 
 	/**
 	 * Auto generated method signature
@@ -60,6 +52,8 @@ public class PaymentSimulatorSkeleton {
 			else {
 				double newAccountBalance = account.getAmmount() - ammount;
 				account.setAmmount(newAccountBalance);
+				accountDAO.delete(account);
+				accountDAO.save(account);
 				response.setCode("102");
 				response.setMessage("You've successfuly called Online Payment Simulator!");
 			}
