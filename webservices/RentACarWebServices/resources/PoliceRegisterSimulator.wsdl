@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+	xmlns:ns1="http://org.apache.axis2/xsd" xmlns:ns="http://policeregistersimulator.alicnina.com"
+	xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/"
+	xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/"
+	xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/"
+	targetNamespace="http://policeregistersimulator.alicnina.com">
+
+	<wsdl:documentation>PoliceRegisterSimulator</wsdl:documentation>
+
+	<wsdl:types>
+		<xs:schema attributeFormDefault="qualified"
+			elementFormDefault="qualified" targetNamespace="http://policeregistersimulator.alicnina.com">
+			<xs:element name="initializePoliceRegister">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element minOccurs="1" name="IDNumber" type="xs:string" />
+						<xs:element minOccurs="1" name="drivingLicenceNumber" type="xs:string" />
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="initializePoliceRegisterResponse">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element minOccurs="1" name="code" type="xs:string" />
+						<xs:element minOccurs="1" name="message" type="xs:string" />
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+		</xs:schema>
+	</wsdl:types>
+
+	<wsdl:message name="initializePoliceRegisterRequest">
+		<wsdl:part name="parameters" element="ns:initializePoliceRegister" />
+	</wsdl:message>
+
+	<wsdl:message name="initializePoliceRegisterResponse">
+		<wsdl:part name="parameters" element="ns:initializePoliceRegisterResponse" />
+	</wsdl:message>
+
+	<wsdl:portType name="PortType">
+		<wsdl:operation name="initializePoliceRegister">
+			<wsdl:input message="ns:initializePoliceRegisterRequest"
+				wsaw:Action="urn:initializePoliceRegister" />
+			<wsdl:output message="ns:initializePoliceRegisterResponse"
+				wsaw:Action="urn:initializePoliceRegisterResponse" />
+		</wsdl:operation>
+	</wsdl:portType>
+
+	<wsdl:binding name="Soap11Binding" type="ns:PortType">
+		<soap:binding transport="http://schemas.xmlsoap.org/soap/http"
+			style="document" />
+		<wsdl:operation name="initializePoliceRegister">
+			<soap:operation soapAction="urn:initializePoliceRegister"
+				style="document" />
+			<wsdl:input>
+				<soap:body use="literal" />
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal" />
+			</wsdl:output>
+		</wsdl:operation>
+	</wsdl:binding>
+
+	<wsdl:binding name="Soap12Binding" type="ns:PortType">
+		<soap12:binding transport="http://schemas.xmlsoap.org/soap/http"
+			style="document" />
+		<wsdl:operation name="initializePoliceRegister">
+			<soap12:operation soapAction="urn:initializePoliceRegister"
+				style="document" />
+			<wsdl:input>
+				<soap12:body use="literal" />
+			</wsdl:input>
+			<wsdl:output>
+				<soap12:body use="literal" />
+			</wsdl:output>
+		</wsdl:operation>
+	</wsdl:binding>
+
+	<wsdl:service name="PoliceRegisterSimulator">
+		<wsdl:port name="HttpSoap11Endpoint2" binding="ns:Soap11Binding">
+			<soap:address
+				location="http://localhost:8080/Axis2HelloWorld/services/PoliceRegisterSimulator.HttpSoap11Endpoint2/" />
+		</wsdl:port>
+		<wsdl:port name="HttpSoap12Endpoint2" binding="ns:Soap12Binding">
+			<soap12:address
+				location="http://localhost:8080/Axis2HelloWorld/services/PoliceRegisterSimulator.HttpSoap12Endpoint2/" />
+		</wsdl:port>
+	</wsdl:service>
+
+</wsdl:definitions>
+
