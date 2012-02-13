@@ -60,7 +60,6 @@ public class RentalController extends MultiActionController {
 		if (isValidCreditCard(creditCardNumber, cvv2, ammount) && isValidUser(username)) {
 			//newRental.setStartDate(startDate);
 			newRental.setNumberDays(numberDays);
-			newRental.setStatus("rented");
 			rentalDAO.save(newRental);
 		} else {
 			rentalDAO.delete(newRental);

@@ -5,6 +5,7 @@
 
 <h:head>
 	<title>User Registration</title>
+	<link href="./css/table-style.css" rel="stylesheet" type="text/css"/>
 </h:head>
 
 <h:body>
@@ -29,17 +30,14 @@
 				requiredMessage="Missing last name" id="surname" />
 		</label>
 		<br />
-		<label> Email: <h:inputText value="#{userRegisterBean.email}"
-				required="true" requiredMessage="Missing email address" id="email" />
+		<label> Email: <h:inputText value="#{userRegisterBean.email}" id="email" />
 		</label>
 		<br />
 		<label> <font color="red">*</font> Phone: <h:inputText value="#{userRegisterBean.phone}"
 				required="true" requiredMessage="Missing phone number" id="phone" />
 		</label>
 		<br />
-		<label> Address: <h:inputText
-				value="#{userRegisterBean.address}" required="true"
-				requiredMessage="Missing address" id="address" />
+		<label> Address: <h:inputText value="#{userRegisterBean.address}"  id="address" />
 		</label>
 		<br />
 		<label><font color="red">*</font> ID Number: <h:inputText
@@ -67,17 +65,25 @@
 				<f:convertDateTime pattern="d-M-yyyy" />
 			</h:inputText>
 		</label>
+		<br/>
+		<label>
+			<h:panelGroup rendered="#{userLoginBean.isAuthorizedAdmin}">
+				Authority: <h:selectOneMenu
+				value="#{userRegisterBean.authority}" id="authority">
+				<f:selectItems value="#{userEditBean.authorityValue}" />
+			</h:selectOneMenu>
+			</h:panelGroup>
+		</label>
 		<br />
-		<label> <font color="red">*</font> Authority: <h:selectOneMenu
-				value="#{userRegisterBean.authority}" required="true"
-				requiredMessage="Missing role" id="authority">
-				<f:selectItems value="#{userRegisterBean.authorityValue}" />
+		<label> Language: <h:selectOneMenu value="#{userRegisterBean.language}" id="language">
+				<f:selectItems value="#{userRegisterBean.languageValue}" />
 			</h:selectOneMenu>
 		</label>
 		<br />
-		<h:commandButton value="Sign Up">
+		<br />
+		<h:commandButton value="Register">
 			<f:ajax
-				execute="username password name surname email phone address idNumber idExpireDate drivingLicenceNumber drivingLicenceExpireDate authority"
+				execute="username password name surname email phone address idNumber idExpireDate drivingLicenceNumber drivingLicenceExpireDate authority language"
 				render="result" listener="#{userRegisterBean.userRegister}" />
 		</h:commandButton>
 		<br />

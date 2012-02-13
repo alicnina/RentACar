@@ -6,10 +6,11 @@
 
 <h:head>
 	<title>User Login</title>
+	<link href="./css/table-style.css" rel="stylesheet" type="text/css"/>
 </h:head>
 
 <h:body>
-	<h:form prependId="false">
+	<h:form prependId="false" >
 		<label> <font color="red">*</font> Username: <h:inputText
 				value="#{userLoginBean.inputUsername}" required="true"
 				requiredMessage="Missing Username" id="inputUsername" />
@@ -18,29 +19,22 @@
 		<label> <font color="red">*</font> Password: <h:inputSecret
 				value="#{userLoginBean.inputPassword}" required="true"
 				requiredMessage="Missing password" id="inputPassword" />
+				
 		</label>
 		<br />
-		<h:commandButton value="Login">
-			<f:ajax execute="inputUsername inputPassword" render="result"
-				listener="#{userLoginBean.userLogin}" />
-		</h:commandButton>
+		<h:commandButton value="Login" action="#{userLoginBean.userLogin}" />
 		<br />
 		<br />
-		<h:outputText id="result" value="#{userLoginBean.userWelcome}" />
-		<br />
-		Go to <a href="restricted.jsf">restricted page</a>
+		<h:outputText id="result" value="#{userLoginBean.userWelcome}"/>
+		
 		<br />
 		<br />
 		Go to <a href="user-register.jsf">registration page</a>
 		<br />
 		<br />
-		Go to <a href="vehicle-list.jsf">vehicle page</a>
-		<br />
-		<br />
-		Go to <a href="user-list.jsf">list of all users </a>
-		<br />
-		<br />
 	</h:form>
+	
+	
 
 </h:body>
 

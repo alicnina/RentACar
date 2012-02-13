@@ -5,11 +5,14 @@
 
 <h:head>
 	<title>User Edit</title>
+	<link href="./css/table-style.css" rel="stylesheet" type="text/css"/>
 </h:head>
 
-<h:body>
 
+<h:body>
 	<h:form prependId="false">
+	
+	<h:panelGroup rendered="#{userLoginBean.isAuthorizedAdmin}">
 		<h:inputHidden value="#{userEditBean.user.password}" id="password" />
 		<h:inputHidden value="#{userEditBean.user.username}" id="username" />
 		EDIT USER <h:outputText value="#{userEditBean.user.username}" />
@@ -54,20 +57,30 @@
 				value="#{userEditBean.authority}" id="authority">
 				<f:selectItems value="#{userEditBean.authorityValue}" />
 			</h:selectOneMenu>
+		</label><br/>
+		<label> Language: <h:selectOneMenu
+				value="#{userEditBean.language}" id="language">
+				<f:selectItems value="#{userEditBean.languageValue}" />
+			</h:selectOneMenu>
 		</label>
 		<br />
 		<h:commandButton value="Edit User">
 			<f:ajax
-				execute="@form authority"
+				execute="@form authority language"
 				render="result" listener="#{userEditBean.userEdit}" />
 		</h:commandButton>
 		<br />
 		<br />
 		<h:outputText id="result" value="#{userEditBean.userEditResult}" />
 		<br />
-		Go to <a href="user-list.jsf">user list page</a>
+		<br/>
+		Go to <a href="user-list.jsf">user list page</a></h:panelGroup>
+		<h:panelGroup rendered="#{!userLoginBean.isAuthorizedAdmin}">
+			In process
+		</h:panelGroup>
 	</h:form>
 
 </h:body>
+		
 
 </html>

@@ -1,0 +1,30 @@
+<!DOCTYPE HTML>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+
+<h:head>
+	<title>User Login</title>
+	<link href="./css/table-style.css" rel="stylesheet" type="text/css"/> 
+</h:head>
+
+<h:body>
+	<h:form prependId="false">
+		<h:outputText id="result" value="#{userLoginBean.userWelcome}" />
+	</h:form>
+	<br />
+	<br />
+	<h:panelGroup rendered="#{userLoginBean.isAuthorized}">
+			Go to <a href="vehicle-list.jsf">vehicle page</a>
+	</h:panelGroup>
+	<br />
+	<br />
+	<h:panelGroup rendered="#{userLoginBean.isAuthorizedAdmin}">
+			Go to <a href="user-list.jsf">list of all users </a>
+		<br /><br/><br/>
+	</h:panelGroup>
+	<form><h:commandButton value="SIGN OUT"
+					action="#{userLoginBean.editNav}"/></form>
+</h:body>
+
+</html>

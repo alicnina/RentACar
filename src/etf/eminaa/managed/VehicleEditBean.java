@@ -1,16 +1,21 @@
 package etf.eminaa.managed;
 
 import java.io.Serializable;
+import java.util.Iterator;
 import java.util.LinkedHashMap;
 import java.util.Map;
+import java.util.Set;
 
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.RequestScoped;
+import javax.faces.context.FacesContext;
 import javax.faces.event.AjaxBehaviorEvent;
 
 import etf.eminaa.dao.DAOInterface;
+import etf.eminaa.domain.Authorities;
 import etf.eminaa.domain.Rental;
+import etf.eminaa.domain.Users;
 import etf.eminaa.domain.Vehicle;
 
 @ManagedBean
@@ -23,26 +28,23 @@ public class VehicleEditBean implements Serializable {
 
 	@ManagedProperty(value = "#{vehicleDAO}")
 	private DAOInterface<Vehicle> vehicleDao;
-	
+
 	@ManagedProperty(value = "#{rentalDAO}")
 	private DAOInterface<Rental> rentalDao;
-
-	
 
 	private Boolean vehicleEdited = null;
 
 	private String status;
 
 	public void vehicleEdit(AjaxBehaviorEvent event) {
-		try {
-//			Rental rental = rentalDao.findByPrimaryKey(vehicle.getId());
-//			rental.setVehicle(vehicle);
-//			rentalDao.edit(rental);
-//			vehicle.getRental().add(rental);
-			vehicleDao.edit(vehicle);
-			vehicleEdited = true;
-		} catch (Exception e) {
-			vehicleEdited = false;
+		if (isAuthorizedUser()) {
+			try {
+				Vehicle newVehicle = vehicleDao.findByPrimaryKey(vehicle.getId());
+				vehicleDao.edit(newVehicle);
+				vehicleEdited = true;
+			} catch (Exception e) {
+				vehicleEdited = false;
+			}
 		}
 	}
 
@@ -51,7 +53,7 @@ public class VehicleEditBean implements Serializable {
 		if (null == vehicleEdited) {
 			msg = "Please edit vehicle!";
 		} else if (isVehicleEdited()) {
-			msg = "Vehilce " + vehicle.getManufacturer() + ", " + vehicle.getModel() + " updated!";
+			msg = "Vehicle " + vehicle.getManufacturer() + ", " + vehicle.getModel() + " updated!";
 		} else if (!isVehicleEdited()) {
 			msg = "Error editing vehicle!";
 		}
@@ -99,18 +101,38 @@ public class VehicleEditBean implements Serializable {
 		statusValue.put("On Repair", "ON_REPAIR");
 		statusValue.put("Not available for now ", "NOT_AVAILABLE");
 		statusValue.put("Rented", "RENTED");
+		statusValue.put("Rented", "RESERVATION");
 	}
 
 	public Map<String, Object> getStatusValue() {
 		return statusValue;
 	}
-	
+
 	public DAOInterface<Rental> getRentalDao() {
 		return rentalDao;
 	}
 
 	public void setRentalDao(DAOInterface<Rental> rentalDao) {
 		this.rentalDao = rentalDao;
+	}
+
+	public boolean isAuthorizedUser() {
+		Map<String, Object> sessionMap = FacesContext.getCurrentInstance().getExternalContext().getSessionMap();
+		if (sessionMap.containsKey("userLoginBean")) {
+			Users user = ((UserLoginBean) sessionMap.get("userLoginBean")).getUser();
+			if (null != user && null != user.getAuthorities()) {
+				Set<Authorities> authorities = user.getAuthorities();
+				Iterator<Authorities> it = authorities.iterator();
+				while (it.hasNext()) {
+					Authorities auth = it.next();
+					if (auth.getAuthority().equals("ROLE_EMPLOYEE")) {
+						return true;
+					}
+				}
+			}
+
+		}
+		return false;
 	}
 
 }

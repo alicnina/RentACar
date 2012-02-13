@@ -5,10 +5,12 @@
 
 <h:head>
 	<title>ADD/EDIT/DELETE/LIST VEHICLES</title>
+	<link href="./css/table-style.css" rel="stylesheet" type="text/css"/>
 </h:head>
 
 <h:body>
 	<h:form prependId="false">
+	<h:panelGroup rendered="#{userLoginBean.isAuthorizedUser}">
 		<label> <font color="red">*</font> Vehicle Manufacturer: <h:inputText
 				value="#{vehicleRegisterBean.manufacturer}" required="true"
 				requiredMessage="Missing manufactur" id="manufacturer" />
@@ -64,10 +66,16 @@
 		<h:outputText id="result"
 			value="#{vehicleRegisterBean.vehicleWelcome}" />
 		<br />
+		</h:panelGroup>
+		<h:panelGroup rendered="#{!userLoginBean.isAuthorizedUser}">
+			In process
+		</h:panelGroup>
 	</h:form>
 <br />
 		<br />
-		Go back to car  <a href="vehicle-list.jsf"> LIST </a>
+		<h:panelGroup rendered="#{userLoginBean.isAuthorizedUser}">
+		Go back to car  <a href="vehicle-list.jsf"> LIST </a> 
+		</h:panelGroup>
 		<br />
 	
 </h:body>

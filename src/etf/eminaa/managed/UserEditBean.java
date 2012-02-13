@@ -1,14 +1,16 @@
 package etf.eminaa.managed;
 
 import java.io.Serializable;
+import java.util.Iterator;
 import java.util.LinkedHashMap;
 import java.util.Map;
+import java.util.Set;
 
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.RequestScoped;
+import javax.faces.context.FacesContext;
 import javax.faces.event.AjaxBehaviorEvent;
-
 
 import etf.eminaa.dao.DAOInterface;
 import etf.eminaa.domain.Authorities;
@@ -30,10 +32,9 @@ public class UserEditBean implements Serializable {
 
 	private Boolean userEdited = null;
 
-	private String authority;
+	private String authority, language;
 
-	// save edited information about users
-
+	
 	private static Map<String, Object> authorityValue;
 
 	static {
@@ -46,6 +47,19 @@ public class UserEditBean implements Serializable {
 
 	public Map<String, Object> getAuthorityValue() {
 		return authorityValue;
+	}
+	
+	private static Map<String, Object> languageValue;
+
+	static {
+		languageValue = new LinkedHashMap<String, Object>();
+		languageValue.put("English", "eng"); // label, value
+		languageValue.put("Bosnian", "bos");
+		languageValue.put("German", "ger");
+	}
+
+	public Map<String, Object> getLanguageValue() {
+		return languageValue;
 	}
 
 	// getters and setters
@@ -73,8 +87,33 @@ public class UserEditBean implements Serializable {
 		this.authoritiesDao = authoritiesDao;
 	}
 
-	public void userEdit(AjaxBehaviorEvent event) {
-		try {
+	public boolean isUserEdited() {
+		return userEdited;
+	}
+
+	public void setUserEdited(boolean userEdited) {
+		this.userEdited = userEdited;
+	}
+
+	public void setAuthority(String authority) {
+		this.authority = authority;
+	}
+
+	public String getAuthority() {
+		return authority;
+	}
+	
+	public String getLanguage() {
+		return language;
+	}
+
+	public void setLanguage(String language) {
+		this.language = language;
+	}
+
+	// implemented methods
+	public void userEdit(AjaxBehaviorEvent event) throws Exception {
+		if (getIsAuthorizedAdmin()) {
 			if (null != authority) {
 				Authorities authorities = authoritiesDao.findByPrimaryKey(user.getUsername());
 				authorities.setAuthority(authority.toString());
@@ -83,10 +122,11 @@ public class UserEditBean implements Serializable {
 				authoritiesDao.edit(authorities);
 			}
 			user.setRole(authority.toString());
+			user.setLanguage(language);
 			usersDao.edit(user);
 			userEdited = true;
-		} catch (Exception e) {
-			userEdited = false;
+		} else {
+			throw new Exception("User is not authorized for this call!");
 		}
 	}
 
@@ -102,20 +142,21 @@ public class UserEditBean implements Serializable {
 		return msg;
 	}
 
-	public boolean isUserEdited() {
-		return userEdited;
-	}
-
-	public void setUserEdited(boolean userEdited) {
-		this.userEdited = userEdited;
-	}
-
-
-	public void setAuthority(String authority) {
-		this.authority = authority;
-	}
-
-	public String getAuthority() {
-		return authority;
+	public boolean getIsAuthorizedAdmin() {
+		Map<String, Object> sessionMap = FacesContext.getCurrentInstance().getExternalContext().getSessionMap();
+		if (sessionMap.containsKey("userLoginBean")) {
+			Users user = ((UserLoginBean) sessionMap.get("userLoginBean")).getUser();
+			if (null != user && null != user.getAuthorities()) {
+				Set<Authorities> authorities = user.getAuthorities();
+				Iterator<Authorities> it = authorities.iterator();
+				while (it.hasNext()) {
+					Authorities auth = it.next();
+					if (auth.getAuthority().equals("ROLE_ADMIN")) {
+						return true;
+					}
+				}
+			}
+		}
+		return false;
 	}
 }

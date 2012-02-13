@@ -17,7 +17,6 @@ public class Rental {
 	private int id;
 	private Date startDate;
 	private int numberDays;
-	private String status;
 	private Users users;
 	private Vehicle vehicle;
 
@@ -32,7 +31,7 @@ public class Rental {
 		this.id = id;
 	}
 
-	@ManyToOne(fetch = FetchType.LAZY)
+	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name = "username")
 	public Users getUsers() {
 		return this.users;
@@ -42,7 +41,7 @@ public class Rental {
 		this.users = user;
 	}
 
-	@ManyToOne(fetch = FetchType.LAZY)
+	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name = "vehicle_id")
 	public Vehicle getVehicle() {
 		return this.vehicle;
@@ -62,20 +61,12 @@ public class Rental {
 	}
 
 	@Column(name = "rent_number_days")
-	public Integer getNumberDays() {
+	public int getNumberDays() {
 		return numberDays;
 	}
 
-	public void setNumberDays(Integer numberDays) {
+	public void setNumberDays(int numberDays) {
 		this.numberDays = numberDays;
 	}
 
-	@Column(name = "rent_status")
-	public String getStatus() {
-		return status;
-	}
-
-	public void setStatus(String status) {
-		this.status = status;
-	}
 }

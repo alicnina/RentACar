@@ -32,7 +32,7 @@ public class RentalDAOImpl implements DAOInterface<Rental> {
 	public Rental findByPrimaryKey(Object key) {
 		if (key instanceof Integer) {
 			int id = (Integer) key;
-			List<?> list = hibernateTemplate.find("from Rental where rental_id=?", id);
+			List<?> list = hibernateTemplate.find("from rental where rental_id=?", id);
 			return (Rental) list.get(0);
 		} else {
 			return null;

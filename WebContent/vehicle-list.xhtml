@@ -5,6 +5,7 @@
 
 <h:head>
 	<title>LIST VEHICLES</title>
+	<link href="./css/table-style.css" rel="stylesheet" type="text/css"/>
 </h:head>
 
 <h:body>
@@ -23,12 +24,13 @@
 				<f:facet name="header">Production Date</f:facet>#{c.productionDate}</h:column>
 			<h:column>
 				<f:facet name="header">Registration Expire Date</f:facet>#{c.registrationExpireDate}</h:column>
-			<h:column>
+
+			<h:column rendered="#{userLoginBean.isAuthorizedUser}">
 				<f:facet name="header">Delete</f:facet>
 				<h:commandButton value="Delete"
 					action="#{vehicleRegisterBean.deleteAction(c)}" />
 			</h:column>
-			<h:column>
+			<h:column rendered="#{userLoginBean.isAuthorizedUser}">
 				<f:facet name="header">Edit </f:facet>
 				<h:commandButton value="Edit"
 					action="#{vehicleRegisterBean.editNav}">
@@ -39,19 +41,31 @@
 			<h:column>
 				<f:facet name="header">Rent </f:facet>
 				<h:commandButton value="Rent"
-					action="#{vehicleRegisterBean.editRentalNav}" >
+					action="#{vehicleRegisterBean.editRentalNav}">
 					<f:setPropertyActionListener value="#{c}"
 						target="#{vehicleRentalBean.vehicle}" />
 				</h:commandButton>
 			</h:column>
-		</h:dataTable>
-	</h:form>
 
-	<br />
-	<br />
+		</h:dataTable>
+	<br/><br/>
+	<h:commandButton value="SIGN OUT" action="#{userLoginBean.editNav}" />
+	<br/><br/>
+	
+	<h:panelGroup rendered="#{userLoginBean.isAuthorizedUser}">
+		<br />
 		If You want to add new car, please click  <a
-		href="vehicle-register.jsf"> HERE </a>
-	<br />
+			href="vehicle-register.jsf"> HERE </a>
+		<br />
+	</h:panelGroup>
+	<h:panelGroup rendered="#{userLoginBean.isAuthorizedAdmin}">
+		<br />
+		If You want to see employee list  <a
+			href="user-list.jsf"> HERE </a>
+		<br />
+	</h:panelGroup>
+	
+	</h:form>
 
 </h:body>
 

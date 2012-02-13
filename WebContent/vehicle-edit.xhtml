@@ -5,12 +5,13 @@
 
 <h:head>
 	<title>EDIT VEHICLES</title>
+	<link href="./css/table-style.css" rel="stylesheet" type="text/css"/>
 </h:head>
 
 <h:body>
 
 	<h:form prependId="false">
-
+	<h:panelGroup rendered="#{userLoginBean.isAuthorizedUser}">
 		<h:inputHidden value="#{vehicleEditBean.vehicle.id}" id="id" />
 		<h:inputHidden value="#{vehicleEditBean.vehicle.manufacturer}"
 			id="manufacturer" />
@@ -57,6 +58,10 @@
 		<br />
 		<br />
 		<h:outputText id="result" value="#{vehicleEditBean.vehicleEditResult}" />
+		</h:panelGroup>
+		<h:panelGroup rendered="#{!userLoginBean.isAuthorizedUser}">
+			<h3> ERROR 501: Not Implemented </h3>
+		</h:panelGroup>
 		<br />
 	</h:form>
 

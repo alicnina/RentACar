@@ -2,19 +2,23 @@ package etf.eminaa.managed;
 
 import java.io.Serializable;
 import java.util.Date;
+import java.util.Iterator;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.RequestScoped;
+import javax.faces.context.FacesContext;
 import javax.faces.event.AjaxBehaviorEvent;
 
 import org.apache.log4j.Logger;
 
 
 import etf.eminaa.dao.DAOInterface;
+import etf.eminaa.domain.Authorities;
 import etf.eminaa.domain.Rental;
 import etf.eminaa.domain.Users;
 import etf.eminaa.domain.Vehicle;
@@ -28,6 +32,7 @@ public class VehicleRegisterBean implements Serializable {
 	protected static Logger logger = Logger.getLogger("managed");
 
 	private String manufacturer, model, registrationNumber, rentPricePerDay, status;
+
 
 	private boolean alreadyRegistered = false;
 
@@ -89,7 +94,7 @@ public class VehicleRegisterBean implements Serializable {
 	public Map<String, Object> getStatusValue() {
 		return statusValue;
 	}
-
+	
 	public void setUserLoginBean(UserLoginBean userLoginBean) {
 		this.userLoginBean = userLoginBean;
 	}
@@ -165,7 +170,8 @@ public class VehicleRegisterBean implements Serializable {
 	public void setAlreadyRegistered(boolean alreadyRegistered) {
 		this.alreadyRegistered = alreadyRegistered;
 	}
-
+	
+	// implemented methods
 	public void vehicleRegister(AjaxBehaviorEvent event) {
 		vehicle = new Vehicle();
 		vehicle.setManufacturer(manufacturer);
@@ -195,7 +201,9 @@ public class VehicleRegisterBean implements Serializable {
 	}
 	
 	public void deleteAction(Vehicle vehicle) {
+		if(isAuthorizedUser()){
 		vehicleDao.delete(vehicle);
+		}
 	}
 	
 	
@@ -209,6 +217,25 @@ public class VehicleRegisterBean implements Serializable {
 
 	public void setStatus(String status) {
 		this.status = status;
+	}
+	
+	public boolean isAuthorizedUser() {
+		Map<String, Object> sessionMap = FacesContext.getCurrentInstance().getExternalContext().getSessionMap();
+		if (sessionMap.containsKey("userLoginBean")) {
+			Users user = ((UserLoginBean) sessionMap.get("userLoginBean")).getUser();
+			if (null != user && null != user.getAuthorities()) {
+				Set<Authorities> authorities = user.getAuthorities();
+				Iterator<Authorities> it = authorities.iterator();
+				while(it.hasNext()){
+					Authorities auth = it.next();
+					if(auth.getAuthority().equals("ROLE_EMPLOYEE")){
+						return true;
+					}
+				}
+			}
+
+		}
+		return false;
 	}
 
 }

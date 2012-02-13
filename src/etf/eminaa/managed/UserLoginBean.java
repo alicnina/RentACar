@@ -1,6 +1,9 @@
 package etf.eminaa.managed;
 
 import java.io.Serializable;
+import java.util.Iterator;
+import java.util.Map;
+import java.util.Set;
 
 import javax.el.ELContext;
 import javax.el.ValueExpression;
@@ -15,8 +18,8 @@ import javax.faces.event.AjaxBehaviorEvent;
 
 import org.apache.log4j.Logger;
 
-
 import etf.eminaa.dao.DAOInterface;
+import etf.eminaa.domain.Authorities;
 import etf.eminaa.domain.Users;
 
 @ManagedBean
@@ -33,10 +36,72 @@ public class UserLoginBean implements Serializable {
 
 	@ManagedProperty(value = "#{usersDAO}")
 	private DAOInterface<Users> usersDao;
-	
+
 	private Users user;
 
-	public void userLogin(AjaxBehaviorEvent event) {
+	public String editNav() {
+		Map<String, Object> sessionMap = FacesContext.getCurrentInstance().getExternalContext().getSessionMap();
+		if (sessionMap.containsKey("userLoginBean")) {
+			sessionMap.clear();
+		}
+		return "success";
+	}
+
+	public boolean getIsAuthorized() {
+		Map<String, Object> sessionMap = FacesContext.getCurrentInstance().getExternalContext().getSessionMap();
+		if (sessionMap.containsKey("userLoginBean")) {
+			Users user = ((UserLoginBean) sessionMap.get("userLoginBean")).getUser();
+			if (null != user && null != user.getAuthorities()) {
+				Set<Authorities> authorities = user.getAuthorities();
+				Iterator<Authorities> it = authorities.iterator();
+				while (it.hasNext()) {
+					Authorities auth = it.next();
+					if ( auth.getAuthority().equals("ROLE_USER") || auth.getAuthority().equals("ROLE_EMPLOYEE")) {
+						return true;
+					}
+				}
+			}
+		}
+		return false;
+	}
+
+	public boolean getIsAuthorizedAdmin() {
+		Map<String, Object> sessionMap = FacesContext.getCurrentInstance().getExternalContext().getSessionMap();
+		if (sessionMap.containsKey("userLoginBean")) {
+			Users user = ((UserLoginBean) sessionMap.get("userLoginBean")).getUser();
+			if (null != user && null != user.getAuthorities()) {
+				Set<Authorities> authorities = user.getAuthorities();
+				Iterator<Authorities> it = authorities.iterator();
+				while (it.hasNext()) {
+					Authorities auth = it.next();
+					if (auth.getAuthority().equals("ROLE_ADMIN")) {
+						return true;
+					}
+				}
+			}
+		}
+		return false;
+	}
+
+	public boolean getIsAuthorizedUser() {
+		Map<String, Object> sessionMap = FacesContext.getCurrentInstance().getExternalContext().getSessionMap();
+		if (sessionMap.containsKey("userLoginBean")) {
+			Users user = ((UserLoginBean) sessionMap.get("userLoginBean")).getUser();
+			if (null != user && null != user.getAuthorities()) {
+				Set<Authorities> authorities = user.getAuthorities();
+				Iterator<Authorities> it = authorities.iterator();
+				while (it.hasNext()) {
+					Authorities auth = it.next();
+					if (auth.getAuthority().equals("ROLE_EMPLOYEE")) {
+						return true;
+					}
+				}
+			}
+		}
+		return false;
+	}
+	
+	public String userLogin() {
 		loginAttempted = true;
 		if (null != inputUsername && null != inputPassword) {
 			user = usersDao.findByKeyWords(inputUsername, inputPassword);
@@ -48,14 +113,16 @@ public class UserLoginBean implements Serializable {
 				ValueExpression valueExpr = application.getExpressionFactory().createValueExpression(elContext, "#{userLoginBean}", UserLoginBean.class);
 				valueExpr.setValue(elContext, this);
 				context.getExternalContext().getSessionMap().put("userLoginBean", this);
+				return "success";
+
 			}
-		}
+		} return "unsuccess";
 	}
 
 	public String getUserWelcome() {
 		String msg = "User not found or invalid password!";
 		if (isUserLoggedIn()) {
-			msg = "User " + user.getName() + " " + user.getSurname() + " (" + user.getUsername() + ") found!";
+			msg = "User " + user.getName() + " " + user.getSurname() + " (" + user.getRole() + ") found!";
 		} else if (!loginAttempted) {
 			msg = "Please login!";
 		}

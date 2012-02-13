@@ -27,6 +27,9 @@ public class Users {
 	private String idNumber;
 	private String drivingLicenceNumber;
 	private String role;
+	private String language;
+
+	
 
 	private Date idExpireDate, drivingLicenceExpireDate;
 	
@@ -180,5 +183,14 @@ public class Users {
 
 	public void setRole(String role) {
 		this.role = role;
+	}
+	
+	@Column(name = "language")
+	public String getLanguage() {
+		return language;
+	}
+
+	public void setLanguage(String language) {
+		this.language = language;
 	}
 }

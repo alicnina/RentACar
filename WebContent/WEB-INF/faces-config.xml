@@ -47,5 +47,45 @@
    </navigation-case>
 </navigation-rule>
 
- 
+<navigation-rule>
+   <from-view-id>/vehicle-list.xhtml</from-view-id>
+   <navigation-case>
+      <from-action>#{userLoginBean.editNav}</from-action>
+      <from-outcome>success</from-outcome>
+      <to-view-id>/user-login.xhtml</to-view-id>
+   </navigation-case>
+</navigation-rule>
+
+<navigation-rule>
+   <from-view-id>/user-list.xhtml</from-view-id>
+   <navigation-case>
+      <from-action>#{userLoginBean.editNav}</from-action>
+      <from-outcome>success</from-outcome>
+      <to-view-id>/user-login.xhtml</to-view-id>
+   </navigation-case>
+</navigation-rule>
+
+<navigation-rule>
+   <from-view-id>/user-login.xhtml</from-view-id>
+   <navigation-case>
+      <from-action>#{userLoginBean.userLogin}</from-action>
+      <from-outcome>success</from-outcome>
+      <to-view-id>/homepage.xhtml</to-view-id>
+   </navigation-case>
+   <navigation-case>
+      <from-action>#{userLoginBean.userLogin}</from-action>
+      <from-outcome>unsuccess</from-outcome>
+      <to-view-id>/user-login.xhtml</to-view-id>
+   </navigation-case>
+</navigation-rule>
+
+<navigation-rule>
+   <from-view-id>/homepage.xhtml</from-view-id>
+   <navigation-case>
+      <from-action>#{userLoginBean.editNav}</from-action>
+      <from-outcome>success</from-outcome>
+      <to-view-id>/user-login.xhtml</to-view-id>
+   </navigation-case>
+</navigation-rule>
+
 </faces-config>

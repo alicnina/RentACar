@@ -4,36 +4,59 @@
 	xmlns:f="http://java.sun.com/jsf/core">
 
 <h:head>
-	<title>RENTAL VEHICLES </title>
+	<title>VEHICLES RENTAL PAGE</title>
+	<link href="./css/table-style.css" rel="stylesheet" type="text/css" />
 </h:head>
 
 <h:body>
 
- RENTAL PAGE 
- 
- <h:form prependId="false">
-		
-		<label> <font color="red">*</font> Rental Start Date: <h:inputText value="#{vehicleRentalBean.startDate}"
-				required="true" requiredMessage="Missing Vehicle Rental Start Date " id="startDate" >
-				<f:convertDateTime pattern="d-M-yyyy" /></h:inputText>
+	<h:form prependId="false">
+
+		<h:inputHidden value="#{vehicleRentalBean.vehicle.id}" id="id" /> 
+		USER: <h:outputText value="#{vehicleRentalBean.user.username}" />
+		<br />
+		<br />
+		RENT A CAR: <h:outputText value="#{vehicleRentalBean.vehicle.model}" />
+		<br />
+		<br />
+		<label> <font color="red">*</font> Rental Start Date: <h:inputText
+				value="#{vehicleRentalBean.startDate}" required="true"
+				requiredMessage="Missing Vehicle Rental Start Date " id="startDate">
+				<f:convertDateTime pattern="d-M-yyyy" />
+			</h:inputText>
 		</label>
-		<br/>
+		<br />
 		<label> <font color="red">*</font> Number of Days: <h:inputText
 				value="#{vehicleRentalBean.numberDays}" required="true"
 				requiredMessage="Missing Number of Days" id="numberDays" />
 		</label>
 		<br />
+		<label> <font color="red">**</font> Credit Card Number: <h:inputText
+				value="#{vehicleRentalBean.creditCardNumber}" id="creditCardNumber">
+			</h:inputText>
+		</label>
+		<br />
+		<label> <font color="red">**</font> Cvv2: <h:inputText
+				value="#{vehicleRentalBean.cvv2}" id="cvv2" />
+		</label>
 		<br />
 		<h:commandButton value="Rent">
-			<f:ajax
-				execute="@form"
+			<f:ajax execute="id startDate numberDays creditCardNumber cvv2"
 				render="result" listener="#{vehicleRentalBean.vehicleRentalSave}" />
 		</h:commandButton>
-		<br />	<br />
+		<h:commandButton value="Make Reservation">
+			<f:ajax execute="id startDate numberDays creditCardNumber cvv2" render="result"
+				listener="#{vehicleRentalBean.vehicleReservationSave}" />
+		</h:commandButton>
+		<br />
+		<br />
 		<h:outputText id="result" value="#{vehicleRentalBean.rentalWelcome}" />
 		<br />
-		</h:form>
-		
+	</h:form>
+
+	<font color="red">* </font> Reequired for both renting and making reservation.
+	<br />
+	<font color="red">** </font> Required only if You want to rent a car.
 </h:body>
 
 </html>

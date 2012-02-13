@@ -7,6 +7,7 @@
 <h:head>
 	<title>User List</title>
 	<h:outputStylesheet library="css" name="table-style.css" />
+	<link href="./css/table-style.css" rel="stylesheet" type="text/css"/>
 </h:head>
 <h:body>
 	<h:form>
@@ -36,10 +37,14 @@
 			<h:column>
 				<f:facet name="header">Role</f:facet>#{c.role}</h:column>
 			<h:column>
+				<f:facet name="header">Language</f:facet>#{c.language}</h:column>
+
+			<h:column>
 				<f:facet name="header">Delete</f:facet>
 				<h:commandButton value="Delete"
 					action="#{userRegisterBean.deleteAction(c)}" />
 			</h:column>
+
 			<h:column>
 				<f:facet name="header">Edit </f:facet>
 				<h:commandButton value="Edit" action="#{userRegisterBean.editNav}">
@@ -48,9 +53,10 @@
 				</h:commandButton>
 			</h:column>
 		</h:dataTable>
+		<br/>
+		<h:commandButton value="LOGOUT"
+					action="#{userLoginBean.editNav}"/>
 	</h:form>
-
-	<br />
 	<br />
 	<br />
 		If You want to add new user, please click  <a href="user-register.jsf">
@@ -58,8 +64,8 @@
 	<br />
 	<br />
 	<br />
-		If You want to see vehicle list, please click  <a href="vehicle-list.jsf">
-		HERE </a>
+		If You want to see vehicle list, please click  <a
+		href="vehicle-list.jsf"> HERE </a>
 	<br />
 
 </h:body>

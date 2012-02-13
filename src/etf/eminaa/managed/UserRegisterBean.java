@@ -2,17 +2,19 @@ package etf.eminaa.managed;
 
 import java.io.Serializable;
 import java.util.Date;
+import java.util.Iterator;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.RequestScoped;
+import javax.faces.context.FacesContext;
 import javax.faces.event.AjaxBehaviorEvent;
 
 import org.apache.log4j.Logger;
-
 
 import etf.eminaa.dao.DAOInterface;
 import etf.eminaa.domain.Authorities;
@@ -28,7 +30,9 @@ public class UserRegisterBean implements Serializable {
 	protected static Logger logger = Logger.getLogger("managed");
 
 	private String username, password, phone, email, address, authority;
-	private String name, surname, drivingLicenceNumber, idNumber;
+	
+	private String name, surname, drivingLicenceNumber, idNumber, language;
+
 	private Users user;
 	private boolean alreadyRegistered;
 
@@ -115,28 +119,6 @@ public class UserRegisterBean implements Serializable {
 		this.idNumber = idNumber;
 	}
 
-	public void setAuthority(String authority) {
-		this.authority = authority;
-	}
-
-	public String getAuthority() {
-		return authority;
-	}
-
-	private static Map<String, Object> authorityValue;
-
-	static {
-		authorityValue = new LinkedHashMap<String, Object>();
-		authorityValue.put("Registered User", "ROLE_USER"); // label, value
-		authorityValue.put("Employee", "ROLE_EMPLOYEE");
-		authorityValue.put("Administrator", "ROLE_ADMIN");
-		authorityValue.put("Restricted", "ROLE_RESTRICTED");
-	}
-
-	public Map<String, Object> getAuthorityValue() {
-		return authorityValue;
-	}
-
 	public String getAddress() {
 		return address;
 	}
@@ -200,7 +182,52 @@ public class UserRegisterBean implements Serializable {
 	public void setAlreadyRegistered(boolean alreadyRegistered) {
 		this.alreadyRegistered = alreadyRegistered;
 	}
+	
+	public String getLanguage() {
+		return language;
+	}
 
+	public void setLanguage(String language) {
+		this.language = language;
+	}
+	
+	public String getAuthority() {
+		return authority;
+	}
+
+	public void setAuthority(String authority) {
+		this.authority = authority;
+	}
+	
+	private static Map<String, Object> authorityValue;
+
+	static {
+		authorityValue = new LinkedHashMap<String, Object>();
+		authorityValue.put("Registered User", "ROLE_USER"); // label, value
+		authorityValue.put("Employee", "ROLE_EMPLOYEE");
+		authorityValue.put("Administrator", "ROLE_ADMIN");
+		authorityValue.put("Restricted", "ROLE_RESTRICTED");
+	}
+
+	public Map<String, Object> getAuthorityValue() {
+		return authorityValue;
+	}
+
+	
+	private static Map<String, Object> languageValue;
+
+	static {
+		languageValue = new LinkedHashMap<String, Object>();
+		languageValue.put("English", "eng"); // label, value
+		languageValue.put("Bosnian", "bos");
+		languageValue.put("German", "ger");
+	}
+
+	public Map<String, Object> getLanguageValue() {
+		return languageValue;
+	}
+
+	// implemented methods
 	public void userRegister(AjaxBehaviorEvent event) {
 		if (null != username && null != password) {
 			user = usersDao.findByKeyWords(username, password);
@@ -214,18 +241,16 @@ public class UserRegisterBean implements Serializable {
 				user.setEmail(email);
 				user.setPhone(phone);
 				user.setIdNumber(idNumber);
-				user.setRole(authority.toString());
+				user.setRole("ROLE_USER");
 				user.setDrivingLicenceNumber(drivingLicenceNumber);
 				user.setIdExpireDate(new java.sql.Date(idExpireDate.getTime()));
 				user.setDrivingLicenceExpireDate(new java.sql.Date(drivingLicenceExpireDate.getTime()));
+				user.setLanguage(language);
 				usersDao.save(user);
-
-				if (null != authority) {
-					Authorities authorities = new Authorities();
-					authorities.setAuthority(authority.toString());
-					authorities.setUsers(user);
-					authoritiesDao.save(authorities);
-				}
+				Authorities authorities = new Authorities();
+				authorities.setAuthority("ROLE_USER");
+				authorities.setUsers(user);
+				authoritiesDao.save(authorities);
 
 			} else {
 				alreadyRegistered = true;
@@ -245,16 +270,42 @@ public class UserRegisterBean implements Serializable {
 		return msg;
 	}
 
-	public List<Users> getUserList() {
-		return usersDao.list();
+	public List<Users> getUserList() throws Exception {
+		if (getIsAuthorizedUser()) {
+			return usersDao.list();
+		} else {
+			throw new Exception();
+		}
 	}
 
 	public boolean isUserRegistered() {
 		return null != user;
 	}
 
-	public void deleteAction(Users user) {
-		usersDao.delete(user);
+	public void deleteAction(Users user) throws Exception {
+		if (getIsAuthorizedUser()) {
+			usersDao.delete(user);
+		} else {
+			throw new Exception("User is not authorized for this call!");
+		}
+	}
+
+	public boolean getIsAuthorizedUser() {
+		Map<String, Object> sessionMap = FacesContext.getCurrentInstance().getExternalContext().getSessionMap();
+		if (sessionMap.containsKey("userLoginBean")) {
+			Users user = ((UserLoginBean) sessionMap.get("userLoginBean")).getUser();
+			if (null != user && null != user.getAuthorities()) {
+				Set<Authorities> authorities = user.getAuthorities();
+				Iterator<Authorities> it = authorities.iterator();
+				while (it.hasNext()) {
+					Authorities auth = it.next();
+					if (auth.getAuthority().equals("ROLE_ADMIN")) {
+						return true;
+					}
+				}
+			}
+		}
+		return false;
 	}
 
 }

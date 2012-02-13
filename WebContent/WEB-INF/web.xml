@@ -46,4 +46,28 @@
 		<welcome-file>index.jsp</welcome-file>
 		<welcome-file>index.html</welcome-file>
 	</welcome-file-list>
+	
+ <servlet>
+    <servlet-name>Jersey REST Service</servlet-name>
+    <servlet-class>com.sun.jersey.spi.container.servlet.ServletContainer</servlet-class>
+    <init-param>
+      <param-name>com.sun.jersey.config.property.packages</param-name>
+      <param-value>etf.eminaa.rest</param-value>
+    </init-param>
+    <load-on-startup>1</load-on-startup>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Jersey REST Service</servlet-name>
+    <url-pattern>/rest/*</url-pattern>
+  </servlet-mapping>
+  
+  <error-page>
+  	<exception-type>java.lang.Exception</exception-type>
+	<!--<error-code>404</error-code> -->
+  	<location>/404.html</location>
+  </error-page>
+  <error-page>
+	<error-code>404</error-code>
+  	<location>/404.html</location>
+  </error-page>
 </web-app>
