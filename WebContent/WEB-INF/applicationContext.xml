@@ -52,14 +52,4 @@
 		<property name="sessionFactory" ref="defaultSessionFactory" />
 	</bean>
 
-	<!-- <bean name="/users/*.htm" class="etf.eminaa.web.UsersController"> 
-		<property name="usersDAO" ref="usersDAO" /> <property name="authoritiesDAO" 
-		ref="authoritiesDAO" /> </bean> <bean name="/authorities/*.htm" class="com.vaannila.web.AuthoritiesController"> 
-		<property name="authoritiesDAO" ref="authoritiesDAO" /> <property name="usersDAO" 
-		ref="usersDAO" /> </bean> <bean name="/vehicle/*.htm" class="com.vaannila.web.VehicleController"> 
-		<property name="vehicleDAO" ref="vehicleDAO" /> </bean> <bean name="/rental/*.htm" 
-		class="com.vaannila.web.RentalController"> <property name="rentalDAO" ref="rentalDAO" 
-		/> <property name="vehicleDAO" ref="vehicleDAO" /> <property name="usersDAO" 
-		ref="usersDAO" /> </bean> -->
-
 </beans>

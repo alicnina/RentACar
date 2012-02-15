@@ -14,12 +14,76 @@
 			<xs:element name="initializePoliceRegister">
 				<xs:complexType>
 					<xs:sequence>
-						<xs:element minOccurs="1" name="IDNumber" type="xs:string" />
+						<xs:element minOccurs="1" name="idNumber" type="xs:string" />
 						<xs:element minOccurs="1" name="drivingLicenceNumber" type="xs:string" />
+						<xs:element minOccurs="1" name="enabledRegister" type="xs:boolean" />
 					</xs:sequence>
 				</xs:complexType>
 			</xs:element>
 			<xs:element name="initializePoliceRegisterResponse">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element minOccurs="1" name="code" type="xs:string" />
+						<xs:element minOccurs="1" name="message" type="xs:string" />
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="savePoliceRegister">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element minOccurs="1" name="idNumber" type="xs:string" />
+						<xs:element minOccurs="1" name="drivingLicenceNumber" type="xs:string" />
+						<xs:element minOccurs="1" name="enabledRegister" type="xs:boolean" />
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="savePoliceRegisterResponse">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element minOccurs="1" name="code" type="xs:string" />
+						<xs:element minOccurs="1" name="message" type="xs:string" />
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="removePoliceRegister">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element minOccurs="1" name="idNumber" type="xs:string" />
+						<xs:element minOccurs="1" name="drivingLicenceNumber" type="xs:string" />
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="removePoliceRegisterResponse">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element minOccurs="1" name="code" type="xs:string" />
+						<xs:element minOccurs="1" name="message" type="xs:string" />
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="enablePoliceRegister">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element minOccurs="1" name="drivingLicenceNumber" type="xs:string" />
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="enablePoliceRegisterResponse">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element minOccurs="1" name="code" type="xs:string" />
+						<xs:element minOccurs="1" name="message" type="xs:string" />
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="disablePoliceRegister">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element minOccurs="1" name="drivingLicenceNumber" type="xs:string" />
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="disablePoliceRegisterResponse">
 				<xs:complexType>
 					<xs:sequence>
 						<xs:element minOccurs="1" name="code" type="xs:string" />
@@ -37,6 +101,38 @@
 	<wsdl:message name="initializePoliceRegisterResponse">
 		<wsdl:part name="parameters" element="ns:initializePoliceRegisterResponse" />
 	</wsdl:message>
+	
+	<wsdl:message name="savePoliceRegisterRequest">
+		<wsdl:part name="parameters" element="ns:savePoliceRegister" />
+	</wsdl:message>
+
+	<wsdl:message name="savePoliceRegisterResponse">
+		<wsdl:part name="parameters" element="ns:savePoliceRegisterResponse" />
+	</wsdl:message>
+	
+	<wsdl:message name="removePoliceRegisterRequest">
+		<wsdl:part name="parameters" element="ns:removePoliceRegister" />
+	</wsdl:message>
+
+	<wsdl:message name="removePoliceRegisterResponse">
+		<wsdl:part name="parameters" element="ns:removePoliceRegisterResponse" />
+	</wsdl:message>
+	
+	<wsdl:message name="enablePoliceRegisterRequest">
+		<wsdl:part name="parameters" element="ns:enablePoliceRegister" />
+	</wsdl:message>
+	
+	<wsdl:message name="enablePoliceRegisterResponse">
+		<wsdl:part name="parameters" element="ns:enablePoliceRegister" />
+	</wsdl:message>
+
+	<wsdl:message name="disablePoliceRegisterRequest">
+		<wsdl:part name="parameters" element="ns:disablePoliceRegisterResponse" />
+	</wsdl:message>
+	
+	<wsdl:message name="disablePoliceRegisterResponse">
+		<wsdl:part name="parameters" element="ns:disablePoliceRegisterResponse" />
+	</wsdl:message>
 
 	<wsdl:portType name="PortType">
 		<wsdl:operation name="initializePoliceRegister">
@@ -45,6 +141,30 @@
 			<wsdl:output message="ns:initializePoliceRegisterResponse"
 				wsaw:Action="urn:initializePoliceRegisterResponse" />
 		</wsdl:operation>
+		<wsdl:operation name="savePoliceRegister">
+			<wsdl:input message="ns:savePoliceRegisterRequest"
+				wsaw:Action="urn:savePoliceRegister" />
+			<wsdl:output message="ns:savePoliceRegisterResponse"
+				wsaw:Action="urn:savePoliceRegisterResponse" />
+		</wsdl:operation>
+		<wsdl:operation name="removePoliceRegister">
+			<wsdl:input message="ns:removePoliceRegisterRequest"
+				wsaw:Action="urn:removePoliceRegister" />
+			<wsdl:output message="ns:removePoliceRegisterResponse"
+				wsaw:Action="urn:removePoliceRegisterResponse" />
+		</wsdl:operation>
+		<wsdl:operation name="enablePoliceRegister">
+			<wsdl:input message="ns:enablePoliceRegisterRequest"
+				wsaw:Action="urn:enablePoliceRegister" />
+			<wsdl:output message="ns:enablePoliceRegisterResponse"
+				wsaw:Action="urn:enablePoliceRegisterResponse" />
+		</wsdl:operation>
+		<wsdl:operation name="disablePoliceRegister">
+			<wsdl:input message="ns:disablePoliceRegisterRequest"
+				wsaw:Action="urn:disablePoliceRegister" />
+			<wsdl:output message="ns:disablePoliceRegisterResponse"
+				wsaw:Action="urn:disablePoliceRegisterResponse" />
+		</wsdl:operation>
 	</wsdl:portType>
 
 	<wsdl:binding name="Soap11Binding" type="ns:PortType">
@@ -52,6 +172,46 @@
 			style="document" />
 		<wsdl:operation name="initializePoliceRegister">
 			<soap:operation soapAction="urn:initializePoliceRegister"
+				style="document" />
+			<wsdl:input>
+				<soap:body use="literal" />
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal" />
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="savePoliceRegister">
+			<soap:operation soapAction="urn:savePoliceRegister"
+				style="document" />
+			<wsdl:input>
+				<soap:body use="literal" />
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal" />
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="removePoliceRegister">
+			<soap:operation soapAction="urn:removePoliceRegister"
+				style="document" />
+			<wsdl:input>
+				<soap:body use="literal" />
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal" />
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="enablePoliceRegister">
+			<soap:operation soapAction="urn:enablePoliceRegister"
+				style="document" />
+			<wsdl:input>
+				<soap:body use="literal" />
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal" />
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="disablePoliceRegister">
+			<soap:operation soapAction="urn:disablePoliceRegister"
 				style="document" />
 			<wsdl:input>
 				<soap:body use="literal" />
@@ -75,16 +235,57 @@
 				<soap12:body use="literal" />
 			</wsdl:output>
 		</wsdl:operation>
+		<wsdl:operation name="savePoliceRegister">
+			<soap12:operation soapAction="urn:savePoliceRegister"
+				style="document" />
+			<wsdl:input>
+				<soap12:body use="literal" />
+			</wsdl:input>
+			<wsdl:output>
+				<soap12:body use="literal" />
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="removePoliceRegister">
+			<soap12:operation soapAction="urn:removePoliceRegister"
+				style="document" />
+			<wsdl:input>
+				<soap12:body use="literal" />
+			</wsdl:input>
+			<wsdl:output>
+				<soap12:body use="literal" />
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="enablePoliceRegister">
+			<soap12:operation soapAction="urn:enablePoliceRegister"
+				style="document" />
+			<wsdl:input>
+				<soap12:body use="literal" />
+			</wsdl:input>
+			<wsdl:output>
+				<soap12:body use="literal" />
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="disablePoliceRegister">
+			<soap12:operation soapAction="urn:disablePoliceRegister"
+				style="document" />
+			<wsdl:input>
+				<soap12:body use="literal" />
+			</wsdl:input>
+			<wsdl:output>
+				<soap12:body use="literal" />
+			</wsdl:output>
+		</wsdl:operation>
+		
 	</wsdl:binding>
 
 	<wsdl:service name="PoliceRegisterSimulator">
 		<wsdl:port name="HttpSoap11Endpoint2" binding="ns:Soap11Binding">
 			<soap:address
-				location="http://localhost:8080/Axis2HelloWorld/services/PoliceRegisterSimulator.HttpSoap11Endpoint2/" />
+				location="http://localhost:8080/RentACarWebServices/services/PoliceRegister.HttpSoap11Endpoint2/" />
 		</wsdl:port>
 		<wsdl:port name="HttpSoap12Endpoint2" binding="ns:Soap12Binding">
 			<soap12:address
-				location="http://localhost:8080/Axis2HelloWorld/services/PoliceRegisterSimulator.HttpSoap12Endpoint2/" />
+				location="http://localhost:8080/RentACarWebServices/services/PoliceRegister.HttpSoap12Endpoint2/" />
 		</wsdl:port>
 	</wsdl:service>
 

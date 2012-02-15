@@ -9,26 +9,73 @@ package com.alicnina.policeregistersimulator;
 import org.apache.axiom.om.OMAbstractFactory;
 import org.apache.axiom.om.OMElement;
 
+import com.alicnina.paymentsimulator.AccounDAOImpl;
 import com.alicnina.paymentsimulator.Account;
 import com.alicnina.paymentsimulator.DAOInterface;
-import com.alicnina.policeregistersimulator.InitializePoliceRegister;
-import com.alicnina.policeregistersimulator.InitializePoliceRegisterResponse;
-import com.alicnina.policeregistersimulator.Register;
+import com.alicnina.paymentsimulator.RegisterAccount;
+import com.alicnina.paymentsimulator.RegisterAccountResponse;
 
 /**
  * PoliceRegisterSimulatorSkeleton java skeleton for the axisService
  */
 public class PoliceRegisterSimulatorSkeleton {
 
-	private DAOInterface<Register> registerDAO;
+	private DAOInterface<Register> registerDAO = new RegisterDAOImpl();
 
-	public DAOInterface<Register> getRegisterDAO() {
-		return registerDAO;
+	/**
+	 * Auto generated method signature
+	 * 
+	 * @param disablePoliceRegisterResponse
+	 * @return disablePoliceRegisterResponse0
+	 */
+
+	public OMElement disablePoliceRegister(OMElement request) {
+		try {
+			DisablePoliceRegister disableReg = DisablePoliceRegister.Factory.parse(request.getXMLStreamReaderWithoutCaching());
+			DisablePoliceRegisterResponse response = new DisablePoliceRegisterResponse();
+
+			Register register = registerDAO.findByID(disableReg.getDrivingLicenceNumber());
+			register.setEnabledRegister(true);
+			registerDAO.delete(register);
+			registerDAO.save(register);
+
+			response.setCode("300");
+			response.setMessage("You've successfuly enabled this account!");
+
+			return response.getOMElement(DisablePoliceRegisterResponse.MY_QNAME, OMAbstractFactory.getOMFactory());
+		} catch (Exception e) {
+			System.err.println(e.getMessage());
+			return null;
+		}
 	}
 
-	public void setRegisterDAO(DAOInterface<Register> registerDAO) {
-		this.registerDAO = registerDAO;
+	/**
+	 * Auto generated method signature
+	 * 
+	 * @param enablePoliceRegister
+	 * @return enablePoliceRegister1
+	 */
+
+	public OMElement enablePoliceRegister(OMElement request) {
+		try {
+		EnablePoliceRegister enableReg = EnablePoliceRegister.Factory.parse(request.getXMLStreamReaderWithoutCaching());
+		EnablePoliceRegisterResponse response = new EnablePoliceRegisterResponse();
+		
+		Register reg = registerDAO.findByID(enableReg.getDrivingLicenceNumber());
+		reg.setEnabledRegister(false);
+		registerDAO.delete(reg);
+		registerDAO.save(reg);
+		
+		response.setCode("303");
+		response.setMessage("You've successfuly enabled this account!");
+		
+		return response.getOMElement(EnablePoliceRegisterResponse.MY_QNAME, OMAbstractFactory.getOMFactory());
+		} catch (Exception e) {
+			System.err.println(e.getMessage());
+			return null;
+		}
 	}
+
 	/**
 	 * Auto generated method signature
 	 * 
@@ -42,15 +89,19 @@ public class PoliceRegisterSimulatorSkeleton {
 			InitializePoliceRegister initializePoliceRegister = InitializePoliceRegister.Factory.parse(request.getXMLStreamReaderWithoutCaching());
 			InitializePoliceRegisterResponse response = new InitializePoliceRegisterResponse();
 
-			Register register = registerDAO.findByKeyWords(initializePoliceRegister.getIDNumber(), initializePoliceRegister.getDrivingLicenceNumber());
+			Register register = registerDAO.findByKeyWords(initializePoliceRegister.getIdNumber(), initializePoliceRegister.getDrivingLicenceNumber());
 			if (register == null) {
 				response.setCode("100");
 				response.setMessage("User with this ID Number and Driving Licence Number does not exist !");
 			}
 
-			else {
+			else if (register.isEnabledRegister() == true ){
 				response.setCode("101");
 				response.setMessage("User exists.");
+			}
+			else {
+				response.setCode("102");
+				response.setMessage("User is forbidden to access the system.");
 			}
 
 			return response.getOMElement(InitializePoliceRegisterResponse.MY_QNAME, OMAbstractFactory.getOMFactory());
@@ -66,13 +117,26 @@ public class PoliceRegisterSimulatorSkeleton {
 	/**
 	 * Auto generated method signature
 	 * 
-	 * @param savePoliceRegister
 	 * @return savePoliceRegisterResponse
 	 */
 
 	public OMElement savePoliceRegister(OMElement request) {
-		// TODO : fill this with the necessary business logic
-		throw new java.lang.UnsupportedOperationException("Please implement " + this.getClass().getName() + "#savePoliceRegister");
+
+		try {
+			SavePoliceRegister saveRegister = SavePoliceRegister.Factory.parse(request.getXMLStreamReaderWithoutCaching());
+			Register reg = new Register();
+			reg.setIdNumber(saveRegister.getIdNumber());
+			reg.setDrivingLicenceNumber(saveRegister.getDrivingLicenceNumber());
+			reg.setEnabledRegister(saveRegister.getEnabledRegister());
+			registerDAO.save(reg);
+			SavePoliceRegisterResponse response = new SavePoliceRegisterResponse();
+			response.setCode("200");
+			response.setMessage("You've successfuly saved this account!");
+			return response.getOMElement(RegisterAccountResponse.MY_QNAME, OMAbstractFactory.getOMFactory());
+		} catch (Exception e) {
+			System.err.println(e.getMessage());
+			return null;
+		}
 	}
 
 	/**
@@ -83,8 +147,21 @@ public class PoliceRegisterSimulatorSkeleton {
 	 */
 
 	public OMElement removePoliceRegister(OMElement request) {
-		// TODO : fill this with the necessary business logic
-		throw new java.lang.UnsupportedOperationException("Please implement " + this.getClass().getName() + "#removePoliceRegister");
+		try {
+			RemovePoliceRegister removeReg = RemovePoliceRegister.Factory.parse(request.getXMLStreamReaderWithoutCaching());
+			Register reg = new Register();
+			reg.setIdNumber(removeReg.getIdNumber());
+			reg.setDrivingLicenceNumber(removeReg.getDrivingLicenceNumber());
+			registerDAO.delete(reg);
+			SavePoliceRegisterResponse response = new SavePoliceRegisterResponse();
+			response.setCode("202");
+			response.setMessage("You've successfuly removed this account!");
+			return response.getOMElement(RemovePoliceRegisterResponse.MY_QNAME, OMAbstractFactory.getOMFactory());
+
+		} catch (Exception e) {
+			System.err.println(e.getMessage());
+			return null;
+		}
 	}
 
 }

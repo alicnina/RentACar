@@ -33,42 +33,68 @@ public class PoliceRegisterSimulatorMessageReceiverInOut extends org.apache.axis
 			java.lang.String methodName;
 			if ((op.getName() != null) && ((methodName = org.apache.axis2.util.JavaUtils.xmlNameToJavaIdentifier(op.getName().getLocalPart())) != null)) {
 
+				if ("disablePoliceRegister".equals(methodName)) {
+
+					com.alicnina.policeregistersimulator.DisablePoliceRegisterResponse disablePoliceRegisterResponse4 = null;
+					com.alicnina.policeregistersimulator.DisablePoliceRegisterResponse wrappedParam = (com.alicnina.policeregistersimulator.DisablePoliceRegisterResponse) fromOM(
+							msgContext.getEnvelope().getBody().getFirstElement(), com.alicnina.policeregistersimulator.DisablePoliceRegisterResponse.class,
+							getEnvelopeNamespaces(msgContext.getEnvelope()));
+
+//					disablePoliceRegisterResponse4 = skel.disablePoliceRegister(wrappedParam);
+//
+//					envelope = toEnvelope(getSOAPFactory(msgContext), disablePoliceRegisterResponse4, false, new javax.xml.namespace.QName(
+//							"http://policeregistersimulator.alicnina.com", "disablePoliceRegister"));
+				} else
+
+				if ("enablePoliceRegister".equals(methodName)) {
+
+					com.alicnina.policeregistersimulator.EnablePoliceRegister enablePoliceRegister6 = null;
+					com.alicnina.policeregistersimulator.EnablePoliceRegister wrappedParam = (com.alicnina.policeregistersimulator.EnablePoliceRegister) fromOM(
+							msgContext.getEnvelope().getBody().getFirstElement(), com.alicnina.policeregistersimulator.EnablePoliceRegister.class,
+							getEnvelopeNamespaces(msgContext.getEnvelope()));
+
+//					enablePoliceRegister6 = skel.enablePoliceRegister(wrappedParam);
+//
+//					envelope = toEnvelope(getSOAPFactory(msgContext), enablePoliceRegister6, false, new javax.xml.namespace.QName(
+//							"http://policeregistersimulator.alicnina.com", "enablePoliceRegister"));
+				} else
+
 				if ("initializePoliceRegister".equals(methodName)) {
 
-					com.alicnina.policeregistersimulator.InitializePoliceRegisterResponse initializePoliceRegisterResponse1 = null;
+					com.alicnina.policeregistersimulator.InitializePoliceRegisterResponse initializePoliceRegisterResponse8 = null;
 					com.alicnina.policeregistersimulator.InitializePoliceRegister wrappedParam = (com.alicnina.policeregistersimulator.InitializePoliceRegister) fromOM(
 							msgContext.getEnvelope().getBody().getFirstElement(), com.alicnina.policeregistersimulator.InitializePoliceRegister.class,
 							getEnvelopeNamespaces(msgContext.getEnvelope()));
 
-//					initializePoliceRegisterResponse1 =skel.initializePoliceRegister(wrappedParam);
-//					envelope = toEnvelope(getSOAPFactory(msgContext), initializePoliceRegisterResponse1, false, new javax.xml.namespace.QName(
+//					initializePoliceRegisterResponse8 = skel.initializePoliceRegister(wrappedParam);
+//
+//					envelope = toEnvelope(getSOAPFactory(msgContext), initializePoliceRegisterResponse8, false, new javax.xml.namespace.QName(
 //							"http://policeregistersimulator.alicnina.com", "initializePoliceRegister"));
 				} else
 
 				if ("savePoliceRegister".equals(methodName)) {
 
-					com.alicnina.policeregistersimulator.SavePoliceRegisterResponse savePoliceRegisterResponse3 = null;
-					com.alicnina.policeregistersimulator.SavePoliceRegister wrappedParam = (com.alicnina.policeregistersimulator.SavePoliceRegister) fromOM(
-							msgContext.getEnvelope().getBody().getFirstElement(), com.alicnina.policeregistersimulator.SavePoliceRegister.class,
-							getEnvelopeNamespaces(msgContext.getEnvelope()));
-
-//					savePoliceRegisterResponse3 = skel.savePoliceRegister(wrappedParam);
+					com.alicnina.policeregistersimulator.SavePoliceRegisterResponse savePoliceRegisterResponse10 = null;
+//					savePoliceRegisterResponse10 = skel.savePoliceRegister();
 //
-//					envelope = toEnvelope(getSOAPFactory(msgContext), savePoliceRegisterResponse3, false, new javax.xml.namespace.QName(
+//					envelope = toEnvelope(getSOAPFactory(msgContext), savePoliceRegisterResponse10, false, new javax.xml.namespace.QName(
 //							"http://policeregistersimulator.alicnina.com", "savePoliceRegister"));
 				} else
 
 				if ("removePoliceRegister".equals(methodName)) {
 
-					com.alicnina.policeregistersimulator.RemovePoliceRegisterResponse removePoliceRegisterResponse5 = null;
+					com.alicnina.policeregistersimulator.RemovePoliceRegisterResponse removePoliceRegisterResponse12 = null;
 					com.alicnina.policeregistersimulator.RemovePoliceRegister wrappedParam = (com.alicnina.policeregistersimulator.RemovePoliceRegister) fromOM(
 							msgContext.getEnvelope().getBody().getFirstElement(), com.alicnina.policeregistersimulator.RemovePoliceRegister.class,
 							getEnvelopeNamespaces(msgContext.getEnvelope()));
 
-//					removePoliceRegisterResponse5 = skel.removePoliceRegister(wrappedParam);
-//
-//					envelope = toEnvelope(getSOAPFactory(msgContext), removePoliceRegisterResponse5, false, new javax.xml.namespace.QName(
-//							"http://policeregistersimulator.alicnina.com", "removePoliceRegister"));
+					// removePoliceRegisterResponse12 =
+					// skel.removePoliceRegister(wrappedParam);
+					//
+					// envelope = toEnvelope(getSOAPFactory(msgContext),
+					// removePoliceRegisterResponse12, false, new
+					// javax.xml.namespace.QName(
+					// "http://policeregistersimulator.alicnina.com", "removePoliceRegister"));
 
 				} else {
 					throw new java.lang.RuntimeException("method not found");
@@ -82,6 +108,29 @@ public class PoliceRegisterSimulatorMessageReceiverInOut extends org.apache.axis
 	}
 
 	//
+	private org.apache.axiom.om.OMElement toOM(com.alicnina.policeregistersimulator.DisablePoliceRegisterResponse param, boolean optimizeContent)
+			throws org.apache.axis2.AxisFault {
+
+		try {
+			return param.getOMElement(com.alicnina.policeregistersimulator.DisablePoliceRegisterResponse.MY_QNAME,
+					org.apache.axiom.om.OMAbstractFactory.getOMFactory());
+		} catch (org.apache.axis2.databinding.ADBException e) {
+			throw org.apache.axis2.AxisFault.makeFault(e);
+		}
+
+	}
+
+	private org.apache.axiom.om.OMElement toOM(com.alicnina.policeregistersimulator.EnablePoliceRegister param, boolean optimizeContent)
+			throws org.apache.axis2.AxisFault {
+
+		try {
+			return param.getOMElement(com.alicnina.policeregistersimulator.EnablePoliceRegister.MY_QNAME, org.apache.axiom.om.OMAbstractFactory.getOMFactory());
+		} catch (org.apache.axis2.databinding.ADBException e) {
+			throw org.apache.axis2.AxisFault.makeFault(e);
+		}
+
+	}
+
 	private org.apache.axiom.om.OMElement toOM(com.alicnina.policeregistersimulator.InitializePoliceRegister param, boolean optimizeContent)
 			throws org.apache.axis2.AxisFault {
 
@@ -100,17 +149,6 @@ public class PoliceRegisterSimulatorMessageReceiverInOut extends org.apache.axis
 		try {
 			return param.getOMElement(com.alicnina.policeregistersimulator.InitializePoliceRegisterResponse.MY_QNAME,
 					org.apache.axiom.om.OMAbstractFactory.getOMFactory());
-		} catch (org.apache.axis2.databinding.ADBException e) {
-			throw org.apache.axis2.AxisFault.makeFault(e);
-		}
-
-	}
-
-	private org.apache.axiom.om.OMElement toOM(com.alicnina.policeregistersimulator.SavePoliceRegister param, boolean optimizeContent)
-			throws org.apache.axis2.AxisFault {
-
-		try {
-			return param.getOMElement(com.alicnina.policeregistersimulator.SavePoliceRegister.MY_QNAME, org.apache.axiom.om.OMAbstractFactory.getOMFactory());
 		} catch (org.apache.axis2.databinding.ADBException e) {
 			throw org.apache.axis2.AxisFault.makeFault(e);
 		}
@@ -150,6 +188,44 @@ public class PoliceRegisterSimulatorMessageReceiverInOut extends org.apache.axis
 			throw org.apache.axis2.AxisFault.makeFault(e);
 		}
 
+	}
+
+	private org.apache.axiom.soap.SOAPEnvelope toEnvelope(org.apache.axiom.soap.SOAPFactory factory,
+			com.alicnina.policeregistersimulator.DisablePoliceRegisterResponse param, boolean optimizeContent, javax.xml.namespace.QName methodQName)
+			throws org.apache.axis2.AxisFault {
+		try {
+			org.apache.axiom.soap.SOAPEnvelope emptyEnvelope = factory.getDefaultEnvelope();
+
+			emptyEnvelope.getBody().addChild(param.getOMElement(com.alicnina.policeregistersimulator.DisablePoliceRegisterResponse.MY_QNAME, factory));
+
+			return emptyEnvelope;
+		} catch (org.apache.axis2.databinding.ADBException e) {
+			throw org.apache.axis2.AxisFault.makeFault(e);
+		}
+	}
+
+	private com.alicnina.policeregistersimulator.DisablePoliceRegisterResponse wrapdisablePoliceRegister() {
+		com.alicnina.policeregistersimulator.DisablePoliceRegisterResponse wrappedElement = new com.alicnina.policeregistersimulator.DisablePoliceRegisterResponse();
+		return wrappedElement;
+	}
+
+	private org.apache.axiom.soap.SOAPEnvelope toEnvelope(org.apache.axiom.soap.SOAPFactory factory,
+			com.alicnina.policeregistersimulator.EnablePoliceRegister param, boolean optimizeContent, javax.xml.namespace.QName methodQName)
+			throws org.apache.axis2.AxisFault {
+		try {
+			org.apache.axiom.soap.SOAPEnvelope emptyEnvelope = factory.getDefaultEnvelope();
+
+			emptyEnvelope.getBody().addChild(param.getOMElement(com.alicnina.policeregistersimulator.EnablePoliceRegister.MY_QNAME, factory));
+
+			return emptyEnvelope;
+		} catch (org.apache.axis2.databinding.ADBException e) {
+			throw org.apache.axis2.AxisFault.makeFault(e);
+		}
+	}
+
+	private com.alicnina.policeregistersimulator.EnablePoliceRegister wrapenablePoliceRegister() {
+		com.alicnina.policeregistersimulator.EnablePoliceRegister wrappedElement = new com.alicnina.policeregistersimulator.EnablePoliceRegister();
+		return wrappedElement;
 	}
 
 	private org.apache.axiom.soap.SOAPEnvelope toEnvelope(org.apache.axiom.soap.SOAPFactory factory,
@@ -220,6 +296,30 @@ public class PoliceRegisterSimulatorMessageReceiverInOut extends org.apache.axis
 
 		try {
 
+			if (com.alicnina.policeregistersimulator.DisablePoliceRegisterResponse.class.equals(type)) {
+
+				return com.alicnina.policeregistersimulator.DisablePoliceRegisterResponse.Factory.parse(param.getXMLStreamReaderWithoutCaching());
+
+			}
+
+			if (com.alicnina.policeregistersimulator.DisablePoliceRegisterResponse.class.equals(type)) {
+
+				return com.alicnina.policeregistersimulator.DisablePoliceRegisterResponse.Factory.parse(param.getXMLStreamReaderWithoutCaching());
+
+			}
+
+			if (com.alicnina.policeregistersimulator.EnablePoliceRegister.class.equals(type)) {
+
+				return com.alicnina.policeregistersimulator.EnablePoliceRegister.Factory.parse(param.getXMLStreamReaderWithoutCaching());
+
+			}
+
+			if (com.alicnina.policeregistersimulator.EnablePoliceRegister.class.equals(type)) {
+
+				return com.alicnina.policeregistersimulator.EnablePoliceRegister.Factory.parse(param.getXMLStreamReaderWithoutCaching());
+
+			}
+
 			if (com.alicnina.policeregistersimulator.InitializePoliceRegister.class.equals(type)) {
 
 				return com.alicnina.policeregistersimulator.InitializePoliceRegister.Factory.parse(param.getXMLStreamReaderWithoutCaching());
@@ -229,12 +329,6 @@ public class PoliceRegisterSimulatorMessageReceiverInOut extends org.apache.axis
 			if (com.alicnina.policeregistersimulator.InitializePoliceRegisterResponse.class.equals(type)) {
 
 				return com.alicnina.policeregistersimulator.InitializePoliceRegisterResponse.Factory.parse(param.getXMLStreamReaderWithoutCaching());
-
-			}
-
-			if (com.alicnina.policeregistersimulator.SavePoliceRegister.class.equals(type)) {
-
-				return com.alicnina.policeregistersimulator.SavePoliceRegister.Factory.parse(param.getXMLStreamReaderWithoutCaching());
 
 			}
 

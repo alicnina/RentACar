@@ -1,6 +1,6 @@
 
 /**
- * InitializePoliceRegister.java
+ * RemovePoliceRegister.java
  *
  * This file was auto-generated from WSDL
  * by the Apache Axis2 version: 1.6.1  Built on : Aug 31, 2011 (12:23:23 CEST)
@@ -11,16 +11,16 @@
             
 
             /**
-            *  InitializePoliceRegister bean class
+            *  RemovePoliceRegister bean class
             */
             @SuppressWarnings({"unchecked","unused"})
         
-        public  class InitializePoliceRegister
+        public  class RemovePoliceRegister
         implements org.apache.axis2.databinding.ADBBean{
         
                 public static final javax.xml.namespace.QName MY_QNAME = new javax.xml.namespace.QName(
                 "http://policeregistersimulator.alicnina.com",
-                "initializePoliceRegister",
+                "removePoliceRegister",
                 "ns1");
 
             
@@ -85,36 +85,6 @@
                                }
                             
 
-                        /**
-                        * field for EnabledRegister
-                        */
-
-                        
-                                    protected boolean localEnabledRegister ;
-                                
-
-                           /**
-                           * Auto generated getter method
-                           * @return boolean
-                           */
-                           public  boolean getEnabledRegister(){
-                               return localEnabledRegister;
-                           }
-
-                           
-                        
-                            /**
-                               * Auto generated setter method
-                               * @param param EnabledRegister
-                               */
-                               public void setEnabledRegister(boolean param){
-                            
-                                            this.localEnabledRegister=param;
-                                    
-
-                               }
-                            
-
      
      
         /**
@@ -163,11 +133,11 @@
                    java.lang.String namespacePrefix = registerPrefix(xmlWriter,"http://policeregistersimulator.alicnina.com");
                    if ((namespacePrefix != null) && (namespacePrefix.trim().length() > 0)){
                        writeAttribute("xsi","http://www.w3.org/2001/XMLSchema-instance","type",
-                           namespacePrefix+":initializePoliceRegister",
+                           namespacePrefix+":removePoliceRegister",
                            xmlWriter);
                    } else {
                        writeAttribute("xsi","http://www.w3.org/2001/XMLSchema-instance","type",
-                           "initializePoliceRegister",
+                           "removePoliceRegister",
                            xmlWriter);
                    }
 
@@ -207,19 +177,6 @@
                                                    xmlWriter.writeCharacters(localDrivingLicenceNumber);
                                             
                                           }
-                                    
-                                   xmlWriter.writeEndElement();
-                             
-                                    namespace = "http://policeregistersimulator.alicnina.com";
-                                    writeStartElement(null, namespace, "enabledRegister", xmlWriter);
-                             
-                                               if (false) {
-                                           
-                                                         throw new org.apache.axis2.databinding.ADBException("enabledRegister cannot be null!!");
-                                                      
-                                               } else {
-                                                    xmlWriter.writeCharacters(org.apache.axis2.databinding.utils.ConverterUtil.convertToString(localEnabledRegister));
-                                               }
                                     
                                    xmlWriter.writeEndElement();
                              
@@ -426,12 +383,6 @@
                                            throw new org.apache.axis2.databinding.ADBException("drivingLicenceNumber cannot be null!!");
                                         }
                                     
-                                      elementList.add(new javax.xml.namespace.QName("http://policeregistersimulator.alicnina.com",
-                                                                      "enabledRegister"));
-                                 
-                                elementList.add(
-                                   org.apache.axis2.databinding.utils.ConverterUtil.convertToString(localEnabledRegister));
-                            
 
                 return new org.apache.axis2.databinding.utils.reader.ADBXMLStreamReaderImpl(qName, elementList.toArray(), attribList.toArray());
             
@@ -456,9 +407,9 @@
         * Postcondition: If this object is an element, the reader is positioned at its end element
         *                If this object is a complex type, the reader is positioned at the end element of its outer element
         */
-        public static InitializePoliceRegister parse(javax.xml.stream.XMLStreamReader reader) throws java.lang.Exception{
-            InitializePoliceRegister object =
-                new InitializePoliceRegister();
+        public static RemovePoliceRegister parse(javax.xml.stream.XMLStreamReader reader) throws java.lang.Exception{
+            RemovePoliceRegister object =
+                new RemovePoliceRegister();
 
             int event;
             java.lang.String nillableValue = null;
@@ -482,10 +433,10 @@
 
                     java.lang.String type = fullTypeName.substring(fullTypeName.indexOf(":")+1);
                     
-                            if (!"initializePoliceRegister".equals(type)){
+                            if (!"removePoliceRegister".equals(type)){
                                 //find namespace for the prefix
                                 java.lang.String nsUri = reader.getNamespaceContext().getNamespaceURI(nsPrefix);
-                                return (InitializePoliceRegister)com.alicnina.policeregistersimulator.ExtensionMapper.getTypeObject(
+                                return (RemovePoliceRegister)com.alicnina.policeregistersimulator.ExtensionMapper.getTypeObject(
                                      nsUri,type,reader);
                               }
                         
@@ -535,25 +486,6 @@
                                     
                                               object.setDrivingLicenceNumber(
                                                     org.apache.axis2.databinding.utils.ConverterUtil.convertToString(content));
-                                              
-                                        reader.next();
-                                    
-                              }  // End of if for expected property start element
-                                
-                                else{
-                                    // A start element we are not expecting indicates an invalid parameter was passed
-                                    throw new org.apache.axis2.databinding.ADBException("Unexpected subelement " + reader.getName());
-                                }
-                            
-                                    
-                                    while (!reader.isStartElement() && !reader.isEndElement()) reader.next();
-                                
-                                    if (reader.isStartElement() && new javax.xml.namespace.QName("http://policeregistersimulator.alicnina.com","enabledRegister").equals(reader.getName())){
-                                
-                                    java.lang.String content = reader.getElementText();
-                                    
-                                              object.setEnabledRegister(
-                                                    org.apache.axis2.databinding.utils.ConverterUtil.convertToBoolean(content));
                                               
                                         reader.next();
                                     

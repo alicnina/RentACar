@@ -1,0 +1,69 @@
+<!DOCTYPE HTML>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+
+<h:head>
+	<title>Account Adding</title>
+	<link href="./css/table-style.css" rel="stylesheet" type="text/css"/> 
+</h:head>
+
+<h:body>
+	
+	<h:form prependId="false">
+		<label> <font color="red">*</font> ID Number: <h:inputText
+				value="#{policeRegisterBean.idNumber}" required="true"
+				requiredMessage="Missing ID Number" id="idNumber" />
+		</label>
+		<br />
+		<label> <font color="red">*</font> Driving Licence Number: <h:inputSecret
+				value="#{policeRegisterBean.drivingLicenceNumber}" required="true"
+				requiredMessage="Missing Driving Licence Number"
+				id="drivingLicenceNumber" />
+		</label>
+		<br />
+		<br />
+		<h:commandButton value="Add New Police Register">
+			<f:ajax execute="idNumber  drivingLicenceNumber" render="result"
+				listener="#{policeRegisterBean.saveRegister}" />
+		</h:commandButton>
+		<h:commandButton value="Delete Police Register ">
+			<f:ajax execute="idNumber  drivingLicenceNumber" render="result1"
+				listener="#{policeRegisterBean.removeRegister}" />
+		</h:commandButton>
+		<br />
+		<br />
+		<h:outputText id="result"
+			value="#{policeRegisterBean.saveRegisterMessage}" />
+		<h:outputText id="result1"
+			value="#{policeRegisterBean.removeRegisterMessage}" />
+		<br />
+	</h:form>
+	<br/><br/>
+	<h:form prependId="false">
+		<br />
+		<label> <font color="red">*</font> Driving Licence Number: <h:inputSecret
+				value="#{policeRegisterBean.drivingLicenceNumber}" required="true"
+				requiredMessage="Missing Driving Licence Number"
+				id="drivingLicenceNumber" />
+		</label>
+		<br /><br/>
+		<h:commandButton value="Enable Register">
+			<f:ajax execute="drivingLicenceNumber" render="result"
+				listener="#{policeRegisterBean.enableRegister}" />
+		</h:commandButton>
+		<h:commandButton value="Disable Register ">
+			<f:ajax execute="drivingLicenceNumber" render="result1"
+				listener="#{policeRegisterBean.disableRegister}" />
+		</h:commandButton>
+		<br />
+		<br />
+		<h:outputText id="result"
+			value="#{policeRegisterBean.enableRegisterMessage}" />
+		<h:outputText id="result1"
+			value="#{policeRegisterBean.disableRegisterMessage}" />
+		<br />
+	</h:form>
+</h:body>
+
+</html>

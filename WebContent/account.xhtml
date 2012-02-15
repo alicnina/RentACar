@@ -1,0 +1,48 @@
+<!DOCTYPE HTML>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+
+<h:head>
+	<title>Account Adding</title>
+	<link href="./css/table-style.css" rel="stylesheet" type="text/css" />
+</h:head>
+
+<h:body>
+	<h:form prependId="false">
+		<label> <font color="red">*</font> Credit Card Number: <h:inputText
+				value="#{accountBean.creditCardNumber}" required="true"
+				requiredMessage="Missing Credit Card Number" id="creditCardNumber" />
+		</label>
+		<br />
+		<label> <font color="red">*</font> CVV2 Number: <h:inputSecret
+				value="#{accountBean.cvv2}" required="true"
+				requiredMessage="Missing CVV2 Number" id="cvv2" />
+		</label>
+		<br />
+		<label> <font color="red">*</font> Initial Ammount: <h:inputText
+				value="#{accountBean.ammount}" required="true"
+				requiredMessage="Missing first name" id="ammount" />
+		</label>
+		<br />
+		<br />
+		<h:commandButton value="Add New Bank Account ">
+			<f:ajax
+				execute="creditCardNumber cvv2 ammount"
+				render="result" listener="#{accountBean.saveAccount}" />
+		</h:commandButton>
+		<h:commandButton value="Delete Bank Account ">
+			<f:ajax
+				execute="creditCardNumber cvv2 ammount"
+				render="result1" listener="#{accountBean.deleteAccount}" />
+		</h:commandButton>
+		<br />
+		<br />
+		<h:outputText id="result" value="#{accountBean.saveAccountMessage}" />
+		<h:outputText id="result1" value="#{accountBean.deleteAccountMessage}" />
+		<br />
+		
+	</h:form>
+</h:body>
+
+</html>

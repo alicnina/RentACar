@@ -1,6 +1,7 @@
 package etf.eminaa.managed;
 
 import java.io.Serializable;
+import java.rmi.RemoteException;
 import java.util.Date;
 
 import javax.faces.bean.ManagedBean;
@@ -10,8 +11,14 @@ import javax.faces.context.FacesContext;
 import javax.faces.event.AjaxBehaviorEvent;
 
 import org.apache.axis.AxisFault;
+import org.apache.axis2.context.ConfigurationContext;
 
-import com.alicnina.policeregistersimulator.Soap11BindingStub;
+import com.alicnina.paymentsimulator.InitializePayment;
+import com.alicnina.paymentsimulator.InitializePaymentResponse;
+import com.alicnina.paymentsimulator.PaymentSimulatorStub;
+import com.alicnina.policeregistersimulator.InitializePoliceRegister;
+import com.alicnina.policeregistersimulator.InitializePoliceRegisterResponse;
+import com.alicnina.policeregistersimulator.PoliceRegisterSimulatorStub;
 
 import etf.eminaa.dao.DAOInterface;
 import etf.eminaa.domain.Rental;
@@ -24,6 +31,7 @@ public class VehicleRentalBean implements Serializable {
 
 	private static final long serialVersionUID = -2732925993048187311L;
 
+
 	private Vehicle vehicle = new Vehicle();
 	private Rental rental;
 	private Users user;
@@ -31,8 +39,16 @@ public class VehicleRentalBean implements Serializable {
 	private Date startDate;
 	private String numberDays;
 	private String status;
-	
+
 	private String creditCardNumber, cvv2;
+	
+	InitializePoliceRegister initPoliceRegister = new InitializePoliceRegister();
+	InitializePoliceRegisterResponse initPoliceRegResponse;
+	InitializePayment initPayment = new InitializePayment();
+	InitializePaymentResponse initPaymentResponse;
+	String codePR, messagePR;
+	String codePS, messagePS;
+
 
 	public VehicleRentalBean() {
 		UserLoginBean userLoginBean = (UserLoginBean) FacesContext.getCurrentInstance().getExternalContext().getSessionMap().get("userLoginBean");
@@ -67,7 +83,7 @@ public class VehicleRentalBean implements Serializable {
 	public void setCvv2(String cvv2) {
 		this.cvv2 = cvv2;
 	}
-	
+
 	public Users getUser() {
 		return user;
 	}
@@ -164,39 +180,80 @@ public class VehicleRentalBean implements Serializable {
 
 	private void vehicleRentalService(boolean isPayed) throws AxisFault {
 		Rental rental = new Rental();
-		
 		rental.setUsers(user);
-		Vehicle newVehicle = vehicleDao.findByPrimaryKey(vehicle.getId());
-		rental.setVehicle(newVehicle);
+		vehicle = vehicleDao.findByPrimaryKey(vehicle.getId());
+		rental.setVehicle(vehicle);
 		rental.setStartDate(new java.sql.Date(startDate.getTime()));
 		int numDays = Integer.parseInt(numberDays.trim());
 		rental.setNumberDays(numDays);
-		
-		rentalDao.save(rental);
-		
-		// TODO: invoke police register service (call stub)
-		Soap11BindingStub bindingStub = new Soap11BindingStub();
-		//bindingStub.initializePoliceRegister(user.getIdNumber(), user.getDrivingLicenceNumber(), "100", "");
-		
-		
-		if (isPayed) {
-			// TODO: invoke bank simulation service (call stub)
-			newVehicle.setStatus("RENTED");
-			vehicleDao.edit(newVehicle);
-			
-		} else {
-			newVehicle.setStatus("RESERVATION");
-			vehicleDao.edit(newVehicle);
 
-		}
+		// TODO: invoke police register service (call stub)
+
+		initPoliceRegister.setDrivingLicenceNumber(user.getDrivingLicenceNumber());
+		initPoliceRegister.setIdNumber(user.getIdNumber());
 		
-		vehicleDao.edit(newVehicle);
+		try {
+			PoliceRegisterSimulatorStub polRegSim = new PoliceRegisterSimulatorStub();
+			initPoliceRegResponse = polRegSim.initializePoliceRegister(initPoliceRegister);
+		} catch (org.apache.axis2.AxisFault e) {
+			e.printStackTrace();
+		} catch (RemoteException e) {
+			e.printStackTrace();
+		}
+
+		
+		codePR = initPoliceRegResponse.getCode();
+		messagePR = initPoliceRegResponse.getMessage();
+
+		if (isPayed && codePR == "101") {
+			
+			initPayment.setCreditCardNo(creditCardNumber);
+			initPayment.setCvv2(cvv2);
+			
+			try {
+				PaymentSimulatorStub paySim = new PaymentSimulatorStub();
+				initPaymentResponse = paySim.initializePayment(initPayment);
+			} catch (org.apache.axis2.AxisFault e) {
+				// TODO Auto-generated catch block
+				System.err.println(e.getMessage());
+				e.printStackTrace();
+			} catch (RemoteException e) {
+				// TODO Auto-generated catch block
+				System.err.println(e.getMessage());
+				e.printStackTrace();
+			}
+			
+			
+			int totalAmount = Integer.parseInt(numberDays) * Integer.parseInt(vehicle.getRentPricePerDay());
+			initPayment.setAmmount(totalAmount);
+			// TODO: invoke bank simulation service (call stub)
+			codePS = initPaymentResponse.getCode();
+			messagePS = initPaymentResponse.getMessage();
+			if (codePS == "102") {
+				rentalDao.save(rental);
+				vehicle.setStatus("RENTED");
+				vehicleDao.edit(vehicle);
+			}
+		} else if (!isPayed && codePR == "101") {
+			rentalDao.save(rental);
+			vehicle.setStatus("RESERVATION");
+			vehicleDao.edit(vehicle);
+		}
 	}
 
 	public String getRentalWelcome() {
 		String msg = "welcome";
-		if (null != rental) {
-			msg = "Vehicle " + rental.getVehicle().getModel() + " " + rental.getUsers().getUsername() + " (" + rental.getNumberDays() + ") registered!";
+		if (null != rental && vehicleDao.findByPrimaryKey(vehicle.getId()).getStatus()=="RENTED") {
+			msg = "Vehicle " + rental.getVehicle().getModel() + " " + rental.getUsers().getUsername() + " (" + rental.getNumberDays() + ") rented!";
+		}
+		else if (null != rental && vehicleDao.findByPrimaryKey(vehicle.getId()).getStatus()=="RESERVATION") {
+			msg = "Vehicle " + rental.getVehicle().getModel() + " " + rental.getUsers().getUsername() + " (" + rental.getNumberDays() + ") reserved!";
+		}
+		else if (codePR != "101"){
+			msg = messagePR;
+		}
+		else if (codePS != "102"){
+			msg = messagePS;
 		}
 		return msg;
 	}

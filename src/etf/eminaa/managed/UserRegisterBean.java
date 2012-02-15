@@ -218,9 +218,8 @@ public class UserRegisterBean implements Serializable {
 
 	static {
 		languageValue = new LinkedHashMap<String, Object>();
-		languageValue.put("English", "eng"); // label, value
-		languageValue.put("Bosnian", "bos");
-		languageValue.put("German", "ger");
+		languageValue.put("English", "en"); // label, value
+		languageValue.put("Bosnian", "ba");
 	}
 
 	public Map<String, Object> getLanguageValue() {

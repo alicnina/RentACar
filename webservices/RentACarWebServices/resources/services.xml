@@ -7,7 +7,7 @@
 
 		<parameter name="ServiceObjectSupplier" locked="false">org.apache.axis2.extensions.spring.receivers.SpringAppContextAwareObjectSupplier
 		</parameter>
-		<parameter name="SpringBeanName" locked="false">springAwareService
+		<parameter name="SpringBeanName" locked="false">paymentSimulatorSkeleton
 		</parameter>
 		
 	    <operation name="initializePayment">
@@ -24,6 +24,43 @@
 			<messageReceiver
 				class="org.apache.axis2.receivers.RawXMLINOutMessageReceiver" />
 		</operation>
+		
+	</service>
+	
+	<service name="PoliceRegister">
+		<description>
+			This service is to simulate online payment
+		</description>
+
+		<parameter name="ServiceObjectSupplier" locked="false">org.apache.axis2.extensions.spring.receivers.SpringAppContextAwareObjectSupplier
+		</parameter>
+		<parameter name="SpringBeanName" locked="false">policeRegisterSkeleton
+		</parameter>
+		
+	    <operation name="initializePoliceRegister">
+			<messageReceiver
+				class="org.apache.axis2.receivers.RawXMLINOutMessageReceiver" />
+		</operation>
+		
+		<operation name="enablePoliceRegister">
+			<messageReceiver
+				class="org.apache.axis2.receivers.RawXMLINOutMessageReceiver" />
+		</operation>
+		
+		<operation name="disablePoliceRegister">
+			<messageReceiver
+				class="org.apache.axis2.receivers.RawXMLINOutMessageReceiver" />
+		</operation>
+		
+		<operation name="savePoliceRegister">
+			<messageReceiver
+				class="org.apache.axis2.receivers.RawXMLINOutMessageReceiver" />
+		</operation>
+		
+		<operation name="removePoliceRegister">
+			<messageReceiver
+				class="org.apache.axis2.receivers.RawXMLINOutMessageReceiver" />
+		</operation>		
 		
 	</service>
 

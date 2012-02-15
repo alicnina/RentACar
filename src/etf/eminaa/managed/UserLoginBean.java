@@ -1,8 +1,13 @@
 package etf.eminaa.managed;
 
+import java.io.IOException;
+import java.io.InputStream;
 import java.io.Serializable;
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.util.Iterator;
 import java.util.Map;
+import java.util.Properties;
 import java.util.Set;
 
 import javax.el.ELContext;
@@ -56,7 +61,7 @@ public class UserLoginBean implements Serializable {
 				Iterator<Authorities> it = authorities.iterator();
 				while (it.hasNext()) {
 					Authorities auth = it.next();
-					if ( auth.getAuthority().equals("ROLE_USER") || auth.getAuthority().equals("ROLE_EMPLOYEE")) {
+					if (auth.getAuthority().equals("ROLE_USER") || auth.getAuthority().equals("ROLE_EMPLOYEE")) {
 						return true;
 					}
 				}
@@ -100,7 +105,7 @@ public class UserLoginBean implements Serializable {
 		}
 		return false;
 	}
-	
+
 	public String userLogin() {
 		loginAttempted = true;
 		if (null != inputUsername && null != inputPassword) {
@@ -113,10 +118,37 @@ public class UserLoginBean implements Serializable {
 				ValueExpression valueExpr = application.getExpressionFactory().createValueExpression(elContext, "#{userLoginBean}", UserLoginBean.class);
 				valueExpr.setValue(elContext, this);
 				context.getExternalContext().getSessionMap().put("userLoginBean", this);
+
+				/*
+				
+				Properties props = new Properties();
+				InputStream is = null;
+				try {
+					is = new URL("http://localhost:8080/RentACar/lang/" + user.getLanguage() + ".properties").openStream();
+					props.load(is);
+				} catch (MalformedURLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				} finally {
+					if (null != is) {
+						try {
+							is.close();
+						} catch (IOException e) {
+							// stream is already closed
+						}
+					}
+				}
+				
+				*/
+
 				return "success";
 
 			}
-		} return "unsuccess";
+		}
+		return "unsuccess";
 	}
 
 	public String getUserWelcome() {

@@ -101,7 +101,7 @@ public class PaymentSimulatorStub extends org.apache.axis2.client.Stub implement
 	 */
 	public PaymentSimulatorStub(org.apache.axis2.context.ConfigurationContext configurationContext) throws org.apache.axis2.AxisFault {
 
-		this(configurationContext, "http://localhost:8080/Axis2HelloWorld/services/PaymentSimulator.HttpSoap12Endpoint/");
+		this(configurationContext, "http://localhost:8080/RentACarWebServices/services/OnlinePayment");
 
 	}
 
@@ -110,7 +110,7 @@ public class PaymentSimulatorStub extends org.apache.axis2.client.Stub implement
 	 */
 	public PaymentSimulatorStub() throws org.apache.axis2.AxisFault {
 
-		this("http://localhost:8080/Axis2HelloWorld/services/PaymentSimulator.HttpSoap12Endpoint/");
+		this("http://localhost:8080/RentACarWebServices/services/OnlinePayment");
 
 	}
 

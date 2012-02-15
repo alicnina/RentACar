@@ -22,8 +22,24 @@ public class RegisterDAOImpl implements com.alicnina.paymentsimulator.DAOInterfa
 	private PersistenceManager pm;
 
 	// this method fins account by id
-	public Register findByID(int ID) throws Exception {
-		throw new Exception("This method is not supported!");
+	public Register findByID(String reg) throws Exception {
+		PersistenceManagerFactory pmfo = JDOHelper.getPersistenceManagerFactory("oodb.properties");
+		pm = pmfo.getPersistenceManager();
+		Transaction transo = pm.currentTransaction();
+		transo.begin();
+		Extent<Register> ext = pm.getExtent(Register.class, true);
+		Query q = pm.newQuery(ext);
+		Collection<Register> c = (Collection<Register>) q.execute();
+		Iterator<Register> iter = c.iterator();
+		while(iter.hasNext()) {
+			Register r = iter.next();
+			if(r.getDrivingLicenceNumber().equals(reg)) {
+				return r;
+			}
+		}
+		transo.commit();
+		pm.close();
+		return null;
 	}
 
 	// this method fins account by creditCardNumber and cvv2

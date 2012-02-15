@@ -15,7 +15,7 @@ public class AccounDAOImpl implements DAOInterface<Account> {
 	private PersistenceManager pm;
 
 	// this method fins account by id
-	public Account findByID(int ID) throws Exception {
+	public Account findByID(String acc) throws Exception {
 		throw new Exception("This method is not supported!");
 	}
 

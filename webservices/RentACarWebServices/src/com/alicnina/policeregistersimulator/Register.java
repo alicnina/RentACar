@@ -7,6 +7,7 @@ public class Register {
 
 	private String idNumber;
 	private String drivingLicenceNumber;
+	private boolean enabledRegister;
 	
 	// getters and setters
 	public void setIdNumber(String idNumber) {
@@ -25,4 +26,11 @@ public class Register {
 		this.drivingLicenceNumber = drivingLicenceNumber;
 	}
 
+	public boolean isEnabledRegister() {
+		return enabledRegister;
+	}
+
+	public void setEnabledRegister(boolean enabledRegister) {
+		this.enabledRegister = enabledRegister;
+	}
 }
