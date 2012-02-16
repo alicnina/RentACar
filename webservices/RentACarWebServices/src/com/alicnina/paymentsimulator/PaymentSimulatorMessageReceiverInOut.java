@@ -33,30 +33,30 @@ public class PaymentSimulatorMessageReceiverInOut extends org.apache.axis2.recei
 			java.lang.String methodName;
 			if ((op.getName() != null) && ((methodName = org.apache.axis2.util.JavaUtils.xmlNameToJavaIdentifier(op.getName().getLocalPart())) != null)) {
 
-				if ("registerAccount".equals(methodName)) {
-
-					com.alicnina.paymentsimulator.RegisterAccountResponse registerAccountResponse1 = null;
-					com.alicnina.paymentsimulator.RegisterAccount wrappedParam = (com.alicnina.paymentsimulator.RegisterAccount) fromOM(msgContext
-							.getEnvelope().getBody().getFirstElement(), com.alicnina.paymentsimulator.RegisterAccount.class,
-							getEnvelopeNamespaces(msgContext.getEnvelope()));
-
-//					registerAccountResponse1 = skel.registerAccount(wrappedParam);
-//
-//					envelope = toEnvelope(getSOAPFactory(msgContext), registerAccountResponse1, false, new javax.xml.namespace.QName(
-//							"http://paymentsimulator.alicnina.com", "registerAccount"));
-				} else
-
 				if ("initializePayment".equals(methodName)) {
 
-					com.alicnina.paymentsimulator.InitializePaymentResponse initializePaymentResponse3 = null;
+					com.alicnina.paymentsimulator.InitializePaymentResponse initializePaymentResponse1 = null;
 					com.alicnina.paymentsimulator.InitializePayment wrappedParam = (com.alicnina.paymentsimulator.InitializePayment) fromOM(msgContext
 							.getEnvelope().getBody().getFirstElement(), com.alicnina.paymentsimulator.InitializePayment.class,
 							getEnvelopeNamespaces(msgContext.getEnvelope()));
 
-//					initializePaymentResponse3 = skel.initializePayment(wrappedParam);
+//					initializePaymentResponse1 = skel.initializePayment(wrappedParam);
 //
-//					envelope = toEnvelope(getSOAPFactory(msgContext), initializePaymentResponse3, false, new javax.xml.namespace.QName(
+//					envelope = toEnvelope(getSOAPFactory(msgContext), initializePaymentResponse1, false, new javax.xml.namespace.QName(
 //							"http://paymentsimulator.alicnina.com", "initializePayment"));
+				} else
+
+				if ("registerAccount".equals(methodName)) {
+
+					com.alicnina.paymentsimulator.RegisterAccountResponse registerAccountResponse3 = null;
+					com.alicnina.paymentsimulator.RegisterAccount wrappedParam = (com.alicnina.paymentsimulator.RegisterAccount) fromOM(msgContext
+							.getEnvelope().getBody().getFirstElement(), com.alicnina.paymentsimulator.RegisterAccount.class,
+							getEnvelopeNamespaces(msgContext.getEnvelope()));
+
+//					registerAccountResponse3 = skel.registerAccount(wrappedParam);
+//
+//					envelope = toEnvelope(getSOAPFactory(msgContext), registerAccountResponse3, false, new javax.xml.namespace.QName(
+//							"http://paymentsimulator.alicnina.com", "registerAccount"));
 				} else
 
 				if ("removeAccount".equals(methodName)) {
@@ -82,27 +82,6 @@ public class PaymentSimulatorMessageReceiverInOut extends org.apache.axis2.recei
 	}
 
 	//
-	private org.apache.axiom.om.OMElement toOM(com.alicnina.paymentsimulator.RegisterAccount param, boolean optimizeContent) throws org.apache.axis2.AxisFault {
-
-		try {
-			return param.getOMElement(com.alicnina.paymentsimulator.RegisterAccount.MY_QNAME, org.apache.axiom.om.OMAbstractFactory.getOMFactory());
-		} catch (org.apache.axis2.databinding.ADBException e) {
-			throw org.apache.axis2.AxisFault.makeFault(e);
-		}
-
-	}
-
-	private org.apache.axiom.om.OMElement toOM(com.alicnina.paymentsimulator.RegisterAccountResponse param, boolean optimizeContent)
-			throws org.apache.axis2.AxisFault {
-
-		try {
-			return param.getOMElement(com.alicnina.paymentsimulator.RegisterAccountResponse.MY_QNAME, org.apache.axiom.om.OMAbstractFactory.getOMFactory());
-		} catch (org.apache.axis2.databinding.ADBException e) {
-			throw org.apache.axis2.AxisFault.makeFault(e);
-		}
-
-	}
-
 	private org.apache.axiom.om.OMElement toOM(com.alicnina.paymentsimulator.InitializePayment param, boolean optimizeContent)
 			throws org.apache.axis2.AxisFault {
 
@@ -119,6 +98,27 @@ public class PaymentSimulatorMessageReceiverInOut extends org.apache.axis2.recei
 
 		try {
 			return param.getOMElement(com.alicnina.paymentsimulator.InitializePaymentResponse.MY_QNAME, org.apache.axiom.om.OMAbstractFactory.getOMFactory());
+		} catch (org.apache.axis2.databinding.ADBException e) {
+			throw org.apache.axis2.AxisFault.makeFault(e);
+		}
+
+	}
+
+	private org.apache.axiom.om.OMElement toOM(com.alicnina.paymentsimulator.RegisterAccount param, boolean optimizeContent) throws org.apache.axis2.AxisFault {
+
+		try {
+			return param.getOMElement(com.alicnina.paymentsimulator.RegisterAccount.MY_QNAME, org.apache.axiom.om.OMAbstractFactory.getOMFactory());
+		} catch (org.apache.axis2.databinding.ADBException e) {
+			throw org.apache.axis2.AxisFault.makeFault(e);
+		}
+
+	}
+
+	private org.apache.axiom.om.OMElement toOM(com.alicnina.paymentsimulator.RegisterAccountResponse param, boolean optimizeContent)
+			throws org.apache.axis2.AxisFault {
+
+		try {
+			return param.getOMElement(com.alicnina.paymentsimulator.RegisterAccountResponse.MY_QNAME, org.apache.axiom.om.OMAbstractFactory.getOMFactory());
 		} catch (org.apache.axis2.databinding.ADBException e) {
 			throw org.apache.axis2.AxisFault.makeFault(e);
 		}
@@ -147,25 +147,6 @@ public class PaymentSimulatorMessageReceiverInOut extends org.apache.axis2.recei
 	}
 
 	private org.apache.axiom.soap.SOAPEnvelope toEnvelope(org.apache.axiom.soap.SOAPFactory factory,
-			com.alicnina.paymentsimulator.RegisterAccountResponse param, boolean optimizeContent, javax.xml.namespace.QName methodQName)
-			throws org.apache.axis2.AxisFault {
-		try {
-			org.apache.axiom.soap.SOAPEnvelope emptyEnvelope = factory.getDefaultEnvelope();
-
-			emptyEnvelope.getBody().addChild(param.getOMElement(com.alicnina.paymentsimulator.RegisterAccountResponse.MY_QNAME, factory));
-
-			return emptyEnvelope;
-		} catch (org.apache.axis2.databinding.ADBException e) {
-			throw org.apache.axis2.AxisFault.makeFault(e);
-		}
-	}
-
-	private com.alicnina.paymentsimulator.RegisterAccountResponse wrapregisterAccount() {
-		com.alicnina.paymentsimulator.RegisterAccountResponse wrappedElement = new com.alicnina.paymentsimulator.RegisterAccountResponse();
-		return wrappedElement;
-	}
-
-	private org.apache.axiom.soap.SOAPEnvelope toEnvelope(org.apache.axiom.soap.SOAPFactory factory,
 			com.alicnina.paymentsimulator.InitializePaymentResponse param, boolean optimizeContent, javax.xml.namespace.QName methodQName)
 			throws org.apache.axis2.AxisFault {
 		try {
@@ -181,6 +162,25 @@ public class PaymentSimulatorMessageReceiverInOut extends org.apache.axis2.recei
 
 	private com.alicnina.paymentsimulator.InitializePaymentResponse wrapinitializePayment() {
 		com.alicnina.paymentsimulator.InitializePaymentResponse wrappedElement = new com.alicnina.paymentsimulator.InitializePaymentResponse();
+		return wrappedElement;
+	}
+
+	private org.apache.axiom.soap.SOAPEnvelope toEnvelope(org.apache.axiom.soap.SOAPFactory factory,
+			com.alicnina.paymentsimulator.RegisterAccountResponse param, boolean optimizeContent, javax.xml.namespace.QName methodQName)
+			throws org.apache.axis2.AxisFault {
+		try {
+			org.apache.axiom.soap.SOAPEnvelope emptyEnvelope = factory.getDefaultEnvelope();
+
+			emptyEnvelope.getBody().addChild(param.getOMElement(com.alicnina.paymentsimulator.RegisterAccountResponse.MY_QNAME, factory));
+
+			return emptyEnvelope;
+		} catch (org.apache.axis2.databinding.ADBException e) {
+			throw org.apache.axis2.AxisFault.makeFault(e);
+		}
+	}
+
+	private com.alicnina.paymentsimulator.RegisterAccountResponse wrapregisterAccount() {
+		com.alicnina.paymentsimulator.RegisterAccountResponse wrappedElement = new com.alicnina.paymentsimulator.RegisterAccountResponse();
 		return wrappedElement;
 	}
 
@@ -213,18 +213,6 @@ public class PaymentSimulatorMessageReceiverInOut extends org.apache.axis2.recei
 
 		try {
 
-			if (com.alicnina.paymentsimulator.RegisterAccount.class.equals(type)) {
-
-				return com.alicnina.paymentsimulator.RegisterAccount.Factory.parse(param.getXMLStreamReaderWithoutCaching());
-
-			}
-
-			if (com.alicnina.paymentsimulator.RegisterAccountResponse.class.equals(type)) {
-
-				return com.alicnina.paymentsimulator.RegisterAccountResponse.Factory.parse(param.getXMLStreamReaderWithoutCaching());
-
-			}
-
 			if (com.alicnina.paymentsimulator.InitializePayment.class.equals(type)) {
 
 				return com.alicnina.paymentsimulator.InitializePayment.Factory.parse(param.getXMLStreamReaderWithoutCaching());
@@ -234,6 +222,18 @@ public class PaymentSimulatorMessageReceiverInOut extends org.apache.axis2.recei
 			if (com.alicnina.paymentsimulator.InitializePaymentResponse.class.equals(type)) {
 
 				return com.alicnina.paymentsimulator.InitializePaymentResponse.Factory.parse(param.getXMLStreamReaderWithoutCaching());
+
+			}
+
+			if (com.alicnina.paymentsimulator.RegisterAccount.class.equals(type)) {
+
+				return com.alicnina.paymentsimulator.RegisterAccount.Factory.parse(param.getXMLStreamReaderWithoutCaching());
+
+			}
+
+			if (com.alicnina.paymentsimulator.RegisterAccountResponse.class.equals(type)) {
+
+				return com.alicnina.paymentsimulator.RegisterAccountResponse.Factory.parse(param.getXMLStreamReaderWithoutCaching());
 
 			}
 

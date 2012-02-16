@@ -4,6 +4,7 @@ import java.rmi.RemoteException;
 
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
+import javax.faces.context.FacesContext;
 import javax.faces.event.AjaxBehaviorEvent;
 
 import org.apache.axis2.AxisFault;
@@ -13,7 +14,8 @@ import com.alicnina.paymentsimulator.RegisterAccount;
 import com.alicnina.paymentsimulator.RegisterAccountResponse;
 import com.alicnina.paymentsimulator.RemoveAccount;
 import com.alicnina.paymentsimulator.RemoveAccountResponse;
-import com.alicnina.policeregistersimulator.PoliceRegisterSimulatorStub;
+
+import etf.eminaa.domain.Users;
 
 @ManagedBean
 @RequestScoped
@@ -23,6 +25,11 @@ public class AccountBean {
 	private double ammount;
 	private String code, message;
 	private String codeRemove, messageRemove;
+	
+	public AccountBean() {
+		UserLoginBean userLoginBean = (UserLoginBean) FacesContext.getCurrentInstance().getExternalContext().getSessionMap().get("userLoginBean");
+		Users user = userLoginBean.getUser();
+	}
 
 	// implemented methods
 	public void saveAccount(AjaxBehaviorEvent event) {
@@ -49,7 +56,7 @@ public class AccountBean {
 
 	public String getSaveAccountMessage() {
 		String msg = "Please Add new Account!";
-		if (code == "102") {
+		if (code.equals("102")) {
 			msg = message;
 		} else {
 			msg = "Account with Credit Card Number " + creditCardNumber + "  and cvv2 Number " + cvv2 + " (" + ammount + ") is not registered!";
@@ -70,7 +77,7 @@ public class AccountBean {
 
 	public String getDeleteAccountMessage() {
 		String msg = "Please Add new Account!";
-		if (codeRemove == "102") {
+		if (codeRemove.equals("102")) {
 			msg = messageRemove;
 		} else {
 			msg = "Account with Credit Card Number " + creditCardNumber + "  and cvv2 Number " + cvv2 + " (" + ammount + ") is not removed!";

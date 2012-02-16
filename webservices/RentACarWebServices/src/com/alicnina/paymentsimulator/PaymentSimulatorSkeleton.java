@@ -9,11 +9,6 @@ package com.alicnina.paymentsimulator;
 import org.apache.axiom.om.OMAbstractFactory;
 import org.apache.axiom.om.OMElement;
 
-import com.alicnina.paymentsimulator.Account;
-import com.alicnina.paymentsimulator.DAOInterface;
-import com.alicnina.paymentsimulator.InitializePayment;
-import com.alicnina.paymentsimulator.InitializePaymentResponse;
-
 /**
  * PaymentSimulatorSkeleton java skeleton for the axisService
  */

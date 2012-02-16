@@ -205,7 +205,7 @@ public class VehicleRentalBean implements Serializable {
 		codePR = initPoliceRegResponse.getCode();
 		messagePR = initPoliceRegResponse.getMessage();
 
-		if (isPayed && codePR == "101") {
+		if (isPayed && codePR.equals("101")) {
 			
 			initPayment.setCreditCardNo(creditCardNumber);
 			initPayment.setCvv2(cvv2);
@@ -229,12 +229,12 @@ public class VehicleRentalBean implements Serializable {
 			// TODO: invoke bank simulation service (call stub)
 			codePS = initPaymentResponse.getCode();
 			messagePS = initPaymentResponse.getMessage();
-			if (codePS == "102") {
+			if (codePS.equals("102")) {
 				rentalDao.save(rental);
 				vehicle.setStatus("RENTED");
 				vehicleDao.edit(vehicle);
 			}
-		} else if (!isPayed && codePR == "101") {
+		} else if (!isPayed && codePR.equals("101")) {
 			rentalDao.save(rental);
 			vehicle.setStatus("RESERVATION");
 			vehicleDao.edit(vehicle);
@@ -249,10 +249,10 @@ public class VehicleRentalBean implements Serializable {
 		else if (null != rental && vehicleDao.findByPrimaryKey(vehicle.getId()).getStatus()=="RESERVATION") {
 			msg = "Vehicle " + rental.getVehicle().getModel() + " " + rental.getUsers().getUsername() + " (" + rental.getNumberDays() + ") reserved!";
 		}
-		else if (codePR != "101"){
+		else if (!codePR.equals("101")){
 			msg = messagePR;
 		}
-		else if (codePS != "102"){
+		else if (!codePS.equals("102")){
 			msg = messagePS;
 		}
 		return msg;

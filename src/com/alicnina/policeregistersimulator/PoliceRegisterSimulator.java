@@ -1,4 +1,5 @@
 
+
 /**
  * PoliceRegisterSimulator.java
  *
@@ -6,63 +7,96 @@
  * by the Apache Axis2 version: 1.6.1  Built on : Aug 31, 2011 (12:22:40 CEST)
  */
 
-package com.alicnina.policeregistersimulator;
+    package com.alicnina.policeregistersimulator;
 
-/*
- *  PoliceRegisterSimulator java interface
- */
+    /*
+     *  PoliceRegisterSimulator java interface
+     */
 
-public interface PoliceRegisterSimulator {
+    public interface PoliceRegisterSimulator {
+          
 
-	/**
-	 * Auto generated method signature
-	 * 
-	 * @param disablePoliceRegisterResponse
-	 */
+        /**
+          * Auto generated method signature
+          * 
+                    * @param disablePoliceRegister
+                
+         */
 
-	public com.alicnina.policeregistersimulator.DisablePoliceRegisterResponse disablePoliceRegister(
+         
+                     public com.alicnina.policeregistersimulator.DisablePoliceRegisterResponse disablePoliceRegister(
 
-	com.alicnina.policeregistersimulator.DisablePoliceRegisterResponse disablePoliceRegisterResponse) throws java.rmi.RemoteException;
+                        com.alicnina.policeregistersimulator.DisablePoliceRegister disablePoliceRegister)
+                        throws java.rmi.RemoteException
+             ;
 
-	/**
-	 * Auto generated method signature
-	 * 
-	 * @param enablePoliceRegister
-	 */
+        
 
-	public com.alicnina.policeregistersimulator.EnablePoliceRegister enablePoliceRegister(
+        /**
+          * Auto generated method signature
+          * 
+                    * @param enablePoliceRegister
+                
+         */
 
-	com.alicnina.policeregistersimulator.EnablePoliceRegister enablePoliceRegister) throws java.rmi.RemoteException;
+         
+                     public com.alicnina.policeregistersimulator.EnablePoliceRegisterResponse enablePoliceRegister(
 
-	/**
-	 * Auto generated method signature
-	 * 
-	 * @param initializePoliceRegister
-	 */
+                        com.alicnina.policeregistersimulator.EnablePoliceRegister enablePoliceRegister)
+                        throws java.rmi.RemoteException
+             ;
 
-	public com.alicnina.policeregistersimulator.InitializePoliceRegisterResponse initializePoliceRegister(
+        
 
-	com.alicnina.policeregistersimulator.InitializePoliceRegister initializePoliceRegister) throws java.rmi.RemoteException;
+        /**
+          * Auto generated method signature
+          * 
+                    * @param initializePoliceRegister
+                
+         */
 
-	/**
-	 * Auto generated method signature
-	 * 
-	 * @param savePoliceRegister
-	 */
+         
+                     public com.alicnina.policeregistersimulator.InitializePoliceRegisterResponse initializePoliceRegister(
 
-	public com.alicnina.policeregistersimulator.SavePoliceRegisterResponse savePoliceRegister(
+                        com.alicnina.policeregistersimulator.InitializePoliceRegister initializePoliceRegister)
+                        throws java.rmi.RemoteException
+             ;
 
-	com.alicnina.policeregistersimulator.SavePoliceRegister savePoliceRegister) throws java.rmi.RemoteException;
+        
 
-	/**
-	 * Auto generated method signature
-	 * 
-	 * @param removePoliceRegister
-	 */
+        /**
+          * Auto generated method signature
+          * 
+                    * @param savePoliceRegister
+                
+         */
 
-	public com.alicnina.policeregistersimulator.RemovePoliceRegisterResponse removePoliceRegister(
+         
+                     public com.alicnina.policeregistersimulator.SavePoliceRegisterResponse savePoliceRegister(
 
-	com.alicnina.policeregistersimulator.RemovePoliceRegister removePoliceRegister) throws java.rmi.RemoteException;
+                        com.alicnina.policeregistersimulator.SavePoliceRegister savePoliceRegister)
+                        throws java.rmi.RemoteException
+             ;
 
-	//
-}
+        
+
+        /**
+          * Auto generated method signature
+          * 
+                    * @param removePoliceRegister
+                
+         */
+
+         
+                     public com.alicnina.policeregistersimulator.RemovePoliceRegisterResponse removePoliceRegister(
+
+                        com.alicnina.policeregistersimulator.RemovePoliceRegister removePoliceRegister)
+                        throws java.rmi.RemoteException
+             ;
+
+        
+
+        
+       //
+       }
+    

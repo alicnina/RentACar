@@ -27,21 +27,20 @@
 		<br />
 		<br />
 		<h:commandButton value="Add New Bank Account ">
-			<f:ajax
-				execute="creditCardNumber cvv2 ammount"
-				render="result" listener="#{accountBean.saveAccount}" />
+			<f:ajax execute="creditCardNumber cvv2 ammount" render="result"
+				listener="#{accountBean.saveAccount}" />
 		</h:commandButton>
 		<h:commandButton value="Delete Bank Account ">
-			<f:ajax
-				execute="creditCardNumber cvv2 ammount"
-				render="result1" listener="#{accountBean.deleteAccount}" />
+			<f:ajax execute="creditCardNumber cvv2 ammount" render="result1"
+				listener="#{accountBean.deleteAccount}" />
 		</h:commandButton>
 		<br />
 		<br />
 		<h:outputText id="result" value="#{accountBean.saveAccountMessage}" />
+		<br />
 		<h:outputText id="result1" value="#{accountBean.deleteAccountMessage}" />
 		<br />
-		
+
 	</h:form>
 </h:body>
 

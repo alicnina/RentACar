@@ -9,10 +9,7 @@ package com.alicnina.policeregistersimulator;
 import org.apache.axiom.om.OMAbstractFactory;
 import org.apache.axiom.om.OMElement;
 
-import com.alicnina.paymentsimulator.AccounDAOImpl;
-import com.alicnina.paymentsimulator.Account;
 import com.alicnina.paymentsimulator.DAOInterface;
-import com.alicnina.paymentsimulator.RegisterAccount;
 import com.alicnina.paymentsimulator.RegisterAccountResponse;
 
 /**

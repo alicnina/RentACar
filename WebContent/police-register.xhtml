@@ -5,11 +5,11 @@
 
 <h:head>
 	<title>Account Adding</title>
-	<link href="./css/table-style.css" rel="stylesheet" type="text/css"/> 
+	<link href="./css/table-style.css" rel="stylesheet" type="text/css" />
 </h:head>
 
 <h:body>
-	
+
 	<h:form prependId="false">
 		<label> <font color="red">*</font> ID Number: <h:inputText
 				value="#{policeRegisterBean.idNumber}" required="true"
@@ -38,29 +38,29 @@
 		<h:outputText id="result1"
 			value="#{policeRegisterBean.removeRegisterMessage}" />
 		<br />
-	</h:form>
-	<br/><br/>
-	<h:form prependId="false">
+		<br />
+		<br />
 		<br />
 		<label> <font color="red">*</font> Driving Licence Number: <h:inputSecret
 				value="#{policeRegisterBean.drivingLicenceNumber}" required="true"
 				requiredMessage="Missing Driving Licence Number"
 				id="drivingLicenceNumber" />
 		</label>
-		<br /><br/>
+		<br />
+		<br />
 		<h:commandButton value="Enable Register">
-			<f:ajax execute="drivingLicenceNumber" render="result"
+			<f:ajax execute="drivingLicenceNumber" render="result2"
 				listener="#{policeRegisterBean.enableRegister}" />
 		</h:commandButton>
 		<h:commandButton value="Disable Register ">
-			<f:ajax execute="drivingLicenceNumber" render="result1"
+			<f:ajax execute="drivingLicenceNumber" render="result3"
 				listener="#{policeRegisterBean.disableRegister}" />
 		</h:commandButton>
 		<br />
 		<br />
-		<h:outputText id="result"
+		<h:outputText id="result2"
 			value="#{policeRegisterBean.enableRegisterMessage}" />
-		<h:outputText id="result1"
+		<h:outputText id="result3"
 			value="#{policeRegisterBean.disableRegisterMessage}" />
 		<br />
 	</h:form>

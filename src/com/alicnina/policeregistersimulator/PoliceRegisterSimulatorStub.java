@@ -154,7 +154,7 @@
      */
     public PoliceRegisterSimulatorStub(org.apache.axis2.context.ConfigurationContext configurationContext) throws org.apache.axis2.AxisFault {
         
-                    this(configurationContext,"http://localhost:8080/RentACarWebServices/services/PoliceRegister" );
+                    this(configurationContext,"http://localhost:8080/RentACarWebServices/services/PoliceRegister.HttpSoap12Endpoint2/" );
                 
     }
 
@@ -163,7 +163,7 @@
      */
     public PoliceRegisterSimulatorStub() throws org.apache.axis2.AxisFault {
         
-                    this("http://localhost:8080/RentACarWebServices/services/PoliceRegister" );
+                    this("http://localhost:8080/RentACarWebServices/services/PoliceRegister.HttpSoap12Endpoint2/" );
                 
     }
 
@@ -181,7 +181,7 @@
                      * Auto generated method signature
                      * 
                      * @see com.alicnina.policeregistersimulator.PoliceRegisterSimulator#disablePoliceRegister
-                     * @param disablePoliceRegisterResponse2
+                     * @param disablePoliceRegister0
                     
                      */
 
@@ -189,7 +189,7 @@
 
                             public  com.alicnina.policeregistersimulator.DisablePoliceRegisterResponse disablePoliceRegister(
 
-                            com.alicnina.policeregistersimulator.DisablePoliceRegisterResponse disablePoliceRegisterResponse2)
+                            com.alicnina.policeregistersimulator.DisablePoliceRegister disablePoliceRegister0)
                         
 
                     throws java.rmi.RemoteException
@@ -216,7 +216,7 @@
                     
                                                     
                                                     env = toEnvelope(getFactory(_operationClient.getOptions().getSoapVersionURI()),
-                                                    disablePoliceRegisterResponse2,
+                                                    disablePoliceRegister0,
                                                     optimizeContent(new javax.xml.namespace.QName("http://policeregistersimulator.alicnina.com",
                                                     "disablePoliceRegister")), new javax.xml.namespace.QName("http://policeregistersimulator.alicnina.com",
                                                     "disablePoliceRegister"));
@@ -302,15 +302,15 @@
                      * Auto generated method signature
                      * 
                      * @see com.alicnina.policeregistersimulator.PoliceRegisterSimulator#enablePoliceRegister
-                     * @param enablePoliceRegister4
+                     * @param enablePoliceRegister2
                     
                      */
 
                     
 
-                            public  com.alicnina.policeregistersimulator.EnablePoliceRegister enablePoliceRegister(
+                            public  com.alicnina.policeregistersimulator.EnablePoliceRegisterResponse enablePoliceRegister(
 
-                            com.alicnina.policeregistersimulator.EnablePoliceRegister enablePoliceRegister4)
+                            com.alicnina.policeregistersimulator.EnablePoliceRegister enablePoliceRegister2)
                         
 
                     throws java.rmi.RemoteException
@@ -337,7 +337,7 @@
                     
                                                     
                                                     env = toEnvelope(getFactory(_operationClient.getOptions().getSoapVersionURI()),
-                                                    enablePoliceRegister4,
+                                                    enablePoliceRegister2,
                                                     optimizeContent(new javax.xml.namespace.QName("http://policeregistersimulator.alicnina.com",
                                                     "enablePoliceRegister")), new javax.xml.namespace.QName("http://policeregistersimulator.alicnina.com",
                                                     "enablePoliceRegister"));
@@ -361,11 +361,11 @@
                 
                                 java.lang.Object object = fromOM(
                                              _returnEnv.getBody().getFirstElement() ,
-                                             com.alicnina.policeregistersimulator.EnablePoliceRegister.class,
+                                             com.alicnina.policeregistersimulator.EnablePoliceRegisterResponse.class,
                                               getEnvelopeNamespaces(_returnEnv));
 
                                
-                                        return (com.alicnina.policeregistersimulator.EnablePoliceRegister)object;
+                                        return (com.alicnina.policeregistersimulator.EnablePoliceRegisterResponse)object;
                                    
          }catch(org.apache.axis2.AxisFault f){
 
@@ -423,7 +423,7 @@
                      * Auto generated method signature
                      * 
                      * @see com.alicnina.policeregistersimulator.PoliceRegisterSimulator#initializePoliceRegister
-                     * @param initializePoliceRegister6
+                     * @param initializePoliceRegister4
                     
                      */
 
@@ -431,7 +431,7 @@
 
                             public  com.alicnina.policeregistersimulator.InitializePoliceRegisterResponse initializePoliceRegister(
 
-                            com.alicnina.policeregistersimulator.InitializePoliceRegister initializePoliceRegister6)
+                            com.alicnina.policeregistersimulator.InitializePoliceRegister initializePoliceRegister4)
                         
 
                     throws java.rmi.RemoteException
@@ -458,7 +458,7 @@
                     
                                                     
                                                     env = toEnvelope(getFactory(_operationClient.getOptions().getSoapVersionURI()),
-                                                    initializePoliceRegister6,
+                                                    initializePoliceRegister4,
                                                     optimizeContent(new javax.xml.namespace.QName("http://policeregistersimulator.alicnina.com",
                                                     "initializePoliceRegister")), new javax.xml.namespace.QName("http://policeregistersimulator.alicnina.com",
                                                     "initializePoliceRegister"));
@@ -544,7 +544,7 @@
                      * Auto generated method signature
                      * 
                      * @see com.alicnina.policeregistersimulator.PoliceRegisterSimulator#savePoliceRegister
-                     * @param savePoliceRegister8
+                     * @param savePoliceRegister6
                     
                      */
 
@@ -552,7 +552,7 @@
 
                             public  com.alicnina.policeregistersimulator.SavePoliceRegisterResponse savePoliceRegister(
 
-                            com.alicnina.policeregistersimulator.SavePoliceRegister savePoliceRegister8)
+                            com.alicnina.policeregistersimulator.SavePoliceRegister savePoliceRegister6)
                         
 
                     throws java.rmi.RemoteException
@@ -579,7 +579,7 @@
                     
                                                     
                                                     env = toEnvelope(getFactory(_operationClient.getOptions().getSoapVersionURI()),
-                                                    savePoliceRegister8,
+                                                    savePoliceRegister6,
                                                     optimizeContent(new javax.xml.namespace.QName("http://policeregistersimulator.alicnina.com",
                                                     "savePoliceRegister")), new javax.xml.namespace.QName("http://policeregistersimulator.alicnina.com",
                                                     "savePoliceRegister"));
@@ -665,7 +665,7 @@
                      * Auto generated method signature
                      * 
                      * @see com.alicnina.policeregistersimulator.PoliceRegisterSimulator#removePoliceRegister
-                     * @param removePoliceRegister10
+                     * @param removePoliceRegister8
                     
                      */
 
@@ -673,7 +673,7 @@
 
                             public  com.alicnina.policeregistersimulator.RemovePoliceRegisterResponse removePoliceRegister(
 
-                            com.alicnina.policeregistersimulator.RemovePoliceRegister removePoliceRegister10)
+                            com.alicnina.policeregistersimulator.RemovePoliceRegister removePoliceRegister8)
                         
 
                     throws java.rmi.RemoteException
@@ -700,7 +700,7 @@
                     
                                                     
                                                     env = toEnvelope(getFactory(_operationClient.getOptions().getSoapVersionURI()),
-                                                    removePoliceRegister10,
+                                                    removePoliceRegister8,
                                                     optimizeContent(new javax.xml.namespace.QName("http://policeregistersimulator.alicnina.com",
                                                     "removePoliceRegister")), new javax.xml.namespace.QName("http://policeregistersimulator.alicnina.com",
                                                     "removePoliceRegister"));
@@ -813,7 +813,21 @@
         }
         return false;
     }
-     //http://localhost:8080/RentACarWebServices/services/PoliceRegisterSimulator.HttpSoap12Endpoint2/
+     //http://localhost:8080/RentACarWebServices/services/PoliceRegister.HttpSoap12Endpoint2/
+            private  org.apache.axiom.om.OMElement  toOM(com.alicnina.policeregistersimulator.DisablePoliceRegister param, boolean optimizeContent)
+            throws org.apache.axis2.AxisFault {
+
+            
+                        try{
+                             return param.getOMElement(com.alicnina.policeregistersimulator.DisablePoliceRegister.MY_QNAME,
+                                          org.apache.axiom.om.OMAbstractFactory.getOMFactory());
+                        } catch(org.apache.axis2.databinding.ADBException e){
+                            throw org.apache.axis2.AxisFault.makeFault(e);
+                        }
+                    
+
+            }
+        
             private  org.apache.axiom.om.OMElement  toOM(com.alicnina.policeregistersimulator.DisablePoliceRegisterResponse param, boolean optimizeContent)
             throws org.apache.axis2.AxisFault {
 
@@ -834,6 +848,20 @@
             
                         try{
                              return param.getOMElement(com.alicnina.policeregistersimulator.EnablePoliceRegister.MY_QNAME,
+                                          org.apache.axiom.om.OMAbstractFactory.getOMFactory());
+                        } catch(org.apache.axis2.databinding.ADBException e){
+                            throw org.apache.axis2.AxisFault.makeFault(e);
+                        }
+                    
+
+            }
+        
+            private  org.apache.axiom.om.OMElement  toOM(com.alicnina.policeregistersimulator.EnablePoliceRegisterResponse param, boolean optimizeContent)
+            throws org.apache.axis2.AxisFault {
+
+            
+                        try{
+                             return param.getOMElement(com.alicnina.policeregistersimulator.EnablePoliceRegisterResponse.MY_QNAME,
                                           org.apache.axiom.om.OMAbstractFactory.getOMFactory());
                         } catch(org.apache.axis2.databinding.ADBException e){
                             throw org.apache.axis2.AxisFault.makeFault(e);
@@ -927,14 +955,14 @@
             }
         
                                     
-                                        private  org.apache.axiom.soap.SOAPEnvelope toEnvelope(org.apache.axiom.soap.SOAPFactory factory, com.alicnina.policeregistersimulator.DisablePoliceRegisterResponse param, boolean optimizeContent, javax.xml.namespace.QName methodQName)
+                                        private  org.apache.axiom.soap.SOAPEnvelope toEnvelope(org.apache.axiom.soap.SOAPFactory factory, com.alicnina.policeregistersimulator.DisablePoliceRegister param, boolean optimizeContent, javax.xml.namespace.QName methodQName)
                                         throws org.apache.axis2.AxisFault{
 
                                              
                                                     try{
 
                                                             org.apache.axiom.soap.SOAPEnvelope emptyEnvelope = factory.getDefaultEnvelope();
-                                                            emptyEnvelope.getBody().addChild(param.getOMElement(com.alicnina.policeregistersimulator.DisablePoliceRegisterResponse.MY_QNAME,factory));
+                                                            emptyEnvelope.getBody().addChild(param.getOMElement(com.alicnina.policeregistersimulator.DisablePoliceRegister.MY_QNAME,factory));
                                                             return emptyEnvelope;
                                                         } catch(org.apache.axis2.databinding.ADBException e){
                                                             throw org.apache.axis2.AxisFault.makeFault(e);
@@ -1048,9 +1076,9 @@
 
         try {
         
-                if (com.alicnina.policeregistersimulator.DisablePoliceRegisterResponse.class.equals(type)){
+                if (com.alicnina.policeregistersimulator.DisablePoliceRegister.class.equals(type)){
                 
-                           return com.alicnina.policeregistersimulator.DisablePoliceRegisterResponse.Factory.parse(param.getXMLStreamReaderWithoutCaching());
+                           return com.alicnina.policeregistersimulator.DisablePoliceRegister.Factory.parse(param.getXMLStreamReaderWithoutCaching());
                     
 
                 }
@@ -1069,9 +1097,9 @@
 
                 }
            
-                if (com.alicnina.policeregistersimulator.EnablePoliceRegister.class.equals(type)){
+                if (com.alicnina.policeregistersimulator.EnablePoliceRegisterResponse.class.equals(type)){
                 
-                           return com.alicnina.policeregistersimulator.EnablePoliceRegister.Factory.parse(param.getXMLStreamReaderWithoutCaching());
+                           return com.alicnina.policeregistersimulator.EnablePoliceRegisterResponse.Factory.parse(param.getXMLStreamReaderWithoutCaching());
                     
 
                 }

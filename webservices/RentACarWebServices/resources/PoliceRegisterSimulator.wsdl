@@ -123,11 +123,11 @@
 	</wsdl:message>
 	
 	<wsdl:message name="enablePoliceRegisterResponse">
-		<wsdl:part name="parameters" element="ns:enablePoliceRegister" />
+		<wsdl:part name="parameters" element="ns:enablePoliceRegisterResponse" />
 	</wsdl:message>
 
 	<wsdl:message name="disablePoliceRegisterRequest">
-		<wsdl:part name="parameters" element="ns:disablePoliceRegisterResponse" />
+		<wsdl:part name="parameters" element="ns:disablePoliceRegister" />
 	</wsdl:message>
 	
 	<wsdl:message name="disablePoliceRegisterResponse">
