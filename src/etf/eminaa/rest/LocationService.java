@@ -1,8 +1,5 @@
 package etf.eminaa.rest;
 
-import javax.faces.bean.ManagedBean;
-import javax.faces.bean.ManagedProperty;
-import javax.faces.bean.RequestScoped;
 import javax.ws.rs.FormParam;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
@@ -11,24 +8,26 @@ import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+
 import etf.eminaa.dao.DAOInterface;
 import etf.eminaa.domain.Rental;
 import etf.eminaa.domain.Users;
 import etf.eminaa.domain.Vehicle;
 
+@Component
 @Path("/{vehicle_id}")
-@ManagedBean
-@RequestScoped
 public class LocationService {
 
-	@ManagedProperty(value = "#{vehicleDAO}")
-	private DAOInterface<Vehicle> vehicleDao;
+	@Autowired
+	private DAOInterface<Vehicle> vehicleDAO;
 
-	@ManagedProperty(value = "#{rentalDAO}")
-	private DAOInterface<Rental> rentalDao;
+	@Autowired
+	private DAOInterface<Rental> rentalDAO;
 
-	@ManagedProperty(value = "#{usersDAO}")
-	private DAOInterface<Users> usersDao;
+	@Autowired
+	private DAOInterface<Users> usersDAO;
 
 	@GET
 	@Produces(MediaType.TEXT_PLAIN)
@@ -54,28 +53,28 @@ public class LocationService {
 		return result;
 	}
 
-	public DAOInterface<Vehicle> getVehicleDao() {
-		return vehicleDao;
+	public DAOInterface<Vehicle> getVehicleDAO() {
+		return vehicleDAO;
 	}
 
-	public void setVehicleDao(DAOInterface<Vehicle> vehicleDao) {
-		this.vehicleDao = vehicleDao;
+	public void setVehicleDAO(DAOInterface<Vehicle> vehicleDAO) {
+		this.vehicleDAO = vehicleDAO;
 	}
 
-	public DAOInterface<Rental> getRentalDao() {
-		return rentalDao;
+	public DAOInterface<Rental> getRentalDAO() {
+		return rentalDAO;
 	}
 
-	public void setRentalDao(DAOInterface<Rental> rentalDao) {
-		this.rentalDao = rentalDao;
+	public void setRentalDAO(DAOInterface<Rental> rentalDAO) {
+		this.rentalDAO = rentalDAO;
 	}
 
-	public DAOInterface<Users> getUsersDao() {
-		return usersDao;
+	public DAOInterface<Users> getUsersDAO() {
+		return usersDAO;
 	}
 
-	public void setUsersDao(DAOInterface<Users> usersDao) {
-		this.usersDao = usersDao;
+	public void setUsersDAO(DAOInterface<Users> usersDAO) {
+		this.usersDAO = usersDAO;
 	}
 
 }

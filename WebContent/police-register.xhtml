@@ -4,65 +4,52 @@
 	xmlns:f="http://java.sun.com/jsf/core">
 
 <h:head>
-	<title>Account Adding</title>
+	<title>Police Register System</title>
 	<link href="./css/table-style.css" rel="stylesheet" type="text/css" />
 </h:head>
 
 <h:body>
-
 	<h:form prependId="false">
-		<label> <font color="red">*</font> ID Number: <h:inputText
+	<h:panelGroup rendered="#{policeRegisterBean.isAuthorizedAdmin}">
+		<label><font color="red">*</font> ID Number <h:inputText
 				value="#{policeRegisterBean.idNumber}" required="true"
-				requiredMessage="Missing ID Number" id="idNumber" />
-		</label>
+				requiredMessage="Missin ID Number" id="idNumber" /> </label>
 		<br />
-		<label> <font color="red">*</font> Driving Licence Number: <h:inputSecret
+		<label> <font color="red">*</font> Driving Licence Number <h:inputText
 				value="#{policeRegisterBean.drivingLicenceNumber}" required="true"
-				requiredMessage="Missing Driving Licence Number"
-				id="drivingLicenceNumber" />
-		</label>
+				requiredMessage="Missin Driving Licence Number"
+				id="drivingLicenceNumber" /></label>
 		<br />
 		<br />
-		<h:commandButton value="Add New Police Register">
-			<f:ajax execute="idNumber  drivingLicenceNumber" render="result"
+		<h:commandButton value="Add New Police Register Account">
+			<f:ajax execute="@form" render="result"
 				listener="#{policeRegisterBean.saveRegister}" />
 		</h:commandButton>
-		<h:commandButton value="Delete Police Register ">
-			<f:ajax execute="idNumber  drivingLicenceNumber" render="result1"
+		<h:commandButton value="Remove Police Register Account">
+			<f:ajax execute="@form" render="result1"
 				listener="#{policeRegisterBean.removeRegister}" />
 		</h:commandButton>
-		<br />
-		<br />
-		<h:outputText id="result"
-			value="#{policeRegisterBean.saveRegisterMessage}" />
-		<h:outputText id="result1"
-			value="#{policeRegisterBean.removeRegisterMessage}" />
-		<br />
-		<br />
-		<br />
-		<br />
-		<label> <font color="red">*</font> Driving Licence Number: <h:inputSecret
-				value="#{policeRegisterBean.drivingLicenceNumber}" required="true"
-				requiredMessage="Missing Driving Licence Number"
-				id="drivingLicenceNumber" />
-		</label>
-		<br />
-		<br />
-		<h:commandButton value="Enable Register">
-			<f:ajax execute="drivingLicenceNumber" render="result2"
-				listener="#{policeRegisterBean.enableRegister}" />
-		</h:commandButton>
-		<h:commandButton value="Disable Register ">
-			<f:ajax execute="drivingLicenceNumber" render="result3"
-				listener="#{policeRegisterBean.disableRegister}" />
-		</h:commandButton>
-		<br />
-		<br />
-		<h:outputText id="result2"
-			value="#{policeRegisterBean.enableRegisterMessage}" />
-		<h:outputText id="result3"
-			value="#{policeRegisterBean.disableRegisterMessage}" />
-		<br />
+		<br/>
+		<h:commandButton value="Enable Register"> 
+ 				<f:ajax execute="drivingLicenceNumber" render="result2" 
+ 					listener="#{policeRegisterBean.enableRegister}" /> 
+ 			</h:commandButton>
+ 		<h:commandButton value="Disable Register"> 
+ 				<f:ajax execute="drivingLicenceNumber" render="result3" 
+ 					listener="#{policeRegisterBean.disableRegister}" /> 
+ 			</h:commandButton>  
+		<br/><br/>
+		<h:outputText id="result" value="#{policeRegisterBean.saveRegisterMessage}"/><br/>
+		<h:outputText id="result1" value="#{policeRegisterBean.removeRegisterMessage}"/><br/>
+		<h:outputText id="result2" value="#{policeRegisterBean.enableRegisterMessage}"/><br/>
+		<h:outputText id="result3" value="#{policeRegisterBean.disableRegisterMessage}"/><br/>
+		</h:panelGroup>
+		<h:panelGroup rendered="#{!accountBean.isAuthorizedAdmin}">
+			<h3>
+				<font color="#330099">ERROR 404 </font><br /> Page does not exist.
+				Try again !
+			</h3>
+		</h:panelGroup>
 	</h:form>
 </h:body>
 

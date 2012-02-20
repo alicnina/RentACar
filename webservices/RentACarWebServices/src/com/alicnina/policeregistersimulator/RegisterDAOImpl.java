@@ -2,7 +2,6 @@ package com.alicnina.policeregistersimulator;
 
 import java.util.Collection;
 import java.util.Iterator;
-import java.util.List;
 
 import javax.jdo.Extent;
 import javax.jdo.JDOHelper;
@@ -10,12 +9,6 @@ import javax.jdo.PersistenceManager;
 import javax.jdo.PersistenceManagerFactory;
 import javax.jdo.Query;
 import javax.jdo.Transaction;
-
-import org.hibernate.SessionFactory;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.orm.hibernate3.HibernateTemplate;
-
-import com.alicnina.paymentsimulator.Account;
 
 public class RegisterDAOImpl implements com.alicnina.paymentsimulator.DAOInterface<Register> {
 
@@ -67,8 +60,8 @@ public class RegisterDAOImpl implements com.alicnina.paymentsimulator.DAOInterfa
 	@Override
 	public boolean save(Register obj) {
 		try {
-		// PersistenceManagerFactory pmfo = JDOHelper.getPersistenceManagerFactory("oodb.properties");
-		PersistenceManagerFactory pmfo = JDOHelper.getPersistenceManagerFactory("mysql.properties");
+		 PersistenceManagerFactory pmfo = JDOHelper.getPersistenceManagerFactory("oodb.properties");
+//		PersistenceManagerFactory pmfo = JDOHelper.getPersistenceManagerFactory("mysql.properties");
 		pm = pmfo.getPersistenceManager();
 		Transaction transo = pm.currentTransaction();
 		transo.begin();
@@ -87,8 +80,8 @@ public class RegisterDAOImpl implements com.alicnina.paymentsimulator.DAOInterfa
 	public boolean delete(Register obj) {
 		try {
 			Register reg = findByKeyWords(obj.getIdNumber(), obj.getDrivingLicenceNumber());
-			// PersistenceManagerFactory pmfo = JDOHelper.getPersistenceManagerFactory("oodb.properties");
-			PersistenceManagerFactory pmfo = JDOHelper.getPersistenceManagerFactory("mysql.properties");
+			 PersistenceManagerFactory pmfo = JDOHelper.getPersistenceManagerFactory("oodb.properties");
+//			PersistenceManagerFactory pmfo = JDOHelper.getPersistenceManagerFactory("mysql.properties");
 			pm = pmfo.getPersistenceManager();
 			Transaction transo = pm.currentTransaction();
 			transo.begin();
