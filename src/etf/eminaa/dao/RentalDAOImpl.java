@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.orm.hibernate3.HibernateTemplate;
 
 import etf.eminaa.domain.Rental;
+import etf.eminaa.domain.Users;
 
 public class RentalDAOImpl implements DAOInterface<Rental> {
 
@@ -45,8 +46,21 @@ public class RentalDAOImpl implements DAOInterface<Rental> {
 		return hibernateTemplate.find("from Rental");
 	}
 
-	public Rental findByKeyWords(String username, String password) {
-		return null;
+	public Rental findByKeyWords(String operator, String... args) {
+		StringBuilder sb = new StringBuilder();
+		sb.append("from Rental where ");
+		for (int i = 0; i < args.length; i++) {
+			sb.append(args[i]);
+			if (i+1 < args.length) {
+				sb.append(" " + operator + " ");
+			}
+		}
+		List<?> list = hibernateTemplate.find(sb.toString());
+		if (list.isEmpty()) {
+			return null;
+		} else {
+			return (Rental) list.get(0);
+		}
 	}
 
 	@Override

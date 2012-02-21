@@ -24,6 +24,7 @@ import javax.faces.event.AjaxBehaviorEvent;
 import org.apache.log4j.Logger;
 
 import etf.eminaa.dao.DAOInterface;
+import etf.eminaa.dao.UsersDAOImpl;
 import etf.eminaa.domain.Authorities;
 import etf.eminaa.domain.Users;
 
@@ -109,7 +110,7 @@ public class UserLoginBean implements Serializable {
 	public String userLogin() {
 		loginAttempted = true;
 		if (null != inputUsername && null != inputPassword) {
-			user = usersDao.findByKeyWords(inputUsername, inputPassword);
+			user = usersDao.findByKeyWords("AND", "username = '" + inputUsername + "'", "password = '" + UsersDAOImpl.hashPassword(inputPassword) + "'");
 			if (isUserLoggedIn()) {
 				// save instance of UserLoginBean to session
 				FacesContext context = FacesContext.getCurrentInstance();

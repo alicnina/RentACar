@@ -53,7 +53,7 @@ public class VehicleDAOImpl implements DAOInterface<Vehicle>, Serializable {
 		return hibernateTemplate.find("from Vehicle");
 	}
 
-	public Vehicle findByKeyWords(String Username, String Password) {
+	public Vehicle findByKeyWords(String operator, String... args) {
 		return null;
 	}
 

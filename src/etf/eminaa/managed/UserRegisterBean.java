@@ -17,6 +17,7 @@ import javax.faces.event.AjaxBehaviorEvent;
 import org.apache.log4j.Logger;
 
 import etf.eminaa.dao.DAOInterface;
+import etf.eminaa.dao.UsersDAOImpl;
 import etf.eminaa.domain.Authorities;
 import etf.eminaa.domain.Rental;
 import etf.eminaa.domain.Users;
@@ -229,7 +230,7 @@ public class UserRegisterBean implements Serializable {
 	// implemented methods
 	public void userRegister(AjaxBehaviorEvent event) {
 		if (null != username && null != password) {
-			user = usersDao.findByKeyWords(username, password);
+			user = usersDao.findByKeyWords("AND", "username = '" + username + "'", "password = '" + UsersDAOImpl.hashPassword(password) + "'");
 			if (null == user) {
 				user = new Users();
 				user.setUsername(username);

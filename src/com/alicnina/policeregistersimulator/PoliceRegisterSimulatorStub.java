@@ -648,27 +648,27 @@ public class PoliceRegisterSimulatorStub extends org.apache.axis2.client.Stub im
 
 						throw new java.rmi.RemoteException(ex.getMessage(), ex);
 					} catch (java.lang.ClassCastException e) {
-						// we cannot intantiate the class - throw the original
+						// we cannot instantiate the class - throw the original
 						// Axis fault
 						throw f;
 					} catch (java.lang.ClassNotFoundException e) {
-						// we cannot intantiate the class - throw the original
+						// we cannot instantiate the class - throw the original
 						// Axis fault
 						throw f;
 					} catch (java.lang.NoSuchMethodException e) {
-						// we cannot intantiate the class - throw the original
+						// we cannot instantiate the class - throw the original
 						// Axis fault
 						throw f;
 					} catch (java.lang.reflect.InvocationTargetException e) {
-						// we cannot intantiate the class - throw the original
+						// we cannot instantiate the class - throw the original
 						// Axis fault
 						throw f;
 					} catch (java.lang.IllegalAccessException e) {
-						// we cannot intantiate the class - throw the original
+						// we cannot instantiate the class - throw the original
 						// Axis fault
 						throw f;
 					} catch (java.lang.InstantiationException e) {
-						// we cannot intantiate the class - throw the original
+						// we cannot instantiate the class - throw the original
 						// Axis fault
 						throw f;
 					}

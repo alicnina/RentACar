@@ -36,7 +36,7 @@ public class PaymentSimulatorSkeleton {
 			if (account == null) {
 				response.setCode("100");
 				response.setMessage("Account with this Credit Card Number and CVV2 does not exist!");
-								
+
 			}
 
 			else if (account.getAmmount() < ammount) {
@@ -47,10 +47,12 @@ public class PaymentSimulatorSkeleton {
 			else {
 				double newAccountBalance = account.getAmmount() - ammount;
 				account.setAmmount(newAccountBalance);
-				accountDAO.delete(account);
-				accountDAO.save(account);
-				response.setCode("102");
-				response.setMessage("You've successfuly called Online Payment Simulator!");
+				boolean isDeleted = accountDAO.delete(account);
+				if (isDeleted) {
+					accountDAO.save(account);
+					response.setCode("102");
+					response.setMessage("You've successfuly called Online Payment Simulator!");
+				}
 			}
 
 			return response.getOMElement(InitializePaymentResponse.MY_QNAME, OMAbstractFactory.getOMFactory());

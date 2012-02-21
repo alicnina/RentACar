@@ -12,21 +12,28 @@ import javax.jdo.Transaction;
 
 public class RegisterDAOImpl implements com.alicnina.paymentsimulator.DAOInterface<Register> {
 
-	private PersistenceManager pm;
+	private static PersistenceManagerFactory pmfo;
+
+	private PersistenceManagerFactory getPersistenceManagerFactory() {
+
+		if (null == pmfo) {
+			pmfo = JDOHelper.getPersistenceManagerFactory("oodb.properties");
+		}
+		return pmfo;
+	}
 
 	// this method fins account by id
 	public Register findByID(String reg) throws Exception {
-		PersistenceManagerFactory pmfo = JDOHelper.getPersistenceManagerFactory("oodb.properties");
-		pm = pmfo.getPersistenceManager();
+		PersistenceManager pm = getPersistenceManagerFactory().getPersistenceManager();
 		Transaction transo = pm.currentTransaction();
 		transo.begin();
 		Extent<Register> ext = pm.getExtent(Register.class, true);
 		Query q = pm.newQuery(ext);
 		Collection<Register> c = (Collection<Register>) q.execute();
 		Iterator<Register> iter = c.iterator();
-		while(iter.hasNext()) {
+		while (iter.hasNext()) {
 			Register r = iter.next();
-			if(r.getDrivingLicenceNumber().equals(reg)) {
+			if (r.getDrivingLicenceNumber().equals(reg)) {
 				return r;
 			}
 		}
@@ -37,11 +44,7 @@ public class RegisterDAOImpl implements com.alicnina.paymentsimulator.DAOInterfa
 
 	// this method fins account by creditCardNumber and cvv2
 	public Register findByKeyWords(String IDNumber, String drivingLicenceNumber) {
-		PersistenceManagerFactory pmfo = JDOHelper.getPersistenceManagerFactory("oodb.properties");
-		// PersistenceManagerFactory pmfo = JDOHelper.getPersistenceManagerFactory("mysql.properties");
-		pm = pmfo.getPersistenceManager();
-		Transaction transo = pm.currentTransaction();
-		transo.begin();
+		PersistenceManager pm = getPersistenceManagerFactory().getPersistenceManager();
 		Extent<Register> ext = pm.getExtent(Register.class, true);
 		Query q = pm.newQuery(ext);
 		Collection<Register> c = (Collection<Register>) q.execute();
@@ -52,7 +55,6 @@ public class RegisterDAOImpl implements com.alicnina.paymentsimulator.DAOInterfa
 				return r;
 			}
 		}
-		transo.commit();
 		pm.close();
 		return null;
 	}
@@ -60,39 +62,37 @@ public class RegisterDAOImpl implements com.alicnina.paymentsimulator.DAOInterfa
 	@Override
 	public boolean save(Register obj) {
 		try {
-		 PersistenceManagerFactory pmfo = JDOHelper.getPersistenceManagerFactory("oodb.properties");
-//		PersistenceManagerFactory pmfo = JDOHelper.getPersistenceManagerFactory("mysql.properties");
-		pm = pmfo.getPersistenceManager();
-		Transaction transo = pm.currentTransaction();
-		transo.begin();
-		pm.makePersistent(obj);
-		transo.commit();
-		pm.close();
-		return true;
+			PersistenceManager pm = getPersistenceManagerFactory().getPersistenceManager();
+			Transaction transo = pm.currentTransaction();
+			transo.begin();
+			pm.makePersistent(obj);
+			transo.commit();
+			pm.close();
+			return true;
 		} catch (Exception e) {
 			System.err.println(e.getMessage());
 			return false;
 		}
-		
+
 	}
 
 	@Override
 	public boolean delete(Register obj) {
 		try {
 			Register reg = findByKeyWords(obj.getIdNumber(), obj.getDrivingLicenceNumber());
-			 PersistenceManagerFactory pmfo = JDOHelper.getPersistenceManagerFactory("oodb.properties");
-//			PersistenceManagerFactory pmfo = JDOHelper.getPersistenceManagerFactory("mysql.properties");
-			pm = pmfo.getPersistenceManager();
-			Transaction transo = pm.currentTransaction();
-			transo.begin();
-			pm.deletePersistent(reg);
-			transo.commit();
-			pm.close();
-			return true;
-			} catch (Exception e) {
-				System.err.println(e.getMessage());
-				return false;
+			if (null != reg) {
+				PersistenceManager regPm = JDOHelper.getPersistenceManager(reg);
+				Transaction transo = regPm.currentTransaction();
+				transo.begin();
+				regPm.deletePersistent(reg);
+				transo.commit();
+				regPm.close();
 			}
+			return true;
+		} catch (Exception e) {
+			System.err.println(e.getMessage());
+			return false;
+		}
 	}
 
 }

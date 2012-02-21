@@ -12,6 +12,7 @@ import org.springframework.web.servlet.mvc.multiaction.MultiActionController;
 
 
 import etf.eminaa.dao.DAOInterface;
+import etf.eminaa.dao.UsersDAOImpl;
 import etf.eminaa.domain.Authorities;
 import etf.eminaa.domain.Users;
 
@@ -88,7 +89,7 @@ public class UsersController extends MultiActionController {
 
 	public ModelAndView searchDB(HttpServletRequest request, HttpServletResponse response, Users users) throws Exception {
 		ModelMap modelMap = new ModelMap();
-		Users userFound = usersDAO.findByKeyWords(users.getUsername(), users.getPassword());
+		Users userFound = usersDAO.findByKeyWords("AND", "username = '" + users.getUsername() + "'", "password = '" + UsersDAOImpl.hashPassword(users.getPassword()) + "'");
 		if (userFound != null) {
 			modelMap.addAttribute("users", userFound);
 			modelMap.addAttribute("usersList", usersDAO.list());

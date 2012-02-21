@@ -24,7 +24,7 @@ public class UsersDAOImpl implements DAOInterface<Users>, Serializable {
 	public void setSessionFactory(SessionFactory sessionFactory) {
 		this.hibernateTemplate = new HibernateTemplate(sessionFactory);
 	}
-	
+
 	@Override
 	public void save(Users user) {
 		String passToHash = user.getPassword();
@@ -33,16 +33,16 @@ public class UsersDAOImpl implements DAOInterface<Users>, Serializable {
 	}
 
 	public void delete(Users user) {
-		if(user != null) {
-		Iterator<Authorities> itAuthorities = user.getAuthorities().iterator();
-		while(itAuthorities.hasNext()){
-			hibernateTemplate.delete(itAuthorities.next());
-		}
-		Iterator<Rental> itRental = user.getRental().iterator();
-		while(itRental.hasNext()){
-			hibernateTemplate.delete(itRental.next());
-		}
-		hibernateTemplate.delete(user);
+		if (user != null) {
+			Iterator<Authorities> itAuthorities = user.getAuthorities().iterator();
+			while (itAuthorities.hasNext()) {
+				hibernateTemplate.delete(itAuthorities.next());
+			}
+			Iterator<Rental> itRental = user.getRental().iterator();
+			while (itRental.hasNext()) {
+				hibernateTemplate.delete(itRental.next());
+			}
+			hibernateTemplate.delete(user);
 		}
 	}
 
@@ -65,7 +65,26 @@ public class UsersDAOImpl implements DAOInterface<Users>, Serializable {
 		}
 	}
 
-	public Users findByKeyWords(String username, String password) {
+	public Users findByKeyWords(String operator, String... args) {
+		StringBuilder sb = new StringBuilder();
+		sb.append("from Users where ");
+		for(int i = 0; i < args.length; i++){
+			sb.append(args[i]);
+			if(i+1 < args.length){
+				sb.append(" " + operator + " ");
+			}
+		}
+//		List<?> list = hibernateTemplate.find("from Users where username=? AND password=?", username, hashPassword(password));
+		List<?> list = hibernateTemplate.find(sb.toString());
+		if (list.isEmpty()) {
+			return null;
+		} else {
+			return (Users) list.get(0);
+		}
+	}
+
+	// code to find users while logging from spring table Users
+	public Users findByKeyWordsFromUsers(String username, String password) {
 		List<?> list = hibernateTemplate.find("from Users where username=? AND password=?", username, hashPassword(password));
 		if (list.isEmpty()) {
 			return null;
@@ -73,18 +92,8 @@ public class UsersDAOImpl implements DAOInterface<Users>, Serializable {
 			return (Users) list.get(0);
 		}
 	}
-	
-	// code to find users while logging from spring table Users
-	public Users findByKeyWordsFromUsers(String username, String password) {
-			List<?> list = hibernateTemplate.find("from Users where username=? AND password=?", username, hashPassword(password));
-			if (list.isEmpty()) {
-				return null;
-			} else {
-				return (Users) list.get(0);
-			}
-	}
 
-	private String hashPassword(String password) {
+	public static String hashPassword(String password) {
 		String hashword = null;
 		try {
 			MessageDigest md5 = MessageDigest.getInstance("MD5");

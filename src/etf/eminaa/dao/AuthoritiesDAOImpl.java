@@ -53,7 +53,7 @@ public class AuthoritiesDAOImpl implements DAOInterface<Authorities>, Serializab
 		return hibernateTemplate.find("from Authorities" + (null != criteria ? " WHERE " + criteria : ""));
 	}
 
-	public Authorities findByKeyWords(String Username, String Password) {
+	public Authorities findByKeyWords(String operator, String... args) {
 		return null;
 	}
 

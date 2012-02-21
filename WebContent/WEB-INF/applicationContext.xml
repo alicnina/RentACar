@@ -25,6 +25,7 @@
 				<value>etf.eminaa.domain.Rental</value>
 				<value>etf.eminaa.domain.Users</value>
 				<value>etf.eminaa.domain.Authorities</value>
+				<value>etf.eminaa.domain.Location</value>
 			</list>
 		</property>
 		<property name="hibernateProperties">

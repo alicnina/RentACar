@@ -44,12 +44,11 @@ public class LocationService {
 	@Produces(MediaType.TEXT_PLAIN)
 	public String setLastKnownVehicleLocation(@PathParam("vehicle_id") int vehicleId, @FormParam("latitude") double latitude,
 			@FormParam("longitude") double longitude) {
-
+		
 		String result = "Vehicle location successfuly updated! id:" + vehicleId + "; lat:" + latitude + ";lon:" + longitude;
 
-		// TODO: store vehicle location into DB
+		Rental currentRental = rentalDAO.findByKeyWords("AND", "vehicle_id = '" + vehicleId + "'", "rental_status = 'RENTED'");
 		
-
 		return result;
 	}
 

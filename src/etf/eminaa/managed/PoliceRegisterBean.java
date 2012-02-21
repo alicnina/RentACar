@@ -32,10 +32,10 @@ public class PoliceRegisterBean {
 
 	private String idNumber, drivingLicenceNumber;
 
-	private String code = "", message = "";
-	private String codeRemove = "", messageRemove = "";
-	private String codeEnable = "", messageEnable = "";
-	private String codeDisable = "", messageDisable = "";
+	private String code="", message="";
+	private String codeRemove="", messageRemove="";
+	private String codeEnable="", messageEnable="";
+	private String codeDisable="", messageDisable="";
 
 	@ManagedProperty(value = "#{userLoginBean}")
 	private UserLoginBean userLoginBean;
@@ -102,7 +102,7 @@ public class PoliceRegisterBean {
 
 	public String getRemoveRegisterMessage() {
 		String msg = "Please Remove Desired Account!";
-		if (codeRemove.equals("102") == true) {
+		if (codeRemove.equals("202") == true) {
 			msg = messageRemove;
 		} else {
 			msg = "Account with ID Number " + idNumber + "  and Driving Licence Number " + drivingLicenceNumber + " is not REMOVED!";
@@ -112,7 +112,7 @@ public class PoliceRegisterBean {
 
 	public void enableRegister(AjaxBehaviorEvent event) throws Exception {
 		if (getIsAuthorizedAdmin() == true) {
-			if (drivingLicenceNumber.isEmpty() != false && drivingLicenceNumber != null) {
+			if (null != drivingLicenceNumber) {
 				EnablePoliceRegister enablePoliceReg = new EnablePoliceRegister();
 				enablePoliceReg.setDrivingLicenceNumber(drivingLicenceNumber);
 
@@ -146,7 +146,7 @@ public class PoliceRegisterBean {
 
 	public void disableRegister(AjaxBehaviorEvent event) throws Exception {
 		if (getIsAuthorizedAdmin() == true) {
-			if (drivingLicenceNumber.isEmpty() != false && drivingLicenceNumber != null) {
+			if (drivingLicenceNumber != null) {
 				DisablePoliceRegister policeRegDisable = new DisablePoliceRegister();
 				policeRegDisable.setDrivingLicenceNumber(drivingLicenceNumber);
 

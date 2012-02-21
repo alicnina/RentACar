@@ -55,18 +55,18 @@ public class PoliceRegisterSimulatorSkeleton {
 
 	public OMElement enablePoliceRegister(OMElement request) {
 		try {
-		EnablePoliceRegister enableReg = EnablePoliceRegister.Factory.parse(request.getXMLStreamReaderWithoutCaching());
-		EnablePoliceRegisterResponse response = new EnablePoliceRegisterResponse();
-		
-		Register reg = registerDAO.findByID(enableReg.getDrivingLicenceNumber());
-		reg.setEnabledRegister(false);
-		registerDAO.delete(reg);
-		registerDAO.save(reg);
-		
-		response.setCode("303");
-		response.setMessage("You've successfuly enabled this account!");
-		
-		return response.getOMElement(EnablePoliceRegisterResponse.MY_QNAME, OMAbstractFactory.getOMFactory());
+			EnablePoliceRegister enableReg = EnablePoliceRegister.Factory.parse(request.getXMLStreamReaderWithoutCaching());
+			EnablePoliceRegisterResponse response = new EnablePoliceRegisterResponse();
+
+			Register reg = registerDAO.findByID(enableReg.getDrivingLicenceNumber());
+			reg.setEnabledRegister(false);
+			registerDAO.delete(reg);
+			registerDAO.save(reg);
+
+			response.setCode("303");
+			response.setMessage("You've successfuly enabled this account!");
+
+			return response.getOMElement(EnablePoliceRegisterResponse.MY_QNAME, OMAbstractFactory.getOMFactory());
 		} catch (Exception e) {
 			System.err.println(e.getMessage());
 			return null;
@@ -92,11 +92,10 @@ public class PoliceRegisterSimulatorSkeleton {
 				response.setMessage("User with this ID Number and Driving Licence Number does not exist !");
 			}
 
-			else if (register.isEnabledRegister() == true ){
+			else if (register.isEnabledRegister() == true) {
 				response.setCode("101");
 				response.setMessage("User exists.");
-			}
-			else {
+			} else {
 				response.setCode("102");
 				response.setMessage("User is forbidden to access the system.");
 			}
@@ -104,7 +103,6 @@ public class PoliceRegisterSimulatorSkeleton {
 			return response.getOMElement(InitializePoliceRegisterResponse.MY_QNAME, OMAbstractFactory.getOMFactory());
 
 		} catch (Exception e) {
-			// TODO parsing of request error!
 			e.printStackTrace();
 
 		}
@@ -150,7 +148,7 @@ public class PoliceRegisterSimulatorSkeleton {
 			reg.setIdNumber(removeReg.getIdNumber());
 			reg.setDrivingLicenceNumber(removeReg.getDrivingLicenceNumber());
 			registerDAO.delete(reg);
-			SavePoliceRegisterResponse response = new SavePoliceRegisterResponse();
+			RemovePoliceRegisterResponse response = new RemovePoliceRegisterResponse();
 			response.setCode("202");
 			response.setMessage("You've successfuly removed this account!");
 			return response.getOMElement(RemovePoliceRegisterResponse.MY_QNAME, OMAbstractFactory.getOMFactory());

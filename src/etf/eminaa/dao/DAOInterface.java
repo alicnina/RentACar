@@ -16,5 +16,13 @@ public interface DAOInterface<T> {
 
 	T findByPrimaryKey(Object key);
 
-	T findByKeyWords(String Username, String Password);
+	/**
+	 * Abstract method to search by keywords in WHERE clause<br/>
+	 * example: <br />
+	 * args = {"column1 = val1", "column2 = val2"}
+	 * @param operator can be "AND" or "OR"
+	 * @param args
+	 * @return
+	 */
+	T findByKeyWords(String operator, String... args);
 }

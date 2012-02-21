@@ -187,8 +187,6 @@ public class VehicleRentalBean implements Serializable {
 		int numDays = Integer.parseInt(numberDays.trim());
 		rental.setNumberDays(numDays);
 
-		// TODO: invoke police register service (call stub)
-
 		initPoliceRegister.setDrivingLicenceNumber(user.getDrivingLicenceNumber());
 		initPoliceRegister.setIdNumber(user.getIdNumber());
 		
@@ -249,10 +247,10 @@ public class VehicleRentalBean implements Serializable {
 		else if (null != rental && vehicleDao.findByPrimaryKey(vehicle.getId()).getStatus()=="RESERVATION") {
 			msg = "Vehicle " + rental.getVehicle().getModel() + " " + rental.getUsers().getUsername() + " (" + rental.getNumberDays() + ") reserved!";
 		}
-		else if (codePR.equals("101") == false){
+		else if (null != codePR && codePR.equals("101") == false){
 			msg = messagePR;
 		}
-		else if (codePS.equals("102") == false){
+		else if (null != codePS && codePS.equals("102") == false){
 			msg = messagePS;
 		}
 		return msg;
