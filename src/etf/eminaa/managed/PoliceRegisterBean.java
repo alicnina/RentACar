@@ -84,10 +84,10 @@ public class PoliceRegisterBean {
 
 				try {
 					PoliceRegisterSimulatorStub polRegSimStub = new PoliceRegisterSimulatorStub();
-					RemovePoliceRegisterResponse removePoliceRegResponse = polRegSimStub.removePoliceRegister(removePoliceReg);
+					RemovePoliceRegisterResponse remPoliceRegResponse = polRegSimStub.removePoliceRegister(removePoliceReg);
 
-					codeRemove = removePoliceRegResponse.getCode();
-					messageRemove = removePoliceRegResponse.getMessage();
+					codeRemove = remPoliceRegResponse.getCode();
+					messageRemove = remPoliceRegResponse.getMessage();
 
 				} catch (AxisFault e) {
 					e.printStackTrace();

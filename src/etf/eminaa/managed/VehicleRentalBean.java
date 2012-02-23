@@ -207,27 +207,23 @@ public class VehicleRentalBean implements Serializable {
 			
 			initPayment.setCreditCardNo(creditCardNumber);
 			initPayment.setCvv2(cvv2);
+			int totalAmount = Integer.parseInt(numberDays) * Integer.parseInt(vehicle.getRentPricePerDay());
+			initPayment.setAmmount(totalAmount);
 			
 			try {
-				PaymentSimulatorStub paySim = new PaymentSimulatorStub();
+				PaymentSimulatorStub paySim = new PaymentSimulatorStub("http://localhost:7001/RentACarWebServices/services/OnlinePayment");
 				initPaymentResponse = paySim.initializePayment(initPayment);
 			} catch (org.apache.axis2.AxisFault e) {
-				// TODO Auto-generated catch block
 				System.err.println(e.getMessage());
 				e.printStackTrace();
 			} catch (RemoteException e) {
-				// TODO Auto-generated catch block
 				System.err.println(e.getMessage());
 				e.printStackTrace();
 			}
 			
-			
-			int totalAmount = Integer.parseInt(numberDays) * Integer.parseInt(vehicle.getRentPricePerDay());
-			initPayment.setAmmount(totalAmount);
-			// TODO: invoke bank simulation service (call stub)
 			codePS = initPaymentResponse.getCode();
 			messagePS = initPaymentResponse.getMessage();
-			if (codePS.equals("102")== true) {
+			if (codePS.equals("101")== true) {
 				rentalDao.save(rental);
 				vehicle.setStatus("RENTED");
 				vehicleDao.edit(vehicle);

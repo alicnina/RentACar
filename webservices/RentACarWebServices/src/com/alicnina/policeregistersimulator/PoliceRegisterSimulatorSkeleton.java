@@ -37,7 +37,7 @@ public class PoliceRegisterSimulatorSkeleton {
 			registerDAO.save(register);
 
 			response.setCode("300");
-			response.setMessage("You've successfuly enabled this account!");
+			response.setMessage("You've successfuly disabled this account!");
 
 			return response.getOMElement(DisablePoliceRegisterResponse.MY_QNAME, OMAbstractFactory.getOMFactory());
 		} catch (Exception e) {

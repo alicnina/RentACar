@@ -65,10 +65,10 @@ public class AccountBean {
 
 	public String getSaveAccountMessage() {
 		String msg = "Please Add new Account!";
-		if (code.equals("102") == true) {
+		if (code.equals("100") == true) {
 			msg = message;
 		} else {
-			msg = "Account with Credit Card Number " + creditCardNumber + "  and cvv2 Number " + cvv2 + " (" + ammount + ") is not registered!";
+			msg = "Account with Credit Card Number " + creditCardNumber + "  and cvv2 Number " + cvv2 + " (" + ammount + ") cannot be registered!";
 		}
 		return msg;
 	}
@@ -79,7 +79,10 @@ public class AccountBean {
 				RemoveAccount removeAccount = new RemoveAccount();
 				removeAccount.setCreditCardNo(creditCardNumber);
 				removeAccount.setCvv2(cvv2);
-				RemoveAccountResponse removeAccountResponse = new RemoveAccountResponse();
+				
+				PaymentSimulatorStub paySimStub = new PaymentSimulatorStub();
+				RemoveAccountResponse removeAccountResponse = paySimStub.removeAccount(removeAccount);
+				
 				codeRemove = removeAccountResponse.getCode();
 				messageRemove = removeAccountResponse.getMessage();
 			}
@@ -93,7 +96,7 @@ public class AccountBean {
 		if (codeRemove.equals("102") == true) {
 			msg = messageRemove;
 		} else {
-			msg = "Account with Credit Card Number " + creditCardNumber + "  and cvv2 Number " + cvv2 + " (" + ammount + ") is not removed!";
+			msg = "Account with Credit Card Number " + creditCardNumber + "  and cvv2 Number " + cvv2 + " (" + ammount + ") cannot be removed!";
 		}
 		return msg;
 	}
