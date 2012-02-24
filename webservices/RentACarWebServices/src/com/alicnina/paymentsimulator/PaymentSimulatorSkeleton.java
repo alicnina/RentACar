@@ -52,7 +52,7 @@ public class PaymentSimulatorSkeleton {
 				if (isDeleted) {
 					accountDAO.save(account);
 					response.setCode("101");
-					response.setMessage("You've successfuly called Online Payment Simulator!");
+					response.setMessage("You've successfuly rented your car!");
 				}
 			}
 

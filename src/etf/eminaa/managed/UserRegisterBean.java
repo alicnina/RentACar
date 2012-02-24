@@ -230,7 +230,8 @@ public class UserRegisterBean implements Serializable {
 	// implemented methods
 	public void userRegister(AjaxBehaviorEvent event) {
 		if (null != username && null != password) {
-			user = usersDao.findByKeyWords("AND", "username = '" + username + "'", "password = '" + UsersDAOImpl.hashPassword(password) + "'");
+			List<Users> users = usersDao.findByKeyWords("AND", "username = '" + username + "'", "password = '" + UsersDAOImpl.hashPassword(password) + "'");
+			user = null != users && !users.isEmpty() ? users.get(0) : null;
 			if (null == user) {
 				user = new Users();
 				user.setUsername(username);

@@ -169,7 +169,6 @@ public class VehicleRentalBean implements Serializable {
 		try {
 			vehicleRentalService(true);
 		} catch (AxisFault e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
@@ -211,7 +210,8 @@ public class VehicleRentalBean implements Serializable {
 			initPayment.setAmmount(totalAmount);
 			
 			try {
-				PaymentSimulatorStub paySim = new PaymentSimulatorStub("http://localhost:7001/RentACarWebServices/services/OnlinePayment");
+				//PaymentSimulatorStub paySim = new PaymentSimulatorStub("http://localhost:7001/RentACarWebServices/services/OnlinePayment");
+				PaymentSimulatorStub paySim = new PaymentSimulatorStub();
 				initPaymentResponse = paySim.initializePayment(initPayment);
 			} catch (org.apache.axis2.AxisFault e) {
 				System.err.println(e.getMessage());
@@ -224,6 +224,7 @@ public class VehicleRentalBean implements Serializable {
 			codePS = initPaymentResponse.getCode();
 			messagePS = initPaymentResponse.getMessage();
 			if (codePS.equals("101")== true) {
+				
 				rentalDao.save(rental);
 				vehicle.setStatus("RENTED");
 				vehicleDao.edit(vehicle);
@@ -237,16 +238,10 @@ public class VehicleRentalBean implements Serializable {
 
 	public String getRentalWelcome() {
 		String msg = "welcome";
-		if (null != rental && vehicleDao.findByPrimaryKey(vehicle.getId()).getStatus()=="RENTED") {
-			msg = "Vehicle " + rental.getVehicle().getModel() + " " + rental.getUsers().getUsername() + " (" + rental.getNumberDays() + ") rented!";
-		}
-		else if (null != rental && vehicleDao.findByPrimaryKey(vehicle.getId()).getStatus()=="RESERVATION") {
-			msg = "Vehicle " + rental.getVehicle().getModel() + " " + rental.getUsers().getUsername() + " (" + rental.getNumberDays() + ") reserved!";
-		}
-		else if (null != codePR && codePR.equals("101") == false){
+		if (null != codePR ){
 			msg = messagePR;
 		}
-		else if (null != codePS && codePS.equals("102") == false){
+		else if (null != codePS){
 			msg = messagePS;
 		}
 		return msg;

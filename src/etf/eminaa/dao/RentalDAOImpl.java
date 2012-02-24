@@ -46,7 +46,7 @@ public class RentalDAOImpl implements DAOInterface<Rental> {
 		return hibernateTemplate.find("from Rental");
 	}
 
-	public Rental findByKeyWords(String operator, String... args) {
+	public List<Rental> findByKeyWords(String operator, String... args) {
 		StringBuilder sb = new StringBuilder();
 		sb.append("from Rental where ");
 		for (int i = 0; i < args.length; i++) {
@@ -55,12 +55,7 @@ public class RentalDAOImpl implements DAOInterface<Rental> {
 				sb.append(" " + operator + " ");
 			}
 		}
-		List<?> list = hibernateTemplate.find(sb.toString());
-		if (list.isEmpty()) {
-			return null;
-		} else {
-			return (Rental) list.get(0);
-		}
+		return hibernateTemplate.find(sb.toString());
 	}
 
 	@Override

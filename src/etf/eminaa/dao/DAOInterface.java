@@ -24,5 +24,5 @@ public interface DAOInterface<T> {
 	 * @param args
 	 * @return
 	 */
-	T findByKeyWords(String operator, String... args);
+	List<T> findByKeyWords(String operator, String... args);
 }

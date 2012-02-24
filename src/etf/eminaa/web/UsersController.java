@@ -1,5 +1,6 @@
 package etf.eminaa.web;
 
+import java.util.List;
 import java.util.Set;
 
 import javax.servlet.http.HttpServletRequest;
@@ -10,14 +11,13 @@ import org.springframework.ui.ModelMap;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.multiaction.MultiActionController;
 
-
 import etf.eminaa.dao.DAOInterface;
 import etf.eminaa.dao.UsersDAOImpl;
 import etf.eminaa.domain.Authorities;
 import etf.eminaa.domain.Users;
 
 public class UsersController extends MultiActionController {
-	
+
 	protected static Logger logger = Logger.getLogger("controller");
 
 	private DAOInterface<Users> usersDAO;
@@ -25,7 +25,7 @@ public class UsersController extends MultiActionController {
 	public void setUsersDAO(DAOInterface<Users> userDAO) {
 		this.usersDAO = userDAO;
 	}
-	
+
 	private DAOInterface<Authorities> authoritiesDAO;
 
 	public void setAuthoritiesDAO(DAOInterface<Authorities> authoritiesDAO) {
@@ -46,6 +46,7 @@ public class UsersController extends MultiActionController {
 
 	/**
 	 * Retrieves the edit page
+	 * 
 	 * @return the name of the JSP page
 	 */
 	public ModelAndView getEdit(HttpServletRequest request, HttpServletResponse response, Users users) throws Exception {
@@ -89,7 +90,9 @@ public class UsersController extends MultiActionController {
 
 	public ModelAndView searchDB(HttpServletRequest request, HttpServletResponse response, Users users) throws Exception {
 		ModelMap modelMap = new ModelMap();
-		Users userFound = usersDAO.findByKeyWords("AND", "username = '" + users.getUsername() + "'", "password = '" + UsersDAOImpl.hashPassword(users.getPassword()) + "'");
+		List<Users> usersList = usersDAO.findByKeyWords("AND", "username = '" + users.getUsername() + "'",
+				"password = '" + UsersDAOImpl.hashPassword(users.getPassword()) + "'");
+		Users userFound = null != usersList && !usersList.isEmpty() ? usersList.get(0) : null;
 		if (userFound != null) {
 			modelMap.addAttribute("users", userFound);
 			modelMap.addAttribute("usersList", usersDAO.list());

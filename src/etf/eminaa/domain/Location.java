@@ -12,17 +12,23 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
-
 @Entity
-@Table(name="location")
+@Table(name = "location")
 public class Location {
 
 	private int id;
 	private double longitude;
 	private double lattitude;
 	private Date startDate;
-	
+
 	private Rental rental;
+
+	@Override
+	public String toString() {
+		StringBuilder sb = new StringBuilder();
+		sb.append((null != rental ? rental.getVehicle().getId() : "NULL")).append("; ").append(lattitude).append("; ").append(longitude);
+		return sb.toString();
+	}
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -35,7 +41,7 @@ public class Location {
 		this.id = id;
 	}
 
-	@Column(name="longitude")
+	@Column(name = "longitude")
 	public double getLongitude() {
 		return longitude;
 	}
@@ -44,7 +50,7 @@ public class Location {
 		this.longitude = longitude;
 	}
 
-	@Column(name="lattitude")
+	@Column(name = "lattitude")
 	public double getLattitude() {
 		return lattitude;
 	}
@@ -71,7 +77,5 @@ public class Location {
 	public void setRental(Rental rental) {
 		this.rental = rental;
 	}
-	
-	
-	
+
 }

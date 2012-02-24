@@ -94,8 +94,8 @@ public class PoliceRegisterSimulatorSkeleton {
 
 			else if (register.isEnabledRegister() == true) {
 				response.setCode("101");
-				response.setMessage("User exists.");
-			} else {
+				response.setMessage("User is allowed to rent a car.");
+			} else if (register.isEnabledRegister() == false) {
 				response.setCode("102");
 				response.setMessage("User is forbidden to access the system.");
 			}

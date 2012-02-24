@@ -12,8 +12,7 @@
 	<h:form prependId="false">
 		<h:outputText id="result" value="#{userLoginBean.userWelcome}" />
 	</h:form>
-	<br />
-
+	<br /><br/>
 	<h:panelGroup rendered="#{userLoginBean.isAuthorized}">
 			Go to <a href="vehicle-list.jsf">vehicle page</a>
 	</h:panelGroup>
@@ -30,6 +29,7 @@
 			Go to <a href="police-register.jsf">police register page </a>
 		<br /><br/><br/>
 	</h:panelGroup>
+	<br/><br/>
 	<form><h:commandButton value="SIGN OUT"
 					action="#{userLoginBean.editNav}"/></form>
 </h:body>

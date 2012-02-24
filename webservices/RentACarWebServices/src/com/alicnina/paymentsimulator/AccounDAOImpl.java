@@ -23,7 +23,7 @@ public class AccounDAOImpl implements DAOInterface<Account> {
 		return pmfo;
 	}
 
-	// this method fins account by id
+	// this method finds account by id
 	public Account findByID(String acc) throws Exception {
 		throw new Exception("This method is not supported!");
 	}

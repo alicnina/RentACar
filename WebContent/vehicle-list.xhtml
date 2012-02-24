@@ -5,13 +5,15 @@
 
 <h:head>
 	<title>LIST VEHICLES</title>
-	<link href="./css/table-style.css" rel="stylesheet" type="text/css"/>
+	<link href="./css/table-style.css" rel="stylesheet" type="text/css" />
 </h:head>
 
 <h:body>
 
 	<h:form>
-		<h:dataTable value="#{vehicleRegisterBean.vehicleList}" var="c">
+		<h:dataTable value="#{vehicleRegisterBean.vehicleList}" var="c"
+			styleClass="order-table" headerClass="order-table-header"
+			rowClasses="order-table-odd-row,order-table-even-row">
 			<h:column>
 				<f:facet name="header"> Manufacturer </f:facet>#{c.manufacturer}</h:column>
 			<h:column>
@@ -22,6 +24,8 @@
 				<f:facet name="header">Rent Price Per Day</f:facet>#{c.rentPricePerDay}</h:column>
 			<h:column>
 				<f:facet name="header">Production Date</f:facet>#{c.productionDate}</h:column>
+			<h:column>
+				<f:facet name="header">Status</f:facet>#{c.status}</h:column>
 			<h:column>
 				<f:facet name="header">Registration Expire Date</f:facet>#{c.registrationExpireDate}</h:column>
 
@@ -48,23 +52,24 @@
 			</h:column>
 
 		</h:dataTable>
-	<br/><br/>
-	<h:commandButton value="SIGN OUT" action="#{userLoginBean.editNav}" />
-	<br/><br/>
-	
-	<h:panelGroup rendered="#{userLoginBean.isAuthorizedUser}">
 		<br />
+		<br />
+		<h:commandButton value="SIGN OUT" action="#{userLoginBean.editNav}" />
+		<br />
+		<br />
+
+		<h:panelGroup rendered="#{userLoginBean.isAuthorizedUser}">
+			<br />
 		If You want to add new car, please click  <a
-			href="vehicle-register.jsf"> HERE </a>
-		<br />
-	</h:panelGroup>
-	<h:panelGroup rendered="#{userLoginBean.isAuthorizedAdmin}">
-		<br />
-		If You want to see employee list  <a
-			href="user-list.jsf"> HERE </a>
-		<br />
-	</h:panelGroup>
-	
+				href="vehicle-register.jsf"> HERE </a>
+			<br />
+		</h:panelGroup>
+		<h:panelGroup rendered="#{userLoginBean.isAuthorizedAdmin}">
+			<br />
+		If You want to see employee list  <a href="user-list.jsf"> HERE </a>
+			<br />
+		</h:panelGroup>
+
 	</h:form>
 
 </h:body>

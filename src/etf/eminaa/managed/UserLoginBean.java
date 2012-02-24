@@ -6,6 +6,7 @@ import java.io.Serializable;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.Iterator;
+import java.util.List;
 import java.util.Map;
 import java.util.Properties;
 import java.util.Set;
@@ -110,7 +111,9 @@ public class UserLoginBean implements Serializable {
 	public String userLogin() {
 		loginAttempted = true;
 		if (null != inputUsername && null != inputPassword) {
-			user = usersDao.findByKeyWords("AND", "username = '" + inputUsername + "'", "password = '" + UsersDAOImpl.hashPassword(inputPassword) + "'");
+			List<Users> users = usersDao.findByKeyWords("AND", "username = '" + inputUsername + "'", "password = '" + UsersDAOImpl.hashPassword(inputPassword)
+					+ "'");
+			user = null != users && !users.isEmpty() ? users.get(0) : null;
 			if (isUserLoggedIn()) {
 				// save instance of UserLoginBean to session
 				FacesContext context = FacesContext.getCurrentInstance();
@@ -121,29 +124,17 @@ public class UserLoginBean implements Serializable {
 				context.getExternalContext().getSessionMap().put("userLoginBean", this);
 
 				/*
-				
-				Properties props = new Properties();
-				InputStream is = null;
-				try {
-					is = new URL("http://localhost:8080/RentACar/lang/" + user.getLanguage() + ".properties").openStream();
-					props.load(is);
-				} catch (MalformedURLException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				} catch (IOException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				} finally {
-					if (null != is) {
-						try {
-							is.close();
-						} catch (IOException e) {
-							// stream is already closed
-						}
-					}
-				}
-				
-				*/
+				 * 
+				 * Properties props = new Properties(); InputStream is = null;
+				 * try { is = new URL("http://localhost:8080/RentACar/lang/" +
+				 * user.getLanguage() + ".properties").openStream();
+				 * props.load(is); } catch (MalformedURLException e) { // TODO
+				 * Auto-generated catch block e.printStackTrace(); } catch
+				 * (IOException e) { // TODO Auto-generated catch block
+				 * e.printStackTrace(); } finally { if (null != is) { try {
+				 * is.close(); } catch (IOException e) { // stream is already
+				 * closed } } }
+				 */
 
 				return "success";
 
