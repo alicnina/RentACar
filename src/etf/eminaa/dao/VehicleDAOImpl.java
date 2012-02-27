@@ -54,7 +54,15 @@ public class VehicleDAOImpl implements DAOInterface<Vehicle>, Serializable {
 	}
 
 	public List<Vehicle> findByKeyWords(String operator, String... args) {
-		return null;
+		StringBuilder sb = new StringBuilder();
+		sb.append("from Vehicle where ");
+		for (int i = 0; i < args.length; i++) {
+			sb.append(args[i]);
+			if (i + 1 < args.length) {
+				sb.append(" " + operator + " ");
+			}
+		}
+		return hibernateTemplate.find(sb.toString());
 	}
 
 	@Override
