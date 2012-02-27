@@ -1,0 +1,35 @@
+<!DOCTYPE HTML>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+
+<h:head>
+	<title>Simulator</title>
+	<link href="./css/table-style.css" rel="stylesheet" type="text/css" />
+</h:head>
+
+<h:body>
+
+	<h:form>
+		<h:inputText id="vehicleId" value="#{simulatorBean.vehicleId}" />
+		<h:commandButton value="START SIMULATOR">
+			<f:ajax execute="vehicleId" render="result"
+				listener="#{simulatorBean.startSimulator}" />
+		</h:commandButton>
+		<br />
+		<br />
+
+		<h:commandButton value="FINISH SIMULATOR OUT">
+			<f:ajax render="result" listener="#{simulatorBean.finishSimulator}" />
+		</h:commandButton>
+
+		<h2>
+			Current status:
+			<h:outputText id="result" value="#{simulatorBean.currentStatus}" />
+		</h2>
+
+	</h:form>
+
+</h:body>
+
+</html>

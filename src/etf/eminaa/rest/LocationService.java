@@ -48,6 +48,7 @@ public class LocationService {
 		if (null != currentRental) {
 			StringBuilder sb = new StringBuilder();
 			sb.append("<html><head><title>REST</title></head><body><table>");
+			// vehicle coordinates
 			sb.append("<tr><th>Time</th>");
 			sb.append("<th>Latitude</th>");
 			sb.append("<th>Longitude</th></tr>");
@@ -57,12 +58,50 @@ public class LocationService {
 			if (null != locations && !locations.isEmpty()) {
 
 				for (Location location : locations) {
+					// location values
 					sb.append("<tr><td>").append(vehicleId).append("</td>");
 					sb.append("<td>").append(location.getLattitude()).append("</td>");
 					sb.append("<td>").append(location.getLongitude()).append("</td></tr>");
+
+				}
+			}
+			List<Users> users = usersDAO.findByKeyWords("AND", "username = '" + currentRental.getUsers().getUsername() + "'");
+
+			// information about person renting a car
+			sb.append("<tr><th>Name of Person Currently renting Vehicle</th>");
+			sb.append("<th>Surname </th>");
+			sb.append("<th>Username of Person Currently renting Vehicle</th></tr>");
+
+			if (null != users && !users.isEmpty()) {
+
+				for (Users user : users) {
+					// location values
+					sb.append("<tr><td>").append(user.getName()).append("</td>");
+					sb.append("<td>").append(user.getSurname()).append("</td>");
+					sb.append("<td>").append(user.getUsername()).append("</td></tr>");
+
 				}
 			}
 
+			List<Rental> allUserRentals = rentalDAO.findByKeyWords("AND",  "username = '" + currentRental.getUsers().getUsername() + "'");
+			// information about vehicle rented by the same person
+			sb.append("<tr><th>List of the Vehicles (Manufacturer)</th>");
+			sb.append("<th> List of the Vehicles (Model) </th>");
+			sb.append("<th> Total Number </th></tr>");
+
+			if (null != allUserRentals && !allUserRentals.isEmpty()) {
+				//sb.append("<tr><td>").append(allUserRentals.size()).append("</td>");
+				int noRentals = 0;
+				for (Rental rental : allUserRentals) {
+					// location values
+					noRentals++;
+					sb.append("<tr><td>").append(rental.getVehicle().getManufacturer()).append("</td>");
+					sb.append("<td>").append(rental.getVehicle().getModel()).append("</td>");
+
+				}
+				sb.append("<td>").append(noRentals).append("</td></tr>");
+			}
+			
 			sb.append("</table></body></html>");
 
 			result = sb.toString();

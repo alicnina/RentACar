@@ -5,33 +5,60 @@
 
 <h:head>
 	<title>Homepage</title>
-	<link href="./css/table-style.css" rel="stylesheet" type="text/css"/> 
+	<link href="./css/table-style.css" rel="stylesheet" type="text/css" />
 </h:head>
 
 <h:body>
 	<h:form prependId="false">
 		<h:outputText id="result" value="#{userLoginBean.userWelcome}" />
 	</h:form>
-	<br /><br/>
+	<br />
+	<br />
 	<h:panelGroup rendered="#{userLoginBean.isAuthorized}">
 			Go to <a href="vehicle-list.jsf">vehicle page</a>
 	</h:panelGroup>
 	<br />
 	<h:panelGroup rendered="#{userLoginBean.isAuthorizedAdmin}">
 			Go to <a href="user-list.jsf">list of all users </a>
-		<br /><br/><br/>
+		<br />
+		<br />
+		<br />
 	</h:panelGroup>
 	<h:panelGroup rendered="#{userLoginBean.isAuthorizedAdmin}">
 			Go to <a href="account.jsf">bank account page </a>
-		<br /><br/><br/>
+		<br />
+		<br />
+		<br />
 	</h:panelGroup>
 	<h:panelGroup rendered="#{userLoginBean.isAuthorizedAdmin}">
 			Go to <a href="police-register.jsf">police register page </a>
-		<br /><br/><br/>
+		<br />
+		<br />
+		<br />
 	</h:panelGroup>
-	<br/><br/>
-	<form><h:commandButton value="SIGN OUT"
-					action="#{userLoginBean.editNav}"/></form>
+	<br />
+	<br />
+	<h:panelGroup rendered="#{adminBean.isAuthorizedAdmin}">
+	<b> DAILY REPORT: </b><br/><br/>
+	<h:form>
+		<h:dataTable value="#{adminBean}" var="c"
+			styleClass="order-table" headerClass="order-table-header"
+			rowClasses="order-table-odd-row,order-table-even-row">
+			<h:column>
+				<f:facet name="header"> Total Number of all Users </f:facet>#{c.noUsers}</h:column>
+			<h:column>
+				<f:facet name="header"> Total Number of all Employees </f:facet>#{c.noEmployees}</h:column>
+			<h:column>
+				<f:facet name="header"> Total Number of Vehicles RENTED currently </f:facet>#{c.noRentedVehicles}</h:column>
+			<h:column>
+				<f:facet name="header"> Total Number of Vehicles RESERVED currently </f:facet>#{c.noReservedVehicles}</h:column>
+		</h:dataTable>
+		<br/>
+	</h:form>
+	</h:panelGroup>
+	<form>
+		<h:commandButton value="SIGN OUT" action="#{userLoginBean.editNav}" />
+	</form>
 </h:body>
 
 </html>

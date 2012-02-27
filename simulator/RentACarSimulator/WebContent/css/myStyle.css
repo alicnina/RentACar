@@ -1,0 +1,54 @@
+@CHARSET "ISO-8859-1";
+
+body {
+	margin: 50px;
+	background-color: FF9999;
+}
+
+.errorblock {
+	color: #ff0000;
+	background-color: #ffEEEE;
+	border: 3px solid #ff0000;
+	padding: 8px;
+	margin: 16px;
+}
+
+h3 {
+	font-style: oblique;
+	font-size: 22px;
+	text-align: center;
+}
+
+h4 {
+	text-decoration: blink;
+	font-size: 18px;
+	text-align: center;
+}
+
+table,td,th {
+	margin-left: auto;
+	margin-right: auto;
+	border: 1px solid FF66CC;
+}
+
+td {
+	background-color: FF3399;
+	color: black;
+}
+
+th {
+	background-color: FF3366;
+	color: white;
+	text-decoration: blink;
+	font-style: oblique;
+	text-align: center;
+}
+
+input {
+    border: 1px solid FF99FF;
+    background: FF66FF;
+    cursor: pointer;
+	overflow: visible;
+	width: 110;
+ 	height: 25;
+}

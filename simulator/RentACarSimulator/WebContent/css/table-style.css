@@ -1,0 +1,35 @@
+body {
+	margin: 20px;
+	background-color: #FF9999;
+	width:90%;
+	line-height:1em;
+	margin:1em;
+	margin-top:1em;
+	text-align:center;
+	position:absolute;
+}
+
+.order-table {   
+	border-collapse:collapse;
+	top:10%;
+	width:90%;
+}
+
+.order-table-header{
+	text-align:center;
+	background:none repeat scroll 0 0 #E5E5E5;
+	border-bottom:1px solid #BBBBBB;
+	padding:12px;
+}
+
+.order-table-odd-row{
+	text-align:center;
+	background:none repeat scroll 0 0 #FFFFFFF;
+	border-top:2px solid #BBBBBB;
+}
+
+.order-table-even-row{
+	text-align:center;
+	background:none repeat scroll 0 0 #F9F9F9;
+	border-top:1px solid #BBBBBB;
+}

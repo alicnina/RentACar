@@ -11,31 +11,30 @@
 <h:body>
 	<h:form prependId="false">
 	<h:panelGroup rendered="#{userLoginBean.isAuthorizedUser}">
-		<label> <font color="red">*</font> Vehicle Manufacturer: <h:inputText
+		<label> <font color="red">*</font> Manufacturer: <h:inputText
 				value="#{vehicleRegisterBean.manufacturer}" required="true"
 				requiredMessage="Missing manufactur" id="manufacturer" />
 		</label>
 		<br />
-		<label> <font color="red">*</font> Vehicle Model: <h:inputText
+		<label> <font color="red">*</font> Model: <h:inputText
 				value="#{vehicleRegisterBean.model}" required="true"
 				requiredMessage="Missing model" id="model" />
 		</label>
 		<br />
-		<label> <font color="red">*</font> Vehicle Production Date: <h:inputText
+		<label> <font color="red">*</font> Production Date: <h:inputText
 				value="#{vehicleRegisterBean.productionDate}" required="true"
 				requiredMessage="Missing Production Date" id="productionDate">
 				<f:convertDateTime pattern="d-M-yyyy" />
 			</h:inputText>
 		</label>
 		<br />
-		<label> <font color="red">*</font> Vehicle Registration
-			Number: <h:inputText
+		<label> <font color="red">*</font> Registration Number: <h:inputText
 				value="#{vehicleRegisterBean.registrationNumber}" required="true"
 				requiredMessage="Missing Registration Number"
 				id="registrationNumber" />
 		</label>
 		<br />
-		<label> Vehicle Registration Expire Date: <h:inputText
+		<label> Registration Expire Date: <h:inputText
 				value="#{vehicleRegisterBean.registrationExpireDate}"
 				required="true" requiredMessage="Missing Registration Expire Date "
 				id="registrationExpireDate">
@@ -43,7 +42,7 @@
 			</h:inputText>
 		</label>
 		<br />
-		<label> Vehicle Rent Price Per Day: <h:inputText
+		<label> Rent Price Per Day: <h:inputText
 				value="#{vehicleRegisterBean.rentPricePerDay}" required="true"
 				requiredMessage="Missing Rent Price Per Day" id="rentPricePerDay" />
 		</label>

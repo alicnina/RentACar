@@ -2,7 +2,9 @@ package etf.eminaa.managed;
 
 import java.io.Serializable;
 import java.rmi.RemoteException;
+import java.util.Calendar;
 import java.util.Date;
+import java.util.GregorianCalendar;
 
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
@@ -11,7 +13,6 @@ import javax.faces.context.FacesContext;
 import javax.faces.event.AjaxBehaviorEvent;
 
 import org.apache.axis.AxisFault;
-import org.apache.axis2.context.ConfigurationContext;
 
 import com.alicnina.paymentsimulator.InitializePayment;
 import com.alicnina.paymentsimulator.InitializePaymentResponse;
@@ -31,7 +32,6 @@ public class VehicleRentalBean implements Serializable {
 
 	private static final long serialVersionUID = -2732925993048187311L;
 
-
 	private Vehicle vehicle = new Vehicle();
 	private Rental rental;
 	private Users user;
@@ -41,7 +41,7 @@ public class VehicleRentalBean implements Serializable {
 	private String status;
 
 	private String creditCardNumber, cvv2;
-	
+
 	InitializePoliceRegister initPoliceRegister = new InitializePoliceRegister();
 	InitializePoliceRegisterResponse initPoliceRegResponse;
 	InitializePayment initPayment = new InitializePayment();
@@ -49,6 +49,7 @@ public class VehicleRentalBean implements Serializable {
 	String codePR, messagePR;
 	String codePS, messagePS;
 
+	public static Calendar calendar = new GregorianCalendar();
 
 	public VehicleRentalBean() {
 		UserLoginBean userLoginBean = (UserLoginBean) FacesContext.getCurrentInstance().getExternalContext().getSessionMap().get("userLoginBean");
@@ -67,6 +68,115 @@ public class VehicleRentalBean implements Serializable {
 	@ManagedProperty(value = "#{userLoginBean}")
 	private UserLoginBean userLoginBean;
 
+	// implemented methods
+	public void vehicleRentalSave(AjaxBehaviorEvent event) {
+		try {
+			vehicleRentalService(true);
+		} catch (AxisFault e) {
+			e.printStackTrace();
+		}
+	}
+
+	public void vehicleReservationSave(AjaxBehaviorEvent event) throws AxisFault {
+		vehicleRentalService(false);
+	}
+
+	private void vehicleRentalService(boolean isPayed) throws AxisFault {
+		Rental rental = new Rental();
+		rental.setUsers(user);
+		vehicle = vehicleDao.findByPrimaryKey(vehicle.getId());
+		rental.setVehicle(vehicle);
+		rental.setStartDate(new java.sql.Date(startDate.getTime()));
+		int numDays = Integer.parseInt(numberDays.trim());
+		rental.setNumberDays(numDays);
+		rental.setEndDate(rollDays(startDate, numDays));
+
+		initPoliceRegister.setDrivingLicenceNumber(user.getDrivingLicenceNumber());
+		initPoliceRegister.setIdNumber(user.getIdNumber());
+
+		try {
+			PoliceRegisterSimulatorStub polRegSim = new PoliceRegisterSimulatorStub();
+			initPoliceRegResponse = polRegSim.initializePoliceRegister(initPoliceRegister);
+		} catch (org.apache.axis2.AxisFault e) {
+			e.printStackTrace();
+		} catch (RemoteException e) {
+			e.printStackTrace();
+		}
+
+		codePR = initPoliceRegResponse.getCode();
+		messagePR = initPoliceRegResponse.getMessage();
+
+		if (isPayed && codePR.equals("101") == true) {
+
+			initPayment.setCreditCardNo(creditCardNumber);
+			initPayment.setCvv2(cvv2);
+			int totalAmount = Integer.parseInt(numberDays) * Integer.parseInt(vehicle.getRentPricePerDay());
+			initPayment.setAmmount(totalAmount);
+
+			try {
+				// PaymentSimulatorStub paySim = new
+				// PaymentSimulatorStub("http://localhost:7001/RentACarWebServices/services/OnlinePayment");
+				PaymentSimulatorStub paySim = new PaymentSimulatorStub();
+				initPaymentResponse = paySim.initializePayment(initPayment);
+			} catch (org.apache.axis2.AxisFault e) {
+				System.err.println(e.getMessage());
+				e.printStackTrace();
+			} catch (RemoteException e) {
+				System.err.println(e.getMessage());
+				e.printStackTrace();
+			}
+
+			codePS = initPaymentResponse.getCode();
+			messagePS = initPaymentResponse.getMessage();
+			if (codePS.equals("101") == true) {
+
+				rentalDao.save(rental);
+				vehicle.setStatus("RENTED");
+				vehicleDao.edit(vehicle);
+			}
+		} else if (!isPayed && codePR.equals("101") == true) {
+			rentalDao.save(rental);
+			vehicle.setStatus("RESERVATION");
+			vehicleDao.edit(vehicle);
+		}
+	}
+
+	public String getRentalWelcome() {
+		String msg = "welcome";
+		if (null != codePS) {
+			msg = messagePS + " For any problem, conact us by sending this number " + vehicle.getId();
+		} else if (null != codePR && codePR.equals("101") == true) {
+			msg = messagePR;
+		} else if (null != codePR && codePR.equals("101") == false) {
+			msg = messagePR;
+		}
+
+		return msg;
+	}
+
+	/**
+	 * Roll the days forward or backward.
+	 * 
+	 * @param startDate - The start date
+	 * @param days - Negative to roll backwards.
+	 */
+	private static java.sql.Date rollDays(java.util.Date startDate, int days) {
+		return rollDate(startDate, Calendar.DATE, days);
+	}
+
+	 /**
+	    * Roll the java.sql.Date forward or backward.
+	    * @param startDate - The start date
+	    * @param period Calendar.YEAR etc
+	    * @param amount - Negative to roll backwards.
+	    */
+	private static java.sql.Date rollDate(java.util.Date startDate, int period, int amount) {
+		GregorianCalendar gc = new GregorianCalendar();
+		gc.setTime(startDate);
+		gc.add(period, amount);
+		return new java.sql.Date(gc.getTime().getTime());
+	}
+	
 	// getters and setters
 	public String getCreditCardNumber() {
 		return creditCardNumber;
@@ -163,88 +273,4 @@ public class VehicleRentalBean implements Serializable {
 	public void setUsersDao(DAOInterface<Users> usersDao) {
 		this.usersDao = usersDao;
 	}
-
-	// implemented methods
-	public void vehicleRentalSave(AjaxBehaviorEvent event) {
-		try {
-			vehicleRentalService(true);
-		} catch (AxisFault e) {
-			e.printStackTrace();
-		}
-	}
-
-	public void vehicleReservationSave(AjaxBehaviorEvent event) throws AxisFault {
-		vehicleRentalService(false);
-	}
-
-	private void vehicleRentalService(boolean isPayed) throws AxisFault {
-		Rental rental = new Rental();
-		rental.setUsers(user);
-		vehicle = vehicleDao.findByPrimaryKey(vehicle.getId());
-		rental.setVehicle(vehicle);
-		rental.setStartDate(new java.sql.Date(startDate.getTime()));
-		int numDays = Integer.parseInt(numberDays.trim());
-		rental.setNumberDays(numDays);
-
-		initPoliceRegister.setDrivingLicenceNumber(user.getDrivingLicenceNumber());
-		initPoliceRegister.setIdNumber(user.getIdNumber());
-		
-		try {
-			PoliceRegisterSimulatorStub polRegSim = new PoliceRegisterSimulatorStub();
-			initPoliceRegResponse = polRegSim.initializePoliceRegister(initPoliceRegister);
-		} catch (org.apache.axis2.AxisFault e) {
-			e.printStackTrace();
-		} catch (RemoteException e) {
-			e.printStackTrace();
-		}
-
-		
-		codePR = initPoliceRegResponse.getCode();
-		messagePR = initPoliceRegResponse.getMessage();
-
-		if (isPayed && codePR.equals("101")== true) {
-			
-			initPayment.setCreditCardNo(creditCardNumber);
-			initPayment.setCvv2(cvv2);
-			int totalAmount = Integer.parseInt(numberDays) * Integer.parseInt(vehicle.getRentPricePerDay());
-			initPayment.setAmmount(totalAmount);
-			
-			try {
-				//PaymentSimulatorStub paySim = new PaymentSimulatorStub("http://localhost:7001/RentACarWebServices/services/OnlinePayment");
-				PaymentSimulatorStub paySim = new PaymentSimulatorStub();
-				initPaymentResponse = paySim.initializePayment(initPayment);
-			} catch (org.apache.axis2.AxisFault e) {
-				System.err.println(e.getMessage());
-				e.printStackTrace();
-			} catch (RemoteException e) {
-				System.err.println(e.getMessage());
-				e.printStackTrace();
-			}
-			
-			codePS = initPaymentResponse.getCode();
-			messagePS = initPaymentResponse.getMessage();
-			if (codePS.equals("101")== true) {
-				
-				rentalDao.save(rental);
-				vehicle.setStatus("RENTED");
-				vehicleDao.edit(vehicle);
-			}
-		} else if (!isPayed && codePR.equals("101")== true) {
-			rentalDao.save(rental);
-			vehicle.setStatus("RESERVATION");
-			vehicleDao.edit(vehicle);
-		}
-	}
-
-	public String getRentalWelcome() {
-		String msg = "welcome";
-		if (null != codePR ){
-			msg = messagePR;
-		}
-		else if (null != codePS){
-			msg = messagePS;
-		}
-		return msg;
-	}
-
 }

@@ -16,6 +16,7 @@ public class Rental {
 
 	private int id;
 	private Date startDate;
+	private Date endDate;
 	private int numberDays;
 	private Users users;
 	private Vehicle vehicle;
@@ -58,6 +59,15 @@ public class Rental {
 
 	public void setStartDate(Date startDate) {
 		this.startDate = startDate;
+	}
+	
+	@Column(name = "rent_end_date")
+	public Date getEndDate() {
+		return endDate;
+	}
+
+	public void setEndDate(Date endDate) {
+		this.endDate = endDate;
 	}
 
 	@Column(name = "rent_number_days")
