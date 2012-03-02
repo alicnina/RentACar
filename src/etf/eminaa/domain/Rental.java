@@ -4,7 +4,12 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
+import javax.persistence.OneToMany;
+
 import java.util.Date;
+import java.util.HashSet;
+import java.util.Set;
+
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
@@ -19,7 +24,10 @@ public class Rental {
 	private Date endDate;
 	private int numberDays;
 	private Users users;
+	
 	private Vehicle vehicle;
+	
+	private Set<Location> location = new HashSet<Location>(0);
 
 	@Id
 	@GeneratedValue
@@ -51,7 +59,7 @@ public class Rental {
 	public void setVehicle(Vehicle vehicle) {
 		this.vehicle = vehicle;
 	}
-
+	
 	@Column(name = "rent_start_date")
 	public Date getStartDate() {
 		return startDate;
@@ -77,6 +85,15 @@ public class Rental {
 
 	public void setNumberDays(int numberDays) {
 		this.numberDays = numberDays;
+	}
+	
+	@OneToMany(fetch = FetchType.EAGER, mappedBy = "rental")
+	public Set<Location> getLocation() {
+		return this.location;
+	}
+
+	public void setLocation(Set<Location> rentalLocation) {
+		this.location = rentalLocation;
 	}
 
 }

@@ -1,26 +1,29 @@
 package etf.eminaa.rest;
 
-import java.io.ByteArrayOutputStream;
-import java.io.File;
 import java.io.IOException;
-import java.io.OutputStreamWriter;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.Scanner;
 
+import javax.faces.bean.ManagedBean;
+import javax.faces.bean.SessionScoped;
+import javax.servlet.ServletContext;
 import javax.ws.rs.FormParam;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
+import javax.ws.rs.core.Context;
 import javax.ws.rs.core.MediaType;
 
+import org.primefaces.model.map.DefaultMapModel;
+import org.primefaces.model.map.MapModel;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+import org.springframework.ui.freemarker.FreeMarkerTemplateUtils;
 
 import etf.eminaa.dao.DAOInterface;
 import etf.eminaa.domain.Location;
@@ -33,6 +36,8 @@ import freemarker.template.TemplateException;
 
 @Component
 @Path("/{vehicle_id}")
+@ManagedBean
+@SessionScoped
 public class VehicleLocation {
 
 	@Autowired
@@ -47,19 +52,34 @@ public class VehicleLocation {
 	@Autowired
 	private DAOInterface<Location> locationDAO;
 
+	@Context
+	private ServletContext servletContext;
+
+	private MapModel model = new DefaultMapModel();
+
+	private String latLonPositionString;
+
 	@GET
 	@Produces(MediaType.TEXT_HTML)
 	public String getVehicleLocation(@PathParam("vehicle_id") int vehicleId) {
 
-		OutputStreamWriter output = new OutputStreamWriter(new ByteArrayOutputStream());
+		// TODO FIX DUMMY IMPLEMENTATION!
+		List<Rental> findByKeyWords = rentalDAO.findByKeyWords("AND", "vehicle_id = " + vehicleId);
+		List<Location> locations = locationDAO.findByKeyWords("AND", "rental_id = " + findByKeyWords.get(0));
+		Location location = locations.get(0);
+
+		latLonPositionString = location.getLattitude() + ", " + location.getLongitude();
+
+		Configuration cfg = new Configuration();
+		cfg.setServletContextForTemplateLoading(servletContext, "WEB-INF/templates");
+
+		Map<String, Object> props = new HashMap<String, Object>();
+		props.put("latLonPositionString", "41.381542, 21.122893");
+		props.put("mapModel", model);
+
 		try {
-			Configuration cfg = new Configuration();
-			cfg.setClassForTemplateLoading(this.getClass(), "");
-			Template tpl = cfg.getTemplate("vehicleLocation.tpl");
-
-			Map<String, Object> datamodel = new HashMap<String, Object>();
-
-			tpl.process(datamodel, output);
+			Template tpl = cfg.getTemplate("vehicleLocation.ftl");
+			return FreeMarkerTemplateUtils.processTemplateIntoString(tpl, props);
 		} catch (IOException e) {
 			System.err.println(e.getMessage());
 			e.printStackTrace();
@@ -69,7 +89,7 @@ public class VehicleLocation {
 		} finally {
 		}
 
-		return output.toString();
+		return null;
 
 		// String result = "Sorry, no information for vehicle with id: " +
 		// vehicleId;
@@ -223,4 +243,27 @@ public class VehicleLocation {
 		this.usersDAO = usersDAO;
 	}
 
+	public ServletContext getServletContext() {
+		return servletContext;
+	}
+
+	public void setServletContext(ServletContext servletContext) {
+		this.servletContext = servletContext;
+	}
+
+	public MapModel getModel() {
+		return model;
+	}
+
+	public void setModel(MapModel model) {
+		this.model = model;
+	}
+
+	public String getLatLonPositionString() {
+		return latLonPositionString;
+	}
+
+	public void setLatLonPositionString(String latLonPositionString) {
+		this.latLonPositionString = latLonPositionString;
+	}
 }

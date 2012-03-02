@@ -10,7 +10,6 @@ import org.apache.axiom.om.OMAbstractFactory;
 import org.apache.axiom.om.OMElement;
 
 import com.alicnina.paymentsimulator.DAOInterface;
-import com.alicnina.paymentsimulator.RegisterAccountResponse;
 
 /**
  * PoliceRegisterSimulatorSkeleton java skeleton for the axisService
@@ -32,7 +31,7 @@ public class PoliceRegisterSimulatorSkeleton {
 			DisablePoliceRegisterResponse response = new DisablePoliceRegisterResponse();
 
 			Register register = registerDAO.findByID(disableReg.getDrivingLicenceNumber());
-			register.setEnabledRegister(true);
+			register.setEnabledRegister(false);
 			registerDAO.delete(register);
 			registerDAO.save(register);
 
@@ -59,7 +58,7 @@ public class PoliceRegisterSimulatorSkeleton {
 			EnablePoliceRegisterResponse response = new EnablePoliceRegisterResponse();
 
 			Register reg = registerDAO.findByID(enableReg.getDrivingLicenceNumber());
-			reg.setEnabledRegister(false);
+			reg.setEnabledRegister(true);
 			registerDAO.delete(reg);
 			registerDAO.save(reg);
 
@@ -95,7 +94,7 @@ public class PoliceRegisterSimulatorSkeleton {
 			else if (register.isEnabledRegister() == true) {
 				response.setCode("101");
 				response.setMessage("User is allowed to rent a car.");
-				
+
 			} else if (register.isEnabledRegister() == false) {
 				response.setCode("102");
 				response.setMessage("User is forbidden to access the system.");
@@ -128,7 +127,7 @@ public class PoliceRegisterSimulatorSkeleton {
 			SavePoliceRegisterResponse response = new SavePoliceRegisterResponse();
 			response.setCode("200");
 			response.setMessage("You've successfuly saved this account!");
-			return response.getOMElement(RegisterAccountResponse.MY_QNAME, OMAbstractFactory.getOMFactory());
+			return response.getOMElement(SavePoliceRegisterResponse.MY_QNAME, OMAbstractFactory.getOMFactory());
 		} catch (Exception e) {
 			System.err.println(e.getMessage());
 			return null;
@@ -148,10 +147,15 @@ public class PoliceRegisterSimulatorSkeleton {
 			Register reg = new Register();
 			reg.setIdNumber(removeReg.getIdNumber());
 			reg.setDrivingLicenceNumber(removeReg.getDrivingLicenceNumber());
-			registerDAO.delete(reg);
 			RemovePoliceRegisterResponse response = new RemovePoliceRegisterResponse();
-			response.setCode("202");
-			response.setMessage("You've successfuly removed this account!");
+			if (registerDAO.findByKeyWords(removeReg.getIdNumber(), removeReg.getDrivingLicenceNumber()) != null) {
+				registerDAO.delete(reg);
+				response.setCode("202");
+				response.setMessage("You've successfuly removed this account!");
+			} else {
+				response.setCode("203");
+				response.setMessage("Problem occured. Register not REMOVED");
+			}
 			return response.getOMElement(RemovePoliceRegisterResponse.MY_QNAME, OMAbstractFactory.getOMFactory());
 
 		} catch (Exception e) {

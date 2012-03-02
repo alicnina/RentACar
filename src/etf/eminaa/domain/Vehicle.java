@@ -37,7 +37,7 @@ public class Vehicle {
 		this.id = id;
 	}
 
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "vehicle")
+	@OneToMany(fetch = FetchType.EAGER, mappedBy = "vehicle")
 	public Set<Rental> getRental() {
 		return this.rental;
 	}

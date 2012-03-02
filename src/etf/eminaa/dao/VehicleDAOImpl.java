@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.orm.hibernate3.HibernateTemplate;
 
 import etf.eminaa.domain.Authorities;
+import etf.eminaa.domain.Location;
 import etf.eminaa.domain.Rental;
 import etf.eminaa.domain.Vehicle;
 
@@ -29,8 +30,23 @@ public class VehicleDAOImpl implements DAOInterface<Vehicle>, Serializable {
 		hibernateTemplate.saveOrUpdate(vehicle);
 	}
 
+	@Override
 	public void delete(Vehicle vehicle) {
-		hibernateTemplate.delete(vehicle);
+		if (vehicle != null) {
+			Iterator<Rental> itRental = vehicle.getRental().iterator();
+			while (itRental.hasNext()) {
+				Rental rental = itRental.next();
+				Iterator<Location> loc = rental.getLocation().iterator();
+				while (loc.hasNext()) {
+					hibernateTemplate.delete(loc.next());
+				}
+				if (rental != null) {
+					hibernateTemplate.delete(rental);
+				}
+			}
+
+			hibernateTemplate.delete(vehicle);
+		}
 	}
 
 	public void edit(Vehicle vehicle) {
@@ -67,7 +83,6 @@ public class VehicleDAOImpl implements DAOInterface<Vehicle>, Serializable {
 
 	@Override
 	public List<Vehicle> list(String criteria) {
-		// TODO Auto-generated method stub
 		return null;
 	}
 

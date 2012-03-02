@@ -102,7 +102,7 @@ public class PoliceRegisterBean {
 
 	public String getRemoveRegisterMessage() {
 		String msg = "Please Remove Desired Account!";
-		if (codeRemove.equals("202") == true) {
+		if (codeRemove.equals("202") == true || codeRemove.equals("203") == true) {
 			msg = messageRemove;
 		} else {
 			msg = "Account with ID Number " + idNumber + "  and Driving Licence Number " + drivingLicenceNumber + " is not REMOVED!";
