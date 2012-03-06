@@ -12,8 +12,6 @@ import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.RequestScoped;
 import javax.faces.context.FacesContext;
 
-import org.apache.log4j.Logger;
-
 import etf.eminaa.dao.DAOInterface;
 import etf.eminaa.domain.Authorities;
 import etf.eminaa.domain.Rental;

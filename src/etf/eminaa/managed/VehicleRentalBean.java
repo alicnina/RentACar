@@ -90,6 +90,7 @@ public class VehicleRentalBean implements Serializable {
 		int numDays = Integer.parseInt(numberDays.trim());
 		rental.setNumberDays(numDays);
 		rental.setEndDate(rollDays(startDate, numDays));
+		rental.setStorageDate(getTodayDate());
 
 		initPoliceRegister.setDrivingLicenceNumber(user.getDrivingLicenceNumber());
 		initPoliceRegister.setIdNumber(user.getIdNumber());
@@ -175,6 +176,10 @@ public class VehicleRentalBean implements Serializable {
 		gc.setTime(startDate);
 		gc.add(period, amount);
 		return new java.sql.Date(gc.getTime().getTime());
+	}
+	// Get Todays Date
+	public static Date getTodayDate() {
+		return new Date(System.currentTimeMillis());
 	}
 	
 	// getters and setters

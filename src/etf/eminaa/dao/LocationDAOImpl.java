@@ -27,31 +27,31 @@ public class LocationDAOImpl implements DAOInterface<Location>, Serializable {
 
 	@Override
 	public List<Location> list() {
-		// TODO Auto-generated method stub
+		// do nothing
 		return null;
 	}
 
 	@Override
 	public List<Location> list(String criteria) {
-		// TODO Auto-generated method stub
+		// do nothing
 		return null;
 	}
 
 	@Override
 	public void edit(Location location) {
-		// TODO Auto-generated method stub
+		// do nothing
 
 	}
 
 	@Override
 	public void delete(Location location) {
-		// TODO Auto-generated method stub
+		// do nothing
 
 	}
 
 	@Override
 	public Location findByPrimaryKey(Object key) {
-		// TODO Auto-generated method stub
+		// do nothing
 		return null;
 	}
 

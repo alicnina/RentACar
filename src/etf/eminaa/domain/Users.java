@@ -1,5 +1,6 @@
 package etf.eminaa.domain;
 
+import java.io.Serializable;
 import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
@@ -11,11 +12,12 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
-
 @Entity
 @Table(name = "users")
-public class Users {
-	
+public class Users implements Serializable {
+
+	private static final long serialVersionUID = 5643870675325112174L;
+
 	private String username;
 	private String password;
 	private boolean enabled;
@@ -29,26 +31,23 @@ public class Users {
 	private String role;
 	private String language;
 
-	
-
 	private Date idExpireDate, drivingLicenceExpireDate;
-	
+
 	private Boolean mailingList;
 	private Set<Rental> rental = new HashSet<Rental>(0);
 
 	private Set<Authorities> authorities = new HashSet<Authorities>(0);
-	
-		
+
 	@Id
 	@Column(name = "username", unique = true, nullable = false)
-	public String getUsername(){
+	public String getUsername() {
 		return username;
 	}
-	
-	public void setUsername(String username){
+
+	public void setUsername(String username) {
 		this.username = username;
 	}
-	
+
 	@Column(name = "password")
 	public String getPassword() {
 		return password;
@@ -57,7 +56,7 @@ public class Users {
 	public void setPassword(String password) {
 		this.password = password;
 	}
-	
+
 	@Column(name = "enabled")
 	public boolean isEnabled() {
 		return enabled;
@@ -66,7 +65,7 @@ public class Users {
 	public void setEnabled(boolean enabled) {
 		this.enabled = enabled;
 	}
-	
+
 	@OneToMany(fetch = FetchType.EAGER, mappedBy = "users")
 	public Set<Rental> getRental() {
 		return this.rental;
@@ -76,7 +75,6 @@ public class Users {
 		this.rental = rentalRecords;
 	}
 
-	
 	@OneToMany(fetch = FetchType.EAGER, mappedBy = "users")
 	public Set<Authorities> getAuthorities() {
 		return this.authorities;
@@ -85,7 +83,7 @@ public class Users {
 	public void setAuthorities(Set<Authorities> authorities) {
 		this.authorities = authorities;
 	}
-	
+
 	@Column(name = "name")
 	public String getName() {
 		return name;
@@ -103,7 +101,7 @@ public class Users {
 	public void setSurname(String surname) {
 		this.surname = surname;
 	}
-	
+
 	@Column(name = "address")
 	public String getAddress() {
 		return address;
@@ -148,7 +146,7 @@ public class Users {
 	public void setIdExpireDate(Date idExpireDate) {
 		this.idExpireDate = idExpireDate;
 	}
-	
+
 	@Column(name = "driving_licence_number")
 	public String getDrivingLicenceNumber() {
 		return drivingLicenceNumber;
@@ -157,7 +155,7 @@ public class Users {
 	public void setDrivingLicenceNumber(String drivingLicenceNumber) {
 		this.drivingLicenceNumber = drivingLicenceNumber;
 	}
-	
+
 	@Column(name = "driving_licence_expire_date")
 	public Date getDrivingLicenceExpireDate() {
 		return drivingLicenceExpireDate;
@@ -166,7 +164,7 @@ public class Users {
 	public void setDrivingLicenceExpireDate(Date drivingLicenceExpireDate) {
 		this.drivingLicenceExpireDate = drivingLicenceExpireDate;
 	}
-	
+
 	@Column(name = "mailing_list")
 	public Boolean getMailingList() {
 		return mailingList;
@@ -184,7 +182,7 @@ public class Users {
 	public void setRole(String role) {
 		this.role = role;
 	}
-	
+
 	@Column(name = "language")
 	public String getLanguage() {
 		return language;

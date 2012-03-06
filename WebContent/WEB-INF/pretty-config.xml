@@ -1,0 +1,18 @@
+<pretty-config xmlns="http://ocpsoft.com/prettyfaces/3.2.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://ocpsoft.com/prettyfaces/3.2.0
+                                   		http://ocpsoft.com/xml/ns/prettyfaces/ocpsoft-pretty-faces-3.2.0.xsd">
+
+	<url-mapping id="rentedVehicles">
+		<pattern value="/location/" />
+		<view-id value="/vehicle-rented.xhtml" />
+		<action>#{locationService.getLastKnownLocation}</action>
+	</url-mapping>
+	
+	<url-mapping id="vehicleLocation">
+		<pattern value="/location/#{vehicleId:locationService.vehicleId}" />
+		<view-id value="/vehicle-location.xhtml" />
+		<action>#{locationService.getLastKnownLocation}</action>
+	</url-mapping>
+
+</pretty-config>

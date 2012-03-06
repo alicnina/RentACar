@@ -1,14 +1,9 @@
 package etf.eminaa.managed;
 
-import java.io.IOException;
-import java.io.InputStream;
 import java.io.Serializable;
-import java.net.MalformedURLException;
-import java.net.URL;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
-import java.util.Properties;
 import java.util.Set;
 
 import javax.el.ELContext;
@@ -20,7 +15,6 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.RequestScoped;
 import javax.faces.context.FacesContext;
-import javax.faces.event.AjaxBehaviorEvent;
 
 import org.apache.log4j.Logger;
 
@@ -122,6 +116,16 @@ public class UserLoginBean implements Serializable {
 				ValueExpression valueExpr = application.getExpressionFactory().createValueExpression(elContext, "#{userLoginBean}", UserLoginBean.class);
 				valueExpr.setValue(elContext, this);
 				context.getExternalContext().getSessionMap().put("userLoginBean", this);
+				
+				// internationalization Resource Bundle
+//				UserLoginBean userLoginBean = (UserLoginBean) FacesContext.getCurrentInstance().getExternalContext().getSessionMap().get("userLoginBean");
+//				String lang = userLoginBean.getUser().getLanguage();
+//				if (lang.equals("en")) {
+//					ResourceBundle bundle = context.getApplication().getResourceBundle(context, "msg");
+//				} else if (lang.equals("ba")) {
+//					ResourceBundle bundle = ResourceBundle.getBundle("lang.ba", context.getViewRoot().getLocale());
+//				}
+				
 
 				/*
 				 * 

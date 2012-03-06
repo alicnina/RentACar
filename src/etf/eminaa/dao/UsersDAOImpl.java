@@ -104,7 +104,6 @@ public class UsersDAOImpl implements DAOInterface<Users>, Serializable {
 
 	@Override
 	public List<Users> list(String criteria) {
-		// TODO Auto-generated method stub
 		return null;
 	}
 }

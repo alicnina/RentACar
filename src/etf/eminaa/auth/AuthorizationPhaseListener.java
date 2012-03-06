@@ -7,8 +7,6 @@ import javax.faces.event.PhaseId;
 import javax.faces.event.PhaseListener;
 import javax.servlet.http.HttpServletRequest;
 
-
-import etf.eminaa.domain.Users;
 import etf.eminaa.managed.UserLoginBean;
 
 public class AuthorizationPhaseListener implements PhaseListener {

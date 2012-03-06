@@ -17,24 +17,17 @@
 		<servlet-name>Faces Servlet</servlet-name>
 		<url-pattern>*.xhtml</url-pattern>
 	</servlet-mapping>
+  <context-param>
+    <description>State saving method: 'client' or 'server' (=default). See JSF Specification 2.5.2</description>
+    <param-name>javax.faces.STATE_SAVING_METHOD</param-name>
+    <param-value>client</param-value>
+  </context-param>
+  <context-param>
+    <param-name>javax.servlet.jsp.jstl.fmt.localizationContext</param-name>
+    <param-value>resources.application</param-value>
+  </context-param>
 
-<!-- 
 
-	<servlet>
-		<servlet-name>Jersey REST Service</servlet-name>
-		<servlet-class>com.sun.jersey.spi.container.servlet.ServletContainer</servlet-class>
-		<init-param>
-			<param-name>com.sun.jersey.config.property.packages</param-name>
-			<param-value>etf.eminaa.rest</param-value>
-		</init-param>
-		<load-on-startup>1</load-on-startup>
-	</servlet>
-	<servlet-mapping>
-		<servlet-name>Jersey REST Service</servlet-name>
-		<url-pattern>/location/*</url-pattern>
-	</servlet-mapping>
- -->
- 
 	<servlet>
 		<servlet-name>jerseyspring</servlet-name>
 		<servlet-class>com.sun.jersey.spi.spring.container.servlet.SpringServlet</servlet-class>
@@ -46,9 +39,10 @@
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>jerseyspring</servlet-name>
-		<url-pattern>/location/*</url-pattern>
+		<url-pattern>/vehiclelocation/*</url-pattern>
 	</servlet-mapping>
 
+ 
 	<context-param>
 		<param-name>javax.faces.PROJECT_STAGE</param-name>
 		<param-value>Development</param-value>
@@ -64,6 +58,20 @@
 	<listener>
 		<listener-class>org.springframework.web.context.request.RequestContextListener</listener-class>
 	</listener>
+	
+	 <filter>
+	   <filter-name>Pretty Filter</filter-name>
+	   <filter-class>com.ocpsoft.pretty.PrettyFilter</filter-class>
+	</filter>
+
+	<filter-mapping> 
+	   <filter-name>Pretty Filter</filter-name> 
+	   <url-pattern>/location/*</url-pattern> 
+	   <dispatcher>FORWARD</dispatcher> 
+	   <dispatcher>REQUEST</dispatcher> 
+	   <dispatcher>ERROR</dispatcher>
+	</filter-mapping>
+	
 	<welcome-file-list>
 		<welcome-file>index.jsp</welcome-file>
 		<welcome-file>index.html</welcome-file>

@@ -1,12 +1,12 @@
 package etf.eminaa.dao;
 
 import java.util.List;
+
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.orm.hibernate3.HibernateTemplate;
 
 import etf.eminaa.domain.Rental;
-import etf.eminaa.domain.Users;
 
 public class RentalDAOImpl implements DAOInterface<Rental> {
 
@@ -60,7 +60,6 @@ public class RentalDAOImpl implements DAOInterface<Rental> {
 
 	@Override
 	public List<Rental> list(String criteria) {
-		// TODO Auto-generated method stub
 		return null;
 	}
 

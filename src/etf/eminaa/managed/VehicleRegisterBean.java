@@ -106,7 +106,7 @@ public class VehicleRegisterBean implements Serializable {
 					if (v.getStatus().equals("RESERVATION")) {
 						int id = v.getId();
 						Rental rent = getCurrentRental(id);
-						Date date = rent.getStartDate();
+						Date date = rent.getStorageDate();
 						if (getTodayDate().after(rollDate(date, Calendar.DATE, 3))) {
 							v.setStatus("AVAILABLE");
 							vehicleDao.edit(v);

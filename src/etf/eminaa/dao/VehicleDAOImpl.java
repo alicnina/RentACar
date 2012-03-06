@@ -3,11 +3,11 @@ package etf.eminaa.dao;
 import java.io.Serializable;
 import java.util.Iterator;
 import java.util.List;
+
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.orm.hibernate3.HibernateTemplate;
 
-import etf.eminaa.domain.Authorities;
 import etf.eminaa.domain.Location;
 import etf.eminaa.domain.Rental;
 import etf.eminaa.domain.Vehicle;

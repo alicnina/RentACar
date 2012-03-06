@@ -22,6 +22,7 @@ public class Rental {
 	private int id;
 	private Date startDate;
 	private Date endDate;
+	private Date storageDate;
 	private int numberDays;
 	private Users users;
 	
@@ -94,6 +95,15 @@ public class Rental {
 
 	public void setLocation(Set<Location> rentalLocation) {
 		this.location = rentalLocation;
+	}
+	
+	@Column(name = "rent_storage_date")
+	public Date getStorageDate() {
+		return storageDate;
+	}
+
+	public void setStorageDate(Date storageDate) {
+		this.storageDate = storageDate;
 	}
 
 }

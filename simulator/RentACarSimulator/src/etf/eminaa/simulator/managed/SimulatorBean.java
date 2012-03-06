@@ -12,7 +12,6 @@ import javax.faces.event.AjaxBehaviorEvent;
 import org.apache.commons.httpclient.HttpClient;
 import org.apache.commons.httpclient.HttpException;
 import org.apache.commons.httpclient.methods.PostMethod;
-import org.apache.http.HttpRequest;
 
 @ManagedBean
 @SessionScoped
@@ -81,7 +80,7 @@ public class SimulatorBean {
 		String latitude = vals[1];
 		String altitude = vals[2];
 
-		PostMethod post = new PostMethod("http://localhost:8080/RentACar/location/" + vehicleId);
+		PostMethod post = new PostMethod("http://localhost:8080/RentACar/vehiclelocation/" + vehicleId);
 		post.setParameter("latitude", latitude);
 		post.setParameter("longitude", longitude);
 		post.setParameter("altitude", altitude);
